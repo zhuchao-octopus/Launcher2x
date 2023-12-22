@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="800.0px"
+    android:layout_height="match_parent" >
+
+    <!-- <View -->
+    <!-- android:layout_width="685px" -->
+    <!-- android:layout_height="394px" -->
+    <!-- android:layout_x="20px" -->
+    <!-- android:layout_y="40px" -->
+    <!-- android:background="@drawable/car" -->
+    <!-- android:scaleType="center" > -->
+    <!-- </View> -->
+
+    <Button
+        android:id="@+id/button_browse"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos1"
+        android:layout_y="@dimen/wince_page_y_pos1"
+        android:drawableBottom="@drawable/bubble_browser"
+        android:text="@string/widget_app_setting" />
+
+    <Button
+        android:id="@+id/button_filebrowse"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos2"
+        android:layout_y="@dimen/wince_page_y_pos2"
+        android:drawableBottom="@drawable/bubble_file"
+        android:text="@string/toolbar_text_bluetooth" />
+
+    <Button
+        android:id="@+id/button_steer"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos3"
+        android:layout_y="@dimen/wince_page_y_pos3"
+        android:drawableBottom="@drawable/bubble_swc"
+        android:text="@string/toolbar_text_radio" />
+
+     <Button
+        android:id="@+id/button_gallery"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos4"
+        android:layout_y="@dimen/wince_page_y_pos4"
+        android:drawableBottom="@drawable/bubble_gallery"
+        android:text="@string/widget_app_gallery" /> 
+
+    <Button
+        android:id="@+id/button_gmail"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos5"
+        android:layout_y="@dimen/wince_page_y_pos5"
+        android:drawableBottom="@drawable/bubble_gmail"
+        android:text="@string/widget_app_setting" />
+
+    <Button
+        android:id="@+id/button_aux"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos6"
+        android:layout_y="@dimen/wince_page_y_pos6"
+        android:drawableBottom="@drawable/bubble_avin"
+        android:text="@string/toolbar_text_music" />
+
+    <Button
+        android:id="@+id/button_apk"
+        style="@style/CeFixButtonStyle"
+        android:layout_x="@dimen/wince_page_x_pos7"
+        android:layout_y="@dimen/wince_page_y_pos7"
+        android:drawableBottom="@drawable/bubble_apk"
+        android:text="@string/toolbar_text_video" />
+
+</AbsoluteLayout>

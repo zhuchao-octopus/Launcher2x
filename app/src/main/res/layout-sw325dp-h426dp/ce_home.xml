@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ce_android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:gravity="center_vertical" >
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="259px"
+                        android:id="@+id/ce_all_apps_scrolview"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="259px" >
+
+                <LinearLayout
+                    android:id="@+id/all_apps_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <GridView
+                        android:id="@+id/ce_all_apps"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alwaysDrawnWithCache="true"
+                        android:background="#00000000"
+                        android:columnWidth="213px"
+						android:listSelector="@drawable/grid_selector"
+                        android:drawSelectorOnTop="false"
+                        android:numColumns="auto_fit"
+                        android:padding="0dip"
+                        android:persistentDrawingCache="animation|scrolling"
+                        android:scrollbars="none"
+                        android:stackFromBottom="false"
+                        android:stretchMode="spacingWidth" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="146px"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <View
+                android:layout_width="781px"
+                android:layout_height="166px"
+                android:background="@drawable/ce_bottom"
+                android:scaleType="center" >
+            </View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="126px"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:layout_width="740px"
+                android:layout_height="126px" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    
+                    android:gravity="left" 
+                    android:layout_height="fill_parent" >
+
+                    <ImageView
+                        android:id="@+id/ce_prev"
+                        android:layout_width="76px"
+                        android:layout_height="76px"
+                        android:layout_gravity="left|center_vertical"
+                        android:background="@drawable/ce_button1_selector"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ce_prev" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:id="@+id/ce_icon_android"
+                        android:layout_width="92px"
+                        android:layout_height="92px"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ce_button1_selector"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ce_icon_android" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="right" >
+
+                    <ImageView
+                        android:id="@+id/ce_next"
+                        android:layout_width="76px"
+                        android:layout_height="76px"
+                        android:layout_gravity="left|center_vertical"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/ce_button1_selector"
+                        android:src="@drawable/ce_next" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

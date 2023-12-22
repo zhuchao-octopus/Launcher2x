@@ -1,0 +1,14 @@
+<!-- ?xml version="1.0" encoding="utf-8"? -->
+<resources>
+
+    <integer name="freq_x1">2</integer>
+    <integer name="freq_x2">48</integer>
+    <integer name="freq_x3">94</integer>
+    <integer name="freq_x4">140</integer>
+    <integer name="freq_x5">186</integer>
+    <integer name="freq_x6">232</integer>
+    <integer name="start_freq_px">25</integer>
+    <integer name="end_freq_px">250</integer>
+    <integer name="point_y">0</integer>
+
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    android:id="@+id/entry_radio"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="bottom|center"
+    android:onClick="onLauncherButtonClick"
+    android:visibility="visible" >
+
+    <ImageView
+        android:layout_width="252.0px"
+        android:layout_height="370.0px"
+        android:layout_x="0.0dip"
+        android:layout_y="0.0dip"
+        android:background="#98000000"
+        android:scaleType="fitXY"
+        android:src="@drawable/radio_back" />
+
+    <LinearLayout
+        android:id="@+id/radio_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/radio_music_freq"
+        android:layout_width="252.0px"
+        android:layout_height="82.0px"
+        android:layout_x="0.0dip"
+        android:layout_y="5.0px"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="76.0px" />
+
+    <LinearLayout
+        android:layout_width="252.0px"
+        android:layout_height="wrap_content"
+        android:layout_x="0.0dip"
+        android:layout_y="105.0px"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/radio_music_baud"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#ff909090"
+            android:textSize="22.0px" />
+
+        <TextView
+            android:id="@+id/radio_music_hz"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#ff909090"
+            android:textSize="22.0px" />
+    </LinearLayout>
+
+    <com.my.radio.MarkFaceView
+        android:id="@+id/radio_mark_face_view"
+        android:layout_width="266.0px"
+        android:layout_height="40.0px"
+        android:layout_x="150.0px"
+        android:layout_y="16.0px"
+        android:background="@drawable/radio_freq"
+        android:visibility="gone" />
+
+    <AbsoluteLayout
+        android:layout_width="252.0px"
+        android:layout_height="100.0px"
+        android:layout_x="0px"
+        android:layout_y="270.0px"
+        android:background="@android:color/transparent"
+        android:clickable="true" >
+
+        <ImageButton
+            android:id="@+id/radio_button_prev"
+            android:layout_width="62.0px"
+            android:layout_height="66.0px"
+            android:layout_x="34.0px"
+            android:layout_y="23.0px"
+            android:background="@drawable/radio_last"
+            android:onClick="onLauncherButtonClick" />
+
+        <ImageButton
+            android:id="@+id/radio_button_play"
+            android:layout_width="62.0px"
+            android:layout_height="66.0px"
+            android:layout_x="97.0px"
+            android:layout_y="23.0px"
+            android:background="@drawable/radio_off"
+            android:visibility="gone"
+            android:onClick="onLauncherButtonClick" />
+
+        <ImageButton
+            android:id="@+id/radio_button_next"
+            android:layout_width="62.0px"
+            android:layout_height="66.0px"
+            android:layout_x="169.0px"
+            android:layout_y="23.0px"
+            android:background="@drawable/radio_next"
+            android:onClick="onLauncherButtonClick" />
+    </AbsoluteLayout>
+
+</AbsoluteLayout>

@@ -1,0 +1,65 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.carit.launcher" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/radio_bottom_bg"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/all_apps_button_cluster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="0dip" >
+
+            <Button
+                android:id="@+id/button_gps"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_gps" />
+
+            <Button
+                android:id="@+id/button_radio"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_radio" />
+
+            <Button
+                android:id="@+id/button_bluetooth"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_bluetooth" />
+
+            <ImageView
+                android:id="@+id/all_apps_button"
+                style="@style/WorkspaceButton"
+                android:layout_marginTop="-4dip"
+                android:onClick="onLauncherButtonClick"
+                android:scaleType="center"/>
+
+            <Button
+                android:id="@+id/button_dvd"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_dvd" />
+
+            <Button
+                android:id="@+id/button_music"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_music" />
+
+            <Button
+                android:id="@+id/button_settings"
+                style="@style/WorkspaceButton"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/widget_app_setting" />
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen3_excell"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/screen3_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/screen3_bg"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="190px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/button_radio"
+                android:layout_width="513.0px"
+                android:layout_height="190.0px"
+                android:background="@drawable/screen3_bg_topleft"
+                android:src="@drawable/screen3_radio"
+                android:paddingRight="60px"
+                android:paddingTop="15px"
+                android:paddingBottom="15px"
+                android:onClick="onLauncherButtonClick"
+                android:scaleType="centerInside" />
+
+            <View
+                android:layout_width="42.0px"
+                android:layout_height="190px" />
+
+            <ImageButton
+                android:id="@+id/button_dvd"
+                android:layout_width="513.0px"
+                android:paddingLeft="90px"
+                android:layout_height="190px"
+                android:paddingTop="15px"
+                android:paddingBottom="15px"
+                android:background="@drawable/screen3_bg_topright"
+                android:src="@drawable/screen3_disc"
+                android:onClick="onLauncherButtonClick"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="16.0px" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="190px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/button_gps"
+                android:layout_width="513.0px"
+                android:paddingTop="15px"
+                android:paddingBottom="15px"
+                android:layout_height="190px"
+                android:background="@drawable/screen3_bg_bottomleft"
+                android:src="@drawable/screen3_navi"
+                android:paddingRight="100px"
+                android:onClick="onLauncherButtonClick"
+                android:scaleType="centerInside" />
+
+            <View
+                android:layout_width="42.0px"
+                android:layout_height="190px" />
+
+            <ImageButton
+                android:id="@+id/button_bluetooth"
+                android:layout_width="513.0px"
+                android:paddingLeft="70px"
+                android:layout_height="190px"
+                android:paddingTop="15px"
+                android:paddingBottom="15px"
+                android:background="@drawable/screen3_bg_bottomright"
+                android:src="@drawable/screen3_phone"
+                android:scaleType="centerInside"
+                android:onClick="onLauncherButtonClick" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/all_apps_button12"
+        android:layout_width="288.0px"
+        android:layout_height="272.0px"
+        android:layout_gravity="center"
+        android:background="@drawable/screen3_apps"
+        android:onClick="onLauncherButtonClick"
+        android:scaleType="centerInside" />
+ <Button
+        android:id="@+id/focus_empty"
+        android:layout_width="0.0px"
+        android:layout_height="100.0px"
+        android:background="@null"
+        android:textSize="26.0px" />
+</FrameLayout>

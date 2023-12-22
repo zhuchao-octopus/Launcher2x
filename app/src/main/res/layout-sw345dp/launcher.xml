@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+
+<!-- Full screen view projects under the status bar and contains the background -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    android:id="@+id/launcher"
+    android:tag="31"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/workspace_bg"
+    android:fitsSystemWindows="true" >
+
+    <com.android.launcher2.DragLayer
+        android:id="@+id/drag_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- The workspace contains 5 screens of cells -->
+
+        <com.android.launcher2.Workspace
+            android:id="@+id/workspace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingTop="0dp"
+            launcher:cellCountX="@integer/cell_count_x"
+            launcher:cellCountY="@integer/cell_count_y"
+            launcher:defaultScreen="2"
+            launcher:pageSpacing="0px"
+            android:focusable="false"
+            launcher:scrollIndicatorPaddingLeft="0px"
+            launcher:scrollIndicatorPaddingRight="0px" >
+
+            <include
+                android:id="@+id/cell1"
+                layout="@layout/workspace_screen" />
+
+            <include
+                android:id="@+id/cell2"
+                layout="@layout/workspace_screen" />
+
+            <include
+                android:id="@+id/cell3"
+                layout="@layout/workspace_screen_ex" />
+
+            <include
+                android:id="@+id/cell4"
+                layout="@layout/workspace_screen" />
+
+            <include
+                android:id="@+id/cell5"
+                layout="@layout/workspace_screen" />
+        </com.android.launcher2.Workspace>
+
+        <include
+            android:id="@+id/qsb_divider"
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/qsb_bar_height"
+            layout="@layout/workspace_divider" />
+
+        <include
+            android:id="@+id/dock_divider"
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/button_bar_height"
+            layout="@layout/workspace_divider" />
+
+        <include
+            android:id="@+id/paged_view_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            layout="@layout/scroll_indicator"/>
+        
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            layout="@layout/page_index" />
+
+        <RelativeLayout
+            android:id="@+id/bottom_buttom_with_hotseat"
+            android:layout_width="match_parent"
+            android:gravity="bottom"
+            android:layout_height="0dp" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="154.0px"
+                android:layout_gravity="bottom"
+                android:background="@drawable/end_menu_bg"
+                android:scaleType="centerInside" />
+
+            <!-- <Button
+                android:id="@+id/all_apps_button1"
+                android:layout_width="132.0px"
+                android:layout_height="132.0px"
+                android:layout_gravity="bottom|center|left"
+                android:layout_marginBottom="4.0px"
+                android:layout_marginStart="15.0px"
+                android:background="@drawable/end_menu_car2"
+                android:onClick="onLauncherButtonClick" /> -->
+
+            <Button
+                android:id="@+id/all_apps_button2"
+                android:layout_width="132.0px"
+                android:layout_height="132.0px"
+                android:layout_gravity="bottom|center|right"
+                android:layout_marginBottom="4.0px"
+                android:layout_marginEnd="15.0px"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/end_menu_app"
+                android:onClick="onLauncherButtonClick" />
+        </RelativeLayout>
+
+        
+                <include
+            android:id="@+id/hotseat"
+            android:layout_width="694.0px"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|center"
+            layout="@layout/hotseat" />
+                
+<!--         <include -->
+<!--             android:id="@+id/hotseat" -->
+<!--             android:layout_width="694.0px" -->
+<!--             android:layout_height="168.0px" -->
+<!--             android:layout_gravity="bottom|center" -->
+<!--             android:layout_marginBottom="8.0px" -->
+<!--             layout="@layout/hotseat" /> -->
+
+        <include
+            android:id="@+id/qsb_bar"
+            layout="@layout/qsb_bar" />
+
+        <!--
+             The Workspace cling must appear under the AppsCustomizePagedView below to ensure
+             that it is still visible during the transition to AllApps and doesn't overlay on
+             top of that view.
+        -->
+
+
+        <!-- <include -->
+        <!-- android:id="@+id/workspace_cling" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="match_parent" -->
+        <!-- layout="@layout/workspace_cling" -->
+        <!-- android:visibility="gone" /> -->
+
+
+        <!-- <include -->
+        <!-- android:id="@+id/folder_cling" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="match_parent" -->
+        <!-- layout="@layout/folder_cling" -->
+        <!-- android:visibility="gone" /> -->
+
+        <com.android.launcher2.DrawableStateProxyView
+            android:id="@+id/voice_button_proxy"
+            android:layout_width="@dimen/qsb_bar_height"
+            android:layout_height="@dimen/app_icon_size"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="64dp"
+            android:clickable="true"
+            android:importantForAccessibility="no"
+            android:onClick="onClickVoiceButton"
+            launcher:sourceViewId="@+id/voice_button" />
+
+        <include
+            android:id="@+id/apps_customize_pane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/apps_customize_pane"
+            android:visibility="invisible" />
+
+        <!-- <include layout="@layout/bottom_toolbar" /> -->
+    </com.android.launcher2.DragLayer>
+
+</FrameLayout>

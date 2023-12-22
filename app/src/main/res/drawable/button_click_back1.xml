@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/com_button11" />
+      <item android:state_focused="true" android:drawable="@drawable/com_button11" />
+<!--     <item android:drawable="@drawable/com_button10" /> -->
+<!--     <item android:maxLevel="0"> -->
+<!--         <shape> -->
+<!--             <solid android:drawable="@drawable/com_button11" /> -->
+<!--             <stroke android:width="2dp" android:color="#FFFF0000"   />   -->
+<!--         </shape> -->
+        
+<!--     </item> -->
+</selector>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher" >
+
+    <favorite
+        launcher:className="com.ak.qibla.MainActivity"
+        launcher:packageName="com.ak.qibla"
+        launcher:screen="3"
+        launcher:x="3"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.my.video.VideoActivity"
+        launcher:packageName="com.car.ui"
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="0" />
+
+    <favorite
+        launcher:className="com.my.btmusic.BTMusicActivity"
+        launcher:packageName="com.car.ui"
+        launcher:screen="3"
+        launcher:x="1"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.google.android.finsky.activities.MainActivity"
+        launcher:packageName="com.android.vending"
+        launcher:screen="3"
+        launcher:x="2"
+        launcher:y="0" />
+
+    
+    <favorite
+        launcher:className="org.chromium.chrome.browser.ChromeTabbedActivity"
+        launcher:packageName="com.android.chrome"
+        launcher:screen="3"
+        launcher:x="3"
+        launcher:y="1" />
+    <favorite
+        launcher:className="com.google.android.maps.MapsActivity"
+        launcher:packageName="com.google.android.apps.maps"
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="1" />
+    <favorite
+        launcher:className="com.my.instructions.InstructionsActivity"
+        launcher:packageName="com.my.instructions"
+        launcher:screen="3"
+        launcher:x="1"
+        launcher:y="1" />
+    <favorite
+        launcher:className="net.easyconn.ui.Sv05MainActivity"
+        launcher:packageName="net.easyconn"
+        launcher:screen="3"
+        launcher:x="2"
+        launcher:y="1" />
+    <!--
+         <favorite
+        launcher:className="com.eqset.EQActivity"
+        launcher:packageName="com.eqset"
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="1" />
+    -->
+    <!--
+         <favorite
+        launcher:className="com.android.settings.Settings"
+        launcher:packageName="com.android.settings"
+        launcher:screen="3"
+        launcher:x="1"
+        launcher:y="1" />
+    -->
+    <!-- <favorite -->
+    <!-- launcher:className="com.my.instructions.InstructionsActivity" -->
+    <!-- launcher:packageName="com.my.instructions" -->
+    <!-- launcher:screen="3" -->
+    <!-- launcher:x="2" -->
+    <!-- launcher:y="1" /> -->
+    <!-- <favorite -->
+    <!-- launcher:className="net.easyconn.WelcomeActivity" -->
+    <!-- launcher:packageName="net.easyconn" -->
+    <!-- launcher:screen="3" -->
+    <!-- launcher:x="3" -->
+    <!-- launcher:y="1" /> -->
+
+
+
+
+
+    <favorite
+        launcher:className="com.android.gallery3d.app.GalleryActivity"
+        launcher:packageName="com.android.gallery3d"
+        launcher:screen="3"
+        launcher:x="5"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.my.filemanager.FileManagerActivity"
+        launcher:packageName="com.my.filemanager"
+        launcher:screen="3"
+        launcher:x="4"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.microntek.servicepoint.ServicePointActivity"
+        launcher:packageName="com.microntek.servicepoint"
+        launcher:screen="3"
+        launcher:x="4"
+        launcher:y="1" />
+    <!-- <favorite -->
+    <!-- launcher:className="com.estrongs.android.pop.view.FileExplorerActivity" -->
+    <!-- launcher:packageName="com.estrongs.android.pop" -->
+    <!-- launcher:screen="2" -->
+    <!-- launcher:x="2" -->
+    <!-- launcher:y="0" /> -->
+<!--     <favorite -->
+<!--         launcher:className="com.google.android.gm.ui.MailActivityGmail" -->
+<!--         launcher:packageName="com.google.android.gm" -->
+<!--         launcher:screen="2" -->
+<!--         launcher:x="3" -->
+<!--         launcher:y="0" /> -->
+
+
+    <favorite
+        launcher:className="com.google.android.apps.youtube.app.WatchWhileActivity"
+        launcher:packageName="com.google.android.youtube"
+        launcher:screen="3"
+        launcher:x="5"
+        launcher:y="1" />
+<!--     <favorite -->
+<!--         launcher:className="com.skype.raider.Main" -->
+<!--         launcher:packageName="com.skype.raider" -->
+<!--         launcher:screen="2" -->
+<!--         launcher:x="1" -->
+<!--         launcher:y="1" /> -->
+<!--     <favorite -->
+<!--         launcher:className="com.facebook.katana.LoginActivity" -->
+<!--         launcher:packageName="com.facebook.katana" -->
+<!--         launcher:screen="2" -->
+<!--         launcher:x="2" -->
+<!--         launcher:y="1" /> -->
+<!--     <favorite -->
+<!--         launcher:className="com.whatsapp.Main" -->
+<!--         launcher:packageName="com.whatsapp" -->
+<!--         launcher:screen="2" -->
+<!--         launcher:x="3" -->
+<!--         launcher:y="1" /> -->
+    <!-- <favorite -->
+    <!-- launcher:className="com.my.dvd.DVDPlayer" -->
+    <!-- launcher:packageName="com.car.ui" -->
+    <!-- launcher:screen="2" -->
+    <!-- launcher:x="2" -->
+    <!-- launcher:y="0" /> -->
+    <!--
+    <favorite
+        launcher:className="com.my.dvr.MainActivity"
+        launcher:packageName="com.my.dvr"
+        launcher:screen="2"
+        launcher:x="2"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.my.bt.ATBluetoothActivity"
+        launcher:packageName="com.my.bt"
+        launcher:screen="3"
+        launcher:x="2"
+        launcher:y="1" />
+    -->
+
+</favorites>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen0_excell"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/screen0_home_bg" >
+
+    <Button
+        android:id="@+id/button_radio"
+        android:layout_width="237.0px"
+        android:layout_height="127.0px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/screen0_radio_bg_selector"
+        android:drawableTop="@drawable/screen0_radio"
+        android:onClick="onLauncherButtonClick"
+        android:text="@string/toolbar_text_radio"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+
+    <ImageButton
+        android:id="@+id/all_apps_button1"
+        android:layout_width="151.0px"
+        android:layout_height="151.0px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/screen0_apps_selector"
+        android:onClick="onLauncherButtonClick" />
+
+    <Button
+        android:id="@+id/button_dvr"
+        android:layout_width="215.0px"
+        android:layout_height="214.0px"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5.0px"
+        android:layout_marginRight="5.0px"
+        android:layout_toLeftOf="@+id/button_music"
+        android:background="@drawable/screen0_dvr_bg_selector"
+        android:drawableTop="@drawable/screen0_dvr"
+        android:onClick="onLauncherButtonClick"
+        android:paddingBottom="42.0px"
+        android:paddingTop="42.0px"
+        android:text="@string/screen0_DVR"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+
+    <Button
+        android:id="@+id/button_gps"
+        android:layout_width="220.0px"
+        android:layout_height="209.0px"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5.0px"
+        android:layout_marginLeft="-2.0px"
+        android:layout_toRightOf="@+id/button_music"
+        android:background="@drawable/screen0_navi_bg_selector"
+        android:drawableTop="@drawable/screen0_navi"
+        android:onClick="onLauncherButtonClick"
+        android:paddingBottom="32.0px"
+        android:paddingTop="42.0px"
+        android:text="@string/toolbar_text_gps"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+
+    <Button
+        android:id="@+id/button_music"
+        android:layout_width="237.0px"
+        android:paddingBottom="10px"
+        android:layout_height="125.0px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/screen0_music_bg_selector"
+        android:drawableTop="@drawable/screen0_music"
+        android:onClick="onLauncherButtonClick"
+        android:text="@string/toolbar_text_music"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+
+    <Button
+        android:id="@+id/button_bluetooth"
+        android:layout_width="215.0px"
+        android:layout_height="212.0px"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5.0px"
+        android:layout_toLeftOf="@+id/button_radio"
+        android:background="@drawable/screen0_phone_bg_selector"
+        android:drawableTop="@drawable/screen0_phone"
+        android:onClick="onLauncherButtonClick"
+        android:paddingBottom="42.0px"
+        android:paddingTop="42.0px"
+        android:text="@string/toolbar_text_bluetooth"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+
+    <Button
+        android:id="@+id/button_dvd"
+        android:layout_width="220.0px"
+        android:layout_height="213.0px"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="0.0px"
+        android:layout_toRightOf="@+id/button_radio"
+        android:background="@drawable/screen0_dvd_bg_selector"
+        android:drawableTop="@drawable/screen0_disc"
+        android:onClick="onLauncherButtonClick"
+        android:paddingBottom="42.0px"
+        android:paddingTop="42.0px"
+        android:text="@string/toolbar_text_dvd"
+        android:textColor="@android:color/white"
+        android:textSize="22.0px" />
+ <Button
+        android:id="@+id/focus_empty"
+        android:layout_width="0.0px"
+        android:layout_height="100.0px"
+        android:background="@null"
+        android:textSize="26.0px" />
+</RelativeLayout>

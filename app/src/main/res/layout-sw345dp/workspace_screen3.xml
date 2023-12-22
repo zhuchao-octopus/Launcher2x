@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen3_excell"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/screen3_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/screen3_bg"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="237.0px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/button_radio"
+                android:layout_width="410.0px"
+                android:layout_height="237.0px"
+                android:background="@drawable/screen3_bg_topleft"
+                android:src="@drawable/screen3_radio"
+                android:onClick="onLauncherButtonClick" />
+
+            <View
+                android:layout_width="75.0px"
+                android:layout_height="237.0px" />
+
+            <ImageButton
+                android:id="@+id/button_dvd"
+                android:layout_width="410.0px"
+                android:layout_height="237.0px"
+                android:background="@drawable/screen3_bg_topright"
+                android:src="@drawable/screen3_disc"
+                android:onClick="onLauncherButtonClick" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20.0px" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="237.0px"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/button_gps"
+                android:layout_width="410.0px"
+                android:layout_height="237.0px"
+                android:background="@drawable/screen3_bg_bottomleft"
+                android:src="@drawable/screen3_navi"
+                android:onClick="onLauncherButtonClick" />
+
+            <View
+                android:layout_width="68.0px"
+                android:layout_height="237.0px" />
+
+            <ImageButton
+                android:id="@+id/button_bluetooth"
+                android:layout_width="410.0px"
+                android:layout_height="237.0px"
+                android:background="@drawable/screen3_bg_bottomright"
+                android:src="@drawable/screen3_phone"
+                android:onClick="onLauncherButtonClick" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/all_apps_button12"
+        android:layout_width="280.0px"
+        android:layout_height="280.0px"
+        android:layout_gravity="center"
+        android:background="@drawable/screen3_apps"
+        android:onClick="onLauncherButtonClick" />
+ <Button
+        android:id="@+id/focus_empty"
+        android:layout_width="0.0px"
+        android:layout_height="100.0px"
+        android:background="@null"
+        android:textSize="26.0px" />
+</FrameLayout>

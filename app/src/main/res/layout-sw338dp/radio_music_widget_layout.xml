@@ -1,0 +1,7 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.carit.launcher" >
+    
+    <include
+        layout="@layout/workspace_screen0" />
+
+</merge>

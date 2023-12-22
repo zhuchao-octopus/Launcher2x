@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ce_android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/default_ce_screen"
+    android:orientation="vertical"
+    android:paddingTop="40px"
+    android:visibility="gone" >
+
+    <View
+        android:layout_width="862px"
+        android:layout_height="481px"
+        android:layout_x="30px"
+        android:layout_y="40px"
+        android:background="@drawable/car"
+        android:scaleType="center" >
+    </View>
+
+    <com.common.view.MyScrollView
+        android:id="@+id/test_move"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal"
+        android:tag="0,1280,2560:0" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal" >
+
+            <include layout="@layout/ce_page1" />
+
+            <include layout="@layout/ce_page2" />
+
+            <include layout="@layout/ce_page3" />
+        </LinearLayout>
+    </com.common.view.MyScrollView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="107px"
+        android:layout_y="573px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ce_bottom"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/ce_icon_android"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="110px"
+            android:background="@drawable/ce_button1_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/ce_icon_android" />
+        
+        <AbsoluteLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/page1_ce"
+                android:layout_width="17px"                
+                android:layout_x="0px"
+                android:layout_height="wrap_content"
+                android:background="@drawable/page_level_ce" />
+
+            <ImageView
+                android:id="@+id/page2_ce"
+                android:layout_width="17px"
+                android:layout_height="wrap_content"         
+                android:layout_x="27px"
+                android:background="@drawable/page_level_ce" />
+
+            <ImageView
+                android:id="@+id/page3_ce"
+                android:layout_width="17px"
+                android:layout_height="wrap_content"       
+                android:layout_x="54px"
+                android:background="@drawable/page_level_ce" />
+        </AbsoluteLayout>
+
+        <TextView
+            android:id="@+id/ce_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_x="250px"
+            android:layout_y="58px"
+            android:gravity="center"
+            android:paddingLeft="10px"
+            android:paddingRight="50px"
+            android:textAppearance="@style/CommonStyleFonts"
+            android:textColor="#FFFFFFFF"
+            android:textSize="26px" />
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/ce_icon_backlight" -->
+        <!-- android:layout_width="60px" -->
+        <!-- android:layout_height="60px" -->
+        <!-- android:layout_gravity="center" -->
+        <!-- android:layout_marginLeft="890px" -->
+        <!-- android:background="@drawable/ce_button1_selector" -->
+        <!-- android:scaleType="centerInside" -->
+        <!-- android:src="@drawable/ce_icon_android" /> -->
+
+    </RelativeLayout>
+
+</AbsoluteLayout>

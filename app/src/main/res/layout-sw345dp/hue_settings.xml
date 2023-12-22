@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <AbsoluteLayout
+        android:layout_width="232.0px"
+        android:layout_height="540.0px"
+        android:layout_gravity="bottom|center|left" >
+
+        <ImageView
+            android:id="@+id/huepreimage"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/left_toolbar_bg" />
+
+        <ImageView
+            android:id="@+id/navi"
+            android:layout_width="125.0px"
+            android:layout_height="125.0px"
+            android:layout_alignParentTop="true"
+            android:layout_x="64.0px"
+            android:layout_y="4.0px"
+            android:background="@drawable/left_toolbar_small_bg"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/left_toolbar_navi" />
+
+        <ImageView
+            android:id="@+id/apps"
+            android:layout_width="165.0px"
+            android:layout_height="165.0px"
+            android:layout_centerVertical="true"
+            android:layout_x="60.0px"
+            android:layout_y="180.0px"
+            android:background="@drawable/left_toolbar_large_bg"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/left_toolbar_apps" />
+
+        <ImageView
+            android:id="@+id/radio"
+            android:layout_width="125.0px"
+            android:layout_height="125.0px"
+            android:layout_alignParentBottom="true"
+            android:layout_x="68.0px"
+            android:layout_y="391.0px"
+            android:background="@drawable/left_toolbar_small_bg"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/left_toolbar_radio" />
+    </AbsoluteLayout>
+
+    <AbsoluteLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <Button
+            android:id="@+id/huebartext"
+            android:layout_width="112.0px"
+            android:layout_height="68.0px"
+            android:layout_x="256.0px"
+            android:layout_y="164.0px"
+            android:text="@android:string/ok"
+            android:textColor="@android:color/white"
+            android:textSize="22.0px" />
+
+        <SeekBar
+            android:id="@+id/seekhuebar"
+            android:layout_width="560.0px"
+            android:layout_height="38.0px"
+            android:layout_x="382.0px"
+            android:layout_y="175.0px"
+            android:progressDrawable="@drawable/left_toolbar_hue"
+            android:thumb="@drawable/left_toolbar_thumb_hue"
+            android:thumbOffset="7.0px" />
+    </AbsoluteLayout>
+
+</FrameLayout>

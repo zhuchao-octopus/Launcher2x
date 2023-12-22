@@ -1,0 +1,66 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.carit.launcher" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/all_apps_button_cluster"
+            android:layout_width="match_parent"
+            android:layout_height="215px"
+            android:paddingLeft="25px"
+            android:paddingRight="25px"
+            android:paddingBottom="20px"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dip"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/button_gps"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_navi"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_gps" />
+
+            <TextView
+                android:id="@+id/button_radio"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_radio"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_radio" />
+
+            <TextView
+                android:id="@+id/button_music"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_music"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_music" />
+
+            <TextView
+                android:id="@+id/button_bluetooth"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_bt"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_bluetooth" />
+
+            <TextView
+                android:id="@+id/button_video"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_video"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/toolbar_text_video" />
+
+            <TextView
+                android:id="@+id/all_apps_button"
+                style="@style/BottomButton"
+                android:drawableTop="@drawable/app_apps"
+                android:onClick="onLauncherButtonClick"
+                android:text="@string/group_applications" />
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>
