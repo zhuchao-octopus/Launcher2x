@@ -47,9 +47,8 @@ public class LauncherApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-		ResourceUtil.updateUi(this);
-//        Log.d("allen" , "!!!!!!!!!!!!!!!!!!");
+        ResourceUtil.updateUi(this);
+        // Log.d("allen" , "!!!!!!!!!!!!!!!!!!");
         // set sIsScreenXLarge and sScreenDensity *before* creating icon cache
         sIsScreenLarge = getResources().getBoolean(R.bool.is_large_screen);
         sScreenDensity = getResources().getDisplayMetrics().density;
@@ -57,20 +56,20 @@ public class LauncherApplication extends Application {
         recreateWidgetPreviewDb();
         mIconCache = new IconCache(this);
         mModel = new LauncherModel(this, mIconCache);
-        LauncherApps launcherApps = (LauncherApps)
-                getSystemService(Context.LAUNCHER_APPS_SERVICE);
+        LauncherApps launcherApps = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE);
         launcherApps.registerCallback(mModel.getLauncherAppsCallback());
 
         // Register intent receivers
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_LOCALE_CHANGED);
         filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
-
-//        filter.addAction(MyCmd.BROADCAST_MACHINECONFIG_UPDATE);
+        // filter.addAction(MyCmd.BROADCAST_MACHINECONFIG_UPDATE);
         registerReceiver(mModel, filter);
+
         filter = new IntentFilter();
         filter.addAction(SearchManager.INTENT_GLOBAL_SEARCH_ACTIVITY_CHANGED);
         registerReceiver(mModel, filter);
+
         filter = new IntentFilter();
         filter.addAction(SearchManager.INTENT_ACTION_SEARCHABLES_CHANGED);
         registerReceiver(mModel, filter);
@@ -82,8 +81,7 @@ public class LauncherApplication extends Application {
         
         // Register for changes to the favorites
         ContentResolver resolver = getContentResolver();
-        resolver.registerContentObserver(LauncherSettings.Favorites.CONTENT_URI, true,
-                mFavoritesObserver);
+        resolver.registerContentObserver(LauncherSettings.Favorites.CONTENT_URI, true, mFavoritesObserver);
     }
 
     public void recreateWidgetPreviewDb() {

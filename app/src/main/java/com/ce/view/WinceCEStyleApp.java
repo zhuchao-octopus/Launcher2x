@@ -762,21 +762,18 @@ public class WinceCEStyleApp {
 
 			} else {
 				if (mCEStyle != 2) {
-					SystemConfig.setIntProperty(context, SystemConfig.KEY_CE_STYLE,
-							0);
+					SystemConfig.setIntProperty(context, SystemConfig.KEY_CE_STYLE,0);
 				}
-				// path = SystemConfig.getProperty(context,
-				// SystemConfig.KEY_SCREEN0_WALLPAPER_NAME);
-				path = SystemConfig.PATH_CE_WALLPAPER
-						+ SystemConfig.PATH_DEFAULT_WALLPAPER0;
+				/// path = SystemConfig.getProperty(context,
+				/// SystemConfig.KEY_SCREEN0_WALLPAPER_NAME);
+				path = SystemConfig.PATH_CE_WALLPAPER + SystemConfig.PATH_DEFAULT_WALLPAPER0;
 
 				File f = new File(path);
 				if (!f.exists()) {
-					path = SystemConfig.PATH_WALLPAPER
-							+ SystemConfig.PATH_DEFAULT_WALLPAPER0;
+					path = SystemConfig.PATH_WALLPAPER + SystemConfig.PATH_DEFAULT_WALLPAPER0;
 				} else {
-					// path = SystemConfig.PATH_WALLPAPER
-					// + path;
+					/// path = SystemConfig.PATH_WALLPAPER
+					/// + path;
 					bmp = BitmapFactory.decodeFile(path);
 				}
 
@@ -785,11 +782,12 @@ public class WinceCEStyleApp {
 				}
 
 				if (bmp != null) {
+					Log.d(TAG, "wpm.setBitmap:" + path);
 					wpm.setBitmap(bmp);
 				}
 			}
 		} catch (Exception e) {
-			Log.d("ff", "" + e);
+			Log.d(TAG, "Exception:" + e);
 		}
 
 		saveOldWallpaper(context, !ceUI);

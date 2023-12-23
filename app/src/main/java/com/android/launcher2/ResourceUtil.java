@@ -112,8 +112,8 @@ public class ResourceUtil {
 
 
 		//int sw = 0;
-        //int w = 0;
-        //int h = 0;
+        int w = 0;
+        int h = 0;
         int type = 0; // deault 800X480
 
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
@@ -310,7 +310,7 @@ public class ResourceUtil {
         }
 
         Configuration c = context.getResources().getConfiguration();
-        /*if (sw != 0) {
+        if (sw != 0) {
             c.smallestScreenWidthDp = sw;
         }
         if (w != 0) {
@@ -320,7 +320,7 @@ public class ResourceUtil {
             c.screenHeightDp = h;
         }
         context.getResources().updateConfiguration(c, null);
-        */
+
 
         Log.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
         return value;

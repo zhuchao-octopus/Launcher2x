@@ -138,7 +138,7 @@ import com.common.util.AppConfig;
 public final class Launcher extends Activity implements View.OnClickListener,
         OnLongClickListener, LauncherModel.Callbacks, View.OnTouchListener {
     static final String TAG = "Launcher";
-    static final boolean LOGD = false;
+    ///static final boolean LOGD = false;
 
     static final boolean PROFILE_STARTUP = false;
     static final boolean DEBUG_WIDGETS = false;
@@ -584,10 +584,10 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
 
         //if (!mModel.isAllAppsLoaded()) { // by allen . hide the black side.....
-		//	ViewGroup appsCustomizeContentParent = (ViewGroup) mAppsCustomizeContent
-		//			.getParent();
-		//	mInflater.inflate(R.layout.apps_customize_progressbar,
-		//			appsCustomizeContentParent);
+        //	ViewGroup appsCustomizeContentParent = (ViewGroup) mAppsCustomizeContent
+        //			.getParent();
+        //	mInflater.inflate(R.layout.apps_customize_progressbar,
+        //			appsCustomizeContentParent);
         //}
 
         // For handling default keys
@@ -2986,7 +2986,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     public void onLauncherButtonClick(View v) {
 
-        Log.e("Launcher", "onLauncherButtonClick");
+        Log.d("Launcher", "onLauncherButtonClick:" + v.toString());
         int id = v.getId();
         if (id == R.id.wince) {
             if (mWinceCEStyleApp != null) {
@@ -3604,6 +3604,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     @Override
     public boolean isAllAppsButtonRank(int rank) {
+        if (mHotseat == null) return false;
         return mHotseat.isAllAppsButtonRank(rank);
     }
 
