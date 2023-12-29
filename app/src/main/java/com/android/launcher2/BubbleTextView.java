@@ -30,6 +30,7 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.Region.Op;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -93,66 +94,68 @@ public class BubbleTextView extends TextView {
 
         final Resources res = getContext().getResources();
         mFocusedOutlineColor = mFocusedGlowColor = mPressedOutlineColor = mPressedGlowColor =
-            res.getColor(android.R.color.white);
-    //    setTextAppearance(context, R.style.CellTextStyle);
-        
+                res.getColor(android.R.color.white);
+        //    setTextAppearance(context, R.style.CellTextStyle);
+
 
         setShadowLayer(SHADOW_LARGE_RADIUS, 0.0f, SHADOW_Y_OFFSET, SHADOW_LARGE_COLOUR);
     }
-    
+
     public void applyFromShortcutInfo(ShortcutInfo info, IconCache iconCache) {
         Bitmap b = info.getIcon(iconCache);
-       
+
         if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(Utilities.mSystemUI)) {
-			setCompoundDrawablesWithIntrinsicBounds(new FastBitmapDrawable(b),
-					null, null, null);
-			int color = Utilities.getmagicBackgroundId(b);
+            setCompoundDrawablesWithIntrinsicBounds(new FastBitmapDrawable(b),
+                    null, null, null);
+            int color = Utilities.getmagicBackgroundId(b);
 //			setBackground(getContext().getResources().getDrawable(id));
 //			setBackground(null);
-			setBackgroundColor(color);
-			setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-			setPadding(0, 0, 0, 10);
+            setBackgroundColor(color);
+            setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+            setPadding(0, 0, 0, 10);
         } else if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
-        	setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-        	setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
-        	int smallestScreenWidthDp = 339;
-        	try {
-        		smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
-        	}catch(Exception e){}
-       		setPadding(0, (smallestScreenWidthDp == 339) ? 50 : 40, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds(null,
+                    new FastBitmapDrawable(b), null, null);
+            setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
+            int smallestScreenWidthDp = 339;
+            try {
+                smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
+            } catch (Exception e) {
+            }
+            setPadding(0, (smallestScreenWidthDp == 339) ? 50 : 40, 0, 0);
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
-        	int smallestScreenWidthDp = 345;
-        	try {
-            	setCompoundDrawablesWithIntrinsicBounds(null,
-    					new FastBitmapDrawable(b), null, null);
-            	int[] mInitHue = {-1, 0};	//[0] progress, [1]color
-				if (ActivityHueSettings.getSystemHue(mContext, mInitHue) && 
-					mInitHue[0] != -1 && mInitHue[1] != 0) {
-					Drawable drawable = ActivityHueSettings.tintDrawable(
-							getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg),
-							mInitHue[1]);
-            		setBackground(drawable);
-            	} else {
-            		setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
-            	}
-        		smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
-        	}catch(Exception e){}
-			if (smallestScreenWidthDp == 346) {
-				setPadding(0, 40, 0, 0);
-			} else {
-				setPadding(0, (smallestScreenWidthDp == 345) ? 30 : 24, 0, 0);
-			}
-			
-		} else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-			setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-       		setPadding(0, 0, 0, 0);
+            int smallestScreenWidthDp = 345;
+            try {
+                setCompoundDrawablesWithIntrinsicBounds(null,
+                        new FastBitmapDrawable(b), null, null);
+                int[] mInitHue = {-1, 0};    //[0] progress, [1]color
+                if (ActivityHueSettings.getSystemHue(mContext, mInitHue) &&
+                        mInitHue[0] != -1 && mInitHue[1] != 0) {
+                    Drawable drawable = ActivityHueSettings.tintDrawable(
+                            getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg),
+                            mInitHue[1]);
+                    setBackground(drawable);
+                } else {
+                    setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
+                }
+                smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
+            } catch (Exception e) {
+            }
+            if (smallestScreenWidthDp == 346) {
+                setPadding(0, 40, 0, 0);
+            } else {
+                setPadding(0, (smallestScreenWidthDp == 345) ? 30 : 24, 0, 0);
+            }
+
+        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+            setCompoundDrawablesWithIntrinsicBounds(null,
+                    new FastBitmapDrawable(b), null, null);
+            setPadding(0, 0, 0, 0);
         } else {
-			setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-		}
-		
+            setCompoundDrawablesWithIntrinsicBounds(null,
+                    new FastBitmapDrawable(b), null, null);
+        }
+
 
         setText(info.title);
         if (info.contentDescription != null) {
@@ -226,24 +229,27 @@ public class BubbleTextView extends TextView {
      * Draw this BubbleTextView into the given Canvas.
      *
      * @param destCanvas the canvas to draw on
-     * @param padding the horizontal and vertical padding to use when drawing
+     * @param padding    the horizontal and vertical padding to use when drawing
      */
     private void drawWithPadding(Canvas destCanvas, int padding) {
         final Rect clipRect = mTempRect;
         getDrawingRect(clipRect);
 
         // adjust the clip rect so that we don't include the text label
-        clipRect.bottom =
-            getExtendedPaddingTop() - (int) BubbleTextView.PADDING_V + getLayout().getLineTop(0);
+        clipRect.bottom = getExtendedPaddingTop() - (int) BubbleTextView.PADDING_V + getLayout().getLineTop(0);
 
         // Draw the View into the bitmap.
         // The translate of scrollX and scrollY is necessary when drawing TextViews, because
         // they set scrollX and scrollY to large values to achieve centered text
         destCanvas.save();
-        destCanvas.scale(getScaleX(), getScaleY(),
-                (getWidth() + padding) / 2, (getHeight() + padding) / 2);
-        destCanvas.translate(-getScrollX() + padding / 2, -getScrollY() + padding / 2);
-        destCanvas.clipRect(clipRect, Op.REPLACE);
+        destCanvas.scale(getScaleX(), getScaleY(), (float) (getWidth() + padding) / 2, (float) (getHeight() + padding) / 2);
+        destCanvas.translate(-getScrollX() + (float) padding / 2, -getScrollY() + (float) padding / 2);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            destCanvas.clipRect(clipRect);
+        } else {
+            destCanvas.clipRect(clipRect, Op.REPLACE);
+        }
         draw(destCanvas);
         destCanvas.restore();
     }
@@ -345,7 +351,7 @@ public class BubbleTextView extends TextView {
             final int scrollY = getScrollY();
 
             if (mBackgroundSizeChanged) {
-                background.setBounds(0, 0,  getRight() - getLeft(), getBottom() - getTop());
+                background.setBounds(0, 0, getRight() - getLeft(), getBottom() - getTop());
                 mBackgroundSizeChanged = false;
             }
 

@@ -2,14 +2,14 @@
     xmlns:launcher="http://schemas.android.com/apk/res/com.carit.launcher" >
 
     <RelativeLayout
-                android:id="@+id/b_line"
+        android:id="@+id/b_line"
         android:layout_width="match_parent"
         android:layout_height="130px"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
         
-            android:background="@drawable/b_line"
+        android:background="@drawable/b_line"
         android:orientation="vertical" >
 
         

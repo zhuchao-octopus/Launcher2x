@@ -162,9 +162,9 @@ public class FixScreenShortcut{
 		Intent shortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
 		shortcut.putExtra("duplicate", false);
-//		shortcut.putExtra("screen", Integer.valueOf(screen));
-//		shortcut.putExtra("cell_x", Integer.valueOf(screen_x));
-//		shortcut.putExtra("cell_y", Integer.valueOf(screen_y));
+		//shortcut.putExtra("screen", Integer.valueOf(screen));
+		//shortcut.putExtra("cell_x", Integer.valueOf(screen_x));
+		//shortcut.putExtra("cell_y", Integer.valueOf(screen_y));
 		ComponentName comp = new ComponentName(pkgName, mainAct);
 		removeShortcut(context, pkgName);
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, new Intent(Intent.ACTION_MAIN).setComponent(comp));
@@ -191,8 +191,7 @@ public class FixScreenShortcut{
 //		context.sendBroadcast(shortcut);	//no use
 		LauncherApplication app = (LauncherApplication) context.getApplicationContext();
         ShortcutInfo info = app.getModel().addShortcutFix(context, shortcut,
-        		container, Integer.valueOf(screen),
-                Integer.valueOf(screen_x), Integer.valueOf(screen_y), true);
+        		container, Integer.valueOf(screen), Integer.valueOf(screen_x), Integer.valueOf(screen_y), true);
 		return true;
 	}
 	

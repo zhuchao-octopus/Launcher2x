@@ -5,7 +5,7 @@ android {
     compileSdk 34
     defaultConfig {
         applicationId "com.android.launcher"
-        minSdkVersion 28
+        minSdkVersion 24
         targetSdk 34
     }
 
@@ -21,14 +21,18 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
     implementation files('libs/classes.jar')
-    implementation files('libs/commonlib.jar')
+    //implementation files('libs/commonlib.jar')
     implementation files('libs/android-common.jar')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')
+    implementation('com.zhuchao.android:libJOSUtils:1.4:@aar')
 }
 

@@ -93,13 +93,12 @@ class AllAppsList {
                 user);
 
         for (LauncherActivityInfo info : matches) {
-//        	Log.d("allen", info.getComponentName().getClassName()+":::"+AppConfig.isHidePackage(info.getComponentName().getClassName()));
+            //Log.d("allen", info.getComponentName().getClassName()+":::"+AppConfig.isHidePackage(info.getComponentName().getClassName()));
         	
         	 if(!AppConfig.isHidePackage(info.getComponentName().getClassName())){
         		 add(new ApplicationInfo(info, user, mIconCache, null));
         	 } else {
-//        		 Log.d("allen", info.getComponentName().getClassName()+"!!!!!!!!:::");
-        	
+              // Log.d("allen", info.getComponentName().getClassName()+"!!!!!!!!:::");
         	 }
         }
     }
@@ -159,8 +158,7 @@ class AllAppsList {
 //                	Log.d("allen", info.getComponentName().getClassName()+":::"+AppConfig.isHidePackage(info.getComponentName().getClassName()));
                 	
                 	if(!AppConfig.isHidePackage(info.getComponentName().getClassName())){
-                    add(new ApplicationInfo(info, user,
-                            mIconCache, null));
+                    add(new ApplicationInfo(info, user, mIconCache, null));
                 	}
                     
                     

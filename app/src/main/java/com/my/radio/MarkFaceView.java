@@ -81,8 +81,7 @@ public class MarkFaceView extends View {
 	public MarkFaceView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
-		TypedArray a = context.obtainStyledAttributes(attrs,
-				R.styleable.RadioMarkFaceView);
+		TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.RadioMarkFaceView);
 
 	
 		

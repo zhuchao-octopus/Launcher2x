@@ -15,10 +15,9 @@
 -->
 
 <com.android.launcher2.CellLayout
-    
-        android:id="@+id/celllayout_screen1"
+    android:id="@+id/celllayout_screen1"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -27,7 +26,7 @@
     android:paddingTop="@dimen/cell_layout_top_padding"
     android:paddingBottom="@dimen/cell_layout_bottom_padding"
     android:hapticFeedbackEnabled="false"
-        android:focusable="false"
+    android:focusable="false"
 
     launcher:cellWidth="@dimen/workspace_cell_width"
     launcher:cellHeight="@dimen/workspace_cell_height"

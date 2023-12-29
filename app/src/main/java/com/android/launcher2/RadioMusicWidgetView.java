@@ -890,8 +890,7 @@ public class RadioMusicWidgetView {
             mMusicName.setVisibility(View.VISIBLE);
             mMusicTime.setVisibility(View.VISIBLE);
 
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(
-                    R.drawable.music_pic));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img, null));
 
             mMusicName.setText(mStrMusicName);
 
@@ -907,8 +906,7 @@ public class RadioMusicWidgetView {
 
         } else if (mSource == MyCmd.SOURCE_BT_MUSIC) {
 
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(
-                    R.drawable.bt_music_pic));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.bt_music_pic));
 
             if (mPlayStatus < 3) {
                 mMusicName.setText("");
@@ -946,8 +944,7 @@ public class RadioMusicWidgetView {
                 }
                 mMusicTime.setVisibility(View.VISIBLE);
                 mMarkFace.setEnable(false);
-                mMusicArt.setImageDrawable(mContext.getResources().getDrawable(
-                        R.drawable.dvd_pic));
+                mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.dvd_pic));
 
                 mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 if (mBTMusicLayout == null) {
@@ -955,8 +952,7 @@ public class RadioMusicWidgetView {
                 }
             }
         } else {
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(
-                    R.drawable.music_pic));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img));
             setViewVisible(R.id.music_icon, View.VISIBLE);
             mMusicName.setVisibility(View.GONE);
             mMusicTime.setVisibility(View.GONE);
@@ -965,8 +961,7 @@ public class RadioMusicWidgetView {
             }
             stopUpdateMusicTime();
 
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(
-                    R.drawable.music_pic));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img));
             mMusicName.setText("");
             mMusicTime.setText("");
             if (mMusicSeekBar != null) {
@@ -1158,18 +1153,14 @@ public class RadioMusicWidgetView {
                                                 mArtWork, 80);
                                         mMusicArt.setImageBitmap(mArtWork);
                                         mMusicArt.getDrawable().setDither(true);
-                                        mMusicArt
-                                                .setScaleType(ImageView.ScaleType.FIT_CENTER);
+                                        mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
                                         // mMusicArt.setImageBitmap(mArtWork);
                                     } else {
                                         mArtWork = null;
-                                        mMusicArt.setImageDrawable(mContext
-                                                .getResources().getDrawable(
-                                                        R.drawable.music_pic));
+                                        mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic));
 
-                                        mMusicArt
-                                                .setScaleType(ImageView.ScaleType.FIT_CENTER);
+                                        mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
                                     }
                                 }
                                 String name = intent
@@ -1542,8 +1533,7 @@ public class RadioMusicWidgetView {
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
             Log.d(TAG, "init gps:" + mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER));
-            if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-            {
+            if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 if (mLocationListener != null) {
                     mLocationManager.removeUpdates((LocationListener) mLocationListener);
                 }

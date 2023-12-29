@@ -17,8 +17,8 @@
 package com.android.launcher2;
 
 import android.annotation.SuppressLint;
-import android.os.SystemProperties;
 
+import com.android.common.Search;
 import com.ce.view.WinceCEStyleApp;
 import com.common.util.MachineConfig;
 import com.common.util.SystemConfig;
@@ -69,6 +69,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -104,7 +105,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.common.Search;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
 
@@ -121,6 +121,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.json.JSONException;
@@ -131,6 +132,9 @@ import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
 import com.common.util.AppConfig;
+import com.zhuchao.android.TPlatform;
+import com.zhuchao.android.fbase.MMLog;
+import com.zhuchao.android.fbase.TAppUtils;
 
 /**
  * Default launcher application.
@@ -245,11 +249,11 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private AppWidgetManager mAppWidgetManager;
     private LauncherAppWidgetHost mAppWidgetHost;
 
-    private ItemInfo mPendingAddInfo = new ItemInfo();
+    private final ItemInfo mPendingAddInfo = new ItemInfo();
     private AppWidgetProviderInfo mPendingAddWidgetInfo;
     private int mPendingAddWidgetId = -1;
 
-    private int[] mTmpAddItemCellCoordinates = new int[2];
+    private final int[] mTmpAddItemCellCoordinates = new int[2];
 
     private FolderInfo mFolderInfo;
 
@@ -279,7 +283,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private boolean mWaitingForResult;
     private boolean mOnResumeNeedsLoad;
 
-    private ArrayList<Runnable> mOnResumeCallbacks = new ArrayList<Runnable>();
+    private final ArrayList<Runnable> mOnResumeCallbacks = new ArrayList<Runnable>();
 
     // Keep track of whether the user has left launcher
     private static boolean sPausedFromUserAction = false;
@@ -294,7 +298,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     private static LocaleConfiguration sLocaleConfiguration = null;
 
-    private static HashMap<Long, FolderInfo> sFolders = new HashMap<Long, FolderInfo>();
+    private static final HashMap<Long, FolderInfo> sFolders = new HashMap<Long, FolderInfo>();
 
     private Intent mAppMarketIntent = null;
 
@@ -304,7 +308,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private final int mAdvanceStagger = 250;
     private long mAutoAdvanceSentTime;
     private long mAutoAdvanceTimeLeft = -1;
-    private HashMap<View, AppWidgetProviderInfo> mWidgetsToAdvance = new HashMap<View, AppWidgetProviderInfo>();
+    private final HashMap<View, AppWidgetProviderInfo> mWidgetsToAdvance = new HashMap<View, AppWidgetProviderInfo>();
 
     // Determines how long to wait after a rotation before restoring the screen
     // orientation to
@@ -331,17 +335,17 @@ public final class Launcher extends Activity implements View.OnClickListener,
     // need to animate up
     // when we scroll to that page on resume.
     private int mNewShortcutAnimatePage = -1;
-    private ArrayList<View> mNewShortcutAnimateViews = new ArrayList<View>();
+    private final ArrayList<View> mNewShortcutAnimateViews = new ArrayList<View>();
     private ImageView mFolderIconImageView;
     private Bitmap mFolderIconBitmap;
     private Canvas mFolderIconCanvas;
-    private Rect mRectForFolderAnimation = new Rect();
+    private final Rect mRectForFolderAnimation = new Rect();
 
     private BubbleTextView mWaitingForResume;
 
-    private HideFromAccessibilityHelper mHideFromAccessibilityHelper = new HideFromAccessibilityHelper();
+    private final HideFromAccessibilityHelper mHideFromAccessibilityHelper = new HideFromAccessibilityHelper();
 
-    private Runnable mBuildLayersRunnable = new Runnable() {
+    private final Runnable mBuildLayersRunnable = new Runnable() {
         public void run() {
             if (mWorkspace != null) {
                 mWorkspace.buildPageHardwareLayers();
@@ -349,9 +353,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
     };
 
-    private static ArrayList<PendingAddArguments> sPendingAddList = new ArrayList<PendingAddArguments>();
+    private static final ArrayList<PendingAddArguments> sPendingAddList = new ArrayList<PendingAddArguments>();
 
-    private static boolean sForceEnableRotation = isPropertyEnabled(FORCE_ENABLE_ROTATION_PROPERTY);
+    private static final boolean sForceEnableRotation = isPropertyEnabled(FORCE_ENABLE_ROTATION_PROPERTY);
 
     private static class PendingAddArguments {
         int requestCode;
@@ -368,41 +372,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     static PackageManager mPackageManager;
 
-    public static void initSettings() { //carservice do it
-        // startCarService();
-//		if(mPackageManager==null){
-//			return;
-//		}
-//
-////		PackageManager mPackageManager = getPackageManager();
-//
-//		String packageName = MachineConfig
-//				.getPropertyOnce(MachineConfig.KEY_GPS_PACKAGE);
-//
-//		if (packageName != null) {
-//			final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-//
-//			mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-//
-//			final List<ResolveInfo> apps = mPackageManager
-//					.queryIntentActivities(mainIntent, 0);
-//
-//			int uid = 0;
-//			for (ResolveInfo appInfo : apps) {
-//
-//				if (packageName.equals(appInfo.activityInfo.packageName)) {
-//					uid = appInfo.activityInfo.applicationInfo.uid;
-//					break;
-//				}
-//			}
-//
-//			if (uid != 0) {
-//				SystemProperties.set("ak.af.navi.uid", "" + uid);
-//			}
-//			Log.d(TAG, "set uid:" + uid);
-//
-//		}
-
+    public static void initSettings() { ///carservice do it
+        MMLog.d(TAG, "HELLO!! Launcher2 started...");
     }
 
     private void startCarService() {
@@ -424,18 +395,17 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public static int mIconType = 0;
 
     private void initParamterConfig() {
-        String s = MachineConfig
-                .getPropertyReadOnly(MachineConfig.KEY_LAUNCHER_CONFIG);
+        String s = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_LAUNCHER_CONFIG);
         if (s != null) {
             String[] ss = s.split(",");
             int i;
             try {
-                i = Integer.valueOf(ss[0]);
+                i = Integer.parseInt(ss[0]);
                 mHideWidgetPage = (i == 1);
 
-                mIconType = Integer.valueOf(ss[1]);
+                mIconType = Integer.parseInt(ss[1]);
 
-                i = Integer.valueOf(ss[2]);
+                i = Integer.parseInt(ss[2]);
                 if ((i & 0x1) != 0) {
                     mShowHotseatAllApp = true;
                 }
@@ -444,9 +414,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 }
 
 
-                i = Integer.valueOf(ss[3]);
+                i = Integer.parseInt(ss[3]);
                 mHideAllAppCEIcon = (i == 1);
-                Log.d(TAG, "mIconType:" + mIconType);
+                MMLog.d(TAG, "mIconType:" + mIconType);
             } catch (Exception ignored) {
             }
 
@@ -508,7 +478,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         checkForLocaleChange();
         setContentView(R.layout.launcher);
         setupViews();
-        Log.d(TAG, "launcher layout tag=" + findViewById(R.id.launcher).getTag());
+        MMLog.d(TAG, "layout tag=" + findViewById(R.id.launcher).getTag());
 
         showFirstRunWorkspaceCling();
         registerContentObservers();
@@ -536,8 +506,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
             SystemConfig.setIntProperty(this, SystemConfig.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD, 0);
             Log.d(TAG, "reload default workspace oncreate");
         }
-
-//		Log.d("abcd", "getData(SAVE_FIRST_BOOT):"+getData(SAVE_FIRST_BOOT));
+        mModel.reloadWorkspace(this, "default_workspace");
+        MMLog.d(TAG, "reload default workspace oncreate");
+        //Log.d("abcd", "getData(SAVE_FIRST_BOOT):"+getData(SAVE_FIRST_BOOT));
 
         if (getData(SAVE_FIRST_BOOT) != 1) {
 
@@ -558,7 +529,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 //					SystemConfig.KEY_CE_STYLE));
 
             if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType) {
-//				Log.d("abcd", "mIconType22:"+ResourceUtil.ifLoadDvdHideWorkspace()+":"+AppConfig.isHidePackage("com.my.dvd.DVDPlayer"));
+                MMLog.d(TAG, "mIconType22:" + ResourceUtil.ifLoadDvdHideWorkspace() + ":" + AppConfig.isHidePackage("com.my.dvd.DVDPlayer"));
                 if (ResourceUtil.ifLoadDvdHideWorkspace()) {
                     mModel.reloadWorkspace(this, "default_workspace_dvdhide");
                 } else {
@@ -929,10 +900,10 @@ public final class Launcher extends Activity implements View.OnClickListener,
         int animationType = 0;
 
         AppWidgetHostView boundWidget = null;
-        if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK)
+        {
             animationType = Workspace.COMPLETE_TWO_STAGE_WIDGET_DROP_ANIMATION;
-            final AppWidgetHostView layout = mAppWidgetHost.createView(this,
-                    appWidgetId, mPendingAddWidgetInfo);
+            final AppWidgetHostView layout = mAppWidgetHost.createView(this, appWidgetId, mPendingAddWidgetInfo);
             boundWidget = layout;
             onCompleteRunnable = new Runnable() {
                 @Override
@@ -940,18 +911,18 @@ public final class Launcher extends Activity implements View.OnClickListener,
                     completeAddAppWidget(appWidgetId,
                             mPendingAddInfo.container, mPendingAddInfo.screen,
                             layout, null);
-                    exitSpringLoadedDragModeDelayed(
-                            (resultCode != RESULT_CANCELED), false, null);
+                    exitSpringLoadedDragModeDelayed((resultCode != RESULT_CANCELED), false, null);
                 }
             };
-        } else if (resultCode == RESULT_CANCELED) {
+        }
+        else if (resultCode == RESULT_CANCELED)
+        {
             mAppWidgetHost.deleteAppWidgetId(appWidgetId);
             animationType = Workspace.CANCEL_TWO_STAGE_WIDGET_DROP_ANIMATION;
             onCompleteRunnable = new Runnable() {
                 @Override
                 public void run() {
-                    exitSpringLoadedDragModeDelayed(
-                            (resultCode != RESULT_CANCELED), false, null);
+                    exitSpringLoadedDragModeDelayed((resultCode != RESULT_CANCELED), false, null);
                 }
             };
         }
@@ -986,19 +957,11 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private void dvdHideToShowVideo() {
         dvdHide = false;
         dvrHide = false;
-        if (Utilities.mSystemUI != null && (
-                MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) ||
-                        MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))) {
-            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer")
-                    && !AppConfig.isUSBDvd())
-                dvdHide = true;
-            else
-                dvdHide = false;
+        if (Utilities.mSystemUI != null && (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)))
+        {
+            dvdHide = AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd();
 
-            if (AppConfig.isHidePackage("com.my.dvr.MainActivity"))
-                dvrHide = true;
-            else
-                dvrHide = false;
+            dvrHide = AppConfig.isHidePackage("com.my.dvr.MainActivity");
 
             Drawable drawable = null;
             try {
@@ -1101,8 +1064,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "start MS9120 failed: " + e);
-                    if (e != null)
-                        e.printStackTrace();
+                    ///e.printStackTrace();
                 }
             }
         }, 1000);
@@ -1203,8 +1165,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         // were updated in the wrong orientation.
         updateGlobalIcons();
         if (DEBUG_RESUME_TIME) {
-            Log.d(TAG, "Time spent in onResume: "
-                    + (System.currentTimeMillis() - startTime));
+            Log.d(TAG, "Time spent in onResume: " + (System.currentTimeMillis() - startTime));
         }
 
         SystemProperties.set("service.bootanim.exit", "1");
@@ -2300,8 +2261,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
      * Starts the global search activity. This code is a copied from
      * SearchManager
      */
-    public void startGlobalSearch(String initialQuery,
-                                  boolean selectInitialQuery, Bundle appSearchData, Rect sourceBounds) {
+    public void startGlobalSearch(String initialQuery,boolean selectInitialQuery, Bundle appSearchData, Rect sourceBounds) {
         final SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         ComponentName globalSearchActivity = searchManager
                 .getGlobalSearchActivity();
@@ -2833,7 +2793,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(it);
         } catch (Exception e) {
-            Log.e("Launcher", e.getMessage());
+            Log.e("Launcher", Objects.requireNonNull(e.getMessage()));
         }
     }
 
@@ -2985,23 +2945,25 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private WinceCEStyleApp mWinceCEStyleApp;
 
     public void onLauncherButtonClick(View v) {
-
-        Log.d("Launcher", "onLauncherButtonClick:" + v.toString());
+        MMLog.d("Launcher", "onLauncherButtonClick:" + v.toString());
         int id = v.getId();
-        if (id == R.id.wince) {
+        if (id == R.id.wince)
+        {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.showLauncherView(mLauncherView);
-//				mLauncherView.setBackgroundResource(R.drawable.default_ce_screen);
+                //mLauncherView.setBackgroundResource(R.drawable.default_ce_screen);
             }
-        } else if (id == R.id.button_gps || id == R.id.button_gps_toolbar) {
+        }
+        else if (id == R.id.button_gps || id == R.id.button_gps_toolbar) {
             UtilCarKey.doKeyGps(this);
-        } else if (id == R.id.entry_radio || id == R.id.entry_radio2 || id == R.id.button_radio || id == R.id.radio_info_layout || id == R.id.layout_left_fm || id == R.id.button_radio_toolbar) {// doRunActivity("com.my.radio", "com.my.radio.RadioActivity");
+        }
+        else if (id == R.id.entry_radio || id == R.id.entry_radio2 || id == R.id.button_radio || id == R.id.radio_info_layout || id == R.id.layout_left_fm || id == R.id.button_radio_toolbar) {// doRunActivity("com.my.radio", "com.my.radio.RadioActivity");
 
             UtilCarKey.doKeyRadio(this);
         } else if (id == R.id.button_bluetooth) {
             doRunActivity("com.my.bt", "com.my.bt.ATBluetoothActivity");
 
-//		case R.id.entry_music:
+            //case R.id.entry_music:
         } else if (id == R.id.button_music) {
             UtilCarKey.doKeyAudio(this);
             // doRunActivity("com.my.audio", "com.my.audio.MusicActivity");
@@ -3009,10 +2971,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
             UtilCarKey.doKeyVideo(this);
 
             // doRunActivity("com.my.dvdplayer", "com.my.dvdplayer.DVDPlayer");
-        } else if (id == R.id.button_settings) {
-            doRunActivity("com.android.settings",
-                    "com.android.settings.Settings");
-        } else if (id == R.id.all_apps_button) {
+        } else if (id == R.id.button_settings || id == R.id.img_btn_setting) {
+            doRunActivity("com.android.settings", "com.android.settings.Settings");
+        } else if (id == R.id.all_apps_button || id == R.id.img_btn_allapps) {
             if (isAllAppsVisible()) {
                 showWorkspace(true);
             } else {
@@ -3027,23 +2988,40 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
         } else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
             toggleAllApp();
-        } else if (id == R.id.button_dvr) {
+        }
+        else if (id == R.id.button_dvr) {
             if (dvrHide && MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
                 UtilCarKey.doKeyAuxIn(this);
             } else {
                 doRunActivity("com.my.dvr", "com.my.dvr.MainActivity");
             }
-        } else if (id == R.id.button_dvd) {
+        }
+        else if (id == R.id.button_dvd) {
             if (dvdHide) {
                 if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI))
                     doRunActivity("net.easyconn", "net.easyconn.ui.Sv05MainActivity");
                 else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))
                     UtilCarKey.doKeyAudio(this);
             } else {
-//				doRunActivity("com.car.ui", "com.my.dvd.DVDPlayer");
+                //doRunActivity("com.car.ui", "com.my.dvd.DVDPlayer");
                 UtilCarKey.doKeyDVD(this);
             }
-        } else {
+        }
+        else if(id == R.id.img_btn_eq)
+        {
+            TAppUtils.startApp(this,"com.eqset");
+        }
+        else if(id == R.id.img_btn_sound)
+        {
+            ///Intent intent = new Intent("android.media.action.VOLUME_CHANGED_ACTION");
+            ///sendBroadcast(intent);
+            //TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
+            Intent it = new Intent(MyCmd.BROADCAST_START_VOLUMESETTINGS_COMMON);
+            it.setPackage("com.my.out");
+            sendBroadcast(it);
+        }
+        else
+        {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.openApp(v.getId());
             }
@@ -3076,7 +3054,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                     v.setBackground(getDrawable(R.drawable.end_menu_app_sel));
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
@@ -4015,8 +3993,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         if (mState != State.WORKSPACE) {
             boolean wasInSpringLoadedMode = (mState == State.APPS_CUSTOMIZE_SPRING_LOADED);
             mWorkspace.setVisibility(View.VISIBLE);
-            hideAppsCustomizeHelper(State.WORKSPACE, animated, false,
-                    onCompleteRunnable);
+            hideAppsCustomizeHelper(State.WORKSPACE, animated, false, onCompleteRunnable);
 
             // Show the search bar (only animate if we were showing the drop
             // target bar in spring
@@ -4045,8 +4022,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         updateRunning();
 
         // Send an accessibility event to announce the context change
-        getWindow().getDecorView().sendAccessibilityEvent(
-                AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
+        getWindow().getDecorView().sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
 
         updateAllAppButton();
     }
@@ -4056,6 +4032,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public void showAllApps(boolean animated) {
         if (mState != State.WORKSPACE || !allAppIsReady)
             return;
+        MMLog.d(TAG, "showAllApps()");
         animated = false;
         showAppsCustomizeHelper(animated, false);
         mAppsCustomizeTabHost.requestFocus();
@@ -4069,8 +4046,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         closeFolder();
 
         // Send an accessibility event to announce the context change
-        getWindow().getDecorView().sendAccessibilityEvent(
-                AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
+        getWindow().getDecorView().sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
 
         updateAllAppButton();
     }
@@ -4166,8 +4142,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 if (mHotseat.getAlpha() != 1f) {
                     int duration = 0;
                     if (mSearchDropTargetBar != null) {
-                        duration = mSearchDropTargetBar
-                                .getTransitionInDuration();
+                        duration = mSearchDropTargetBar.getTransitionInDuration();
                     }
                     mHotseat.animate().alpha(1f).setDuration(duration);
                 }
@@ -4448,8 +4423,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         // Find the app market activity by resolving an intent.
         // (If multiple app markets are installed, it will return the
         // ResolverActivity.)
-        ComponentName activityName = intent
-                .resolveActivity(getPackageManager());
+        ComponentName activityName = intent.resolveActivity(getPackageManager());
         if (activityName != null) {
             int coi = getCurrentOrientationIndexForGlobalIcons();
             mAppMarketIntent = intent;
@@ -4607,8 +4581,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         for (int i = 0; i < count; i++) {
             // Use removeAllViewsInLayout() to avoid an extra requestLayout()
             // and invalidate().
-            final CellLayout layoutParent = (CellLayout) workspace
-                    .getChildAt(i);
+            final CellLayout layoutParent = (CellLayout) workspace.getChildAt(i);
             layoutParent.removeAllViewsInLayout();
         }
         mWidgetsToAdvance.clear();
@@ -4644,8 +4617,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
             // Short circuit if we are loading dock items for a configuration
             // which has no dock
-            if (item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT
-                    && mHotseat == null) {
+            if (item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT && mHotseat == null) {
                 continue;
             }
 
@@ -4731,8 +4703,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                     + " belongs to component " + appWidgetInfo.provider);
         }
 
-        item.hostView = mAppWidgetHost.createView(this, appWidgetId,
-                appWidgetInfo);
+        item.hostView = mAppWidgetHost.createView(this, appWidgetId, appWidgetInfo);
 
         item.hostView.setTag(item);
         item.onBindAppWidget(this);
@@ -4768,8 +4739,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
         if (mSavedState != null) {
             if (!mWorkspace.hasFocus()) {
-                mWorkspace.getChildAt(mWorkspace.getCurrentPage())
-                        .requestFocus();
+                mWorkspace.getChildAt(mWorkspace.getCurrentPage()).requestFocus();
             }
             mSavedState = null;
         }
@@ -4869,12 +4839,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
                                 PropertyValuesHolder.ofFloat("alpha", 1f),
                                 PropertyValuesHolder.ofFloat("scaleX", 1f),
                                 PropertyValuesHolder.ofFloat("scaleY", 1f));
-                bounceAnim
-                        .setDuration(InstallShortcutReceiver.NEW_SHORTCUT_BOUNCE_DURATION);
-                bounceAnim.setStartDelay(i
-                        * InstallShortcutReceiver.NEW_SHORTCUT_STAGGER_DELAY);
-                bounceAnim
-                        .setInterpolator(new SmoothPagedView.OvershootInterpolator());
+                bounceAnim.setDuration(InstallShortcutReceiver.NEW_SHORTCUT_BOUNCE_DURATION);
+                bounceAnim.setStartDelay((long) i * InstallShortcutReceiver.NEW_SHORTCUT_STAGGER_DELAY);
+                bounceAnim.setInterpolator(new SmoothPagedView.OvershootInterpolator());
                 bounceAnims.add(bounceAnim);
             }
             anim.playTogether(bounceAnims);

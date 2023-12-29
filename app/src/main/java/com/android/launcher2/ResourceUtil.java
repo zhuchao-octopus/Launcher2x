@@ -4,6 +4,7 @@ import com.common.util.MachineConfig;
 import com.common.util.SystemConfig;
 import com.common.util.AppConfig;
 import com.android.launcher.R;
+import com.zhuchao.android.fbase.MMLog;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +21,7 @@ import android.hardware.display.DisplayManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.DisplayInfo;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -108,7 +109,7 @@ public class ResourceUtil {
         int dsp = SystemConfig.getIntProperty(context, SystemConfig.KEY_DSP);
         Utilities.mIsDSP = (dsp == 1);
         Utilities.mSystemUI = value;
-        Log.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
+        MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
 
 
 		//int sw = 0;
@@ -125,7 +126,7 @@ public class ResourceUtil {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
-        Log.d(TAG, "DisplayMetrics=" + dm.toString());
+        MMLog.d(TAG, "DisplayMetrics=" + dm.toString());
 
         if (dm.widthPixels == 1024 && dm.heightPixels == 600) {
             type = 1;
@@ -322,7 +323,7 @@ public class ResourceUtil {
         context.getResources().updateConfiguration(c, null);
 
 
-        Log.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
+        MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
         return value;
     }
 

@@ -17,10 +17,13 @@
 */
 -->
 <manifest
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.launcher">
+    package="com.android.launcher"
+    >
+    <!--android:sharedUserId="android.uid.system"
+    android:sharedUserMaxSdkVersion="32"
+    tools:targetApi="tiramisu"-->
 
     <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL"
         tools:ignore="ProtectedPermissions" />

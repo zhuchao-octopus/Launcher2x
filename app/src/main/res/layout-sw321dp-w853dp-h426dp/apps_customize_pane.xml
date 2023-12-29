@@ -15,8 +15,8 @@
 -->
 <com.android.launcher2.AppsCustomizeTabHost
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
-    android:background="#00000000">
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    android:background="#FF000000">
     <LinearLayout
         android:id="@+id/apps_customize_content"
         android:orientation="vertical"
@@ -28,7 +28,7 @@
         <FrameLayout
             android:id="@+id/tabs_container"
             android:layout_width="wrap_content"
-            android:layout_height="50px" 
+            android:layout_height="33dp"
             android:layout_marginTop="@dimen/apps_customize_tab_bar_margin_top"
             android:layout_gravity="center_horizontal">
             <com.android.launcher2.FocusOnlyTabWidget

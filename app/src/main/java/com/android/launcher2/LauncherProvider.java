@@ -61,13 +61,15 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.common.util.AppConfig;
 import com.common.util.MachineConfig;
+import com.zhuchao.android.fbase.MMLog;
 
 public class LauncherProvider extends ContentProvider {
     private static final String TAG = "Launcher.LauncherProvider";
-    private static final boolean LOGD = false;
+    ///private static final boolean LOGD = false;
 
     private static final String DATABASE_NAME = "launcher.db";
 
@@ -217,8 +219,7 @@ public class LauncherProvider extends ContentProvider {
             boolean overridePrevious) {
         String spKey = LauncherApplication.getSharedPreferencesKey();
         SharedPreferences sp = getContext().getSharedPreferences(spKey, Context.MODE_PRIVATE);
-        boolean dbCreatedNoWorkspace =
-                sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
+        boolean dbCreatedNoWorkspace = sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
         if (dbCreatedNoWorkspace || overridePrevious) {
             int workspaceResId = origWorkspaceResId;
             // Use default workspace resource if none provided
@@ -228,13 +229,13 @@ public class LauncherProvider extends ContentProvider {
 	            		workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace_dvdhide);
 	            	} else {
 	            		if (Launcher.ICON_TYPE_DEFAULT_WORKSPACE1 == Launcher.mIconType){
-	            			workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace1);
+	            			workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
 	            		} else {
 	            			workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
 	            		}
 	            	
 	            	}
-				} catch (Exception e) {
+				} catch (Exception ignored) {
 				}
             }
 
@@ -245,7 +246,7 @@ public class LauncherProvider extends ContentProvider {
                 editor.putInt(DEFAULT_WORKSPACE_RESOURCE_ID, origWorkspaceResId);
             }
             if (!dbCreatedNoWorkspace && overridePrevious) {
-                if (LOGD) Log.d(TAG, "Clearing old launcher database");
+              Log.d(TAG, "Clearing old launcher database");
                 // Workspace has already been loaded, clear the database.
                 deleteDatabase();
             }
@@ -304,11 +305,10 @@ public class LauncherProvider extends ContentProvider {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            if (LOGD) Log.d(TAG, "creating new launcher database");
+            MMLog.d(TAG, "creating new launcher database");
 
             mMaxId = 1;
-            final UserManager um =
-                    (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+            final UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
             // Default profileId to the serial number of this user.
             long userSerialNumber = um.getSerialNumberForUser(
                     android.os.Process.myUserHandle());
@@ -356,11 +356,10 @@ public class LauncherProvider extends ContentProvider {
         }
 
         private boolean convertDatabase(SQLiteDatabase db) {
-            if (LOGD) Log.d(TAG, "converting database from an older format, but not onUpgrade");
+            Log.d(TAG, "converting database from an older format, but not onUpgrade");
             boolean converted = false;
 
-            final Uri uri = Uri.parse("content://" + Settings.AUTHORITY +
-                    "/old_favorites?notify=true");
+            final Uri uri = Uri.parse("content://" + Settings.AUTHORITY + "/old_favorites?notify=true");
             final ContentResolver resolver = mContext.getContentResolver();
             Cursor cursor = null;
 
@@ -385,7 +384,7 @@ public class LauncherProvider extends ContentProvider {
 
             if (converted) {
                 // Convert widgets from this import into widgets
-                if (LOGD) Log.d(TAG, "converted and now triggering widget upgrade");
+                Log.d(TAG, "converted and now triggering widget upgrade");
                 convertWidgets(db);
             }
 
@@ -451,7 +450,7 @@ public class LauncherProvider extends ContentProvider {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            if (LOGD) Log.d(TAG, "onUpgrade triggered");
+            Log.d(TAG, "onUpgrade triggered");
 
             int version = oldVersion;
             if (version < 3) {
@@ -596,7 +595,7 @@ public class LauncherProvider extends ContentProvider {
                         selectWhere, null, null, null, null);
                 if (c == null) return false;
 
-                if (LOGD) Log.d(TAG, "found upgrade cursor count=" + c.getCount());
+                Log.d(TAG, "found upgrade cursor count=" + c.getCount());
 
                 final int idIndex = c.getColumnIndex(Favorites._ID);
                 final int intentIndex = c.getColumnIndex(Favorites.INTENT);
@@ -640,10 +639,8 @@ public class LauncherProvider extends ContentProvider {
                                     db.update(TABLE_FAVORITES, values, updateWhere, null);
                                 }
                             }
-                        } catch (RuntimeException ex) {
+                        } catch (RuntimeException | URISyntaxException ex) {
                             Log.e(TAG, "Problem upgrading shortcut", ex);
-                        } catch (URISyntaxException e) {
-                            Log.e(TAG, "Problem upgrading shortcut", e);
                         }
                     }
                 }
@@ -772,8 +769,7 @@ public class LauncherProvider extends ContentProvider {
                 // Select and iterate through each matching widget
                 c = db.query(TABLE_FAVORITES, new String[] { Favorites._ID, Favorites.ITEM_TYPE },
                         selectWhere, null, null, null, null);
-
-                if (LOGD) Log.d(TAG, "found upgrade cursor count=" + c.getCount());
+                 Log.d(TAG, "found upgrade cursor count=" + c.getCount());
 
                 final ContentValues values = new ContentValues();
                 while (c != null && c.moveToNext()) {
@@ -784,7 +780,7 @@ public class LauncherProvider extends ContentProvider {
                     try {
                         int appWidgetId = mAppWidgetHost.allocateAppWidgetId();
 
-                        if (LOGD) {
+                        {
                             Log.d(TAG, "allocated appWidgetId=" + appWidgetId
                                     + " for favoriteId=" + favoriteId);
                         }
@@ -863,10 +859,9 @@ public class LauncherProvider extends ContentProvider {
             Intent intent = new Intent(Intent.ACTION_MAIN, null);
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
             ContentValues values = new ContentValues();
-
+            MMLog.d(TAG,"loadFavorites()");
             PackageManager packageManager = mContext.getPackageManager();
-            int allAppsButtonRank =
-                    mContext.getResources().getInteger(R.integer.hotseat_all_apps_index);
+            int allAppsButtonRank = mContext.getResources().getInteger(R.integer.hotseat_all_apps_index);
             int i = 0;
             try {
                 XmlResourceParser parser = mContext.getResources().getXml(workspaceResourceId);
@@ -890,7 +885,7 @@ public class LauncherProvider extends ContentProvider {
 
                     long container = LauncherSettings.Favorites.CONTAINER_DESKTOP;
                     if (a.hasValue(R.styleable.Favorite_container)) {
-                        container = Long.valueOf(a.getString(R.styleable.Favorite_container));
+                        container = Long.parseLong(Objects.requireNonNull(a.getString(R.styleable.Favorite_container)));
                     }
 
                     String screen = a.getString(R.styleable.Favorite_screen);
@@ -900,8 +895,8 @@ public class LauncherProvider extends ContentProvider {
                     // If we are adding to the hotseat, the screen is used as the position in the
                     // hotseat. This screen can't be at position 0 because AllApps is in the
                     // zeroth position.
-                    if (container == LauncherSettings.Favorites.CONTAINER_HOTSEAT
-                            && Integer.valueOf(screen) == allAppsButtonRank) {
+                    if (container == LauncherSettings.Favorites.CONTAINER_HOTSEAT  && Integer.parseInt(screen) == allAppsButtonRank)
+                    {
                         throw new RuntimeException("Invalid screen position for hotseat item");
                     }
 
@@ -945,8 +940,7 @@ public class LauncherProvider extends ContentProvider {
                             }
                             final String folder_item_name = parser.getName();
 
-                            TypedArray ar = mContext.obtainStyledAttributes(attrs,
-                                    R.styleable.Favorite);
+                            TypedArray ar = mContext.obtainStyledAttributes(attrs, R.styleable.Favorite);
                             values.clear();
                             values.put(LauncherSettings.Favorites.CONTAINER, folderId);
 
@@ -982,11 +976,7 @@ public class LauncherProvider extends ContentProvider {
                     if (added) i++;
                     a.recycle();
                 }
-            } catch (XmlPullParserException e) {
-                Log.w(TAG, "Got exception parsing favorites.", e);
-            } catch (IOException e) {
-                Log.w(TAG, "Got exception parsing favorites.", e);
-            } catch (RuntimeException e) {
+            } catch (XmlPullParserException | IOException | RuntimeException e) {
                 Log.w(TAG, "Got exception parsing favorites.", e);
             }
 

@@ -350,8 +350,7 @@ public class WinceCEStyleApp {
 					int index = getAppIndex(
 							info.activityInfo.applicationInfo.packageName,
 							info.activityInfo.name);
-					Log.d("ee", index + ":" + mApplications.size() + ":"
-							+ info.activityInfo.name + "!!!!!!!!!!!!!!");
+					Log.d("ee", index + ":" + mApplications.size() + ":" + info.activityInfo.name + "!!!!!!!!!!!!!!");
 
 					if (index >= 0 && index < mFirstApp.length) {
 						mFirstApp[index] = application;
@@ -839,8 +838,7 @@ public class WinceCEStyleApp {
 	}
 	
 	private void updateAppHide(){
-		if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && 
-				!AppConfig.isUSBDvd()) {
+		if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd()) {
 			setViewVisible(mContext.findViewById(R.id.button_dvd), View.GONE);
 		} else {
 			setViewVisible(mContext.findViewById(R.id.button_dvd), View.VISIBLE);

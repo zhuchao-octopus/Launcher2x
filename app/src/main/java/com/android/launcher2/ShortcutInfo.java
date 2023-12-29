@@ -61,7 +61,7 @@ class ShortcutInfo extends ItemInfo {
     ShortcutInfo() {
         itemType = LauncherSettings.BaseLauncherColumns.ITEM_TYPE_SHORTCUT;
     }
-    
+
     public ShortcutInfo(ShortcutInfo info) {
         super(info);
         title = info.title.toString();
@@ -75,7 +75,9 @@ class ShortcutInfo extends ItemInfo {
         customIcon = info.customIcon;
     }
 
-    /** TODO: Remove this.  It's only called by ApplicationInfo.makeShortcut. */
+    /**
+     * TODO: Remove this.  It's only called by ApplicationInfo.makeShortcut.
+     */
     public ShortcutInfo(ApplicationInfo info) {
         super(info);
         title = info.title.toString();
@@ -103,7 +105,7 @@ class ShortcutInfo extends ItemInfo {
      * Creates the application intent based on a component name and various launch flags.
      * Sets {@link #itemType} to {@link LauncherSettings.BaseLauncherColumns#ITEM_TYPE_APPLICATION}.
      *
-     * @param className the class name of the component representing the intent
+     * @param className   the class name of the component representing the intent
      * @param launchFlags the launch flags
      */
     final void setActivity(Intent intent) {
@@ -149,16 +151,17 @@ class ShortcutInfo extends ItemInfo {
 
     @Override
     public String toString() {
-        return "ShortcutInfo(title=" + title.toString() + "intent=" + intent + "id=" + this.id
+        return "ShortcutInfo(title=" + title.toString()
+                + " intent=" + intent + "id=" + this.id
                 + " type=" + this.itemType + " container=" + this.container + " screen=" + screen
                 + " cellX=" + cellX + " cellY=" + cellY + " spanX=" + spanX + " spanY=" + spanY
                 + " dropPos=" + dropPos + ")";
     }
 
     public static void dumpShortcutInfoList(String tag, String label,
-            ArrayList<ShortcutInfo> list) {
+                                            ArrayList<ShortcutInfo> list) {
         Log.d(tag, label + " size=" + list.size());
-        for (ShortcutInfo info: list) {
+        for (ShortcutInfo info : list) {
             Log.d(tag, "   title=\"" + info.title + " icon=" + info.mIcon
                     + " customIcon=" + info.customIcon);
         }

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.android.launcher.R;
+import com.zhuchao.android.fbase.MMLog;
 
 import android.app.WallpaperManager;
 import android.content.BroadcastReceiver;
@@ -32,8 +33,10 @@ import android.content.res.Resources;
  * first wallpaper that is not in use by another user.
  */
 public class UserInitializeReceiver extends BroadcastReceiver {
+    private final static String TAG = "UserInitializeReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
+
         final Resources resources = context.getResources();
         // Context.getPackageName() may return the "original" package name,
         // com.android.launcher2; Resources needs the real package name,
@@ -43,8 +46,9 @@ public class UserInitializeReceiver extends BroadcastReceiver {
         ArrayList<Integer> list = new ArrayList<Integer>();
         addWallpapers(resources, packageName, R.array.wallpapers, list);
         addWallpapers(resources, packageName, R.array.extra_wallpapers, list);
-        WallpaperManager wpm = (WallpaperManager) context.getSystemService(
-                Context.WALLPAPER_SERVICE);
+        WallpaperManager wpm = (WallpaperManager) context.getSystemService(Context.WALLPAPER_SERVICE);
+        MMLog.d(TAG,intent.toString());
+
         for (int i=1; i<list.size(); i++) {
             int resid = list.get(i);
             if (!wpm.hasResourceWallpaper(resid)) {
