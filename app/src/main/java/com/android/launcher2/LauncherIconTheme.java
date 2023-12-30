@@ -71,9 +71,10 @@ public final class LauncherIconTheme {
         {
             return R.drawable.apps_aux;
         }
+
         else if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
         {
-            return R.drawable.ic_carplay;
+            return R.drawable.apps_fcam;
         }
 
         else if(packageName.equals("com.android.settings") && className.equals("com.android.settings.Settings"))
@@ -99,10 +100,83 @@ public final class LauncherIconTheme {
 
         else if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
         {
-            return R.drawable.ic_carplay;
+            return R.drawable.apps_clock;
         }
         else {
             return -1;
         }
     }
+
+    public static String getTitle(Context context, String packageName, String className) {
+
+        if(packageName.equals("com.zoulou.dab") && className.equals("com.zoulou.dab.activity.MainActivity"))
+        {
+            return "Dab+";
+        }
+
+        else if(packageName.equals("com.my.bt") && className.equals("com.my.bt.ATBluetoothActivity"))
+        {
+            return null;
+        }
+
+        else if(packageName.equals("com.suding.speedplay") && className.equals("com.suding.speedplay.ui.MainActivity"))
+        {
+            return "UP Connect";
+        }
+
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.video.VideoActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.audio.MusicActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
+        {
+            return null;
+        }
+
+        else if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
+        {
+            return null;
+        }
+
+        else if(packageName.equals("com.android.settings") && className.equals("com.android.settings.Settings"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.anydesk.anydeskandroid") && className.equals("com.anydesk.anydeskandroid.gui.activity.MainActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.my.instructions") && className.equals("com.my.instructions.InstructionsActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.android.gallery3d") && className.equals("com.android.gallery3d.app.GalleryActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.SwcApplication") && className.equals("com.SwcApplication.SwcActivity"))
+        {
+            return null;
+        }
+        else if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
+        {
+            return null;
+        }
+        else {
+            return null;
+        }
+    }
+
 }

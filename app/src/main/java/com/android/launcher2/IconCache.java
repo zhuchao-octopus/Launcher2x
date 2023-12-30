@@ -198,7 +198,7 @@ public class IconCache {
         {
             CacheEntry entry = cacheLocked(application.componentName, info, labelCache, info.getUser());
             WinceCEStyleApp.updateLabel(application.componentName, entry.title);
-            //MMLog.d(TAG,"getTitleAndIcon "+application.componentName + ":entry.title:" + entry.title);
+            MMLog.d(TAG,"getTitleAndIcon componentName="+application.componentName + ",entry.title=" + entry.title);
             application.title = entry.title;
             application.iconBitmap = entry.icon;
             application.contentDescription = entry.contentDescription;
@@ -210,7 +210,7 @@ public class IconCache {
             LauncherApps launcherApps = (LauncherApps) mContext.getSystemService(Context.LAUNCHER_APPS_SERVICE);
             final LauncherActivityInfo launcherActInfo = launcherApps.resolveActivity(intent, user);
             ComponentName component = intent.getComponent();
-            //MMLog.d(TAG,"getIcon "+ intent.toString());
+            MMLog.d(TAG,"getIcon intent="+ intent.toString());
             if (launcherActInfo == null || component == null) {
                 return mDefaultIcon;
             }
@@ -226,7 +226,7 @@ public class IconCache {
             if (info == null || component == null) {
                 return null;
             }
-            //MMLog.d(TAG,"getIcon "+ component.toString());
+            MMLog.d(TAG,"getIcon component="+ component.toString());
             CacheEntry entry = cacheLocked(component, info, labelCache,info.getUser());
             return entry.icon;
         }
@@ -260,7 +260,7 @@ public class IconCache {
     {
         CacheKey cacheKey = new CacheKey(componentName, user);
         CacheEntry entry = mCache.get(cacheKey);
-        MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
+        //MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
 
         if (entry == null) {
             entry = new CacheEntry();
@@ -278,13 +278,15 @@ public class IconCache {
                     labelCache.put(key, entry.title);
                 }
             }
-            if (entry.title == null) {
-                entry.title = info.getComponentName().getShortClassName();
-            }
+
+            ///if (entry.title == null) {
+            ///    entry.title = info.getComponentName().getShortClassName();
+            ///}
 
             entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
 
             Drawable d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
+            String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
 
             if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(Utilities.mSystemUI)) {
                 d = info.getBadgedIcon(mIconDpi);
@@ -293,12 +295,17 @@ public class IconCache {
             else if (MachineConfig.VALUE_SYSTEM_UI_KLD11_200.equals(Utilities.mSystemUI) && d != null) {
                 //d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
                 entry.icon = Utilities.createIconBitmap(d, mContext);
+
+                if(title != null)
+                   entry.title = title;
+                if (labelCache != null)
+                   labelCache.put(key, entry.title);
             }
             else
             {
-
                 boolean isNeedBg = false;
-                if (Utilities.mSystemUI != null && !Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI_KLD11_200)) {
+                if (Utilities.mSystemUI != null && !Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI_KLD11_200))
+                {
                     d = getIconBackground(key.getPackageName(),key.getClassName());
                     if (d == null && !MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)
                             && !MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {

@@ -1431,11 +1431,10 @@ public class LauncherModel extends BroadcastReceiver {
 
         private void loadAndBindWorkspace() {
             mIsLoadingAndBindingWorkspace = true;
-
             // Load the workspace
-            if (DEBUG_LOADERS) {
-                Log.d(TAG, "loadAndBindWorkspace mWorkspaceLoaded=" + mWorkspaceLoaded);
-            }
+            ///if (DEBUG_LOADERS) {
+            ///    Log.d(TAG, "loadAndBindWorkspace mWorkspaceLoaded=" + mWorkspaceLoaded);
+            ///}
 
             if (!mWorkspaceLoaded) {
                 loadWorkspace();
@@ -1541,7 +1540,9 @@ public class LauncherModel extends BroadcastReceiver {
 
                 // First step. Load workspace first, this is necessary since adding of apps from
                 // managed profile in all apps is deferred until onResume. See http://b/17336902.
-                if (DEBUG_LOADERS) Log.d(TAG, "step 1: loading workspace");
+                //if (DEBUG_LOADERS)
+
+                MMLog.d(TAG, "step 1: loading workspace");
                 loadAndBindWorkspace();
 
                 if (mStopped) {
@@ -1825,8 +1826,7 @@ public class LauncherModel extends BroadcastReceiver {
                                         // Delete it.
                                         id = c.getLong(idIndex);
                                         Log.e(TAG, "Error loading shortcut " + id + ", removing it");
-                                        contentResolver.delete(LauncherSettings.Favorites.getContentUri(
-                                                id, false), null, null);
+                                        contentResolver.delete(LauncherSettings.Favorites.getContentUri( id, false), null, null);
                                     }
                                     break;
 
@@ -1912,8 +1912,7 @@ public class LauncherModel extends BroadcastReceiver {
                 }
 
                 if (itemsToRemove.size() > 0) {
-                    ContentProviderClient client = contentResolver.acquireContentProviderClient(
-                            LauncherSettings.Favorites.CONTENT_URI);
+                    @SuppressLint("Recycle") ContentProviderClient client = contentResolver.acquireContentProviderClient(LauncherSettings.Favorites.CONTENT_URI);
                     // Remove dead items
                     for (long id : itemsToRemove) {
                         if (DEBUG_LOADERS) {
@@ -1921,8 +1920,7 @@ public class LauncherModel extends BroadcastReceiver {
                         }
                         // Don't notify content observers
                         try {
-                            client.delete(LauncherSettings.Favorites.getContentUri(id, false),
-                                    null, null);
+                            client.delete(LauncherSettings.Favorites.getContentUri(id, false), null, null);
                         } catch (RemoteException e) {
                             Log.w(TAG, "Could not remove id = " + id);
                         }
@@ -1931,7 +1929,7 @@ public class LauncherModel extends BroadcastReceiver {
 
                 if (DEBUG_LOADERS) {
                     Log.d(TAG, "loaded workspace in " + (SystemClock.uptimeMillis() - t) + "ms");
-                    Log.d(TAG, "workspace layout: ");
+                    //Log.d(TAG, "workspace layout: ");
                     for (int y = 0; y < mCellCountY; y++) {
                         String line = "";
                         for (int s = 0; s < Launcher.SCREEN_COUNT; s++) {
@@ -2616,8 +2614,7 @@ public class LauncherModel extends BroadcastReceiver {
         Intent shortcutsIntent = new Intent(Intent.ACTION_CREATE_SHORTCUT);
         widgetsAndShortcuts.addAll(packageManager.queryIntentActivities(shortcutsIntent, 0));
 
-        Collections.sort(widgetsAndShortcuts, new LauncherModel
-                .WidgetAndShortcutNameComparator(packageManager));
+        Collections.sort(widgetsAndShortcuts, new LauncherModel.WidgetAndShortcutNameComparator(packageManager));
 
         return widgetsAndShortcuts;
     }
@@ -2802,8 +2799,7 @@ public class LauncherModel extends BroadcastReceiver {
         }
     }
 
-    ShortcutInfo addShortcut(Context context, Intent data, long container, int screen, int cellX, int cellY, boolean notify)
-    {
+    ShortcutInfo addShortcut(Context context, Intent data, long container, int screen, int cellX, int cellY, boolean notify) {
         final ShortcutInfo info = infoFromShortcutIntent(context, data, null);
         if (info == null) {
             return null;
@@ -2813,8 +2809,7 @@ public class LauncherModel extends BroadcastReceiver {
         return info;
     }
 
-    ShortcutInfo addShortcutFix(Context context, Intent data, long container, int screen, int cellX, int cellY, boolean notify)
-    {
+    ShortcutInfo addShortcutFix(Context context, Intent data, long container, int screen, int cellX, int cellY, boolean notify) {
         final ShortcutInfo info = infoFromShortcutIntent(context, data, null);
         if (info == null) {
             return null;
@@ -2828,8 +2823,7 @@ public class LauncherModel extends BroadcastReceiver {
     /**
      * Attempts to find an AppWidgetProviderInfo that matches the given component.
      */
-    AppWidgetProviderInfo findAppWidgetProviderInfoWithComponent(Context context, ComponentName component)
-    {
+    AppWidgetProviderInfo findAppWidgetProviderInfoWithComponent(Context context, ComponentName component) {
         List<AppWidgetProviderInfo> widgets = AppWidgetManager.getInstance(context).getInstalledProviders();
         for (AppWidgetProviderInfo info : widgets) {
             if (info.provider.equals(component)) {
@@ -2844,7 +2838,7 @@ public class LauncherModel extends BroadcastReceiver {
      */
     List<WidgetMimeTypeHandlerData> resolveWidgetsForMimeType(Context context, String mimeType) {
         final PackageManager packageManager = context.getPackageManager();
-        final List<WidgetMimeTypeHandlerData> supportedConfigurationActivities =  new ArrayList<WidgetMimeTypeHandlerData>();
+        final List<WidgetMimeTypeHandlerData> supportedConfigurationActivities = new ArrayList<WidgetMimeTypeHandlerData>();
 
         final Intent supportsIntent = new Intent(InstallWidgetReceiver.ACTION_SUPPORTS_CLIPDATA_MIMETYPE);
         supportsIntent.setType(mimeType);

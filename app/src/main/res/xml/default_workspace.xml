@@ -17,11 +17,7 @@
 <favorites xmlns:launcher="http://schemas.android.com/apk/res-auto">
 
     <!-- Far-left screen [0] -->
-
-
     <!-- Left screen [1] -->
-
-
     <!--    <favorite
             launcher:className="com.my.auxplayer.AUXPlayer"
             launcher:packageName="com.car.ui"
