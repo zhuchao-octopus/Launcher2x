@@ -36,6 +36,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
 import com.android.launcher.R;
+import com.zhuchao.android.fbase.MMLog;
 
 public class DeleteDropTarget extends ButtonDropTarget {
     private static int DELETE_ANIMATION_DURATION = 285;
@@ -69,8 +70,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
         // Get the hover color
         Resources r = getResources();
         mHoverColor = r.getColor(R.color.delete_target_hover_tint);
-        mUninstallDrawable = (TransitionDrawable) 
-                r.getDrawable(R.drawable.uninstall_target_selector);
+        mUninstallDrawable = (TransitionDrawable) r.getDrawable(R.drawable.uninstall_target_selector);
         mRemoveDrawable = (TransitionDrawable) r.getDrawable(R.drawable.remove_target_selector);
 
         mRemoveDrawable.setCrossFadeEnabled(true);
@@ -92,6 +92,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
     private boolean isAllAppsApplication(DragSource source, Object info) {
         return (source instanceof AppsCustomizePagedView) && (info instanceof ApplicationInfo);
     }
+
     private boolean isAllAppsWidget(DragSource source, Object info) {
         if (source instanceof AppsCustomizePagedView) {
             if (info instanceof PendingAddItemInfo) {
@@ -105,15 +106,19 @@ public class DeleteDropTarget extends ButtonDropTarget {
         }
         return false;
     }
+
     private boolean isDragSourceWorkspaceOrFolder(DragObject d) {
         return (d.dragSource instanceof Workspace) || (d.dragSource instanceof Folder);
     }
+
     private boolean isWorkspaceOrFolderApplication(DragObject d) {
         return isDragSourceWorkspaceOrFolder(d) && (d.dragInfo instanceof ShortcutInfo);
     }
+
     private boolean isWorkspaceOrFolderWidget(DragObject d) {
         return isDragSourceWorkspaceOrFolder(d) && (d.dragInfo instanceof LauncherAppWidgetInfo);
     }
+
     private boolean isWorkspaceFolder(DragObject d) {
         return (d.dragSource instanceof Workspace) && (d.dragInfo instanceof FolderInfo);
     }
@@ -122,6 +127,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
         mCurrentDrawable.startTransition(mTransitionDuration);
         setTextColor(mHoverColor);
     }
+
     private void resetHoverColor() {
         mCurrentDrawable.resetTransition();
         setTextColor(mOriginalTextColor);
@@ -154,10 +160,9 @@ public class DeleteDropTarget extends ButtonDropTarget {
             }
             // If the user is not allowed to access the app details page or uninstall, then don't
             // let them uninstall from here either.
-            UserManager userManager = (UserManager)
-                    getContext().getSystemService(Context.USER_SERVICE);
-            if (userManager.hasUserRestriction(UserManager.DISALLOW_APPS_CONTROL)
-                    || userManager.hasUserRestriction(UserManager.DISALLOW_UNINSTALL_APPS)) {
+            UserManager userManager = (UserManager)getContext().getSystemService(Context.USER_SERVICE);
+            if (userManager.hasUserRestriction(UserManager.DISALLOW_APPS_CONTROL) || userManager.hasUserRestriction(UserManager.DISALLOW_UNINSTALL_APPS))
+            {
                 isVisible = false;
             }
         }
@@ -173,8 +178,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
         resetHoverColor();
         ((ViewGroup) getParent()).setVisibility(isVisible ? View.VISIBLE : View.GONE);
         if (getText().length() > 0) {
-            setText(isUninstall ? R.string.delete_target_uninstall_label
-                : R.string.delete_target_label);
+            setText(isUninstall ? R.string.delete_target_uninstall_label : R.string.delete_target_label);
         }
     }
 
@@ -226,7 +230,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
 
     private void completeDrop(DragObject d) {
         ItemInfo item = (ItemInfo) d.dragInfo;
-
+        MMLog.d(TAG,"completeDrop->"+item.toString());
         if (isAllAppsApplication(d.dragSource, item)) {
             // Uninstall the application if it is being dragged from AppsCustomize
             mLauncher.startApplicationUninstallActivity((ApplicationInfo) item, item.user);
@@ -264,7 +268,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
      * Creates an animation from the current drag view to the delete trash icon.
      */
     private AnimatorUpdateListener createFlingToTrashAnimatorListener(final DragLayer dragLayer,
-            DragObject d, PointF vel, ViewConfiguration config) {
+                                                                      DragObject d, PointF vel, ViewConfiguration config) {
         final Rect to = getIconRect(d.dragView.getMeasuredWidth(), d.dragView.getMeasuredHeight(),
                 mCurrentDrawable.getIntrinsicWidth(), mCurrentDrawable.getIntrinsicHeight());
         final Rect from = new Rect();
@@ -330,7 +334,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
         private final TimeInterpolator mAlphaInterpolator = new DecelerateInterpolator(0.75f);
 
         public FlingAlongVectorAnimatorUpdateListener(DragLayer dragLayer, PointF vel, Rect from,
-                long startTime, float friction) {
+                                                      long startTime, float friction) {
             mDragLayer = dragLayer;
             mVelocity = vel;
             mFrom = from;
@@ -365,10 +369,13 @@ public class DeleteDropTarget extends ButtonDropTarget {
             mVelocity.y *= mFriction;
             mPrevTime = curTime;
         }
-    };
+    }
+
+    ;
+
     private AnimatorUpdateListener createFlingAlongVectorAnimatorListener(final DragLayer dragLayer,
-            DragObject d, PointF vel, final long startTime, final int duration,
-            ViewConfiguration config) {
+                                                                          DragObject d, PointF vel, final long startTime, final int duration,
+                                                                          ViewConfiguration config) {
         final Rect from = new Rect();
         dragLayer.getViewRectRelativeToSelf(d.dragView, from);
 

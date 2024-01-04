@@ -419,8 +419,7 @@ public class DragController {
         @SuppressWarnings("all") // suppress dead code warning
         final boolean debug = false;
         if (debug) {
-            Log.d(Launcher.TAG, "DragController.onInterceptTouchEvent " + ev + " mDragging="
-                    + mDragging);
+            Log.d(Launcher.TAG, "DragController.onInterceptTouchEvent " + ev + " mDragging=" + mDragging);
         }
 
         // Update the velocity tracker
@@ -678,8 +677,7 @@ public class DragController {
         mDragObject.dragComplete = true;
         mFlingToDeleteDropTarget.onDragExit(mDragObject);
         if (mFlingToDeleteDropTarget.acceptDrop(mDragObject)) {
-            mFlingToDeleteDropTarget.onFlingToDelete(mDragObject, mDragObject.x, mDragObject.y,
-                    vel);
+            mFlingToDeleteDropTarget.onFlingToDelete(mDragObject, mDragObject.x, mDragObject.y,vel);
             accepted = true;
         }
         mDragObject.dragSource.onDropCompleted((View) mFlingToDeleteDropTarget, mDragObject, true,

@@ -111,7 +111,8 @@ public final class LauncherIconTheme {
 
         if(packageName.equals("com.zoulou.dab") && className.equals("com.zoulou.dab.activity.MainActivity"))
         {
-            return "Dab+";
+            //return null;
+            return context.getString(R.string.dab);
         }
 
         else if(packageName.equals("com.my.bt") && className.equals("com.my.bt.ATBluetoothActivity"))
@@ -121,7 +122,7 @@ public final class LauncherIconTheme {
 
         else if(packageName.equals("com.suding.speedplay") && className.equals("com.suding.speedplay.ui.MainActivity"))
         {
-            return "UP Connect";
+            return context.getString(R.string.car_play_connection);
         }
 
         else if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
@@ -160,7 +161,7 @@ public final class LauncherIconTheme {
         }
         else if(packageName.equals("com.my.instructions") && className.equals("com.my.instructions.InstructionsActivity"))
         {
-            return null;
+            return context.getString(R.string.manual);
         }
         else if(packageName.equals("com.android.gallery3d") && className.equals("com.android.gallery3d.app.GalleryActivity"))
         {
@@ -174,7 +175,8 @@ public final class LauncherIconTheme {
         {
             return null;
         }
-        else {
+        else
+        {
             return null;
         }
     }

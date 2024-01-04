@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.util.List;
-
+import java.util.Objects;
 
 
 import android.app.ActivityManager;
@@ -254,30 +254,29 @@ public class UtilCarKey {
 
 	public static void doKeyEQ(Context context) {
 		if (!AppConfig.CAR_EQ.equals(AppConfig.getTopActivity())) {
-			UtilSystem.doRunActivity(context, "com.eqset",
-					"com.eqset.EQActivity");
+			UtilSystem.doRunActivity(context, "com.eqset","com.eqset.EQActivity");
 		}
 	}
 	
-//	public static void doKeyEQ(Context context) {
-//		if (!AppConfig.CAR_EQ.equals(AppConfig.getTopActivity())) {
-//			try {
-//				Intent it = new Intent(Intent.ACTION_VIEW);
-//				it.setClassName("com.eqset", "com.eqset.EQActivity");
-//				it.putExtra("switch", "1");
-//				it.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-//				context.startActivity(it);
-//			} catch (Exception e) {
-//				Log.e(TAG, e.getMessage());
-//			}
-//		}
-//	}
+	public static void doKeyEQ2(Context context) {
+		//if (!AppConfig.CAR_EQ.equals(AppConfig.getTopActivity()))
+		{
+			try {
+				Intent it = new Intent(Intent.ACTION_VIEW);
+				it.setClassName("com.eqset", "com.eqset.EQActivity");
+				it.putExtra("switch", "1");
+				it.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(it);
+			} catch (Exception e) {
+				Log.e(TAG, Objects.requireNonNull(e.getMessage()));
+			}
+		}
+	}
 
 	public static boolean doKeyRadio(Context context) {
 		if (!AppConfig.CAR_UI_RADIO.equals(AppConfig.getTopActivity())) {
 
-			UtilSystem.doRunActivity(context, AppConfig.PACKAGE_CAR_UI,
-					"com.my.radio.RadioActivity");
+			UtilSystem.doRunActivity(context, AppConfig.PACKAGE_CAR_UI,"com.my.radio.RadioActivity");
 
 			return true;
 		}

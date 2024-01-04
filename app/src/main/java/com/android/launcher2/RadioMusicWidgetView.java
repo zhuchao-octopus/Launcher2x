@@ -209,12 +209,11 @@ public class RadioMusicWidgetView {
             mMusicSeekBar = (SeekBar) v;
         }
         mMusicArt = (ImageView) mContext.findViewById(R.id.album_art);
-        mMarkFace = (MarkFaceView) mContext
-                .findViewById(R.id.radio_mark_face_view);
+        mMarkFace = (MarkFaceView) mContext.findViewById(R.id.radio_mark_face_view);
 
-        // TextView mRadioBaud;
-        // TextView mRadioFreq;
-        // TextView mRadioHz;
+        /// TextView mRadioBaud;
+        /// TextView mRadioFreq;
+        /// TextView mRadioHz;
 
         String value = Utilities.mSystemUI;
         // if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value)) {
@@ -267,8 +266,7 @@ public class RadioMusicWidgetView {
         registerReceiver();
         updateTime();
         updateRadio();
-        BroadcastUtil.sendToCarService(mContext,
-                MyCmd.Cmd.QUERY_CURRENT_SOURCE, 0);
+        BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.QUERY_CURRENT_SOURCE, 0);
 
         BroadcastUtil.sendToCarServiceMcuRadio(mContext,
                 ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
@@ -406,17 +404,18 @@ public class RadioMusicWidgetView {
                             MyCmd.Keycode.PREVIOUS);
                 }
             }
-        } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
-            if (mSource == MyCmd.SOURCE_MUSIC
-                    || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                        MyCmd.Keycode.PLAY_PAUSE);
-            } else if (mSource == MyCmd.SOURCE_DVD) {
-
-                if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                        .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                            MyCmd.Keycode.PLAY_PAUSE);
+        }
+        else if (id == R.id.music_button_play || id == R.id.bt_button_pp)
+        {
+            if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC)
+            {
+                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PLAY_PAUSE);
+            }
+            else if (mSource == MyCmd.SOURCE_DVD)
+            {
+                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI))
+                {
+                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
         } else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
@@ -455,16 +454,22 @@ public class RadioMusicWidgetView {
             it = new Intent(MyCmd.BROADCAST_START_BACKLIGHTSETTINGS_COMMON);
             it.setPackage("com.my.out");
             mContext.sendBroadcast(it);
-        } else if (id == R.id.img_btn_eq) {
+        }
+        else if (id == R.id.img_btn_eq) {
             UtilCarKey.doKeyEQ(mContext);
-        } else if (id == R.id.img_btn_vol) {
+        }
+        else if (id == R.id.img_btn_vol)
+        {
             it = new Intent(MyCmd.BROADCAST_START_VOLUMESETTINGS_COMMON);
             it.setPackage("com.my.out");
             mContext.sendBroadcast(it);
-        } else if (id == R.id.img_btn_speed) {
-            BroadcastUtil.sendToCarService(mContext,
-                    MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.SPEED_UP);
-        } else if (id == R.id.widget_speed || id == R.id.widget_time || id == R.id.widget_fm) {
+
+        }
+        else if (id == R.id.img_btn_speed) {
+            BroadcastUtil.sendToCarService(mContext,MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.SPEED_UP);
+        }
+        else if (id == R.id.widget_speed || id == R.id.widget_time || id == R.id.widget_fm)
+        {
             showLeft(v.getId());
         }
     }
@@ -510,17 +515,19 @@ public class RadioMusicWidgetView {
 
     private void updateMusicTime() {
         String time = "";
-        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME
-                && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME) {
-
-            if (mMusicTime2 != null) {
+        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME  && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME)
+        {
+            if (mMusicTime2 != null)
+            {
                 time = stringForTime(mMusicTotalTime);
                 mMusicTime2.setText(time);
                 time = stringForTime(mMusicCurTime);
-            } else {
-                if (mMusicTotalTime > 0) {
-                    time = stringForTime(mMusicCurTime) + "/"
-                            + stringForTime(mMusicTotalTime);
+            }
+            else
+            {
+                if (mMusicTotalTime > 0)
+                {
+                    time = stringForTime(mMusicCurTime) + "/" + stringForTime(mMusicTotalTime);
                 } else {
                     time = stringForTime(mMusicCurTime);
                 }
@@ -885,33 +892,36 @@ public class RadioMusicWidgetView {
 
         }
 
-        if (mSource == MyCmd.SOURCE_MUSIC) {
+        if (mSource == MyCmd.SOURCE_MUSIC)
+        {
             setViewVisible(R.id.music_icon, View.GONE);
             mMusicName.setVisibility(View.VISIBLE);
             mMusicTime.setVisibility(View.VISIBLE);
-
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img, null));
-
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
             mMusicName.setText(mStrMusicName);
 
-            if (mMusicPlaying != 1) {
+            if (mMusicPlaying != 1)
+            {
                 mMusicTime.setText("");
                 if (mMusicSeekBar != null) {
+                    mMusicSeekBar.setVisibility(View.VISIBLE);
                     mMusicSeekBar.setProgress(0);
                 }
-            } else {
+            }
+            else
+            {
                 setPlayButtonStatus(true);
                 startUpdateMusicTime();
             }
+        }
 
-        } else if (mSource == MyCmd.SOURCE_BT_MUSIC) {
-
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.bt_music_pic));
+        else if (mSource == MyCmd.SOURCE_BT_MUSIC)
+        {
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.bt_music_pic,null));
 
             if (mPlayStatus < 3) {
                 mMusicName.setText("");
                 mMusicTime.setText("");
-
                 setViewVisible(R.id.music_icon, View.VISIBLE);
             } else {
                 mMusicName.setText(mID3Name);
@@ -928,13 +938,15 @@ public class RadioMusicWidgetView {
             }
             if (mMusicSeekBar != null) {
                 mMusicSeekBar.setProgress(0);
+                mMusicSeekBar.setVisibility(View.INVISIBLE);
             }
-        } else if (mSource == MyCmd.SOURCE_DVD) {
+        }
+        else if (mSource == MyCmd.SOURCE_DVD)
+        {
             Log.d(TAG, "updateRadioInfofffffff:" + mSource);
-            if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                    .equals(Utilities.mSystemUI)) {
+            if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI))
+            {
                 setViewVisible(R.id.entry_radio, View.GONE);
-
                 setViewVisible(R.id.radio_info_layout, View.GONE);
                 mMusicName.setVisibility(View.VISIBLE);
                 mMusicName.setText("");
@@ -951,8 +963,10 @@ public class RadioMusicWidgetView {
                     setViewVisible(R.id.entry_music, View.VISIBLE);
                 }
             }
-        } else {
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img));
+        }
+        else
+        {
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic,null));
             setViewVisible(R.id.music_icon, View.VISIBLE);
             mMusicName.setVisibility(View.GONE);
             mMusicTime.setVisibility(View.GONE);
@@ -961,7 +975,7 @@ public class RadioMusicWidgetView {
             }
             stopUpdateMusicTime();
 
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_img));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic,null));
             mMusicName.setText("");
             mMusicTime.setText("");
             if (mMusicSeekBar != null) {
@@ -988,11 +1002,9 @@ public class RadioMusicWidgetView {
 
     private void setPlayButtonStatus(boolean playing) {
         if (playing) {
-            ((ImageView) mContext.findViewById(R.id.music_button_play))
-                    .getDrawable().setLevel(1);
+            ((ImageView) mContext.findViewById(R.id.music_button_play)).getDrawable().setLevel(1);
         } else {
-            ((ImageView) mContext.findViewById(R.id.music_button_play))
-                    .getDrawable().setLevel(0);
+            ((ImageView) mContext.findViewById(R.id.music_button_play)).getDrawable().setLevel(0);
         }
     }
 

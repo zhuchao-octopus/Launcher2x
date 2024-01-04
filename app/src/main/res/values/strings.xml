@@ -305,4 +305,7 @@ s -->
 	 <string name="f_camera_alternative_1050">F-Cam</string>
 	 
 	 <string name="easyconnection_lable">EasyConnection</string>
+    <string name="manual">Manual</string>
+    <string name="car_play_connection">UP Connect</string>
+    <string name="dab">Dab+</string>
 </resources>

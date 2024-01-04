@@ -20,6 +20,7 @@ import android.annotation.SuppressLint;
 
 import com.android.common.Search;
 import com.ce.view.WinceCEStyleApp;
+import com.common.util.BroadcastUtil;
 import com.common.util.MachineConfig;
 import com.common.util.SystemConfig;
 
@@ -213,9 +214,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
      */
     private enum State {
         NONE, WORKSPACE, APPS_CUSTOMIZE, APPS_CUSTOMIZE_SPRING_LOADED
-    }
-
-    ;
+    };
 
     private State mState = State.WORKSPACE;
     private AnimatorSet mStateAnimation;
@@ -2000,8 +1999,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     void showOutOfSpaceMessage(boolean isHotseatLayout) {
-        int strId = (isHotseatLayout ? R.string.hotseat_out_of_space
-                : R.string.out_of_space);
+        int strId = (isHotseatLayout ? R.string.hotseat_out_of_space : R.string.out_of_space);
         Toast.makeText(this, getString(strId), Toast.LENGTH_SHORT).show();
     }
 
@@ -3015,10 +3013,12 @@ public final class Launcher extends Activity implements View.OnClickListener,
         {
             ///Intent intent = new Intent("android.media.action.VOLUME_CHANGED_ACTION");
             ///sendBroadcast(intent);
-            //TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
-            Intent it = new Intent(MyCmd.BROADCAST_START_VOLUMESETTINGS_COMMON);
-            it.setPackage("com.my.out");
-            sendBroadcast(it);
+            ///TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
+            ///Intent it = new Intent(MyCmd.BROADCAST_START_VOLUMESETTINGS_COMMON);
+            ///it.setPackage("com.my.out");
+            ///sendBroadcast(it);
+            //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
+            UtilCarKey.doKeyEQ2(this);
         }
         else
         {
@@ -3109,24 +3109,26 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
     }
 
-    void startApplicationUninstallActivity(ApplicationInfo appInfo,
-                                           UserHandle user) {
+    void startApplicationUninstallActivity(ApplicationInfo appInfo, UserHandle user) {
+        MMLog.d(TAG,"startApplicationUninstallActivity->"+appInfo.componentName.getPackageName());
         if ((appInfo.flags & ApplicationInfo.DOWNLOADED_FLAG) == 0) {
             // System applications cannot be installed. For now, show a toast
             // explaining that.
             // We may give them the option of disabling apps this way.
             int messageId = R.string.uninstall_system_app_text;
             Toast.makeText(this, messageId, Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else
+        {
+
             String packageName = appInfo.componentName.getPackageName();
             String className = appInfo.componentName.getClassName();
-            Intent intent = new Intent(Intent.ACTION_DELETE, Uri.fromParts(
-                    "package", packageName, className));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                    | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            Intent intent = new Intent(Intent.ACTION_DELETE, Uri.fromParts("package", packageName, className));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             if (user != null) {
                 intent.putExtra(Intent.EXTRA_USER, user);
             }
+            MMLog.d(TAG,"startApplicationUninstallActivity->"+intent.toString());
             startActivity(intent);
         }
     }

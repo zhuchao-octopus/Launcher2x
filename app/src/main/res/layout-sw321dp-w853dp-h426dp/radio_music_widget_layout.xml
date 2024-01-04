@@ -38,7 +38,7 @@
                     android:layout_x="420dp"
                     android:layout_y="35dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/music_img" />
+                    android:src="@drawable/music_pic" />
 
                 <View
                     android:id="@+id/music_icon"
@@ -72,46 +72,66 @@
 
                 <TextView
                     android:id="@+id/music_time"
-                    android:layout_width="200dp"
-                    android:layout_height="20dp"
-                    android:layout_x="104dp"
-                    android:layout_y="58dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="40dp"
+                    android:layout_y="40dp"
                     android:gravity="center"
                     android:singleLine="true"
+                    android:text="00"
                     android:textAppearance="@style/CommonStyleFonts"
                     android:textColor="#ffffff"
                     android:textSize="14sp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/music_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="375dp"
+                    android:layout_y="40dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="00"
+                    android:textAppearance="@style/CommonStyleFonts"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
 
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_x="110dp"
-                    android:layout_y="90dp"
+                    android:layout_y="85dp"
                     android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/music_button_prev"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginRight="100dp"
                         android:onClick="onLauncherButtonClick"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/ic_prev" />
 
                     <ImageButton
                         android:id="@+id/music_button_play"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginRight="100dp"
-                        android:src="@drawable/ic_play" />
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/play_level" />
 
                     <ImageButton
                         android:id="@+id/music_button_next"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
                         android:src="@drawable/ic_next"
                         android:text="@string/toolbar_text_gps" />
                 </LinearLayout>
@@ -253,10 +273,10 @@
                 <LinearLayout
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
-                    android:gravity="start|top"
+                    android:gravity="start"
                     android:orientation="horizontal"
-                    android:paddingStart="5dp"
                     android:visibility="visible">
 
                     <TextView
@@ -264,7 +284,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="start|top"
-                        android:paddingLeft="0dp"
                         android:textAppearance="@style/CommonStyleFonts"
                         android:textColor="#FFFFFFFF"
                         android:textSize="12sp"

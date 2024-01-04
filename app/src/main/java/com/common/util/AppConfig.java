@@ -233,7 +233,7 @@ public class AppConfig {
 
     }
 
-    private static HashSet<String> mSetHideApp = new HashSet<String>();
+    private static final HashSet<String> mSetHideApp = new HashSet<String>();
     // these set for hide
     public static final String HIDE_APP_DVD = "DVD";
     public static final String HIDE_APP_AUX = "AUX";
