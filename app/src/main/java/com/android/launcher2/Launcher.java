@@ -587,7 +587,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
 
-    private static String SAVE_DATA = "LauncherMain";
+    private static final String SAVE_DATA = "LauncherMain";
     private static String SAVE_FIRST_BOOT = "first_boot";
 
     private void saveData(String s, long v) {
@@ -3007,7 +3007,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
         else if(id == R.id.img_btn_eq)
         {
-            TAppUtils.startApp(this,"com.eqset");
+            //TAppUtils.startApp(this,"com.eqset");
+            UtilCarKey.doKeyEQ2(this,0);
         }
         else if(id == R.id.img_btn_sound)
         {
@@ -3018,7 +3019,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             ///it.setPackage("com.my.out");
             ///sendBroadcast(it);
             //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
-            UtilCarKey.doKeyEQ2(this);
+            UtilCarKey.doKeyEQ2(this,1);
         }
         else
         {

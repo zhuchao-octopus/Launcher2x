@@ -101,37 +101,40 @@
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_x="110dp"
+                    android:layout_x="90dp"
                     android:layout_y="85dp"
                     android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/music_button_prev"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="100dp"
                         android:onClick="onLauncherButtonClick"
+                        android:padding="8dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_prev" />
 
                     <ImageButton
                         android:id="@+id/music_button_play"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="100dp"
+                        android:padding="8dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/play_level" />
 
                     <ImageButton
                         android:id="@+id/music_button_next"
                         style="@style/RadioMusicButtonStyle"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_gravity="center_vertical"
+                        android:padding="8dp"
                         android:src="@drawable/ic_next"
                         android:text="@string/toolbar_text_gps" />
                 </LinearLayout>
@@ -271,11 +274,11 @@
 
 
                 <LinearLayout
-                    android:layout_width="160dp"
+                    android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="start"
                     android:layout_marginBottom="10dp"
-                    android:gravity="start"
+                    android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     android:visibility="visible">
 
@@ -283,7 +286,7 @@
                         android:id="@+id/radio_music_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="start|top"
+                        android:gravity="start"
                         android:textAppearance="@style/CommonStyleFonts"
                         android:textColor="#FFFFFFFF"
                         android:textSize="12sp"
@@ -293,8 +296,8 @@
                         android:id="@+id/radio_music_date2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
 
+                        android:gravity="center_horizontal"
                         android:paddingLeft="2dp"
                         android:paddingRight="4dp"
                         android:textAppearance="@style/CommonStyleFonts"

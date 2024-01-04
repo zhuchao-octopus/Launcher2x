@@ -258,13 +258,13 @@ public class UtilCarKey {
 		}
 	}
 	
-	public static void doKeyEQ2(Context context) {
+	public static void doKeyEQ2(Context context,int PageIndex) {
 		//if (!AppConfig.CAR_EQ.equals(AppConfig.getTopActivity()))
 		{
 			try {
 				Intent it = new Intent(Intent.ACTION_VIEW);
 				it.setClassName("com.eqset", "com.eqset.EQActivity");
-				it.putExtra("switch", "1");
+				it.putExtra("PageIndex", PageIndex);
 				it.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(it);
 			} catch (Exception e) {
