@@ -111,7 +111,6 @@ public class LauncherApplication extends Application {
             // workspace on the next load
             mModel.resetLoadedState(false, true);
             mModel.startLoaderFromBackground();
-            
         }
     };
 

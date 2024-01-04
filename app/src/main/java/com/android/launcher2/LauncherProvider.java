@@ -215,8 +215,8 @@ public class LauncherProvider extends ContentProvider {
     /**
      * @param workspaceResId that can be 0 to use default or non-zero for specific resource
      */
-    synchronized public void loadDefaultFavoritesIfNecessary(int origWorkspaceResId,
-            boolean overridePrevious) {
+    synchronized public void loadDefaultFavoritesIfNecessary(int origWorkspaceResId,boolean overridePrevious)
+    {
         String spKey = LauncherApplication.getSharedPreferencesKey();
         SharedPreferences sp = getContext().getSharedPreferences(spKey, Context.MODE_PRIVATE);
         boolean dbCreatedNoWorkspace = sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
@@ -450,7 +450,7 @@ public class LauncherProvider extends ContentProvider {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.d(TAG, "onUpgrade triggered");
+            MMLog.d(TAG, "onUpgrade triggered");
 
             int version = oldVersion;
             if (version < 3) {
@@ -859,7 +859,8 @@ public class LauncherProvider extends ContentProvider {
             Intent intent = new Intent(Intent.ACTION_MAIN, null);
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
             ContentValues values = new ContentValues();
-            MMLog.d(TAG,"loadFavorites()");
+            MMLog.d(TAG,"loadFavorites() from xml "+ workspaceResourceId);
+
             PackageManager packageManager = mContext.getPackageManager();
             int allAppsButtonRank = mContext.getResources().getInteger(R.integer.hotseat_all_apps_index);
             int i = 0;

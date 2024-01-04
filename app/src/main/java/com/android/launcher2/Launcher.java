@@ -515,17 +515,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
             int data;
             data = MachineConfig.getPropertyIntReadOnly(SystemConfig.KEY_CE_STYLE);
             if (data != 0) {
-                SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE,
-                        data);
-//				if (data == 2) {
-//					View v = findViewById(R.id.ce_icon_android);
-//					if (v != null) {
-//						v.setEnabled(false);
-//					}
-//				}
+                SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE,data);
             }
-//			Log.d("abcd", "KEY_CE_STYLE:"+data+":"+SystemConfig.getIntProperty(this,
-//					SystemConfig.KEY_CE_STYLE));
 
             if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType) {
                 MMLog.d(TAG, "mIconType22:" + ResourceUtil.ifLoadDvdHideWorkspace() + ":" + AppConfig.isHidePackage("com.my.dvd.DVDPlayer"));
@@ -627,26 +618,29 @@ public final class Launcher extends Activity implements View.OnClickListener,
         // If we have a saved version of these external icons, we load them up
         // immediately
         int coi = getCurrentOrientationIndexForGlobalIcons();
-        if (sGlobalSearchIcon[coi] == null || sVoiceSearchIcon[coi] == null
-                || sAppMarketIcon[coi] == null) {
+        if (sGlobalSearchIcon[coi] == null || sVoiceSearchIcon[coi] == null || sAppMarketIcon[coi] == null)
+        {
             updateAppMarketIcon();
             searchVisible = updateGlobalSearchIcon();
             voiceVisible = updateVoiceSearchIcon(searchVisible);
         }
+
         if (sGlobalSearchIcon[coi] != null) {
             updateGlobalSearchIcon(sGlobalSearchIcon[coi]);
             searchVisible = true;
         }
+
         if (sVoiceSearchIcon[coi] != null) {
             updateVoiceSearchIcon(sVoiceSearchIcon[coi]);
             voiceVisible = true;
         }
+
         if (sAppMarketIcon[coi] != null) {
             updateAppMarketIcon(sAppMarketIcon[coi]);
         }
+
         if (mSearchDropTargetBar != null) {
-            mSearchDropTargetBar.onSearchPackagesChanged(searchVisible,
-                    voiceVisible);
+            mSearchDropTargetBar.onSearchPackagesChanged(searchVisible, voiceVisible);
         }
     }
 
@@ -1072,7 +1066,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     @Override
     protected void onResume() {
         Configuration c = getResources().getConfiguration();
-        Log.d(TAG, "onResume:" + c + ":" + mNeedUpdateUI);
+        MMLog.d(TAG, "onResume:" + c + ":" + mNeedUpdateUI);
         if (mNeedUpdateUI) {
             ResourceUtil.updateUi(this);
             mNeedUpdateUI = false;
@@ -1134,8 +1128,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
             mOnResumeCallbacks.clear();
             if (DEBUG_RESUME_TIME) {
-                Log.d(TAG, "Time spent processing callbacks in onResume: "
-                        + (System.currentTimeMillis() - startTimeCallbacks));
+                Log.d(TAG, "Time spent processing callbacks in onResume: " + (System.currentTimeMillis() - startTimeCallbacks));
             }
         }
 
@@ -1928,20 +1921,20 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     private void updateRunning() {
-        boolean autoAdvanceRunning = mVisible && mUserPresent
-                && !mWidgetsToAdvance.isEmpty();
-        if (autoAdvanceRunning != mAutoAdvanceRunning) {
+        boolean autoAdvanceRunning = mVisible && mUserPresent && !mWidgetsToAdvance.isEmpty();
+
+        if (autoAdvanceRunning != mAutoAdvanceRunning)
+        {
             mAutoAdvanceRunning = autoAdvanceRunning;
             if (autoAdvanceRunning) {
-                long delay = mAutoAdvanceTimeLeft == -1 ? mAdvanceInterval
-                        : mAutoAdvanceTimeLeft;
+                long delay = mAutoAdvanceTimeLeft == -1 ? mAdvanceInterval : mAutoAdvanceTimeLeft;
                 sendAdvanceMessage(delay);
-            } else {
-                if (!mWidgetsToAdvance.isEmpty()) {
-                    mAutoAdvanceTimeLeft = Math
-                            .max(0,
-                                    mAdvanceInterval
-                                            - (System.currentTimeMillis() - mAutoAdvanceSentTime));
+            }
+            else
+            {
+                if (!mWidgetsToAdvance.isEmpty())
+                {
+                    mAutoAdvanceTimeLeft = Math.max(0,mAdvanceInterval - (System.currentTimeMillis() - mAutoAdvanceSentTime));
                 }
                 mHandler.removeMessages(ADVANCE_MSG);
                 mHandler.removeMessages(0); // Remove messages sent using
@@ -1957,8 +1950,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             if (msg.what == ADVANCE_MSG) {
                 int i = 0;
                 for (View key : mWidgetsToAdvance.keySet()) {
-                    final View v = key
-                            .findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);
+                    final View v = key.findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);
                     final int delay = mAdvanceStagger * i;
                     if (v instanceof Advanceable) {
                         postDelayed(new Runnable() {
@@ -3993,6 +3985,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     void showWorkspace(boolean animated, Runnable onCompleteRunnable) {
         animated = false;
+        MMLog.d(TAG,"showWorkspace() mState="+mState);
         if (mState != State.WORKSPACE) {
             boolean wasInSpringLoadedMode = (mState == State.APPS_CUSTOMIZE_SPRING_LOADED);
             mWorkspace.setVisibility(View.VISIBLE);

@@ -13,8 +13,7 @@ public class CEButtonInfo {
 			String name = ss[1];
 			mComponentName = new ComponentName(pack, name);
 			mId = id;
-		} catch (Exception e) {
-
+		} catch (Exception ignored) {
 		}
 	}
 }

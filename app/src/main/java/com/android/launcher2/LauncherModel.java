@@ -859,15 +859,15 @@ public class LauncherModel extends BroadcastReceiver {
 
         @Override
         public void onPackageAdded(String packageName, UserHandle user) {
-            enqueuePackageUpdated(new PackageUpdatedTask(
-                    PackageUpdatedTask.OP_ADD, new String[]{packageName}, user));
+            enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, new String[]{packageName}, user));
+            MMLog.d(TAG,"onPackageAdded "+packageName);
+            ///forceReload();
         }
 
         @Override
         public void onPackagesAvailable(String[] packageNames, UserHandle user, boolean replacing) {
             if (!replacing) {
-                enqueuePackageUpdated(new PackageUpdatedTask(
-                        PackageUpdatedTask.OP_ADD, packageNames, user));
+                enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, packageNames, user));
                 if (mAppsCanBeOnRemoveableStorage) {
                     // Only rebind if we support removable storage. It catches the
                     // case where apps on the external sd card need to be reloaded.
@@ -875,8 +875,7 @@ public class LauncherModel extends BroadcastReceiver {
                 }
             } else {
                 // If we are replacing then just update the packages in the list
-                enqueuePackageUpdated(new PackageUpdatedTask(
-                        PackageUpdatedTask.OP_UPDATE, packageNames, user));
+                enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_UPDATE, packageNames, user));
             }
         }
 
@@ -978,8 +977,7 @@ public class LauncherModel extends BroadcastReceiver {
                             if (Launcher.ICON_TYPE_DEFAULT_WORKSPACE1 == Launcher.mIconType) {
                                 reloadWorkspace(context, "default_workspace1");
                             } else {
-                                if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2
-                                        .equals(Utilities.mSystemUI) && AppConfig.isUSBDvd()) {
+                                if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI) && AppConfig.isUSBDvd()) {
                                     reloadWorkspace(context, "default_workspace_usbdvd");
                                 } else {
                                     reloadWorkspace(context, "default_workspace");
@@ -1345,9 +1343,9 @@ public class LauncherModel extends BroadcastReceiver {
 
     public void startLoader(boolean isLaunching, int synchronousBindPage) {
         synchronized (mLock) {
-            if (DEBUG_LOADERS) {
-                MMLog.d(TAG, "startLoader isLaunching=" + isLaunching);
-            }
+            //if (DEBUG_LOADERS) {
+            MMLog.d(TAG, "startLoader isLaunching=" + isLaunching);
+            //}
 
             // Clear any deferred bind-runnables from the synchronized load process
             // We must do this before any loading/binding is scheduled below.
@@ -1542,7 +1540,7 @@ public class LauncherModel extends BroadcastReceiver {
                 // managed profile in all apps is deferred until onResume. See http://b/17336902.
                 //if (DEBUG_LOADERS)
 
-                MMLog.d(TAG, "step 1: loading workspace");
+                MMLog.d(TAG, "step 1: loadAndBindWorkspace()");
                 loadAndBindWorkspace();
 
                 if (mStopped) {
@@ -1770,10 +1768,10 @@ public class LauncherModel extends BroadcastReceiver {
 
                                     if (itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION) {
                                         info = getShortcutInfo(manager, intent, user, context, c, iconIndex, titleIndex, mLabelCache);
-                                    } else {
-                                        info = getShortcutInfo(c, context, iconTypeIndex,
-                                                iconPackageIndex, iconResourceIndex, iconIndex,
-                                                titleIndex);
+                                    }
+                                    else
+                                    {
+                                        info = getShortcutInfo(c, context, iconTypeIndex,iconPackageIndex, iconResourceIndex, iconIndex,titleIndex);
 
                                         // App shortcuts that used to be automatically added to Launcher
                                         // didn't always have the correct intent flags set, so do that
@@ -1786,8 +1784,8 @@ public class LauncherModel extends BroadcastReceiver {
                                         }
                                     }
 
-
-                                    if (info != null) {
+                                    if (info != null)
+                                    {
                                         info.intent = intent;
                                         info.id = c.getLong(idIndex);
                                         container = c.getInt(containerIndex);
@@ -1796,6 +1794,7 @@ public class LauncherModel extends BroadcastReceiver {
                                         info.cellX = c.getInt(cellXIndex);
                                         info.cellY = c.getInt(cellYIndex);
                                         info.intent.putExtra(ItemInfo.EXTRA_PROFILE, info.user);
+                                        MMLog.d(TAG, "loadWorkspace info="+info.toString()+",itemType="+itemType);
 
                                         // check & update map of what's occupied
                                         if (!checkItemPlacement(occupied, info)) {
@@ -1818,8 +1817,9 @@ public class LauncherModel extends BroadcastReceiver {
                                         // now that we've loaded everthing re-save it with the
                                         // icon in case it disappears somehow.
                                         queueIconToBeChecked(sBgDbIconCache, info, c, iconIndex);
-                                        MMLog.d(TAG, info.toString());
-                                    } else {
+                                    }
+                                    else
+                                    {
                                         // Failed to load the shortcut, probably because the
                                         // activity manager couldn't resolve it (maybe the app
                                         // was uninstalled), or the db row was somehow screwed up.

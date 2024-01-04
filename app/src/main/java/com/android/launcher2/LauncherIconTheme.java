@@ -109,7 +109,7 @@ public final class LauncherIconTheme {
 
     public static String getTitle(Context context, String packageName, String className) {
 
-        if(packageName.equals("com.zoulou.dab") && className.equals("com.zoulou.dab.activity.MainActivity"))
+        if(packageName.equals("com.zoulou.dab") || className.equals("com.zoulou.dab.activity.MainActivity"))
         {
             //return null;
             return context.getString(R.string.dab);

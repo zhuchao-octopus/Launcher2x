@@ -197,8 +197,9 @@ public class IconCache {
         synchronized (mCache)
         {
             CacheEntry entry = cacheLocked(application.componentName, info, labelCache, info.getUser());
-            WinceCEStyleApp.updateLabel(application.componentName, entry.title);
             MMLog.d(TAG,"getTitleAndIcon componentName="+application.componentName + ",entry.title=" + entry.title);
+
+            WinceCEStyleApp.updateLabel(application.componentName, entry.title);
             application.title = entry.title;
             application.iconBitmap = entry.icon;
             application.contentDescription = entry.contentDescription;
@@ -211,6 +212,7 @@ public class IconCache {
             final LauncherActivityInfo launcherActInfo = launcherApps.resolveActivity(intent, user);
             ComponentName component = intent.getComponent();
             MMLog.d(TAG,"getIcon intent="+ intent.toString());
+
             if (launcherActInfo == null || component == null) {
                 return mDefaultIcon;
             }
@@ -287,6 +289,8 @@ public class IconCache {
 
             Drawable d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
             String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
+            if(title != null)
+                entry.title = title;
 
             if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(Utilities.mSystemUI)) {
                 d = info.getBadgedIcon(mIconDpi);
@@ -295,9 +299,6 @@ public class IconCache {
             else if (MachineConfig.VALUE_SYSTEM_UI_KLD11_200.equals(Utilities.mSystemUI) && d != null) {
                 //d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
                 entry.icon = Utilities.createIconBitmap(d, mContext);
-
-                if(title != null)
-                   entry.title = title;
                 if (labelCache != null)
                    labelCache.put(key, entry.title);
             }

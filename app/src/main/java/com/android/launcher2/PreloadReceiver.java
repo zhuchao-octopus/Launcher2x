@@ -37,11 +37,9 @@ public class PreloadReceiver extends BroadcastReceiver {
         final LauncherProvider provider = app.getLauncherProvider();
         if (provider != null) {
             String name = intent.getStringExtra(EXTRA_WORKSPACE_NAME);
-            final int workspaceResId = !TextUtils.isEmpty(name)
-                    ? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
+            final int workspaceResId = !TextUtils.isEmpty(name)? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
 
-            final boolean overridePrevious =
-                    intent.getBooleanExtra(EXTRA_OVERRIDE_PREVIOUS, false);
+            final boolean overridePrevious = intent.getBooleanExtra(EXTRA_OVERRIDE_PREVIOUS, false);
             if (LOGD) {
                 Log.d(TAG, "workspace name: " + name + " id: " + workspaceResId);
             }

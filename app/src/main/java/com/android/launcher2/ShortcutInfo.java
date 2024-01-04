@@ -17,6 +17,7 @@
 package com.android.launcher2;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -109,13 +110,12 @@ class ShortcutInfo extends ItemInfo {
      * @param launchFlags the launch flags
      */
     final void setActivity(Intent intent) {
-        int launchFlags = Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
+        int launchFlags = Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
         this.intent = new Intent();
         this.intent.setFlags(launchFlags);
         this.intent.addCategory(Intent.CATEGORY_LAUNCHER);
         this.intent.setComponent(intent.getComponent());
-        this.intent.putExtras(intent.getExtras());
+        this.intent.putExtras(Objects.requireNonNull(intent.getExtras()));
         itemType = LauncherSettings.BaseLauncherColumns.ITEM_TYPE_APPLICATION;
         updateUser(this.intent);
     }

@@ -155,7 +155,7 @@ class AllAppsList {
                         user);
                 if (applicationInfo == null) {
                 	
-//                	Log.d("allen", info.getComponentName().getClassName()+":::"+AppConfig.isHidePackage(info.getComponentName().getClassName()));
+                    //Log.d("allen", info.getComponentName().getClassName()+":::"+AppConfig.isHidePackage(info.getComponentName().getClassName()));
                 	
                 	if(!AppConfig.isHidePackage(info.getComponentName().getClassName())){
                     add(new ApplicationInfo(info, user, mIconCache, null));
@@ -173,8 +173,7 @@ class AllAppsList {
             for (int i = data.size() - 1; i >= 0; i--) {
                 final ApplicationInfo applicationInfo = data.get(i);
                 final ComponentName component = applicationInfo.intent.getComponent();
-                if (user.equals(applicationInfo.user)
-                        && packageName.equals(component.getPackageName())) {
+                if (user.equals(applicationInfo.user) && packageName.equals(component.getPackageName())) {
                     removed.add(applicationInfo);
                     mIconCache.remove(component);
                     data.remove(i);
