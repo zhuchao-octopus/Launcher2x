@@ -22,5 +22,8 @@
     <string name="delete_target_label" msgid="4155210680095864979"></string>
     <string name="delete_target_uninstall_label" msgid="1839407506844917298"></string>
     <string name="info_target_label" msgid="1424400595004570393"></string>
+
     <string name="manual">Manual</string>
+    <string name="car_play_connection">UP Connect</string>
+    <string name="dab">Dab+</string>
 </resources>

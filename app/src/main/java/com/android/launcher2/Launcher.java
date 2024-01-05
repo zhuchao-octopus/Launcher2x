@@ -2969,20 +2969,28 @@ public final class Launcher extends Activity implements View.OnClickListener,
             } else {
                 doRunActivity("com.my.dvr", "com.my.dvr.MainActivity");
             }
-        } else if (id == R.id.button_dvd) {
-            if (dvdHide) {
+        }
+        else if (id == R.id.button_dvd)
+        {
+            if (dvdHide)
+            {
                 if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI))
                     doRunActivity("net.easyconn", "net.easyconn.ui.Sv05MainActivity");
                 else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))
                     UtilCarKey.doKeyAudio(this);
-            } else {
+            }
+            else {
                 //doRunActivity("com.car.ui", "com.my.dvd.DVDPlayer");
                 UtilCarKey.doKeyDVD(this);
             }
-        } else if (id == R.id.img_btn_eq) {
+        }
+        else if (id == R.id.img_btn_eq)
+        {
             //TAppUtils.startApp(this,"com.eqset");
             UtilCarKey.doKeyEQ2(this, 0);
-        } else if (id == R.id.img_btn_sound) {
+        }
+        else if (id == R.id.img_btn_sound)
+        {
             ///Intent intent = new Intent("android.media.action.VOLUME_CHANGED_ACTION");
             ///sendBroadcast(intent);
             ///TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
@@ -2991,7 +2999,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
             ///sendBroadcast(it);
             //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
             UtilCarKey.doKeyEQ2(this, 1);
-        } else {
+        }
+        else
+        {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.openApp(v.getId());
             }
@@ -3012,8 +3022,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 if (v != null) {
                     v.setBackground(getDrawable(R.drawable.end_menu_app));
                 }
-            } else {
-
+            }
+            else
+            {
                 v = findViewById(R.id.all_apps_button1);
                 if (v != null) {
                     v.setBackground(getDrawable(R.drawable.end_menu_car2));
@@ -3025,7 +3036,6 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 }
             }
         } catch (Exception ignored) {
-
         }
     }
 

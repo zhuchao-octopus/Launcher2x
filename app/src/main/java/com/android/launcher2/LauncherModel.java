@@ -922,14 +922,14 @@ public class LauncherModel extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         MMLog.d(TAG, "onReceive intent=" + intent);
-
         final String action = intent.getAction();
+
         switch (Objects.requireNonNull(action)) {
             case Intent.ACTION_LOCALE_CHANGED:
-                // If we have changed locale we need to clear out the labels in all apps/workspace.
+                /// If we have changed locale we need to clear out the labels in all apps/workspace.
                 foreUpdateConfig(context);
-                //String s = null;
-                //s.substring(0);
+                ///String s = null;
+                ///s.substring(0);
                 forceReload();
                 WinceCEStyleApp.forceReload();
                 break;
@@ -1047,6 +1047,7 @@ public class LauncherModel extends BroadcastReceiver {
                 break;
             case "com.android.ACTION_PREINSTALL_COMPLETE":
                 MMLog.d(TAG,"com.android.ACTION_PREINSTALL_COMPLETE!");
+                forceReload();
                 break;
         }
     }
@@ -2635,6 +2636,13 @@ public class LauncherModel extends BroadcastReceiver {
      * <p>
      * If c is not null, then it will be used to fill in missing data like the title and icon.
      */
+    public void debugTitle(String packageName,String title,int index)
+    {
+        if(packageName.equals("com.zoulou.dab"))
+        {
+           MMLog.d(TAG,packageName+ ","+ title + ","+index);
+        }
+    }
     public ShortcutInfo getShortcutInfo(PackageManager manager, Intent intent, UserHandle user,
                                         Context context,
                                         Cursor c, int iconIndex, int titleIndex, HashMap<Object, CharSequence> labelCache) {
@@ -2659,6 +2667,7 @@ public class LauncherModel extends BroadcastReceiver {
                 icon = getIconFromCursor(c, iconIndex, context);
             }
         }
+
         // the fallback icon
         if (icon == null) {
             icon = getFallbackIcon();
@@ -2668,10 +2677,19 @@ public class LauncherModel extends BroadcastReceiver {
 
         // from the resource
         ComponentName key = lai.getComponentName();
+        String title = LauncherIconTheme.getTitle(context,componentName.getPackageName(),componentName.getClassName());
+
         if (labelCache != null && labelCache.containsKey(key)) {
-            info.title = labelCache.get(key);
+            if(title!=null)
+                info.title = title;
+            else
+               info.title = labelCache.get(key);
         } else {
-            info.title = lai.getLabel();
+            if(title!=null)
+                info.title = title;
+            else
+                info.title = lai.getLabel();
+
             if (labelCache != null) {
                 labelCache.put(key, info.title);
             }

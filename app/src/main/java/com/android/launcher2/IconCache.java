@@ -228,7 +228,7 @@ public class IconCache {
             if (info == null || component == null) {
                 return null;
             }
-            MMLog.d(TAG,"getIcon component="+ component.toString());
+            ///MMLog.d(TAG,"getIcon component="+ component.toString());
             CacheEntry entry = cacheLocked(component, info, labelCache,info.getUser());
             return entry.icon;
         }
