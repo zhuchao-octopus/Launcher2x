@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.zhuchao.android.fbase.MMLog;
+
 public class UtilCarKey {
 	private final static String TAG = "UtilCarKey";
 
@@ -267,6 +269,8 @@ public class UtilCarKey {
 				it.putExtra("PageIndex", PageIndex);
 				it.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(it);
+
+				MMLog.d("EQ","doKeyEQ2 PageIndex="+it.getIntExtra("PageIndex",0));
 			} catch (Exception e) {
 				Log.e(TAG, Objects.requireNonNull(e.getMessage()));
 			}
@@ -275,17 +279,13 @@ public class UtilCarKey {
 
 	public static boolean doKeyRadio(Context context) {
 		if (!AppConfig.CAR_UI_RADIO.equals(AppConfig.getTopActivity())) {
-
 			UtilSystem.doRunActivity(context, AppConfig.PACKAGE_CAR_UI,"com.my.radio.RadioActivity");
-
 			return true;
 		}
 		return false;
-
 	}
 
 	public static void doKeyAudioEx(Context context, String song) {
-
 		try {
 			Intent it = new Intent();
 			it.setClassName("com.my.audio", "com.my.audio.MusicActivity");
@@ -293,17 +293,14 @@ public class UtilCarKey {
 			it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			context.startActivity(it);
 		} catch (Exception e) {
-			Log.e(TAG, e.getMessage());
+			Log.e(TAG, Objects.requireNonNull(e.getMessage()));
 		}
-
 	}
 
 	public static void doKeyDVR(Context context) {
 		if (!"com.my.dvr".equals(AppConfig.getTopActivity())) {
-			UtilSystem.doRunActivity(context, "com.my.dvr",
-					"com.my.dvr.MainActivity");
+			UtilSystem.doRunActivity(context, "com.my.dvr","com.my.dvr.MainActivity");
 		}
-
 	}
 
 	public static void doKeyPic(Context context) {

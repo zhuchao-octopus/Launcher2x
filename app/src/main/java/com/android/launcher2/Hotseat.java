@@ -113,8 +113,7 @@ public class Hotseat extends FrameLayout {
         Context context = getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         BubbleTextView allAppsButton;
-        
-		
+
         MMLog.d(TAG, "Launcher.mHideAllAppCEIcon:"+Launcher.mHideAllAppCEIcon+":"+Launcher.mAllAppLayout);
         if (!Launcher.mHideAllAppCEIcon) {
 			if (!Launcher.mAllAppLayout){

@@ -356,8 +356,7 @@ public class LauncherModel extends BroadcastReceiver {
             // to be consistent with the database-- for now, just require
             // modelItem == item or the equality check above
             String msg = "item: " + ((item != null) ? item.toString() : "null") +
-                    "modelItem: " +
-                    ((modelItem != null) ? modelItem.toString() : "null") +
+                    "modelItem: " + ((modelItem != null) ? modelItem.toString() : "null") +
                     "Error: ItemInfo passed to checkItemInfo doesn't match original";
             RuntimeException e = new RuntimeException(msg);
             if (stackTrace != null) {
@@ -861,7 +860,7 @@ public class LauncherModel extends BroadcastReceiver {
         public void onPackageAdded(String packageName, UserHandle user) {
             enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, new String[]{packageName}, user));
             MMLog.d(TAG,"onPackageAdded "+packageName);
-            ///forceReload();
+            //forceReload();
         }
 
         @Override
@@ -1045,6 +1044,9 @@ public class LauncherModel extends BroadcastReceiver {
                         RadioMusicWidgetView.doDarkMode(mDark);
                     }
                 }
+                break;
+            case "com.android.ACTION_PREINSTALL_COMPLETE":
+                MMLog.d(TAG,"com.android.ACTION_PREINSTALL_COMPLETE!");
                 break;
         }
     }

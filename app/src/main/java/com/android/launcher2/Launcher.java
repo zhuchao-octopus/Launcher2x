@@ -214,7 +214,9 @@ public final class Launcher extends Activity implements View.OnClickListener,
      */
     private enum State {
         NONE, WORKSPACE, APPS_CUSTOMIZE, APPS_CUSTOMIZE_SPRING_LOADED
-    };
+    }
+
+    ;
 
     private State mState = State.WORKSPACE;
     private AnimatorSet mStateAnimation;
@@ -510,12 +512,10 @@ public final class Launcher extends Activity implements View.OnClickListener,
         //Log.d("abcd", "getData(SAVE_FIRST_BOOT):"+getData(SAVE_FIRST_BOOT));
 
         if (getData(SAVE_FIRST_BOOT) != 1) {
-
-
             int data;
             data = MachineConfig.getPropertyIntReadOnly(SystemConfig.KEY_CE_STYLE);
             if (data != 0) {
-                SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE,data);
+                SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE, data);
             }
 
             if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType) {
@@ -582,8 +582,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private static String SAVE_FIRST_BOOT = "first_boot";
 
     private void saveData(String s, long v) {
-        SharedPreferences.Editor sharedata = getSharedPreferences(SAVE_DATA, 0)
-                .edit();
+        SharedPreferences.Editor sharedata = getSharedPreferences(SAVE_DATA, 0).edit();
 
         sharedata.putLong(s, v);
         sharedata.commit();
@@ -618,8 +617,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         // If we have a saved version of these external icons, we load them up
         // immediately
         int coi = getCurrentOrientationIndexForGlobalIcons();
-        if (sGlobalSearchIcon[coi] == null || sVoiceSearchIcon[coi] == null || sAppMarketIcon[coi] == null)
-        {
+        if (sGlobalSearchIcon[coi] == null || sVoiceSearchIcon[coi] == null || sAppMarketIcon[coi] == null) {
             updateAppMarketIcon();
             searchVisible = updateGlobalSearchIcon();
             voiceVisible = updateVoiceSearchIcon(searchVisible);
@@ -893,8 +891,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         int animationType = 0;
 
         AppWidgetHostView boundWidget = null;
-        if (resultCode == RESULT_OK)
-        {
+        if (resultCode == RESULT_OK) {
             animationType = Workspace.COMPLETE_TWO_STAGE_WIDGET_DROP_ANIMATION;
             final AppWidgetHostView layout = mAppWidgetHost.createView(this, appWidgetId, mPendingAddWidgetInfo);
             boundWidget = layout;
@@ -907,9 +904,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                     exitSpringLoadedDragModeDelayed((resultCode != RESULT_CANCELED), false, null);
                 }
             };
-        }
-        else if (resultCode == RESULT_CANCELED)
-        {
+        } else if (resultCode == RESULT_CANCELED) {
             mAppWidgetHost.deleteAppWidgetId(appWidgetId);
             animationType = Workspace.CANCEL_TWO_STAGE_WIDGET_DROP_ANIMATION;
             onCompleteRunnable = new Runnable() {
@@ -950,8 +945,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private void dvdHideToShowVideo() {
         dvdHide = false;
         dvrHide = false;
-        if (Utilities.mSystemUI != null && (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)))
-        {
+        if (Utilities.mSystemUI != null && (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))) {
             dvdHide = AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd();
 
             dvrHide = AppConfig.isHidePackage("com.my.dvr.MainActivity");
@@ -1923,18 +1917,14 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private void updateRunning() {
         boolean autoAdvanceRunning = mVisible && mUserPresent && !mWidgetsToAdvance.isEmpty();
 
-        if (autoAdvanceRunning != mAutoAdvanceRunning)
-        {
+        if (autoAdvanceRunning != mAutoAdvanceRunning) {
             mAutoAdvanceRunning = autoAdvanceRunning;
             if (autoAdvanceRunning) {
                 long delay = mAutoAdvanceTimeLeft == -1 ? mAdvanceInterval : mAutoAdvanceTimeLeft;
                 sendAdvanceMessage(delay);
-            }
-            else
-            {
-                if (!mWidgetsToAdvance.isEmpty())
-                {
-                    mAutoAdvanceTimeLeft = Math.max(0,mAdvanceInterval - (System.currentTimeMillis() - mAutoAdvanceSentTime));
+            } else {
+                if (!mWidgetsToAdvance.isEmpty()) {
+                    mAutoAdvanceTimeLeft = Math.max(0, mAdvanceInterval - (System.currentTimeMillis() - mAutoAdvanceSentTime));
                 }
                 mHandler.removeMessages(ADVANCE_MSG);
                 mHandler.removeMessages(0); // Remove messages sent using
@@ -2095,9 +2085,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
         }
         if (DEBUG_RESUME_TIME) {
-            Log.d(TAG,
-                    "Time spent in onNewIntent: "
-                            + (System.currentTimeMillis() - startTime));
+            Log.d(TAG, "Time spent in onNewIntent: " + (System.currentTimeMillis() - startTime));
         }
     }
 
@@ -2251,7 +2239,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
      * Starts the global search activity. This code is a copied from
      * SearchManager
      */
-    public void startGlobalSearch(String initialQuery,boolean selectInitialQuery, Bundle appSearchData, Rect sourceBounds) {
+    public void startGlobalSearch(String initialQuery, boolean selectInitialQuery, Bundle appSearchData, Rect sourceBounds) {
         final SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         ComponentName globalSearchActivity = searchManager
                 .getGlobalSearchActivity();
@@ -2319,7 +2307,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public static void finishLauncher() {
         if (mThis != null && mThis.mPaused) {
             Log.d(TAG, "finishLauncher onPause, need updateUI in onResume");
-//			mThis.finish();
+            //mThis.finish();
             mNeedUpdateUI = true;
         }
     }
@@ -2937,17 +2925,14 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public void onLauncherButtonClick(View v) {
         MMLog.d("Launcher", "onLauncherButtonClick:" + v.toString());
         int id = v.getId();
-        if (id == R.id.wince)
-        {
+        if (id == R.id.wince) {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.showLauncherView(mLauncherView);
                 //mLauncherView.setBackgroundResource(R.drawable.default_ce_screen);
             }
-        }
-        else if (id == R.id.button_gps || id == R.id.button_gps_toolbar) {
+        } else if (id == R.id.button_gps || id == R.id.button_gps_toolbar) {
             UtilCarKey.doKeyGps(this);
-        }
-        else if (id == R.id.entry_radio || id == R.id.entry_radio2 || id == R.id.button_radio || id == R.id.radio_info_layout || id == R.id.layout_left_fm || id == R.id.button_radio_toolbar) {// doRunActivity("com.my.radio", "com.my.radio.RadioActivity");
+        } else if (id == R.id.entry_radio || id == R.id.entry_radio2 || id == R.id.button_radio || id == R.id.radio_info_layout || id == R.id.layout_left_fm || id == R.id.button_radio_toolbar) {// doRunActivity("com.my.radio", "com.my.radio.RadioActivity");
 
             UtilCarKey.doKeyRadio(this);
         } else if (id == R.id.button_bluetooth) {
@@ -2978,15 +2963,13 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
         } else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
             toggleAllApp();
-        }
-        else if (id == R.id.button_dvr) {
+        } else if (id == R.id.button_dvr) {
             if (dvrHide && MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
                 UtilCarKey.doKeyAuxIn(this);
             } else {
                 doRunActivity("com.my.dvr", "com.my.dvr.MainActivity");
             }
-        }
-        else if (id == R.id.button_dvd) {
+        } else if (id == R.id.button_dvd) {
             if (dvdHide) {
                 if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI))
                     doRunActivity("net.easyconn", "net.easyconn.ui.Sv05MainActivity");
@@ -2996,14 +2979,10 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 //doRunActivity("com.car.ui", "com.my.dvd.DVDPlayer");
                 UtilCarKey.doKeyDVD(this);
             }
-        }
-        else if(id == R.id.img_btn_eq)
-        {
+        } else if (id == R.id.img_btn_eq) {
             //TAppUtils.startApp(this,"com.eqset");
-            UtilCarKey.doKeyEQ2(this,0);
-        }
-        else if(id == R.id.img_btn_sound)
-        {
+            UtilCarKey.doKeyEQ2(this, 0);
+        } else if (id == R.id.img_btn_sound) {
             ///Intent intent = new Intent("android.media.action.VOLUME_CHANGED_ACTION");
             ///sendBroadcast(intent);
             ///TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
@@ -3011,10 +2990,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
             ///it.setPackage("com.my.out");
             ///sendBroadcast(it);
             //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
-            UtilCarKey.doKeyEQ2(this,1);
-        }
-        else
-        {
+            UtilCarKey.doKeyEQ2(this, 1);
+        } else {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.openApp(v.getId());
             }
@@ -3103,16 +3080,14 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     void startApplicationUninstallActivity(ApplicationInfo appInfo, UserHandle user) {
-        MMLog.d(TAG,"startApplicationUninstallActivity->"+appInfo.componentName.getPackageName());
+        MMLog.d(TAG, "startApplicationUninstallActivity->" + appInfo.componentName.getPackageName());
         if ((appInfo.flags & ApplicationInfo.DOWNLOADED_FLAG) == 0) {
             // System applications cannot be installed. For now, show a toast
             // explaining that.
             // We may give them the option of disabling apps this way.
             int messageId = R.string.uninstall_system_app_text;
             Toast.makeText(this, messageId, Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
 
             String packageName = appInfo.componentName.getPackageName();
             String className = appInfo.componentName.getClassName();
@@ -3121,7 +3096,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             if (user != null) {
                 intent.putExtra(Intent.EXTRA_USER, user);
             }
-            MMLog.d(TAG,"startApplicationUninstallActivity->"+intent.toString());
+            MMLog.d(TAG, "startApplicationUninstallActivity->" + intent.toString());
             startActivity(intent);
         }
     }
@@ -3603,8 +3578,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     private void setWorkspaceBackground(boolean workspace) {
-//		mLauncherView.setBackground(workspace ? mWorkspaceBackgroundDrawable
-//				: null);
+        ///	mLauncherView.setBackground(workspace ? mWorkspaceBackgroundDrawable
+        ///	: null);
     }
 
     void updateWallpaperVisibility(boolean visible) {
@@ -3985,7 +3960,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     void showWorkspace(boolean animated, Runnable onCompleteRunnable) {
         animated = false;
-        MMLog.d(TAG,"showWorkspace() mState="+mState);
+        MMLog.d(TAG, "showWorkspace() mState=" + mState);
         if (mState != State.WORKSPACE) {
             boolean wasInSpringLoadedMode = (mState == State.APPS_CUSTOMIZE_SPRING_LOADED);
             mWorkspace.setVisibility(View.VISIBLE);
@@ -4209,14 +4184,12 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
         } catch (NameNotFoundException e) {
             // This can happen if the activity defines an invalid drawable
-            Log.w(TAG,
-                    "Failed to load toolbar icon; "
+            Log.w(TAG,"Failed to load toolbar icon; "
                             + activityName.flattenToShortString()
                             + " not found", e);
         } catch (Resources.NotFoundException nfe) {
             // This can happen if the activity defines an invalid drawable
-            Log.w(TAG,
-                    "Failed to load toolbar icon from "
+            Log.w(TAG,"Failed to load toolbar icon from "
                             + activityName.flattenToShortString(), nfe);
         }
         return null;

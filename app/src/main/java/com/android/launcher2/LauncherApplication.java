@@ -78,7 +78,11 @@ public class LauncherApplication extends Application {
         filter.addAction(MyCmd.BROADCAST_MACHINECONFIG_UPDATE);
         filter.addAction(MyCmd.BROADCAST_ILL_STATUS);
         registerReceiver(mModel, filter);
-        
+
+
+        filter = new IntentFilter();
+        filter.addAction("com.android.ACTION_PREINSTALL_COMPLETE");
+        registerReceiver(mModel, filter);
         // Register for changes to the favorites
         ContentResolver resolver = getContentResolver();
         resolver.registerContentObserver(LauncherSettings.Favorites.CONTENT_URI, true, mFavoritesObserver);
