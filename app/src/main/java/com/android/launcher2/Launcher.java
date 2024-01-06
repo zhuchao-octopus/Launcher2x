@@ -784,8 +784,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 processShortcut(args.intent);
                 break;
             case REQUEST_CREATE_SHORTCUT:
-                completeAddShortcut(args.intent, args.container, args.screen,
-                        args.cellX, args.cellY);
+                completeAddShortcut(args.intent, args.container, args.screen, args.cellX, args.cellY);
                 result = true;
                 break;
             case REQUEST_CREATE_APPWIDGET:

@@ -38,8 +38,7 @@ import java.util.Set;
 import org.json.*;
 
 public class InstallShortcutReceiver extends BroadcastReceiver {
-    public static final String ACTION_INSTALL_SHORTCUT =
-            "com.android.launcher.action.INSTALL_SHORTCUT";
+    public static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
     public static final String NEW_APPS_PAGE_KEY = "apps.new.page";
     public static final String NEW_APPS_LIST_KEY = "apps.new.list";
 
@@ -60,8 +59,7 @@ public class InstallShortcutReceiver extends BroadcastReceiver {
     private static final int INSTALL_SHORTCUT_NO_SPACE = -2;
 
     // A mime-type representing shortcut data
-    public static final String SHORTCUT_MIMETYPE =
-            "com.android.launcher/shortcut";
+    public static final String SHORTCUT_MIMETYPE = "com.android.launcher/shortcut";
 
     private static Object sLock = new Object();
 

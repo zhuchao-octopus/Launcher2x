@@ -250,6 +250,7 @@ public class LauncherProvider extends ContentProvider {
                 // Workspace has already been loaded, clear the database.
                 deleteDatabase();
             }
+            //MMLog.d(TAG, "loadDefaultFavoritesIfNecessary()");
             mOpenHelper.loadFavorites(mOpenHelper.getWritableDatabase(), workspaceResId);
             editor.commit();
         }
@@ -872,8 +873,7 @@ public class LauncherProvider extends ContentProvider {
                 final int depth = parser.getDepth();
 
                 int type;
-                while (((type = parser.next()) != XmlPullParser.END_TAG ||
-                        parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
+                while (((type = parser.next()) != XmlPullParser.END_TAG || parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
 
                     if (type != XmlPullParser.START_TAG) {
                         continue;
@@ -882,8 +882,8 @@ public class LauncherProvider extends ContentProvider {
                     boolean added = false;
                     final String name = parser.getName();
 
-                    TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.Favorite);
 
+                    TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.Favorite);
                     long container = LauncherSettings.Favorites.CONTAINER_DESKTOP;
                     if (a.hasValue(R.styleable.Favorite_container)) {
                         container = Long.parseLong(Objects.requireNonNull(a.getString(R.styleable.Favorite_container)));
@@ -892,7 +892,7 @@ public class LauncherProvider extends ContentProvider {
                     String screen = a.getString(R.styleable.Favorite_screen);
                     String x = a.getString(R.styleable.Favorite_x);
                     String y = a.getString(R.styleable.Favorite_y);
-
+                    MMLog.d(TAG,"loadFavorites() className="+ a.getString(R.styleable.Favorite_className));
                     // If we are adding to the hotseat, the screen is used as the position in the
                     // hotseat. This screen can't be at position 0 because AllApps is in the
                     // zeroth position.
@@ -946,8 +946,7 @@ public class LauncherProvider extends ContentProvider {
                             values.put(LauncherSettings.Favorites.CONTAINER, folderId);
 
                             if (TAG_FAVORITE.equals(folder_item_name) && folderId >= 0) {
-                                long id =
-                                    addAppShortcut(db, values, ar, packageManager, intent);
+                                long id = addAppShortcut(db, values, ar, packageManager, intent);
                                 if (id >= 0) {
                                     folderItems.add(id);
                                 }
@@ -957,8 +956,7 @@ public class LauncherProvider extends ContentProvider {
                                     folderItems.add(id);
                                 }
                             } else {
-                                throw new RuntimeException("Folders can " +
-                                        "contain only shortcuts");
+                                throw new RuntimeException("Folders can " + "contain only shortcuts");
                             }
                             ar.recycle();
                         }
@@ -1003,8 +1001,7 @@ public class LauncherProvider extends ContentProvider {
                 }
                 id = generateNewId();
                 intent.setComponent(cn);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                        Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
                 values.put(Favorites.INTENT, intent.toUri(0));
                 values.put(Favorites.TITLE, info.loadLabel(packageManager).toString());
                 values.put(Favorites.ITEM_TYPE, Favorites.ITEM_TYPE_APPLICATION);
@@ -1015,8 +1012,7 @@ public class LauncherProvider extends ContentProvider {
                     return -1;
                 }
             } catch (PackageManager.NameNotFoundException e) {
-                Log.w(TAG, "Unable to add favorite: " + packageName +
-                        "/" + className, e);
+                Log.w(TAG, "Unable to add favorite: " + packageName + "/" + className, e);
             }
             return id;
         }

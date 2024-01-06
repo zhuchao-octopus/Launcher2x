@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 import com.android.launcher.R;
 import com.common.util.BroadcastUtil;
@@ -16,6 +17,7 @@ import com.common.util.SystemConfig;
 import com.my.radio.MarkFaceView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -44,6 +46,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.StatFs;
 import android.provider.Settings;
@@ -275,8 +278,6 @@ public class RadioMusicWidgetView {
     private MyScrollView mMyScrollView;
     private ICallBack mICallBack = new ICallBack() {
         public void callback(int cmd, int param) {
-
-
             if (cmd == MyScrollView.CMD_PAGE_END) {
                 Log.d("abcd", "dd:" + param);
                 View v;
@@ -290,10 +291,8 @@ public class RadioMusicWidgetView {
                     v = mContext.findViewById(getMidPageId(param));
                     v.getBackground().setLevel(1);
 
-                } catch (Exception e) {
-
+                } catch (Exception ignored) {
                 }
-
             }
         }
     };
@@ -317,7 +316,6 @@ public class RadioMusicWidgetView {
     private ICallBack mICallBack2 = new ICallBack() {
         public void callback(int cmd, int param) {
 
-
             if (cmd == MyScrollView.CMD_PAGE_END) {
                 Log.d("abcd", "callback:" + param);
                 View v;
@@ -339,8 +337,7 @@ public class RadioMusicWidgetView {
                         }
                     }
 
-                } catch (Exception e) {
-
+                } catch (Exception ignored) {
                 }
 
             }
@@ -383,9 +380,7 @@ public class RadioMusicWidgetView {
             // ProtocolAk47.SEND_RADIO_SUB_RADIO_OPERATION, 1, 3);
         } else if (id == R.id.radio_button_next) {
             if (mSource == MyCmd.SOURCE_RADIO) {
-
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                        MyCmd.Keycode.NEXT);
+                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.NEXT);
             }
 
             // BroadcastUtil.sendToCarServiceMcuRadio(mContext,
@@ -404,18 +399,12 @@ public class RadioMusicWidgetView {
                             MyCmd.Keycode.PREVIOUS);
                 }
             }
-        }
-        else if (id == R.id.music_button_play || id == R.id.bt_button_pp)
-        {
-            if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC)
-            {
+        } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
+            if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
                 BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PLAY_PAUSE);
-            }
-            else if (mSource == MyCmd.SOURCE_DVD)
-            {
-                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI))
-                {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.PLAY_PAUSE);
+            } else if (mSource == MyCmd.SOURCE_DVD) {
+                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
         } else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
@@ -454,22 +443,16 @@ public class RadioMusicWidgetView {
             it = new Intent(MyCmd.BROADCAST_START_BACKLIGHTSETTINGS_COMMON);
             it.setPackage("com.my.out");
             mContext.sendBroadcast(it);
-        }
-        else if (id == R.id.img_btn_eq) {
+        } else if (id == R.id.img_btn_eq) {
             UtilCarKey.doKeyEQ(mContext);
-        }
-        else if (id == R.id.img_btn_vol)
-        {
+        } else if (id == R.id.img_btn_vol) {
             it = new Intent(MyCmd.BROADCAST_START_VOLUMESETTINGS_COMMON);
             it.setPackage("com.my.out");
             mContext.sendBroadcast(it);
 
-        }
-        else if (id == R.id.img_btn_speed) {
-            BroadcastUtil.sendToCarService(mContext,MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.SPEED_UP);
-        }
-        else if (id == R.id.widget_speed || id == R.id.widget_time || id == R.id.widget_fm)
-        {
+        } else if (id == R.id.img_btn_speed) {
+            BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.APP_REQUEST_SEND_KEY, MyCmd.Keycode.SPEED_UP);
+        } else if (id == R.id.widget_speed || id == R.id.widget_time || id == R.id.widget_fm) {
             showLeft(v.getId());
         }
     }
@@ -482,7 +465,8 @@ public class RadioMusicWidgetView {
 
     private final static int MSG_UPDATE_TIMECLOCK = 4;
     private final static int MSG_UPDATE_TIMEFLASH = 5;
-    Handler mHandler = new Handler() {
+
+    Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 0:
@@ -515,18 +499,13 @@ public class RadioMusicWidgetView {
 
     private void updateMusicTime() {
         String time = "";
-        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME  && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME)
-        {
-            if (mMusicTime2 != null)
-            {
+        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME) {
+            if (mMusicTime2 != null) {
                 time = stringForTime(mMusicTotalTime);
                 mMusicTime2.setText(time);
                 time = stringForTime(mMusicCurTime);
-            }
-            else
-            {
-                if (mMusicTotalTime > 0)
-                {
+            } else {
+                if (mMusicTotalTime > 0) {
                     time = stringForTime(mMusicCurTime) + "/" + stringForTime(mMusicTotalTime);
                 } else {
                     time = stringForTime(mMusicCurTime);
@@ -661,11 +640,9 @@ public class RadioMusicWidgetView {
         //
         // s = String.format("%02d:%02d", h, c.get(Calendar.MINUTE));
 
-        String s = SystemConfig.getProperty(mContext,
-                SystemConfig.KEY_DATE_FORMAT);
+        String s = SystemConfig.getProperty(mContext, SystemConfig.KEY_DATE_FORMAT);
         if (s == null) {
-            if (MachineConfig.VALUE_SYSTEM_UI16_7099
-                    .equals(Utilities.mSystemUI)) {
+            if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(Utilities.mSystemUI)) {
                 s = "MM/dd/yyyy";
             } else {
                 s = "yyyy/MM/dd";
@@ -704,7 +681,7 @@ public class RadioMusicWidgetView {
         if (second == 0) {
             second = 60;
         }
-        Log.d(TAG, t2 + "mClock:" + second + ":" + mContext);
+        Log.d(TAG, "setTime:"+t2 + " mClock:" + second + " mContext=" + mContext);
         mHandler.sendEmptyMessageDelayed(0, second * 1000);
     }
 
@@ -754,7 +731,7 @@ public class RadioMusicWidgetView {
                 setNumImage(R.id.radionum4, (freq / 10) % 10);
                 setNumImage(R.id.radionum5, freq % 10);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
@@ -763,12 +740,9 @@ public class RadioMusicWidgetView {
             String[] ss = time.split(":");
             setNumImage(R.id.timehour_h, Integer.valueOf(ss[0].substring(0, 1)));
             setNumImage(R.id.timehour_l, Integer.valueOf(ss[0].substring(1, 2)));
-            setNumImage(R.id.timeminute_h,
-                    Integer.valueOf(ss[1].substring(0, 1)));
-            setNumImage(R.id.timeminute_l,
-                    Integer.valueOf(ss[1].substring(1, 2)));
-        } catch (Exception e) {
-
+            setNumImage(R.id.timeminute_h,Integer.valueOf(ss[1].substring(0, 1)));
+            setNumImage(R.id.timeminute_l,Integer.valueOf(ss[1].substring(1, 2)));
+        } catch (Exception ignored) {
         }
     }
 
@@ -779,7 +753,7 @@ public class RadioMusicWidgetView {
                 return;
             }
             ((ImageView) v).getDrawable().setLevel(num);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
     }
@@ -835,9 +809,7 @@ public class RadioMusicWidgetView {
                         @Override
                         public boolean onLongClick(View arg0) {
                             // TODO Auto-generated method stub
-                            BroadcastUtil.sendKey(mContext,
-                                    AppConfig.PACKAGE_CAR_UI,
-                                    MyCmd.Keycode.KEY_SEEK_PREV);
+                            BroadcastUtil.sendKey(mContext,AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.KEY_SEEK_PREV);
                             return true;
                         }
                     });
@@ -847,9 +819,7 @@ public class RadioMusicWidgetView {
                         @Override
                         public boolean onLongClick(View arg0) {
                             // TODO Auto-generated method stub
-                            BroadcastUtil.sendKey(mContext,
-                                    AppConfig.PACKAGE_CAR_UI,
-                                    MyCmd.Keycode.KEY_SEEK_NEXT);
+                            BroadcastUtil.sendKey(mContext,AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.KEY_SEEK_NEXT);
                             return true;
                         }
                     });
@@ -858,13 +828,10 @@ public class RadioMusicWidgetView {
             setViewVisible(R.id.entry_music, View.GONE);
             setViewVisible(R.id.entry_bt_music, View.GONE);
 
-        } else if (mSource == MyCmd.SOURCE_MUSIC
-                || mSource == MyCmd.SOURCE_BT_MUSIC) {
+        } else if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
 
             setViewVisible(R.id.entry_radio, View.GONE);
-
             setViewVisible(R.id.radio_info_layout, View.GONE);
-
             mMarkFace.setEnable(false);
 
             if (mBTMusicLayout == null) {
@@ -892,32 +859,25 @@ public class RadioMusicWidgetView {
 
         }
 
-        if (mSource == MyCmd.SOURCE_MUSIC)
-        {
+        if (mSource == MyCmd.SOURCE_MUSIC) {
             setViewVisible(R.id.music_icon, View.GONE);
             mMusicName.setVisibility(View.VISIBLE);
             mMusicTime.setVisibility(View.VISIBLE);
             mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
             mMusicName.setText(mStrMusicName);
 
-            if (mMusicPlaying != 1)
-            {
+            if (mMusicPlaying != 1) {
                 mMusicTime.setText("");
                 if (mMusicSeekBar != null) {
                     mMusicSeekBar.setVisibility(View.VISIBLE);
                     mMusicSeekBar.setProgress(0);
                 }
-            }
-            else
-            {
+            } else {
                 setPlayButtonStatus(true);
                 startUpdateMusicTime();
             }
-        }
-
-        else if (mSource == MyCmd.SOURCE_BT_MUSIC)
-        {
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.bt_music_pic,null));
+        } else if (mSource == MyCmd.SOURCE_BT_MUSIC) {
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.bt_music_pic, null));
 
             if (mPlayStatus < 3) {
                 mMusicName.setText("");
@@ -940,12 +900,9 @@ public class RadioMusicWidgetView {
                 mMusicSeekBar.setProgress(0);
                 mMusicSeekBar.setVisibility(View.INVISIBLE);
             }
-        }
-        else if (mSource == MyCmd.SOURCE_DVD)
-        {
+        } else if (mSource == MyCmd.SOURCE_DVD) {
             Log.d(TAG, "updateRadioInfofffffff:" + mSource);
-            if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI))
-            {
+            if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
                 setViewVisible(R.id.entry_radio, View.GONE);
                 setViewVisible(R.id.radio_info_layout, View.GONE);
                 mMusicName.setVisibility(View.VISIBLE);
@@ -963,10 +920,8 @@ public class RadioMusicWidgetView {
                     setViewVisible(R.id.entry_music, View.VISIBLE);
                 }
             }
-        }
-        else
-        {
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic,null));
+        } else {
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
             setViewVisible(R.id.music_icon, View.VISIBLE);
             mMusicName.setVisibility(View.GONE);
             mMusicTime.setVisibility(View.GONE);
@@ -975,7 +930,7 @@ public class RadioMusicWidgetView {
             }
             stopUpdateMusicTime();
 
-            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic,null));
+            mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
             mMusicName.setText("");
             mMusicTime.setText("");
             if (mMusicSeekBar != null) {
@@ -1081,7 +1036,7 @@ public class RadioMusicWidgetView {
                         setViewVisible(R.id.music_icon, View.VISIBLE);
                         stopUpdateMusicTime();
                     } else {
-//					startUpdateMusicTime();
+                        //startUpdateMusicTime();
                         setViewVisible(R.id.music_icon, View.GONE);
                     }
                 }
@@ -1131,187 +1086,166 @@ public class RadioMusicWidgetView {
     }
 
     private void registerReceiver() {
-        if (mBroadcastReceiver == null) {
-            mBroadcastReceiver = new BroadcastReceiver() {
+        if (mBroadcastReceiver == null)
+        {
+            mBroadcastReceiver = new BroadcastReceiver()
+            {
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     String action = intent.getAction();
+                    int cmd = intent.getIntExtra(MyCmd.EXTRA_COMMON_CMD, 0);
+                    Log.d(TAG, "BROADCAST_CMD_FROM_MUSIC Action:" + action+",CMD:"+cmd);
+                    switch (Objects.requireNonNull(action))
+                    {
+                        case Intent.ACTION_TIME_CHANGED:
+                            updateTime();
+                            break;
+                        case MyCmd.BROADCAST_CMD_FROM_MUSIC:
+                            Log.d(TAG, "BROADCAST_CMD_FROM_MUSIC Source:" + mSource);
+                            switch (mSource)
+                            {
+                                case MyCmd.SOURCE_MUSIC:
+                                    //int cmd = intent.getIntExtra(MyCmd.EXTRA_COMMON_CMD, 0);
+                                    if (cmd == MyCmd.Cmd.MUSIC_SEND_PLAY_STATUS)
+                                    {
+                                        int data = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA, 0);
+                                        mMusicCurTime = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA2, -1);
+                                        mMusicTotalTime = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA3, -1);
 
-                    Log.d(TAG, "BROADCAST_CMD_FROM_MUSIC:" + action);
-                    if (action.equals(Intent.ACTION_TIME_CHANGED)) {
-                        updateTime();
-                    } else if (MyCmd.BROADCAST_CMD_FROM_MUSIC.equals(action)) {
-                        Log.d(TAG, "BROADCAST_CMD_FROM_MUSIC:" + mSource);
-                        if (mSource == MyCmd.SOURCE_MUSIC) {
-                            int cmd = intent.getIntExtra(
-                                    MyCmd.EXTRA_COMMON_CMD, 0);
-                            if (cmd == MyCmd.Cmd.MUSIC_SEND_PLAY_STATUS) {
+                                        //Object obj = intent.getExtra(MyCmd.EXTRA_COMMON_OBJECT);mackylee
+                                        byte[] buff = intent.getByteArrayExtra(MyCmd.EXTRA_COMMON_OBJECT);
 
-                                int data = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA, 0);
-                                mMusicCurTime = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA2, -1);
-                                mMusicTotalTime = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA3, -1);
+                                        if (mSource != MyCmd.SOURCE_BT_MUSIC) {
+                                            if (buff != null) {
+                                                mArtWork = Bytes2Bimap(buff);//(Bitmap) obj;
+                                                mArtWork = createReflectedImage(mArtWork, 80);
+                                                mMusicArt.setImageBitmap(mArtWork);
+                                                mMusicArt.getDrawable().setDither(true);
+                                                mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
-                                //Object obj = intent.getExtra(MyCmd.EXTRA_COMMON_OBJECT);mackylee
-                                byte buff[] = intent.getByteArrayExtra(MyCmd.EXTRA_COMMON_OBJECT);
+                                                // mMusicArt.setImageBitmap(mArtWork);
+                                            } else {
+                                                mArtWork = null;
+                                                mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
+                                                mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                                            }
+                                        }
+                                        String name = intent.getStringExtra(MyCmd.EXTRA_COMMON_DATA4);
+                                        mStrMusicName = name;
+                                        mMusicPlaying = data;
+                                        if (mSource == MyCmd.SOURCE_MUSIC) {
+                                            // Log.d("allen", "music name:"+name);
+                                            mMusicName.setText(name);
+                                            setPlayButtonStatus(data == 1);
+                                            updateMusicTime();
+                                        }
 
-                                if (mSource != MyCmd.SOURCE_BT_MUSIC) {
-                                    if (buff != null) {
-                                        mArtWork = Bytes2Bimap(buff);//(Bitmap) obj;
+                                        if (data == 1) {
+                                            if (mSource == MyCmd.SOURCE_MUSIC) {
+                                                startUpdateMusicTime();
+                                            }
+                                        } else {
+                                            stopUpdateMusicTime();
+                                        }
 
-                                        mArtWork = createReflectedImage(
-                                                mArtWork, 80);
-                                        mMusicArt.setImageBitmap(mArtWork);
-                                        mMusicArt.getDrawable().setDither(true);
-                                        mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
-
-                                        // mMusicArt.setImageBitmap(mArtWork);
-                                    } else {
-                                        mArtWork = null;
-                                        mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic));
-
-                                        mMusicArt.setScaleType(ImageView.ScaleType.FIT_CENTER);
                                     }
-                                }
-                                String name = intent
-                                        .getStringExtra(MyCmd.EXTRA_COMMON_DATA4);
+                                    break;
+                                case MyCmd.SOURCE_DVD:
+                                    if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI))
+                                    {
+                                        int data = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA, 0);
+                                        int time = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA2, -1);
+                                        int song = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA3, -1);
+                                        int tag = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA4, -1);
 
-                                mStrMusicName = name;
-                                mMusicPlaying = data;
-                                if (mSource == MyCmd.SOURCE_MUSIC) {
-                                    // Log.d("allen", "music name:"+name);
+                                        if (tag == 0xabc)
+                                        {
+                                            if (song == -1) {
+                                                mMusicName.setText("DVD");
+                                            } else {
+                                                if (song != 0) {
+                                                    mMusicName.setText("CD Track " + song);
+                                                }
+                                            }
+                                            mMusicName.setVisibility(View.VISIBLE);
+                                            mMusicTime.setVisibility(View.VISIBLE);
+                                            time *= 1000;
+                                            String s = stringForTime(time);
+                                            mMusicTime.setText(s);
 
-                                    mMusicName.setText(name);
-
-                                    setPlayButtonStatus(data == 1);
-
-                                    updateMusicTime();
-
-                                }
-
-                                if (data == 1) {
-                                    if (mSource == MyCmd.SOURCE_MUSIC) {
-                                        startUpdateMusicTime();
+                                            setPlayButtonStatus(data == 1);
+                                        }
+                                        stopUpdateMusicTime();
+                                        // if(data == 1){
+                                        //
+                                        // startUpdateMusicTime();
+                                        //
+                                        // } else {
+                                        // stopUpdateMusicTime();
+                                        // }
                                     }
-                                } else {
-                                    stopUpdateMusicTime();
-                                }
-
+                                    break;
                             }
-                        } else if (mSource == MyCmd.SOURCE_DVD) {
-                            if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                                    .equals(Utilities.mSystemUI)) {
+                            break;
+                        case MyCmd.BROADCAST_CAR_SERVICE_SEND:
+                            ///int cmd = intent.getIntExtra(MyCmd.EXTRA_COMMON_CMD, 0);
+                            /// Log.d("tt", "cmd:" + cmd);
+                            switch (cmd) {
+                                case MyCmd.Cmd.MCU_RADIO_RECEIVE_DATA:
+                                    byte[] buf = intent.getByteArrayExtra(MyCmd.EXTRA_COMMON_DATA);
+                                    doMcuData(buf);
+                                    break;
 
-                                int data = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA, 0);
+                                case MyCmd.Cmd.SOURCE_CHANGE:
+                                case MyCmd.Cmd.RETURN_CURRENT_SOURCE:
+                                    mSource = intent.getIntExtra(MyCmd.EXTRA_COMMON_DATA, MyCmd.SOURCE_NONE);
+                                    if (mSource != MyCmd.SOURCE_MUSIC) {
+                                        stopUpdateMusicTime();
+                                    }
 
-                                int time = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA2, -1);
-                                int song = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA3, -1);
-
-                                int tag = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA4, -1);
-
-                                if (tag == 0xabc) {
-                                    if (song == -1) {
-                                        mMusicName.setText("DVD");
-                                    } else {
-                                        if (song != 0) {
-                                            mMusicName.setText("CD Track " + song);
+                                    if (cmd == MyCmd.Cmd.RETURN_CURRENT_SOURCE) {
+                                        switch (mSource) {
+                                            case MyCmd.SOURCE_RADIO:
+                                                BroadcastUtil.sendToCarServiceMcuRadio(mContext,ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO,0);
+                                                break;
+                                            case MyCmd.SOURCE_MUSIC:
+                                                Intent i = new Intent(MyCmd.BROADCAST_CMD_TO_MUSIC);
+                                                i.putExtra(MyCmd.EXTRA_COMMON_CMD, MyCmd.Cmd.MUSIC_REQUEST_PLAY_STATUS);
+                                                mContext.sendBroadcast(i);
+                                                break;
+                                            case MyCmd.SOURCE_BT_MUSIC:
+                                                Intent it = new Intent(MyCmd.BROADCAST_CMD_LAUNCHER_TO_BT);
+                                                it.putExtra(MyCmd.EXTRA_COMMON_CMD, MyCmd.Cmd.BT_REQUEST_A2DP_INFO);
+                                                mContext.sendBroadcast(it);
+                                                break;
+                                            default:
+                                                ///if (mSource == MyCmd.SOURCE_DVD) {
+                                                    // if
+                                                    // (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)
+                                                    // ){
+                                                    // Intent i = new
+                                                    // Intent(MyCmd.BROADCAST_CMD_TO_MUSIC);
+                                                    // i.putExtra(MyCmd.EXTRA_COMMON_CMD,
+                                                    // MyCmd.Cmd.MUSIC_REQUEST_PLAY_STATUS);
+                                                    //
+                                                    // mContext.sendBroadcast(i);
+                                                    // }
+                                                //}
+                                                break;
                                         }
                                     }
-                                    mMusicName.setVisibility(View.VISIBLE);
-                                    mMusicTime.setVisibility(View.VISIBLE);
-                                    time *= 1000;
-                                    String s = stringForTime(time);
-                                    mMusicTime.setText(s);
 
-                                    setPlayButtonStatus(data == 1);
-                                }
-                                stopUpdateMusicTime();
-                                // if(data == 1){
-                                //
-                                // startUpdateMusicTime();
-                                //
-                                // } else {
-                                // stopUpdateMusicTime();
-                                // }
+                                    updateRadioInfo();
+                                    break;
+                                case MyCmd.Cmd.LAUNCHER_SHOW_ALL_APP:
+                                    //mContext.onClickAllAppsButton(null);
+                                    break;
                             }
-                        }
-                    } else if (action.equals(MyCmd.BROADCAST_CAR_SERVICE_SEND)) {
 
-                        int cmd = intent.getIntExtra(MyCmd.EXTRA_COMMON_CMD, 0);
-
-                        // Log.d("tt", "cmd:" + cmd);
-
-                        switch (cmd) {
-                            case MyCmd.Cmd.MCU_RADIO_RECEIVE_DATA:
-                                byte[] buf = intent
-                                        .getByteArrayExtra(MyCmd.EXTRA_COMMON_DATA);
-                                doMcuData(buf);
-                                break;
-
-                            case MyCmd.Cmd.SOURCE_CHANGE:
-                            case MyCmd.Cmd.RETURN_CURRENT_SOURCE:
-
-                                mSource = intent.getIntExtra(
-                                        MyCmd.EXTRA_COMMON_DATA, MyCmd.SOURCE_NONE);
-                                if (mSource != MyCmd.SOURCE_MUSIC) {
-                                    stopUpdateMusicTime();
-                                }
-                                if (cmd == MyCmd.Cmd.RETURN_CURRENT_SOURCE) {
-                                    if (mSource == MyCmd.SOURCE_RADIO) {
-                                        BroadcastUtil
-                                                .sendToCarServiceMcuRadio(
-                                                        mContext,
-                                                        ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO,
-                                                        0);
-                                    } else if (mSource == MyCmd.SOURCE_MUSIC) {
-
-                                        Intent i = new Intent(
-                                                MyCmd.BROADCAST_CMD_TO_MUSIC);
-                                        i.putExtra(MyCmd.EXTRA_COMMON_CMD,
-                                                MyCmd.Cmd.MUSIC_REQUEST_PLAY_STATUS);
-
-                                        mContext.sendBroadcast(i);
-
-                                    } else if (mSource == MyCmd.SOURCE_BT_MUSIC) {
-                                        Intent it = new Intent(
-                                                MyCmd.BROADCAST_CMD_LAUNCHER_TO_BT);
-                                        it.putExtra(MyCmd.EXTRA_COMMON_CMD,
-                                                MyCmd.Cmd.BT_REQUEST_A2DP_INFO);
-
-                                        mContext.sendBroadcast(it);
-                                    } else {
-
-                                        if (mSource == MyCmd.SOURCE_DVD) {
-                                            // if
-                                            // (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)
-                                            // ){
-                                            // Intent i = new
-                                            // Intent(MyCmd.BROADCAST_CMD_TO_MUSIC);
-                                            // i.putExtra(MyCmd.EXTRA_COMMON_CMD,
-                                            // MyCmd.Cmd.MUSIC_REQUEST_PLAY_STATUS);
-                                            //
-                                            // mContext.sendBroadcast(i);
-                                            // }
-
-                                        }
-                                    }
-                                }
-
-                                updateRadioInfo();
-                                break;
-                            case MyCmd.Cmd.LAUNCHER_SHOW_ALL_APP:
-                                //mContext.onClickAllAppsButton(null);
-                                break;
-                        }
-
-                    } else if (action.equals(MyCmd.BROADCAST_CMD_FROM_BT)) {
-                        doBTCmd(intent);
+                            break;
+                        case MyCmd.BROADCAST_CMD_FROM_BT:
+                            doBTCmd(intent);
+                            break;
                     }
                 }
             };
@@ -1319,11 +1253,8 @@ public class RadioMusicWidgetView {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(Intent.ACTION_TIME_CHANGED);
             intentFilter.addAction(MyCmd.BROADCAST_CAR_SERVICE_SEND);
-
             intentFilter.addAction(MyCmd.BROADCAST_CMD_FROM_MUSIC);
-
             intentFilter.addAction(MyCmd.BROADCAST_CMD_FROM_BT);
-
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
         }
 
@@ -1338,11 +1269,8 @@ public class RadioMusicWidgetView {
             int j = paramBitmap.getHeight();
             Matrix localMatrix = new Matrix();
             localMatrix.preScale(1.0F, -1.0F);
-            Bitmap localBitmap1 = Bitmap.createBitmap(paramBitmap, 0,
-                    (j - paramInt) > 0 ? (j - paramInt) : 0, i, paramInt,
-                    localMatrix, false);
-            localBitmap2 = Bitmap.createBitmap(i, j + paramInt,
-                    Bitmap.Config.ARGB_8888);
+            Bitmap localBitmap1 = Bitmap.createBitmap(paramBitmap, 0, (j - paramInt) > 0 ? (j - paramInt) : 0, i, paramInt, localMatrix, false);
+            localBitmap2 = Bitmap.createBitmap(i, j + paramInt,  Bitmap.Config.ARGB_8888);
             Canvas localCanvas = new Canvas(localBitmap2);
             Paint localPaint1 = new Paint();
             localCanvas.drawBitmap(paramBitmap, 0.0F, 0.0F, localPaint1);

@@ -4,7 +4,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp-w853dp-h480dp/apps_customize_application.xml"
@@ -15,7 +15,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw322dp/apps_customize_application.xml"
@@ -26,7 +26,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp-w853dp-h280dp/apps_customize_application.xml"
@@ -37,7 +37,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp/apps_customize_application.xml"
@@ -48,7 +48,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw327dp/apps_customize_application.xml"
@@ -59,7 +59,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw333dp-h426dp/apps_customize_application.xml"
@@ -70,7 +70,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw334dp/apps_customize_application.xml"
@@ -81,7 +81,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h426dp/apps_customize_application.xml"
@@ -92,7 +92,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h480dp/apps_customize_application.xml"
@@ -103,7 +103,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw338dp/apps_customize_application.xml"
@@ -114,7 +114,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp-h426dp/apps_customize_application.xml"
@@ -125,7 +125,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw356dp/apps_customize_application.xml"
@@ -136,7 +136,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw357dp-h426dp/apps_customize_application.xml"
@@ -147,7 +147,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/apps_customize_application.xml"
@@ -158,7 +158,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp-h480dp/apps_customize_application.xml"
@@ -169,7 +169,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp/apps_customize_application.xml"
@@ -180,7 +180,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw368dp/apps_customize_application.xml"
@@ -191,7 +191,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp-h480dp/apps_customize_application.xml"
@@ -202,7 +202,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h426dp/apps_customize_application.xml"
@@ -213,7 +213,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h480dp/apps_customize_application.xml"
@@ -224,7 +224,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw400dp/apps_customize_application.xml"
@@ -235,7 +235,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw402dp-h426dp/apps_customize_application.xml"
@@ -246,7 +246,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw480dp/apps_customize_application.xml"
@@ -257,7 +257,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/apps_customize_application.xml"
@@ -268,7 +268,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/apps_customize_pane.xml"
@@ -279,7 +279,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw320dp-w1280dp-h426dp/apps_customize_pane.xml"
@@ -290,7 +290,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw320dp-w853dp-h280dp/apps_customize_pane.xml"
@@ -301,7 +301,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp-w853dp-h426dp/apps_customize_pane.xml"
@@ -312,7 +312,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp-w853dp-h480dp/apps_customize_pane.xml"
@@ -323,7 +323,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp/apps_customize_pane.xml"
@@ -334,7 +334,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw322dp/apps_customize_pane.xml"
@@ -345,7 +345,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw323dp/apps_customize_pane.xml"
@@ -356,7 +356,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp-w853dp-h280dp/apps_customize_pane.xml"
@@ -367,7 +367,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp/apps_customize_pane.xml"
@@ -378,7 +378,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw325dp-h426dp/apps_customize_pane.xml"
@@ -389,7 +389,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw325dp/apps_customize_pane.xml"
@@ -400,7 +400,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw327dp/apps_customize_pane.xml"
@@ -411,7 +411,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw328dp/apps_customize_pane.xml"
@@ -422,7 +422,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw329dp/apps_customize_pane.xml"
@@ -433,7 +433,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw330dp/apps_customize_pane.xml"
@@ -444,7 +444,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw331dp-h426dp/apps_customize_pane.xml"
@@ -455,7 +455,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw331dp/apps_customize_pane.xml"
@@ -466,7 +466,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw332dp/apps_customize_pane.xml"
@@ -477,7 +477,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw333dp-h426dp/apps_customize_pane.xml"
@@ -488,7 +488,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw333dp/apps_customize_pane.xml"
@@ -499,7 +499,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw334dp/apps_customize_pane.xml"
@@ -510,7 +510,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw335dp/apps_customize_pane.xml"
@@ -521,7 +521,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h426dp/apps_customize_pane.xml"
@@ -532,7 +532,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h480dp/apps_customize_pane.xml"
@@ -543,7 +543,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp/apps_customize_pane.xml"
@@ -554,7 +554,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw338dp/apps_customize_pane.xml"
@@ -565,7 +565,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw339dp-h426dp/apps_customize_pane.xml"
@@ -576,7 +576,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw339dp/apps_customize_pane.xml"
@@ -587,7 +587,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw340dp/apps_customize_pane.xml"
@@ -598,7 +598,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw341dp/apps_customize_pane.xml"
@@ -609,7 +609,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw344dp/apps_customize_pane.xml"
@@ -620,7 +620,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw345dp-h426dp/apps_customize_pane.xml"
@@ -631,7 +631,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw345dp/apps_customize_pane.xml"
@@ -642,7 +642,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw346dp/apps_customize_pane.xml"
@@ -653,7 +653,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw348dp/apps_customize_pane.xml"
@@ -664,7 +664,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp-h426dp/apps_customize_pane.xml"
@@ -675,7 +675,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp/apps_customize_pane.xml"
@@ -686,7 +686,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw352dp/apps_customize_pane.xml"
@@ -697,7 +697,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp-h426dp/apps_customize_pane.xml"
@@ -708,7 +708,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp/apps_customize_pane.xml"
@@ -719,7 +719,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw356dp/apps_customize_pane.xml"
@@ -730,7 +730,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw357dp-h426dp/apps_customize_pane.xml"
@@ -741,7 +741,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/apps_customize_pane.xml"
@@ -752,7 +752,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw362dp/apps_customize_pane.xml"
@@ -763,7 +763,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw363dp-h426dp/apps_customize_pane.xml"
@@ -774,7 +774,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw363dp/apps_customize_pane.xml"
@@ -785,7 +785,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w1280dp-h426dp/apps_customize_pane.xml"
@@ -796,7 +796,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w853dp-h444dp/apps_customize_pane.xml"
@@ -807,7 +807,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp/apps_customize_pane.xml"
@@ -818,7 +818,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw365dp/apps_customize_pane.xml"
@@ -829,7 +829,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw366dp/apps_customize_pane.xml"
@@ -840,7 +840,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp-h480dp/apps_customize_pane.xml"
@@ -851,7 +851,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp/apps_customize_pane.xml"
@@ -862,7 +862,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw368dp/apps_customize_pane.xml"
@@ -873,7 +873,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp-h426dp/apps_customize_pane.xml"
@@ -884,7 +884,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp-h480dp/apps_customize_pane.xml"
@@ -895,7 +895,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp/apps_customize_pane.xml"
@@ -906,7 +906,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw372dp/apps_customize_pane.xml"
@@ -917,7 +917,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw373dp/apps_customize_pane.xml"
@@ -928,7 +928,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw380dp/apps_customize_pane.xml"
@@ -939,7 +939,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw381dp/apps_customize_pane.xml"
@@ -950,7 +950,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw386dp/apps_customize_pane.xml"
@@ -961,7 +961,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h426dp/apps_customize_pane.xml"
@@ -972,7 +972,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h480dp/apps_customize_pane.xml"
@@ -983,7 +983,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp/apps_customize_pane.xml"
@@ -994,7 +994,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw391dp/apps_customize_pane.xml"
@@ -1005,7 +1005,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw400dp/apps_customize_pane.xml"
@@ -1016,7 +1016,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw401dp/apps_customize_pane.xml"
@@ -1027,7 +1027,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw402dp-h426dp/apps_customize_pane.xml"
@@ -1038,7 +1038,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw402dp/apps_customize_pane.xml"
@@ -1049,7 +1049,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw480dp/apps_customize_pane.xml"
@@ -1060,7 +1060,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/apps_customize_pane.xml"
@@ -1071,7 +1071,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/apps_customize_widget.xml"
@@ -1192,7 +1192,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw330dp/default_workspace.xml"
@@ -1203,7 +1203,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw331dp/default_workspace.xml"
@@ -1214,7 +1214,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw332dp/default_workspace.xml"
@@ -1225,7 +1225,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw334dp/default_workspace.xml"
@@ -1236,7 +1236,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw338dp/default_workspace.xml"
@@ -1247,7 +1247,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw340dp/default_workspace.xml"
@@ -1258,7 +1258,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw344dp/default_workspace.xml"
@@ -1269,7 +1269,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw346dp/default_workspace.xml"
@@ -1280,7 +1280,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw348dp/default_workspace.xml"
@@ -1291,7 +1291,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw352dp/default_workspace.xml"
@@ -1302,7 +1302,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw356dp/default_workspace.xml"
@@ -1313,7 +1313,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw357dp-h426dp/default_workspace.xml"
@@ -1324,7 +1324,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw360dp/default_workspace.xml"
@@ -1335,7 +1335,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw362dp/default_workspace.xml"
@@ -1346,7 +1346,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw364dp/default_workspace.xml"
@@ -1357,7 +1357,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw372dp/default_workspace.xml"
@@ -1368,7 +1368,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw373dp/default_workspace.xml"
@@ -1379,7 +1379,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw386dp/default_workspace.xml"
@@ -1390,7 +1390,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw390dp/default_workspace.xml"
@@ -1401,7 +1401,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw400dp/default_workspace.xml"
@@ -1412,7 +1412,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml/default_workspace.xml"
@@ -1423,7 +1423,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw332dp/default_workspace1.xml"
@@ -1434,7 +1434,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw364dp/default_workspace1.xml"
@@ -1445,7 +1445,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw332dp/default_workspace_dvdhide.xml"
@@ -1456,7 +1456,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw344dp/default_workspace_dvdhide.xml"
@@ -1467,7 +1467,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw346dp/default_workspace_dvdhide.xml"
@@ -1478,7 +1478,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw352dp/default_workspace_dvdhide.xml"
@@ -1489,7 +1489,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw360dp/default_workspace_dvdhide.xml"
@@ -1500,7 +1500,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw344dp/default_workspace_usbdvd.xml"
@@ -1511,7 +1511,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml-sw346dp/default_workspace_usbdvd.xml"
@@ -1522,7 +1522,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw332dp/hotseat.xml"
@@ -1533,7 +1533,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw348dp/hotseat.xml"
@@ -1544,7 +1544,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp-h426dp/hotseat.xml"
@@ -1555,7 +1555,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp/hotseat.xml"
@@ -1566,7 +1566,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw352dp/hotseat.xml"
@@ -1577,7 +1577,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp/hotseat.xml"
@@ -1588,7 +1588,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw356dp/hotseat.xml"
@@ -1599,7 +1599,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/hotseat.xml"
@@ -1610,7 +1610,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw362dp/hotseat.xml"
@@ -1621,7 +1621,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w1280dp-h426dp/hotseat.xml"
@@ -1632,7 +1632,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w853dp-h444dp/hotseat.xml"
@@ -1643,7 +1643,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp/hotseat.xml"
@@ -1654,7 +1654,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw365dp/hotseat.xml"
@@ -1665,7 +1665,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw366dp/hotseat.xml"
@@ -1676,7 +1676,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp-h480dp/hotseat.xml"
@@ -1687,7 +1687,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp/hotseat.xml"
@@ -1698,7 +1698,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw368dp/hotseat.xml"
@@ -1709,7 +1709,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp-h426dp/hotseat.xml"
@@ -1720,7 +1720,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp-h480dp/hotseat.xml"
@@ -1731,7 +1731,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw369dp/hotseat.xml"
@@ -1742,7 +1742,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw372dp/hotseat.xml"
@@ -1753,7 +1753,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw373dp/hotseat.xml"
@@ -1764,7 +1764,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw380dp/hotseat.xml"
@@ -1775,7 +1775,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw381dp/hotseat.xml"
@@ -1786,7 +1786,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw386dp/hotseat.xml"
@@ -1797,7 +1797,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw400dp/hotseat.xml"
@@ -1808,7 +1808,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/hotseat.xml"
@@ -1819,7 +1819,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw320dp-w1280dp-h426dp/launcher.xml"
@@ -1830,7 +1830,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw320dp-w853dp-h280dp/launcher.xml"
@@ -1841,7 +1841,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp-w853dp-h426dp/launcher.xml"
@@ -1852,7 +1852,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp-w853dp-h480dp/launcher.xml"
@@ -1863,7 +1863,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw321dp/launcher.xml"
@@ -1874,7 +1874,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw322dp/launcher.xml"
@@ -1885,7 +1885,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw323dp/launcher.xml"
@@ -1896,7 +1896,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp-w853dp-h280dp/launcher.xml"
@@ -1907,7 +1907,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw324dp/launcher.xml"
@@ -1918,7 +1918,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw325dp-h426dp/launcher.xml"
@@ -1929,7 +1929,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw325dp/launcher.xml"
@@ -1940,7 +1940,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw327dp/launcher.xml"
@@ -1951,7 +1951,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw328dp/launcher.xml"
@@ -1962,7 +1962,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw329dp/launcher.xml"
@@ -1973,7 +1973,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw330dp/launcher.xml"
@@ -1984,7 +1984,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw331dp-h426dp/launcher.xml"
@@ -1995,7 +1995,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw331dp/launcher.xml"
@@ -2006,7 +2006,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw332dp/launcher.xml"
@@ -2017,7 +2017,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw333dp-h426dp/launcher.xml"
@@ -2028,7 +2028,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw333dp/launcher.xml"
@@ -2039,7 +2039,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw334dp/launcher.xml"
@@ -2050,7 +2050,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw335dp/launcher.xml"
@@ -2061,7 +2061,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h426dp/launcher.xml"
@@ -2072,7 +2072,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp-h480dp/launcher.xml"
@@ -2083,7 +2083,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw336dp/launcher.xml"
@@ -2094,7 +2094,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw338dp/launcher.xml"
@@ -2105,7 +2105,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw339dp/launcher.xml"
@@ -2116,7 +2116,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw340dp/launcher.xml"
@@ -2127,7 +2127,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw341dp/launcher.xml"
@@ -2138,7 +2138,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw344dp/launcher.xml"
@@ -2149,7 +2149,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw345dp/launcher.xml"
@@ -2160,7 +2160,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw346dp/launcher.xml"
@@ -2171,7 +2171,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw348dp/launcher.xml"
@@ -2182,7 +2182,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp-h426dp/launcher.xml"
@@ -2193,7 +2193,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw349dp/launcher.xml"
@@ -2204,7 +2204,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw352dp/launcher.xml"
@@ -2215,7 +2215,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp-h426dp/launcher.xml"
@@ -2226,7 +2226,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw353dp/launcher.xml"
@@ -2237,7 +2237,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw356dp/launcher.xml"
@@ -2248,7 +2248,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw357dp-h426dp/launcher.xml"
@@ -2259,7 +2259,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw357dp/launcher.xml"
@@ -2270,7 +2270,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/launcher.xml"
@@ -2281,7 +2281,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/launcher.xml"
@@ -2292,7 +2292,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw362dp/launcher.xml"
@@ -2303,7 +2303,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw363dp-h426dp/launcher.xml"
@@ -2314,7 +2314,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw363dp/launcher.xml"
@@ -2325,7 +2325,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w1280dp-h426dp/launcher.xml"
@@ -2336,7 +2336,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w640dp/launcher.xml"
@@ -2347,7 +2347,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp-w853dp-h444dp/launcher.xml"
@@ -2358,7 +2358,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw364dp/launcher.xml"
@@ -2369,7 +2369,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw365dp/launcher.xml"
@@ -2380,7 +2380,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw366dp/launcher.xml"
@@ -2391,7 +2391,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp-h480dp/launcher.xml"
@@ -2402,7 +2402,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw367dp/launcher.xml"
@@ -2413,7 +2413,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw368dp/launcher.xml"
@@ -2424,7 +2424,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw372dp/launcher.xml"
@@ -2435,7 +2435,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw373dp/launcher.xml"
@@ -2446,7 +2446,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw380dp/launcher.xml"
@@ -2457,7 +2457,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw386dp-w1280dp-h426dp/launcher.xml"
@@ -2468,7 +2468,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw386dp/launcher.xml"
@@ -2479,7 +2479,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw387dp/launcher.xml"
@@ -2490,7 +2490,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h426dp/launcher.xml"
@@ -2501,7 +2501,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp-h480dp/launcher.xml"
@@ -2512,7 +2512,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw388dp/launcher.xml"
@@ -2523,7 +2523,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw391dp/launcher.xml"
@@ -2534,7 +2534,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw400dp/launcher.xml"
@@ -2545,7 +2545,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw401dp/launcher.xml"
@@ -2556,7 +2556,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw402dp-h426dp/launcher.xml"
@@ -2567,7 +2567,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw402dp/launcher.xml"
@@ -2578,7 +2578,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/launcher.xml"
@@ -2589,7 +2589,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcherrm9&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-autorm9&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw344dp/left_toolbar.xml"
@@ -2600,7 +2600,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcherrm9&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-autorm9&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw345dp-h426dp/left_toolbar.xml"
@@ -2611,7 +2611,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcherrm9&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-autorm9&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw345dp/left_toolbar.xml"
@@ -2622,7 +2622,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcherrm9&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-autorm9&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw346dp/left_toolbar.xml"
@@ -3282,7 +3282,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:my=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="    xmlns:my=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw381dp/radio_music_widget_layout.xml"
@@ -3425,7 +3425,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-port/search_bar.xml"
@@ -3436,7 +3436,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;>"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;>"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/xml/update_workspace.xml"
@@ -3447,7 +3447,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/user_folder.xml"
@@ -3458,7 +3458,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/widget_a2dp.xml"
@@ -3469,7 +3469,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/widget_a2dp.xml"
@@ -3480,7 +3480,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/widget_music.xml"
@@ -3491,7 +3491,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/widget_music.xml"
@@ -3502,7 +3502,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/widget_radio.xml"
@@ -3513,7 +3513,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/widget_radio.xml"
@@ -3524,7 +3524,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw360dp/widget_time.xml"
@@ -3535,7 +3535,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout-sw361dp/widget_time.xml"
@@ -3546,7 +3546,7 @@
     <issue
         id="ResAuto"
         message="In Gradle projects, always use `http://schemas.android.com/apk/res-auto` for custom attributes"
-        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot;"
+        errorLine1="    xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot;"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/workspace_screen.xml"
@@ -6884,7 +6884,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace1&quot; in xml-sw332dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw332dp/default_workspace1.xml"
@@ -6895,7 +6895,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace1&quot; in xml-sw364dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw364dp/default_workspace1.xml"
@@ -6906,7 +6906,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_dvdhide&quot; in xml-sw332dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw332dp/default_workspace_dvdhide.xml"
@@ -6917,7 +6917,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_dvdhide&quot; in xml-sw344dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw344dp/default_workspace_dvdhide.xml"
@@ -6928,7 +6928,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_dvdhide&quot; in xml-sw346dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw346dp/default_workspace_dvdhide.xml"
@@ -6939,7 +6939,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_dvdhide&quot; in xml-sw352dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw352dp/default_workspace_dvdhide.xml"
@@ -6950,7 +6950,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_dvdhide&quot; in xml-sw360dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw360dp/default_workspace_dvdhide.xml"
@@ -6961,7 +6961,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_usbdvd&quot; in xml-sw344dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw344dp/default_workspace_usbdvd.xml"
@@ -6972,7 +6972,7 @@
     <issue
         id="MissingDefaultResource"
         message="The xml &quot;default_workspace_usbdvd&quot; in xml-sw346dp has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
-        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res/com.android.launcher&quot; >"
+        errorLine1="&lt;favorites xmlns:launcher=&quot;http://schemas.android.com/apk/res-auto&quot; >"
         errorLine2=" ~~~~~~~~~">
         <location
             file="src/main/res/xml-sw346dp/default_workspace_usbdvd.xml"

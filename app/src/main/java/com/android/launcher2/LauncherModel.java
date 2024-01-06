@@ -684,8 +684,7 @@ public class LauncherModel extends BroadcastReceiver {
                 Launcher.sDumpLogs.add(transaction);
                 Log.d(TAG, transaction);
 
-                cr.insert(notify ? LauncherSettings.Favorites.CONTENT_URI :
-                        LauncherSettings.Favorites.CONTENT_URI_NO_NOTIFICATION, values);
+                cr.insert(notify ? LauncherSettings.Favorites.CONTENT_URI : LauncherSettings.Favorites.CONTENT_URI_NO_NOTIFICATION, values);
 
                 // Lock on mBgLock *after* the db operation
                 synchronized (sBgLock) {
@@ -908,7 +907,7 @@ public class LauncherModel extends BroadcastReceiver {
         if (provider != null) {
             final int workspaceResId = !TextUtils.isEmpty(name) ? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
             final boolean overridePrevious = true;
-            MMLog.d(TAG, "workspace name: " + name + " id: " + workspaceResId);
+            MMLog.d(TAG, "reloadWorkspace call loadDefaultFavoritesIfNecessary name: " + name + " id: " + workspaceResId);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -1047,7 +1046,7 @@ public class LauncherModel extends BroadcastReceiver {
                 break;
             case "com.android.ACTION_PREINSTALL_COMPLETE":
                 MMLog.d(TAG,"com.android.ACTION_PREINSTALL_COMPLETE!");
-                forceReload();
+                reloadWorkspace(context, "default_workspace");
                 break;
         }
     }
