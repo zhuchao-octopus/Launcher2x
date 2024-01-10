@@ -2943,26 +2943,35 @@ public final class Launcher extends Activity implements View.OnClickListener,
             // doRunActivity("com.my.audio", "com.my.audio.MusicActivity");
         } else if (id == R.id.button_video) {
             UtilCarKey.doKeyVideo(this);
-
             // doRunActivity("com.my.dvdplayer", "com.my.dvdplayer.DVDPlayer");
-        } else if (id == R.id.button_settings || id == R.id.img_btn_setting) {
+        }
+
+        else if (id == R.id.button_settings || id == R.id.img_btn_setting || id == R.id.ll_btn_setting)
+        {
             doRunActivity("com.android.settings", "com.android.settings.Settings");
-        } else if (id == R.id.all_apps_button || id == R.id.img_btn_allapps) {
+        }
+        else if (id == R.id.all_apps_button || id == R.id.img_btn_allapps)
+        {
             if (isAllAppsVisible()) {
                 showWorkspace(true);
             } else {
                 showAllApps(true);
             }
-        } else if (id == R.id.entry_time || id == R.id.entry_time1 || id == R.id.layout_left_time) {
+        }
+        else if (id == R.id.entry_time || id == R.id.entry_time1 || id == R.id.layout_left_time)
+        {
             if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(Utilities.mSystemUI) ||
                     MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
                 doRunActivity("com.android.deskclock", "com.android.deskclock.DeskClock");
             } else {
                 startActivity(new Intent(Settings.ACTION_DATE_SETTINGS));
             }
-        } else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
+        }
+        else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
             toggleAllApp();
-        } else if (id == R.id.button_dvr) {
+        }
+        else if (id == R.id.button_dvr)
+        {
             if (dvrHide && MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
                 UtilCarKey.doKeyAuxIn(this);
             } else {

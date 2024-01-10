@@ -171,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_x="85dp"
-                    android:layout_y="50dp"
+                    android:layout_y="35dp"
                     android:gravity="bottom"
                     android:orientation="horizontal">
 
@@ -201,7 +201,7 @@
                         android:gravity="center|center_vertical"
                         android:textAppearance="@style/WorkspaceButton"
                         android:textColor="@color/workspace_icon_text_color"
-                        android:textSize="30sp" />
+                        android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/radio_music_hz"
@@ -358,12 +358,14 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_btn_setting"
                 android:layout_width="145dp"
                 android:layout_height="40dp"
                 android:layout_x="590dp"
                 android:layout_y="320dp"
                 android:background="@drawable/tab"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                style="@style/RadioMusicButtonStyle">
 
                 <ImageView
                     android:layout_width="wrap_content"
