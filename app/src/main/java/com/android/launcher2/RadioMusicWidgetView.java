@@ -1063,7 +1063,7 @@ public class RadioMusicWidgetView {
                 if (mSource == MyCmd.SOURCE_BT_MUSIC) {
                     if ((t - mMusicCurTime) > 1000 || (t - mMusicCurTime) < -1000) {
                         mMusicCurTime = t;
-//					updateMusicTime();
+                        //updateMusicTime();
                     }
                 } else {
                     mMusicCurTime = t;

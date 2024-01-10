@@ -100,7 +100,7 @@ public class LauncherProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mOpenHelper = new DatabaseHelper(getContext());
-        ((LauncherApplication) getContext()).setLauncherProvider(this);
+        ((LauncherApplication) Objects.requireNonNull(getContext())).setLauncherProvider(this);
         return true;
     }
 
@@ -204,7 +204,7 @@ public class LauncherProvider extends ContentProvider {
     private void sendNotify(Uri uri) {
         String notify = uri.getQueryParameter(PARAMETER_NOTIFY);
         if (notify == null || "true".equals(notify)) {
-            getContext().getContentResolver().notifyChange(uri, null);
+            Objects.requireNonNull(getContext()).getContentResolver().notifyChange(uri, null);
         }
     }
 
