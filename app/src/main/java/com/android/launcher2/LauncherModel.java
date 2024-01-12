@@ -893,7 +893,7 @@ public class LauncherModel extends BroadcastReceiver {
      */
     public void foreUpdateConfig(Context context) {
         Log.d(TAG, "crash let it restart finis:");
-//    	AppConfig.updateHideAppConfig();
+        //AppConfig.updateHideAppConfig();
         Launcher.finishLauncher();
         Launcher.updateUI();
 

@@ -639,6 +639,8 @@ public class AppConfig {
 
         mSetHideApp.add("com.canboxsetting.AVMActivity");
 
+        mSetHideApp.add("com.android.deskclock.DeskClock");
+
         updateHideAppConbox(appHide);
 
         if (hideAuxin) {
@@ -744,8 +746,7 @@ public class AppConfig {
 
     public static void addCustomHideApp(Context context) {
         String s;
-        s = MachineConfig
-                .getPropertyReadOnly(MachineConfig.KEY_PASSWD_CUSTOMER_SERVICE_MODE_EX);
+        s = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_PASSWD_CUSTOMER_SERVICE_MODE_EX);
         if (s != null) {
             String[] ss = s.split(";");
             if (ss.length > 1) {

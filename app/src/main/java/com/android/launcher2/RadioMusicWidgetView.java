@@ -645,7 +645,8 @@ public class RadioMusicWidgetView {
             if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(Utilities.mSystemUI)) {
                 s = "MM/dd/yyyy";
             } else {
-                s = "yyyy/MM/dd";
+                //s = "yyyy/MM/dd";
+                s = "dd/MM//yyyy";
             }
 
         }

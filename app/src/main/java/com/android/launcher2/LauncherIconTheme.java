@@ -169,7 +169,7 @@ public final class LauncherIconTheme {
         }
         else if(packageName.equals("com.SwcApplication") && className.equals("com.SwcApplication.SwcActivity"))
         {
-            return null;
+            return context.getString(R.string.swcapplication);
         }
         else if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
         {

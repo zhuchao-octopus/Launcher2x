@@ -155,13 +155,23 @@
                 android:orientation="horizontal"
                 android:visibility="visible">
 
-                <ImageView
+                <TextView
+                    android:id="@+id/radio_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_y="10dp"
+                    android:gravity="bottom|center|center_horizontal"
+                    android:text="@string/fm_radio_title"
+                    android:textAppearance="@style/CommonStyleFonts"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
+                <ImageView
                     android:layout_width="88dp"
                     android:layout_height="108dp"
                     android:layout_x="14dp"
                     android:layout_y="17dp"
-
                     android:scaleType="fitCenter"
                     android:src="@drawable/radio_pic"
                     android:visibility="gone" />
@@ -171,7 +181,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_x="85dp"
-                    android:layout_y="35dp"
+                    android:layout_y="42dp"
                     android:gravity="bottom"
                     android:orientation="horizontal">
 
@@ -220,6 +230,7 @@
                         android:layout_width="34dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/next_icon" />
+
                 </LinearLayout>
 
                 <com.my.radio.MarkFaceView

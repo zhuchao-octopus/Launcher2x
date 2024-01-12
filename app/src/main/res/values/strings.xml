@@ -308,4 +308,7 @@ s -->
     <string name="manual">Manual</string>
     <string name="car_play_connection">UP Connect</string>
     <string name="dab">Dab+</string>
+    <string name="fm_radio_title">Radio</string>
+    <string name="swcapplication">Swc</string>
+
 </resources>

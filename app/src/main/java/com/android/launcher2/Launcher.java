@@ -36,6 +36,8 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetHostView;
 import android.appwidget.AppWidgetManager;
@@ -62,6 +64,7 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -105,6 +108,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
@@ -575,9 +580,29 @@ public final class Launcher extends Activity implements View.OnClickListener,
         initCEView(ui);
         updateAllAppButton();
         mThis = this; //ww+
-    }
 
 
+        // 判断位置服务是否已经开启
+        /*{
+            // 获取 LocationManager 对象
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            // 关闭 GPS 提供者
+            if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                Intent gpsIntent = new Intent();
+                gpsIntent.setClassName("com.android.settings", "com.android.settings.widget.SettingsAppWidgetProvider");
+                gpsIntent.addCategory("android.intent.category.ALTERNATIVE");
+                gpsIntent.putExtra("custom:setting", "gps");
+                try {
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, gpsIntent, PendingIntent.FLAG_IMMUTABLE);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                    alarmManager.cancel(pendingIntent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }*/
+    }//onCreate(Bundle savedInstanceState)
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static final String SAVE_DATA = "LauncherMain";
     private static String SAVE_FIRST_BOOT = "first_boot";
 
@@ -673,8 +698,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         final int previousMnc = sLocaleConfiguration.mnc;
         final int mnc = configuration.mnc;
 
-        boolean localeChanged = !locale.equals(previousLocale)
-                || mcc != previousMcc || mnc != previousMnc;
+        boolean localeChanged = !locale.equals(previousLocale) || mcc != previousMcc || mnc != previousMnc;
 
         if (localeChanged) {
             sLocaleConfiguration.locale = locale;
