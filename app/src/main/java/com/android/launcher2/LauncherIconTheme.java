@@ -41,70 +41,92 @@ public final class LauncherIconTheme {
             return R.drawable.ic_dab;
         }
 
-        else if(packageName.equals("com.my.bt") && className.equals("com.my.bt.ATBluetoothActivity"))
+        if(packageName.equals("com.my.bt") && className.equals("com.my.bt.ATBluetoothActivity"))
         {
             return R.drawable.ic_bt;
         }
 
-        else if(packageName.equals("com.suding.speedplay") && className.equals("com.suding.speedplay.ui.MainActivity"))
+        if(packageName.equals("com.suding.speedplay") && className.equals("com.suding.speedplay.ui.MainActivity"))
         {
             return R.drawable.ic_carplay;
         }
 
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
+        if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
         {
             return R.drawable.ic_radio;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.video.VideoActivity"))
+        if(packageName.equals("com.car.ui") && className.equals("com.my.video.VideoActivity"))
         {
             return R.drawable.ic_video;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.audio.MusicActivity"))
+
+        if(packageName.equals("com.car.ui") && className.equals("com.my.audio.MusicActivity"))
         {
             return R.drawable.ic_music;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
+
+        if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
         {
             return R.drawable.apps_bt_music;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
+
+        if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
         {
             return R.drawable.apps_aux;
         }
 
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
+        if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
         {
             return R.drawable.apps_fcam;
         }
 
-        else if(packageName.equals("com.android.settings") && className.equals("com.android.settings.Settings"))
+        if(packageName.equals("com.android.settings") && className.equals("com.android.settings.Settings"))
         {
             return R.drawable.apps_setting;
         }
-        else if(packageName.equals("com.anydesk.anydeskandroid") && className.equals("com.anydesk.anydeskandroid.gui.activity.MainActivity"))
+        if(packageName.equals("com.anydesk.anydeskandroid") && className.equals("com.anydesk.anydeskandroid.gui.activity.MainActivity"))
         {
             return R.drawable.apps_anydesk;
         }
-        else if(packageName.equals("com.my.instructions") && className.equals("com.my.instructions.InstructionsActivity"))
+        if(packageName.equals("com.my.instructions") && className.equals("com.my.instructions.InstructionsActivity"))
         {
             return R.drawable.apps_manuale;
         }
-        else if(packageName.equals("com.android.gallery3d") && className.equals("com.android.gallery3d.app.GalleryActivity"))
+        if(packageName.equals("com.android.gallery3d") && className.equals("com.android.gallery3d.app.GalleryActivity"))
         {
             return R.drawable.apps_gallery;
         }
-        else if(packageName.equals("com.SwcApplication") && className.equals("com.SwcApplication.SwcActivity"))
+        if(packageName.equals("com.SwcApplication") && className.equals("com.SwcApplication.SwcActivity"))
         {
             return R.drawable.apps_swc;
         }
 
-        else if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
+        if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
         {
             return R.drawable.apps_clock;
         }
-        else {
-            return -1;
+
+        if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.CanAirControlActivity"))
+        {
+            return R.drawable.car_acc;
         }
+
+        if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.MainActivity"))
+        {
+            return R.drawable.car_3;
+        }
+
+        if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.CarInfoActivity"))
+        {
+            return R.drawable.car_1;
+        }
+
+        if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.JeepCarCDPlayerActivity"))
+        {
+            return R.drawable.car_2;
+        }
+
+        return -1;
     }
 
     public static String getTitle(Context context, String packageName, String className) {
