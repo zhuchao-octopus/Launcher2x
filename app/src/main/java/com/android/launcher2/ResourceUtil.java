@@ -75,15 +75,15 @@ public class ResourceUtil {
     public static int mScreenHeight;
 
     public static String updateUi(Context context) { // only launcher use now
-
+        ///int w = 0;
+        ///int h = 0;
+        int type = 0; // deault 800X480
         String value = MachineConfig.getPropertyReadOnly(LAUNCHER_UI);
         if (value == null) {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         }
 
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
-
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -94,10 +94,9 @@ public class ResourceUtil {
 
             }
 
-        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-
-            String s = SystemConfig.getProperty(context,
-                    SystemConfig.KEY_LAUNCHER_UI_RM10);
+        }
+        else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
+            String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     value = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -109,24 +108,16 @@ public class ResourceUtil {
         int dsp = SystemConfig.getIntProperty(context, SystemConfig.KEY_DSP);
         Utilities.mIsDSP = (dsp == 1);
         Utilities.mSystemUI = value;
-        MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
-
-
-		//int sw = 0;
-        int w = 0;
-        int h = 0;
-        int type = 0; // deault 800X480
 
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
-        Log.d(TAG, "Display[]=" + Arrays.toString(display));
-		//Rect outRect = new Rect();
-		//display[0].getOverscanInsets(outRect);
-
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
-        MMLog.d(TAG, "DisplayMetrics=" + dm.toString());
+
+        MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
+        MMLog.d(TAG, "Display[]=" + Arrays.toString(display));
+        MMLog.d(TAG, "Metrics[]=" + dm.toString());
 
         if (dm.widthPixels == 1024 && dm.heightPixels == 600) {
             type = 1;
@@ -141,19 +132,14 @@ public class ResourceUtil {
             type = 3;
             sw = 321;
         } else {
-            type = 0;
             sw = 320;
         }
 
         if (MachineConfig.VALUE_SYSTEM_UI_KLD1.equals(value)) {
             if (type == 0) {
                 sw = 322;
-                // w = 801;
-                // h = 479;
             } else {
                 sw = 323;
-                // w = 1025;
-                // h = 601;
             }
         } else if (MachineConfig.VALUE_SYSTEM_UI_KLD2.equals(value) ||
                 MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) ||
@@ -190,10 +176,6 @@ public class ResourceUtil {
             } else {
                 sw = 333;
             }
-
-			///if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
-			///	h = 441;
-			///}
         } else if (MachineConfig.VALUE_SYSTEM_UI_KLD10_887.equals(value)) {
             if (type == 0) {
                 sw = 334;
@@ -267,17 +249,11 @@ public class ResourceUtil {
             }
         } else if (MachineConfig.VALUE_SYSTEM_UI42_913.equals(value)
                 || MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
-
             if (type == 0 || type == 2) {
                 sw = 368;    //800x480
             } else {
                 sw = 369;    //1024x600
             }
-
-            ///if (MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
-            ///   h = 450;
-            ///}
-
         } else if (MachineConfig.VALUE_SYSTEM_UI44_KLD007.equals(value)) {
             if (type == 0) {
                 sw = 380;    //800x480
@@ -292,15 +268,8 @@ public class ResourceUtil {
             } else {
                 sw = 388;
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_887_90.equals(value)) {
-            if (type == 0) {
-                sw = 390;
-            } else if (type == 2) {
-                sw = 392;
-            } else {
-                sw = 391;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
+        }
+        else if (MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
             if (type == 0) {
                 sw = 400;
             } else if (type == 2) {
@@ -314,15 +283,8 @@ public class ResourceUtil {
         if (sw != 0) {
             c.smallestScreenWidthDp = sw;
         }
-        if (w != 0) {
-            c.screenWidthDp = w;
-        }
-        if (h != 0) {
-            c.screenHeightDp = h;
-        }
+
         context.getResources().updateConfiguration(c, null);
-
-
         MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
         return value;
     }
@@ -333,7 +295,7 @@ public class ResourceUtil {
         float roundPx;
         float left, top, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
         if (width <= height) {
-            roundPx = width / 2;
+            roundPx = (float) width / 2;
             top = 0;
             bottom = width;
             left = 0;
@@ -344,8 +306,8 @@ public class ResourceUtil {
             dst_right = width;
             dst_bottom = width;
         } else {
-            roundPx = height / 2;
-            float clip = (width - height) / 2;
+            roundPx = (float) height / 2;
+            float clip = (float) (width - height) / 2;
             left = clip;
             right = width - clip;
             top = 0;
