@@ -38,17 +38,17 @@ public final class LauncherIconTheme {
     private static int getIconId(String packageName, String className) {
         if(packageName.equals("com.zoulou.dab") && className.equals("com.zoulou.dab.activity.MainActivity"))
         {
-            return R.drawable.ic_dab;
+            //return R.drawable.ic_dab;
         }
 
         if(packageName.equals("com.my.bt") && className.equals("com.my.bt.ATBluetoothActivity"))
         {
-            return R.drawable.ic_bt;
+            return R.drawable.ic_blutooth_call;
         }
 
         if(packageName.equals("com.suding.speedplay") && className.equals("com.suding.speedplay.ui.MainActivity"))
         {
-            return R.drawable.ic_carplay;
+            //return R.drawable.ic_carplay;
         }
 
         if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
@@ -67,65 +67,70 @@ public final class LauncherIconTheme {
 
         if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
         {
-            return R.drawable.apps_bt_music;
+           //return R.drawable.apps_bt_music;
         }
 
         if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
         {
-            return R.drawable.apps_aux;
+            //return R.drawable.apps_aux;
         }
 
         if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
         {
-            return R.drawable.apps_fcam;
+            //return R.drawable.apps_fcam;
         }
 
-        if(packageName.equals("com.android.settings") && className.equals("com.android.settings.Settings"))
+        if(packageName.equals("com.android.settings") && className.equals("com.android.settings.homepage.SettingsHomepageActivity"))
         {
-            return R.drawable.apps_setting;
+            return R.drawable.ic_setting_0;
         }
+
         if(packageName.equals("com.anydesk.anydeskandroid") && className.equals("com.anydesk.anydeskandroid.gui.activity.MainActivity"))
         {
-            return R.drawable.apps_anydesk;
+            //return R.drawable.apps_anydesk;
         }
         if(packageName.equals("com.my.instructions") && className.equals("com.my.instructions.InstructionsActivity"))
         {
-            return R.drawable.apps_manuale;
+            //return R.drawable.apps_manuale;
         }
         if(packageName.equals("com.android.gallery3d") && className.equals("com.android.gallery3d.app.GalleryActivity"))
         {
-            return R.drawable.apps_gallery;
+            return R.drawable.ic_picture;
         }
         if(packageName.equals("com.SwcApplication") && className.equals("com.SwcApplication.SwcActivity"))
         {
-            return R.drawable.apps_swc;
+            //return R.drawable.apps_swc;
         }
 
         if(packageName.equals("com.android.deskclock") && className.equals("com.android.deskclock.DeskClock"))
         {
-            return R.drawable.apps_clock;
+            //return R.drawable.apps_clock;
         }
 
         if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.CanAirControlActivity"))
         {
-            return R.drawable.car_acc;
+            //return R.drawable.car_acc;
         }
 
         if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.MainActivity"))
         {
-            return R.drawable.car_3;
+            //return R.drawable.car_3;
         }
 
         if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.CarInfoActivity"))
         {
-            return R.drawable.car_1;
+            //return R.drawable.car_1;
         }
 
         if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.JeepCarCDPlayerActivity"))
         {
-            return R.drawable.car_2;
+            //return R.drawable.car_2;
         }
 
+        if(packageName.equals("com.google.android.apps.maps") && className.equals("com.google.android.maps.MapsActivity"))
+        {
+            return R.drawable.ic_navigate;
+        }
         return -1;
     }
 

@@ -378,10 +378,8 @@ public class UtilCarKey {
 
 		boolean ret = false;
 
-		String packageName = SystemConfig
-				.getProperty(context, MachineConfig.KEY_GPS_PACKAGE);
-		String className = SystemConfig
-				.getProperty(context, MachineConfig.KEY_GPS_CLASS);
+		String packageName = SystemConfig.getProperty(context, MachineConfig.KEY_GPS_PACKAGE);
+		String className = SystemConfig.getProperty(context, MachineConfig.KEY_GPS_CLASS);
 
 //		Log.d("allen", "doKeyGpsEx: " + packageName + "/" + className);
 		if (packageName == null || className == null) {
@@ -400,15 +398,12 @@ public class UtilCarKey {
 				Intent it = new Intent();
 				try {
 					String[] ss = mPreActivityBeforeGps.split("/");
-
-					if (ss[0].equals("com.anrdoid.launcher")||
-							ss[0].equals("com.android.launcher3")) {
-						context.startActivity(new Intent(Intent.ACTION_MAIN)
-								.addFlags(
-										Intent.FLAG_ACTIVITY_NEW_TASK
-												| Intent.FLAG_ACTIVITY_CLEAR_TOP)
-								.addCategory(Intent.CATEGORY_HOME));
-					} else {
+					if (ss[0].equals("com.anrdoid.launcher")||ss[0].equals("com.android.launcher3"))
+					{
+						context.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(Intent.CATEGORY_HOME));
+					}
+					else
+					{
 						it.setClassName(ss[0], ss[1]);
 						it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						context.startActivity(it);
@@ -418,13 +413,11 @@ public class UtilCarKey {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
 			} 
 
 			if(!run){//home
 				context.startActivity(new Intent(Intent.ACTION_MAIN).addFlags(
-						Intent.FLAG_ACTIVITY_NEW_TASK
-								| Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
+						Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP).addCategory(
 						Intent.CATEGORY_HOME));
 			}
 		} else {

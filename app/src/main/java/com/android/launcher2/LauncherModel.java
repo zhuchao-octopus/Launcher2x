@@ -858,7 +858,7 @@ public class LauncherModel extends BroadcastReceiver {
         @Override
         public void onPackageAdded(String packageName, UserHandle user) {
             enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, new String[]{packageName}, user));
-            MMLog.d(TAG,"onPackageAdded "+packageName);
+            MMLog.d(TAG, "onPackageAdded " + packageName);
             //forceReload();
         }
 
@@ -905,6 +905,7 @@ public class LauncherModel extends BroadcastReceiver {
         final LauncherApplication app = (LauncherApplication) context.getApplicationContext();
         final LauncherProvider provider = app.getLauncherProvider();
         if (provider != null) {
+            @SuppressLint("DiscouragedApi")
             final int workspaceResId = !TextUtils.isEmpty(name) ? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
             final boolean overridePrevious = true;
             MMLog.d(TAG, "reloadWorkspace call loadDefaultFavoritesIfNecessary name: " + name + " id: " + workspaceResId);
@@ -1045,7 +1046,7 @@ public class LauncherModel extends BroadcastReceiver {
                 }
                 break;
             case "com.android.ACTION_PREINSTALL_COMPLETE":
-                MMLog.d(TAG,"com.android.ACTION_PREINSTALL_COMPLETE!");
+                MMLog.d(TAG, "com.android.ACTION_PREINSTALL_COMPLETE!");
                 reloadWorkspace(context, "default_workspace");
                 break;
         }
@@ -1706,12 +1707,9 @@ public class LauncherModel extends BroadcastReceiver {
 
                 try {
                     final int idIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites._ID);
-                    final int intentIndex = c.getColumnIndexOrThrow
-                            (LauncherSettings.Favorites.INTENT);
-                    final int titleIndex = c.getColumnIndexOrThrow
-                            (LauncherSettings.Favorites.TITLE);
-                    final int iconTypeIndex = c.getColumnIndexOrThrow(
-                            LauncherSettings.Favorites.ICON_TYPE);
+                    final int intentIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.INTENT);
+                    final int titleIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.TITLE);
+                    final int iconTypeIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.ICON_TYPE);
                     final int iconIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.ICON);
                     final int iconPackageIndex = c.getColumnIndexOrThrow(
                             LauncherSettings.Favorites.ICON_PACKAGE);
@@ -1770,10 +1768,8 @@ public class LauncherModel extends BroadcastReceiver {
 
                                     if (itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION) {
                                         info = getShortcutInfo(manager, intent, user, context, c, iconIndex, titleIndex, mLabelCache);
-                                    }
-                                    else
-                                    {
-                                        info = getShortcutInfo(c, context, iconTypeIndex,iconPackageIndex, iconResourceIndex, iconIndex,titleIndex);
+                                    } else {
+                                        info = getShortcutInfo(c, context, iconTypeIndex, iconPackageIndex, iconResourceIndex, iconIndex, titleIndex);
 
                                         // App shortcuts that used to be automatically added to Launcher
                                         // didn't always have the correct intent flags set, so do that
@@ -1786,8 +1782,7 @@ public class LauncherModel extends BroadcastReceiver {
                                         }
                                     }
 
-                                    if (info != null)
-                                    {
+                                    if (info != null) {
                                         info.intent = intent;
                                         info.id = c.getLong(idIndex);
                                         container = c.getInt(containerIndex);
@@ -1796,7 +1791,7 @@ public class LauncherModel extends BroadcastReceiver {
                                         info.cellX = c.getInt(cellXIndex);
                                         info.cellY = c.getInt(cellYIndex);
                                         info.intent.putExtra(ItemInfo.EXTRA_PROFILE, info.user);
-                                        MMLog.d(TAG, "loadWorkspace info="+info.toString()+",itemType="+itemType);
+                                        MMLog.d(TAG, "loadWorkspace info=" + info.toString() + ",itemType=" + itemType);
 
                                         // check & update map of what's occupied
                                         if (!checkItemPlacement(occupied, info)) {
@@ -1819,16 +1814,14 @@ public class LauncherModel extends BroadcastReceiver {
                                         // now that we've loaded everthing re-save it with the
                                         // icon in case it disappears somehow.
                                         queueIconToBeChecked(sBgDbIconCache, info, c, iconIndex);
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         // Failed to load the shortcut, probably because the
                                         // activity manager couldn't resolve it (maybe the app
                                         // was uninstalled), or the db row was somehow screwed up.
                                         // Delete it.
                                         id = c.getLong(idIndex);
                                         Log.e(TAG, "Error loading shortcut " + id + ", removing it");
-                                        contentResolver.delete(LauncherSettings.Favorites.getContentUri( id, false), null, null);
+                                        contentResolver.delete(LauncherSettings.Favorites.getContentUri(id, false), null, null);
                                     }
                                     break;
 
@@ -2635,13 +2628,12 @@ public class LauncherModel extends BroadcastReceiver {
      * <p>
      * If c is not null, then it will be used to fill in missing data like the title and icon.
      */
-    public void debugTitle(String packageName,String title,int index)
-    {
-        if(packageName.equals("com.zoulou.dab"))
-        {
-           MMLog.d(TAG,packageName+ ","+ title + ","+index);
+    public void debugTitle(String packageName, String title, int index) {
+        if (packageName.equals("com.zoulou.dab")) {
+            MMLog.d(TAG, packageName + "," + title + "," + index);
         }
     }
+
     public ShortcutInfo getShortcutInfo(PackageManager manager, Intent intent, UserHandle user,
                                         Context context,
                                         Cursor c, int iconIndex, int titleIndex, HashMap<Object, CharSequence> labelCache) {
@@ -2676,15 +2668,15 @@ public class LauncherModel extends BroadcastReceiver {
 
         // from the resource
         ComponentName key = lai.getComponentName();
-        String title = LauncherIconTheme.getTitle(context,componentName.getPackageName(),componentName.getClassName());
+        String title = LauncherIconTheme.getTitle(context, componentName.getPackageName(), componentName.getClassName());
 
         if (labelCache != null && labelCache.containsKey(key)) {
-            if(title!=null)
+            if (title != null)
                 info.title = title;
             else
-               info.title = labelCache.get(key);
+                info.title = labelCache.get(key);
         } else {
-            if(title!=null)
+            if (title != null)
                 info.title = title;
             else
                 info.title = lai.getLabel();

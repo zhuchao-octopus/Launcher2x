@@ -378,8 +378,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     static PackageManager mPackageManager;
 
-    public static void initSettings() { ///carservice do it
-        MMLog.d(TAG, "HELLO!! Launcher2 started...");
+    public static void initSettings() { ///do it
+        MMLog.d(TAG, "HELLO!! Launcher2 create...");
     }
 
     private void startCarService() {
@@ -619,8 +619,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     private void saveData(String s, String v) {
-        SharedPreferences.Editor sharedata = getSharedPreferences(SAVE_DATA, 0)
-                .edit();
+        SharedPreferences.Editor sharedata = getSharedPreferences(SAVE_DATA, 0).edit();
 
         sharedata.putString(s, v);
         sharedata.commit();
@@ -725,30 +724,19 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     private static void readConfiguration(Context context,
                                           LocaleConfiguration configuration) {
-        DataInputStream in = null;
-        try {
-            in = new DataInputStream(context.openFileInput(PREFERENCES));
+        try (DataInputStream in = new DataInputStream(context.openFileInput(PREFERENCES))) {
             configuration.locale = in.readUTF();
             configuration.mcc = in.readInt();
             configuration.mnc = in.readInt();
         } catch (IOException e) {
             // Ignore
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    // Ignore
-                }
-            }
         }
+        // Ignore
     }
 
     private static void writeConfiguration(Context context,
                                            LocaleConfiguration configuration) {
-        DataOutputStream out = null;
-        try {
-            out = new DataOutputStream(context.openFileOutput(PREFERENCES, MODE_PRIVATE));
+        try (DataOutputStream out = new DataOutputStream(context.openFileOutput(PREFERENCES, MODE_PRIVATE))) {
             out.writeUTF(configuration.locale);
             out.writeInt(configuration.mcc);
             out.writeInt(configuration.mnc);
@@ -758,15 +746,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         } catch (IOException e) {
             // noinspection ResultOfMethodCallIgnored
             context.getFileStreamPath(PREFERENCES).delete();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    // Ignore
-                }
-            }
         }
+        // Ignore
     }
 
     public DragLayer getDragLayer() {
@@ -834,20 +815,17 @@ public final class Launcher extends Activity implements View.OnClickListener,
     }
 
     @Override
-    protected void onActivityResult(final int requestCode,
-                                    final int resultCode, final Intent data) {
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
         int pendingAddWidgetId = mPendingAddWidgetId;
         mPendingAddWidgetId = -1;
 
         if (requestCode == REQUEST_BIND_APPWIDGET) {
-            int appWidgetId = data != null ? data.getIntExtra(
-                    AppWidgetManager.EXTRA_APPWIDGET_ID, -1) : -1;
+            int appWidgetId = data != null ? data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1) : -1;
             if (resultCode == RESULT_CANCELED) {
                 completeTwoStageWidgetDrop(RESULT_CANCELED, appWidgetId);
             } else if (resultCode == RESULT_OK) {
-                addAppWidgetImpl(appWidgetId, mPendingAddInfo, null,
-                        mPendingAddWidgetInfo);
+                addAppWidgetImpl(appWidgetId, mPendingAddInfo, null, mPendingAddWidgetInfo);
             }
             return;
         }
@@ -867,8 +845,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
 
             if (appWidgetId < 0) {
-                Log.e(TAG,
-                        "Error: appWidgetId (EXTRA_APPWIDGET_ID) was not returned from the \\"
+                Log.e(TAG,"Error: appWidgetId (EXTRA_APPWIDGET_ID) was not returned from the \\"
                                 + "widget configuration activity.");
                 completeTwoStageWidgetDrop(RESULT_CANCELED, appWidgetId);
             } else {
@@ -884,8 +861,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         // For example, the user would PICK_SHORTCUT for "Music playlist", and
         // we
         // launch over to the Music app to actually CREATE_SHORTCUT.
-        if (resultCode == RESULT_OK
-                && mPendingAddInfo.container != ItemInfo.NO_ID) {
+        if (resultCode == RESULT_OK && mPendingAddInfo.container != ItemInfo.NO_ID)
+        {
             final PendingAddArguments args = new PendingAddArguments();
             args.requestCode = requestCode;
             args.intent = data;
@@ -902,14 +879,11 @@ public final class Launcher extends Activity implements View.OnClickListener,
         mDragLayer.clearAnimatedView();
         // Exit spring loaded mode if necessary after cancelling the
         // configuration of a widget
-        exitSpringLoadedDragModeDelayed((resultCode != RESULT_CANCELED),
-                delayExitSpringLoadedMode, null);
+        exitSpringLoadedDragModeDelayed((resultCode != RESULT_CANCELED), delayExitSpringLoadedMode, null);
     }
 
-    private void completeTwoStageWidgetDrop(final int resultCode,
-                                            final int appWidgetId) {
-        CellLayout cellLayout = (CellLayout) mWorkspace
-                .getChildAt(mPendingAddInfo.screen);
+    private void completeTwoStageWidgetDrop(final int resultCode,final int appWidgetId) {
+        CellLayout cellLayout = (CellLayout) mWorkspace.getChildAt(mPendingAddInfo.screen);
         Runnable onCompleteRunnable = null;
         int animationType = 0;
 
@@ -1462,27 +1436,19 @@ public final class Launcher extends Activity implements View.OnClickListener,
         if (pendingAddContainer != ItemInfo.NO_ID && pendingAddScreen > -1) {
             mPendingAddInfo.container = pendingAddContainer;
             mPendingAddInfo.screen = pendingAddScreen;
-            mPendingAddInfo.cellX = savedState
-                    .getInt(RUNTIME_STATE_PENDING_ADD_CELL_X);
-            mPendingAddInfo.cellY = savedState
-                    .getInt(RUNTIME_STATE_PENDING_ADD_CELL_Y);
-            mPendingAddInfo.spanX = savedState
-                    .getInt(RUNTIME_STATE_PENDING_ADD_SPAN_X);
-            mPendingAddInfo.spanY = savedState
-                    .getInt(RUNTIME_STATE_PENDING_ADD_SPAN_Y);
-            mPendingAddWidgetInfo = savedState
-                    .getParcelable(RUNTIME_STATE_PENDING_ADD_WIDGET_INFO);
-            mPendingAddWidgetId = savedState
-                    .getInt(RUNTIME_STATE_PENDING_ADD_WIDGET_ID);
+            mPendingAddInfo.cellX = savedState.getInt(RUNTIME_STATE_PENDING_ADD_CELL_X);
+            mPendingAddInfo.cellY = savedState.getInt(RUNTIME_STATE_PENDING_ADD_CELL_Y);
+            mPendingAddInfo.spanX = savedState.getInt(RUNTIME_STATE_PENDING_ADD_SPAN_X);
+            mPendingAddInfo.spanY = savedState.getInt(RUNTIME_STATE_PENDING_ADD_SPAN_Y);
+            mPendingAddWidgetInfo = savedState.getParcelable(RUNTIME_STATE_PENDING_ADD_WIDGET_INFO);
+            mPendingAddWidgetId = savedState.getInt(RUNTIME_STATE_PENDING_ADD_WIDGET_ID);
             mWaitingForResult = true;
             mRestoring = true;
         }
 
-        boolean renameFolder = savedState.getBoolean(
-                RUNTIME_STATE_PENDING_FOLDER_RENAME, false);
+        boolean renameFolder = savedState.getBoolean(RUNTIME_STATE_PENDING_FOLDER_RENAME, false);
         if (renameFolder) {
-            long id = savedState
-                    .getLong(RUNTIME_STATE_PENDING_FOLDER_RENAME_ID);
+            long id = savedState.getLong(RUNTIME_STATE_PENDING_FOLDER_RENAME_ID);
             mFolderInfo = mModel.getFolderById(this, sFolders, id);
             mRestoring = true;
         }
@@ -1491,11 +1457,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         if (mAppsCustomizeTabHost != null) {
             String curTab = savedState.getString("apps_customize_currentTab");
             if (curTab != null) {
-                mAppsCustomizeTabHost
-                        .setContentTypeImmediate(mAppsCustomizeTabHost
-                                .getContentTypeForTabTag(curTab));
-                mAppsCustomizeContent.loadAssociatedPages(mAppsCustomizeContent
-                        .getCurrentPage());
+                mAppsCustomizeTabHost.setContentTypeImmediate(mAppsCustomizeTabHost.getContentTypeForTabTag(curTab));
+                mAppsCustomizeContent.loadAssociatedPages(mAppsCustomizeContent.getCurrentPage());
             }
 
             int currentIndex = savedState.getInt("apps_customize_currentIndex");
@@ -1515,10 +1478,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         mQsbDivider = findViewById(R.id.qsb_divider);
         mDockDivider = findViewById(R.id.dock_divider);
 
-        mLauncherView
-                .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        mWorkspaceBackgroundDrawable = getResources().getDrawable(
-                R.drawable.workspace_bg);
+        mLauncherView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        mWorkspaceBackgroundDrawable = getResources().getDrawable(R.drawable.workspace_bg,null);
 
         // Setup the drag layer
         mDragLayer.setup(this, dragController);
@@ -1538,13 +1499,11 @@ public final class Launcher extends Activity implements View.OnClickListener,
         dragController.addDragListener(mWorkspace);
 
         // Get the search/delete bar
-        mSearchDropTargetBar = (SearchDropTargetBar) mDragLayer
-                .findViewById(R.id.qsb_bar);
+        mSearchDropTargetBar = (SearchDropTargetBar) mDragLayer.findViewById(R.id.qsb_bar);
 
         // Setup AppsCustomize
         mAppsCustomizeTabHost = (AppsCustomizeTabHost) findViewById(R.id.apps_customize_pane);
-        mAppsCustomizeContent = (AppsCustomizePagedView) mAppsCustomizeTabHost
-                .findViewById(R.id.apps_customize_pane_content);
+        mAppsCustomizeContent = (AppsCustomizePagedView) mAppsCustomizeTabHost.findViewById(R.id.apps_customize_pane_content);
         mAppsCustomizeContent.setup(this, dragController);
 
         // Setup the drag controller (drop targets have to be added in reverse

@@ -109,13 +109,14 @@ public class ResourceUtil {
         Utilities.mIsDSP = (dsp == 1);
         Utilities.mSystemUI = value;
 
+        Configuration configuration = context.getResources().getConfiguration();
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
 
-        MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
+        MMLog.d(TAG, "mIsDSP   =" + Utilities.mIsDSP +",smallestScreenWidthDp="+ configuration.smallestScreenWidthDp);
         MMLog.d(TAG, "Display[]=" + Arrays.toString(display));
         MMLog.d(TAG, "Metrics[]=" + dm.toString());
 
@@ -126,8 +127,8 @@ public class ResourceUtil {
             type = 2;
             sw = 320;
         } else if (dm.widthPixels == 1280 && dm.heightPixels == 720) {
-            type = 3;
-            sw = 321;
+            //type = 3;
+            sw = configuration.smallestScreenWidthDp;//321;
         } else if (dm.widthPixels == 1280 && dm.heightPixels == 800) {
             type = 3;
             sw = 321;
@@ -279,13 +280,10 @@ public class ResourceUtil {
             }
         }
 
-        Configuration c = context.getResources().getConfiguration();
-        if (sw != 0) {
-            c.smallestScreenWidthDp = sw;
-        }
 
-        context.getResources().updateConfiguration(c, null);
-        MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
+        configuration.smallestScreenWidthDp = sw;
+        context.getResources().updateConfiguration(configuration, null);
+        MMLog.d(TAG, value+",sw=" + sw + ",configuration=" + configuration.toString());
         return value;
     }
 

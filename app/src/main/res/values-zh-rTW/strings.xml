@@ -117,4 +117,12 @@
     <string name="f_camera_alternative_1050">前攝像頭</string>
     
     <string name="easyconnection_lable">億連手機互聯</string>
+
+    <string name="week1" >星期日</string>
+    <string name="week2" >星期一</string>
+    <string name="week3" >星期二</string>
+    <string name="week4" >星期三</string>
+    <string name="week5" >星期四</string>
+    <string name="week6" >星期五</string>
+    <string name="week7" >星期六</string>
 </resources>

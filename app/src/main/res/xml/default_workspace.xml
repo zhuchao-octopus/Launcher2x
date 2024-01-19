@@ -19,127 +19,128 @@
     <!-- Far-left screen [0] -->
     <!-- Left screen [1] -->
     <!--    <favorite
-            launcher:className="com.my.auxplayer.AUXPlayer"
-            launcher:packageName="com.car.ui"
-            launcher:screen="1"
-            launcher:x="0"
-            launcher:y="0" />-->
+    launcher:className="com.my.auxplayer.AUXPlayer"
+    launcher:packageName="com.car.ui"
+    launcher:screen="1"
+    launcher:x="0"
+    launcher:y="0" />-->
 
-    <!--     <favorite -->
-    <!--         launcher:className="com.my.audio.MusicActivity" -->
-    <!--         launcher:packageName="com.car.ui" -->
-    <!--         launcher:screen="1" -->
-    <!--         launcher:x="0" -->
-    <!--         launcher:y="0" /> -->
-    <!--    <favorite
-            launcher:className="com.my.video.VideoActivity"
-            launcher:packageName="com.car.ui"
-            launcher:screen="1"
-            launcher:x="1"
-            launcher:y="0" />
-        <favorite
-            launcher:className="com.my.dvr.MainActivity"
-            launcher:packageName="com.my.dvr"
-            launcher:screen="1"
-            launcher:x="4"
-            launcher:y="0" />-->
-    <!--     <favorite -->
-    <!--         launcher:className="com.SwcApplication.SwcActivity" -->
-    <!--         launcher:packageName="com.SwcApplication" -->
-    <!--         launcher:screen="1" -->
-    <!--         launcher:x="3" -->
-    <!--         launcher:y="0" /> -->
+    <!--  <favorite -->
+    <!--  launcher:className="com.my.audio.MusicActivity" -->
+    <!--  launcher:packageName="com.car.ui" -->
+    <!--  launcher:screen="1" -->
+    <!--  launcher:x="0" -->
+    <!--  launcher:y="0" /> -->
+    <!--  <favorite
+    launcher:className="com.my.video.VideoActivity"
+    launcher:packageName="com.car.ui"
+    launcher:screen="1"
+    launcher:x="1"
+    launcher:y="0" />
+    <favorite
+    launcher:className="com.my.dvr.MainActivity"
+    launcher:packageName="com.my.dvr"
+    launcher:screen="1"
+    launcher:x="4"
+    launcher:y="0" />-->
+    <!--  <favorite -->
+    <!--  launcher:className="com.SwcApplication.SwcActivity" -->
+    <!--  launcher:packageName="com.SwcApplication" -->
+    <!--  launcher:screen="1" -->
+    <!--  launcher:x="3" -->
+    <!--  launcher:y="0" /> -->
 
-    <!--    <favorite
-            launcher:className="com.android.settings.Settings"
-            launcher:packageName="com.android.settings"
-            launcher:screen="1"
-            launcher:x="2"
-            launcher:y="0" />
+    <!--  <favorite
+    launcher:className="com.android.settings.Settings"
+    launcher:packageName="com.android.settings"
+    launcher:screen="1"
+    launcher:x="2"
+    launcher:y="0" />
 
+    <favorite
+    launcher:className="com.android.gallery3d.app.GalleryActivity"
+    launcher:packageName="com.android.gallery3d"
+    launcher:screen="1"
+    launcher:x="3"
+    launcher:y="0" />
 
-        <favorite
-            launcher:className="com.android.gallery3d.app.GalleryActivity"
-            launcher:packageName="com.android.gallery3d"
-            launcher:screen="1"
-            launcher:x="3"
-            launcher:y="0" />
+    <favorite
+    launcher:className="com.my.btmusic.BTMusicActivity"
+    launcher:packageName="com.car.ui"
+    launcher:screen="1"
+    launcher:x="3"
+    launcher:y="0" />-->
 
+    <!--  <favorite -->
+    <!--  launcher:className="com.android.settings.Settings" -->
+    <!--  launcher:packageName="com.android.settings" -->
+    <!--  launcher:screen="1" -->
+    <!--  launcher:x="0" -->
+    <!--  launcher:y="1" /> -->
 
-        <favorite
-            launcher:className="com.my.btmusic.BTMusicActivity"
-            launcher:packageName="com.car.ui"
-            launcher:screen="1"
-            launcher:x="3"
-            launcher:y="0" />-->
-
-    <!--             <favorite -->
-    <!--         launcher:className="com.android.settings.Settings" -->
-    <!--         launcher:packageName="com.android.settings" -->
-    <!--         launcher:screen="1" -->
-    <!--         launcher:x="0" -->
-    <!--         launcher:y="1" /> -->
-
-    <!--    <favorite
-            launcher:className="com.android.browser.BrowserActivity"
-            launcher:packageName="com.android.browser"
-            launcher:screen="1"
-            launcher:x="1"
-            launcher:y="1" />
-        <favorite
-            launcher:className="com.android.calculator2.Calculator"
-            launcher:packageName="com.android.calculator2"
-            launcher:screen="1"
-            launcher:x="5"
-            launcher:y="0" />-->
+    <!-- <favorite
+    launcher:className="com.android.browser.BrowserActivity"
+    launcher:packageName="com.android.browser"
+    launcher:screen="1"
+    launcher:x="1"
+    launcher:y="1" />
+    <favorite
+    launcher:className="com.android.calculator2.Calculator"
+    launcher:packageName="com.android.calculator2"
+    launcher:screen="1"
+    launcher:x="5"
+    launcher:y="0" />-->
 
     <!-- Middle screen [2] -->
-
 
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
 
     <favorite
-        launcher:className="com.zoulou.dab.activity.MainActivity"
-        launcher:container="-101"
-        launcher:packageName="com.zoulou.dab"
-        launcher:screen="1"
-        launcher:x="1"
-        launcher:y="0" />
-    <favorite
         launcher:className="com.my.radio.RadioActivity"
         launcher:container="-101"
         launcher:packageName="com.car.ui"
+        launcher:screen="0"
+        launcher:x="0"
+        launcher:y="0" />
+
+    <favorite
+        launcher:className="com.android.gallery3d.app.GalleryActivity"
+        launcher:container="-101"
+        launcher:packageName="com.android.gallery3d"
+        launcher:screen="1"
+        launcher:x="1"
+        launcher:y="1" />
+
+    <favorite
+        launcher:className="com.google.android.maps.MapsActivity"
+        launcher:container="-101"
+        launcher:packageName="com.google.android.apps.maps"
         launcher:screen="2"
         launcher:x="2"
         launcher:y="0" />
-    <favorite
-        launcher:className="com.my.bt.ATBluetoothActivity"
-        launcher:container="-101"
-        launcher:packageName="com.my.bt"
-        launcher:screen="3"
-        launcher:x="3"
-        launcher:y="0" />
-    <favorite
-        launcher:className="com.my.video.VideoActivity"
-        launcher:container="-101"
-        launcher:packageName="com.car.ui"
-        launcher:screen="4"
-        launcher:x="4"
-        launcher:y="0" />
+
     <favorite
         launcher:className="com.my.audio.MusicActivity"
         launcher:container="-101"
         launcher:packageName="com.car.ui"
-        launcher:screen="5"
-        launcher:x="5"
+        launcher:screen="3"
+        launcher:x="3"
         launcher:y="0" />
 
     <favorite
-        launcher:className="com.suding.speedplay.ui.MainActivity"
+        launcher:className="com.android.settings.homepage.SettingsHomepageActivity"
         launcher:container="-101"
-        launcher:packageName="com.suding.speedplay"
-        launcher:screen="6"
-        launcher:x="6"
+        launcher:packageName="com.android.settings"
+        launcher:screen="4"
+        launcher:x="4"
+        launcher:y="0" />
+
+    <favorite
+        launcher:className="com.my.bt.ATBluetoothActivity"
+        launcher:container="-101"
+        launcher:packageName="com.my.bt"
+        launcher:screen="5"
+        launcher:x="5"
         launcher:y="0" />
 
 </favorites>

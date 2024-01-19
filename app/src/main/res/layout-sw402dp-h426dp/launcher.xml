@@ -35,16 +35,16 @@
         <com.android.launcher2.Workspace
             android:id="@+id/workspace"
             android:layout_width="match_parent"
-            android:layout_height="392px"
+            android:layout_height="261dp"
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingTop="50dp"
             launcher:cellCountX="@integer/cell_count_x"
             launcher:cellCountY="@integer/cell_count_y"
             launcher:defaultScreen="0"
-            launcher:pageSpacing="0px"
-            launcher:scrollIndicatorPaddingLeft="0px"
-            launcher:scrollIndicatorPaddingRight="0px" >
+            launcher:pageSpacing="0dp"
+            launcher:scrollIndicatorPaddingLeft="0dp"
+            launcher:scrollIndicatorPaddingRight="0dp" >
 
             
             <include

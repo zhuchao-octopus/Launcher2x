@@ -115,8 +115,7 @@ public class LauncherProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection,
-            String[] selectionArgs, String sortOrder) {
+    public Cursor query(Uri uri, String[] projection, String selection,  String[] selectionArgs, String sortOrder) {
 
         SqlArguments args = new SqlArguments(uri, selection, selectionArgs);
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -124,7 +123,7 @@ public class LauncherProvider extends ContentProvider {
 
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         Cursor result = qb.query(db, projection, args.where, args.args, null, null, sortOrder);
-        result.setNotificationUri(getContext().getContentResolver(), uri);
+        result.setNotificationUri(Objects.requireNonNull(getContext()).getContentResolver(), uri);
 
         return result;
     }
@@ -218,7 +217,7 @@ public class LauncherProvider extends ContentProvider {
     synchronized public void loadDefaultFavoritesIfNecessary(int origWorkspaceResId,boolean overridePrevious)
     {
         String spKey = LauncherApplication.getSharedPreferencesKey();
-        SharedPreferences sp = getContext().getSharedPreferences(spKey, Context.MODE_PRIVATE);
+        SharedPreferences sp = Objects.requireNonNull(getContext()).getSharedPreferences(spKey, Context.MODE_PRIVATE);
         boolean dbCreatedNoWorkspace = sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
         if (dbCreatedNoWorkspace || overridePrevious) {
             int workspaceResId = origWorkspaceResId;
@@ -882,7 +881,6 @@ public class LauncherProvider extends ContentProvider {
                     boolean added = false;
                     final String name = parser.getName();
 
-
                     TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.Favorite);
                     long container = LauncherSettings.Favorites.CONTAINER_DESKTOP;
                     if (a.hasValue(R.styleable.Favorite_container)) {
@@ -892,7 +890,7 @@ public class LauncherProvider extends ContentProvider {
                     String screen = a.getString(R.styleable.Favorite_screen);
                     String x = a.getString(R.styleable.Favorite_x);
                     String y = a.getString(R.styleable.Favorite_y);
-                    MMLog.d(TAG,"loadFavorites() className="+ a.getString(R.styleable.Favorite_className));
+                    MMLog.d(TAG,"loadFavorites() className="+ a.getString(R.styleable.Favorite_className)+" x="+x+",y="+y);
                     // If we are adding to the hotseat, the screen is used as the position in the
                     // hotseat. This screen can't be at position 0 because AllApps is in the
                     // zeroth position.

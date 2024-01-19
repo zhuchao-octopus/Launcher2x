@@ -1,0 +1,60 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto" >
+
+    <RelativeLayout
+        android:id="@+id/b_line"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="700dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:foregroundGravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/button_video"
+                style="@style/BottomButton"
+                android:onClick="onLauncherButtonClick"
+                android:src="@drawable/ic_video"
+                android:text="@string/toolbar_text_video" />
+
+            <ImageView
+                android:id="@+id/button_gps"
+                style="@style/BottomButton"
+                android:onClick="onLauncherButtonClick"
+                android:src="@drawable/ic_position" />
+
+            <ImageView
+                android:id="@+id/all_apps_button"
+                style="@style/BottomButton"
+                android:onClick="onLauncherButtonClick"
+                android:src="@drawable/ic_allapps"
+                android:text="@string/group_applications" />
+
+            <ImageView
+                android:id="@+id/button_swc"
+                style="@style/BottomButton"
+                android:onClick="onLauncherButtonClick"
+                android:src="@drawable/ic_swc"
+                android:text="@string/toolbar_text_bluetooth" />
+
+
+            <ImageView
+                android:id="@+id/button_settings"
+                style="@style/BottomButton"
+                android:onClick="onLauncherButtonClick"
+                android:src="@drawable/ic_setting" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</merge>

@@ -617,6 +617,7 @@ public class RadioMusicWidgetView {
      * mClock.setText(String.format("%02d:%02d", h, curDate.getMinutes())); }
      */
 
+    @SuppressLint("SimpleDateFormat")
     private void setTime() { // 24
 
         // Calendar c = Calendar.getInstance();
@@ -645,8 +646,8 @@ public class RadioMusicWidgetView {
             if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(Utilities.mSystemUI)) {
                 s = "MM/dd/yyyy";
             } else {
-                //s = "yyyy/MM/dd";
-                s = "dd/MM//yyyy";
+                s = "yyyy年MM月dd日";
+                //s = "dd/MM//yyyy";
             }
 
         }
