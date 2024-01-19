@@ -126,6 +126,11 @@ public final class LauncherIconTheme {
             return R.drawable.car_2;
         }
 
+        if(packageName.equals("com.canboxsetting") && className.equals("com.canboxsetting.eqset.EQActivity"))
+        {
+            return R.drawable.car_4;
+        }
+
         return -1;
     }
 

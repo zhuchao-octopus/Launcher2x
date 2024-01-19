@@ -512,8 +512,11 @@ public class RadioMusicWidgetView {
                 }
             }
         }
+
         mMusicTime.setText(time);
+
         Log.d("ccb", "updateMusicTime:" + mMusicSeekBar);
+
         if (mMusicSeekBar != null) {
             int process = 0;
             if (mMusicTotalTime > 0) {
@@ -866,11 +869,12 @@ public class RadioMusicWidgetView {
             mMusicTime.setVisibility(View.VISIBLE);
             mMusicArt.setImageDrawable(mContext.getResources().getDrawable(R.drawable.music_pic, null));
             mMusicName.setText(mStrMusicName);
+            if (mMusicSeekBar != null)
+               mMusicSeekBar.setVisibility(View.VISIBLE);
 
             if (mMusicPlaying != 1) {
                 mMusicTime.setText("");
                 if (mMusicSeekBar != null) {
-                    mMusicSeekBar.setVisibility(View.VISIBLE);
                     mMusicSeekBar.setProgress(0);
                 }
             } else {
@@ -936,6 +940,7 @@ public class RadioMusicWidgetView {
             mMusicTime.setText("");
             if (mMusicSeekBar != null) {
                 mMusicSeekBar.setProgress(0);
+                mMusicSeekBar.setVisibility(View.VISIBLE);
             }
             setPlayButtonStatus(false);
         }
@@ -1518,19 +1523,17 @@ public class RadioMusicWidgetView {
         mContext.findViewById(R.id.widget_tag1).setVisibility(View.INVISIBLE);
         mContext.findViewById(R.id.widget_tag2).setVisibility(View.INVISIBLE);
         mContext.findViewById(R.id.widget_tag3).setVisibility(View.INVISIBLE);
+
         if (id == R.id.widget_speed) {
-            mContext.findViewById(R.id.layout_left_speed).setVisibility(
-                    View.VISIBLE);
+            mContext.findViewById(R.id.layout_left_speed).setVisibility(View.VISIBLE);
             mContext.findViewById(R.id.widget_tag1).setVisibility(View.VISIBLE);
             updateSpeed();
         } else if (id == R.id.widget_time) {
-            mContext.findViewById(R.id.layout_left_time).setVisibility(
-                    View.VISIBLE);
+            mContext.findViewById(R.id.layout_left_time).setVisibility(View.VISIBLE);
             mContext.findViewById(R.id.widget_tag2).setVisibility(View.VISIBLE);
             updateTimeClock();
         } else if (id == R.id.widget_fm) {
-            mContext.findViewById(R.id.layout_left_fm).setVisibility(
-                    View.VISIBLE);
+            mContext.findViewById(R.id.layout_left_fm).setVisibility(View.VISIBLE);
             mContext.findViewById(R.id.widget_tag3).setVisibility(View.VISIBLE);
         }
 
