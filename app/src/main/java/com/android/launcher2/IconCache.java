@@ -196,10 +196,10 @@ public class IconCache {
     {
         synchronized (mCache)
         {
-            CacheEntry entry = cacheLocked(application.componentName, info, labelCache, info.getUser());
-            MMLog.d(TAG,"getTitleAndIcon componentName="+application.componentName + ",entry.title=" + entry.title);
+            CacheEntry entry = cacheLocked2(application.componentName, info, labelCache, info.getUser());
+            MMLog.d(TAG,"getTitleAndIcon ComponentName="+application.componentName + ",entry.title=" + entry.title);
 
-            WinceCEStyleApp.updateLabel(application.componentName, entry.title);
+            //WinceCEStyleApp.updateLabel(application.componentName, entry.title);
             application.title = entry.title;
             application.iconBitmap = entry.icon;
             application.contentDescription = entry.contentDescription;
@@ -264,9 +264,9 @@ public class IconCache {
         CacheEntry entry = mCache.get(cacheKey);
         //MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
 
-        if (entry == null) {
+        if (entry == null)
+        {
             entry = new CacheEntry();
-
             mCache.put(cacheKey, entry);
             ComponentName key = info.getComponentName();
 
@@ -286,7 +286,6 @@ public class IconCache {
             ///}
 
             entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
-
             Drawable d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
             String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
             if(title != null)
@@ -346,6 +345,47 @@ public class IconCache {
         return entry;
     }
 
+    private CacheEntry cacheLocked2(ComponentName componentName,LauncherActivityInfo info,HashMap<Object, CharSequence> labelCache, UserHandle user)
+    {
+        CacheKey cacheKey = new CacheKey(componentName, user);
+        CacheEntry entry = mCache.get(cacheKey);
+        //MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
+
+        if (entry == null)
+        {
+            entry = new CacheEntry();
+            mCache.put(cacheKey, entry);
+            ComponentName key = info.getComponentName();
+
+            if (labelCache != null && labelCache.containsKey(key)) {
+                entry.title = Objects.requireNonNull(labelCache.get(key)).toString();
+            }
+            else
+            {
+                entry.title = info.getLabel().toString();
+                if (labelCache != null) {
+                    labelCache.put(key, entry.title);
+                }
+            }
+
+            entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
+            Drawable d = LauncherIconTheme.getAppIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
+            //String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
+            if (d != null) {
+                entry.icon = Utilities.createIconBitmap(d, mContext);
+                if (labelCache != null)
+                    labelCache.put(key, entry.title);
+            }
+            else
+            {
+                //MMLog.d(TAG,"NO CUSTOMIZE ICON!!!!!!!!"+componentName.getClassName());
+                boolean isNeedBg =  false;// !AppConfig.isNoNeedLauncherBackground(key.getPackageName(), key.getClassName());
+                d = info.getBadgedIcon(mIconDpi);
+                entry.icon = Utilities.createIconBitmap(d, mContext, isNeedBg);
+            }
+        }
+        return entry;
+    }
     private Drawable getIconBackground(String packageName, String className) {
         String s = null;
         Drawable d = null;

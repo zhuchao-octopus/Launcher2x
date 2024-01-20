@@ -112,9 +112,9 @@
         launcher:y="1" />
 
     <favorite
-        launcher:className="com.google.android.maps.MapsActivity"
+        launcher:className="com.my.navi.NaviEmptyActivity"
         launcher:container="-101"
-        launcher:packageName="com.google.android.apps.maps"
+        launcher:packageName="com.car.ui"
         launcher:screen="2"
         launcher:x="2"
         launcher:y="0" />

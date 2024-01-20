@@ -310,5 +310,6 @@ s -->
     <string name="dab">Dab+</string>
     <string name="fm_radio_title">Radio</string>
     <string name="swcapplication">Swc</string>
-
+    <string name="radio">Radio</string>
+    <string name="navigate">navigate</string>
 </resources>

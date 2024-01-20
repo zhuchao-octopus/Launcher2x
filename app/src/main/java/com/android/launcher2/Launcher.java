@@ -2907,6 +2907,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public void onLauncherButtonClick(View v) {
         MMLog.d("Launcher", "onLauncherButtonClick:" + v.toString());
         int id = v.getId();
+
         if (id == R.id.wince) {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.showLauncherView(mLauncherView);

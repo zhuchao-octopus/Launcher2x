@@ -119,12 +119,12 @@
     <string name="widget_app_setting">设置</string>
     
     <string name="widget_app_gallery">图库</string>  
-      <string name="toolbar_text_gps" >导航</string>
+    <string name="toolbar_text_gps" >导航</string>
     <string name="toolbar_text_bluetooth" >蓝牙</string>
     <string name="toolbar_text_radio" >收音</string>
     <string name="toolbar_text_music" >音乐</string>
     
-<!--     <string name="toolbar_text_dvd" >视频</string> -->
+    <!--<string name="toolbar_text_dvd" >视频</string> -->
 
 
     <string name="toolbar_text_video" >视频</string>
@@ -144,5 +144,6 @@
 
     <string name="manual">手册</string>
     <string name="car_play_connection">车联</string>
+    <string name="radio">收音机</string>
     <string name="dab">Dab+</string>
 </resources>

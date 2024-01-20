@@ -59,6 +59,7 @@ import com.common.util.SystemConfig;
 import com.common.util.UtilCarKey;
 import com.common.util.SystemConfig;
 import com.common.util.Util;
+import com.zhuchao.android.fbase.MMLog;
 
 public class WinceCEStyleApp {
 
@@ -408,6 +409,9 @@ public class WinceCEStyleApp {
     private Drawable getIconBackground(String packageName, String className) {
         String s = null;
         Drawable d = null;
+        //MMLog.log(TAG,"getIconBackground "+className);
+
+
         if ("com.car.ui".equals(packageName)) {
             if ("com.my.navi.NaviEmptyActivity".equals(className)) {
                 s = "navi";
