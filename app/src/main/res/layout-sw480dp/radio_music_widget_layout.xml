@@ -38,14 +38,12 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="6.0dip"
                     android:layout_x="6dp"
-                    android:layout_y="10dp"
-                    android:background="@drawable/bt_album_bg">
-
+                    android:layout_y="10dp">
                     <ImageView
-                        android:layout_width="42dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@drawable/bt_album" />
+                        android:src="@drawable/bt_music_pic" />
                 </FrameLayout>
 
                 <FrameLayout

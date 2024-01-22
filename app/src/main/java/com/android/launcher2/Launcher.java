@@ -2992,6 +2992,10 @@ public final class Launcher extends Activity implements View.OnClickListener,
             //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
             UtilCarKey.doKeyEQ2(this, 1);
         }
+        else if(id == R.id.button_swc)
+        {
+            TAppUtils.startApp(this,"com.SwcApplication");
+        }
         else
         {
             if (mWinceCEStyleApp != null) {
