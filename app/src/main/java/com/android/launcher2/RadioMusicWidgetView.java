@@ -1624,10 +1624,10 @@ public class RadioMusicWidgetView {
         public void handleMessage(Message msg) {
             if (msg.what <= 0) {
                 startAnimation(msg.what);
-                MMLog.log(TAG, "stop to play music...");
+                //MMLog.log(TAG, "stop to play music...");
             } else {
                 startAnimation(msg.what);
-                MMLog.log(TAG, "start to play music..." + msg.what);
+                //MMLog.log(TAG, "start to play music..." + msg.what);
             }
         }
     };
