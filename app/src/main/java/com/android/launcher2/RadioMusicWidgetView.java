@@ -568,9 +568,7 @@ public class RadioMusicWidgetView {
     }
 
     private void updateRadio() {
-
         if (mMRDBand <= 2) {
-
             // mRadioFreq.setText(String.format("%d.%d", mMRDFreqency / 100,
             // mMRDFreqency % 100));
             String s = (mMRDFreqency / 100) + "." + ((mMRDFreqency % 100) / 10)

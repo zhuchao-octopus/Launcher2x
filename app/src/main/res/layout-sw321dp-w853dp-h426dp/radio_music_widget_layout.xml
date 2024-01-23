@@ -68,6 +68,8 @@
                     android:layout_height="wrap_content"
                     android:layout_x="30dp"
                     android:layout_y="60dp"
+                    android:max="100"
+                    android:thumbOffset="1dp"
                     android:thumb="@drawable/dot_img" />
 
                 <TextView
