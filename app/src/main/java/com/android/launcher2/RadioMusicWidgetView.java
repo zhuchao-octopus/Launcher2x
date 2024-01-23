@@ -539,12 +539,15 @@ public class RadioMusicWidgetView {
 
     private void updateMusicTime() {
         String time = "";
-        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME) {
+        if (mMusicCurTime >= 0 && mMusicCurTime < MAX_MUSICTIME && mMusicTotalTime >= 0 && mMusicTotalTime < MAX_MUSICTIME)
+        {
             if (mMusicTime2 != null) {
                 time = stringForTime(mMusicTotalTime);
                 mMusicTime2.setText(time);
                 time = stringForTime(mMusicCurTime);
-            } else {
+            }
+            else
+            {
                 if (mMusicTotalTime > 0) {
                     time = stringForTime(mMusicCurTime) + "/" + stringForTime(mMusicTotalTime);
                 } else {
