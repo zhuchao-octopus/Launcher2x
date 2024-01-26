@@ -66,6 +66,7 @@ import com.common.view.MyScrollView.ICallBack;
 
 public class RadioMusicWidgetView {
     public static Launcher mContext;
+    @SuppressLint("StaticFieldLeak")
     private static RadioMusicWidgetView mThis;
 
     TextView mClock;
@@ -276,7 +277,7 @@ public class RadioMusicWidgetView {
     }
 
     private MyScrollView mMyScrollView;
-    private ICallBack mICallBack = new ICallBack() {
+    private final ICallBack mICallBack = new ICallBack() {
         public void callback(int cmd, int param) {
             if (cmd == MyScrollView.CMD_PAGE_END) {
                 Log.d("abcd", "dd:" + param);
@@ -313,7 +314,7 @@ public class RadioMusicWidgetView {
         return id;
     }
 
-    private ICallBack mICallBack2 = new ICallBack() {
+    private final ICallBack mICallBack2 = new ICallBack() {
         public void callback(int cmd, int param) {
 
             if (cmd == MyScrollView.CMD_PAGE_END) {
@@ -365,15 +366,12 @@ public class RadioMusicWidgetView {
         int id = v.getId();
         if (id == R.id.radio_button_play) {
             if (mSource != MyCmd.SOURCE_RADIO) {
-                BroadcastUtil.sendToCarServiceMcuRadio(mContext,
-                        ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
+                BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
             }
-            BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                    MyCmd.Keycode.RADIO_POWER);
+            BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.RADIO_POWER);
         } else if (id == R.id.radio_button_prev) {
             if (mSource == MyCmd.SOURCE_RADIO) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                        MyCmd.Keycode.PREVIOUS);
+                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.PREVIOUS);
             }
 
             // BroadcastUtil.sendToCarServiceMcuRadio(mContext,
@@ -975,6 +973,7 @@ public class RadioMusicWidgetView {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     private String stringForTime(int timeMs) {
         int totalSeconds = timeMs / 1000;
 
@@ -983,10 +982,9 @@ public class RadioMusicWidgetView {
         int hours = totalSeconds / 3600;
 
         if (hours > 0) {
-            return String.format("%d:%02d:%02d", hours, minutes, seconds)
-                    .toString();
+            return String.format("%d:%02d:%02d", hours, minutes, seconds);
         } else {
-            return String.format("%02d:%02d", minutes, seconds).toString();
+            return String.format("%02d:%02d", minutes, seconds);
         }
         // return str;
     }
@@ -1223,7 +1221,7 @@ public class RadioMusicWidgetView {
                                                 mContext.sendBroadcast(it);
                                                 break;
                                             default:
-                                                ///if (mSource == MyCmd.SOURCE_DVD) {
+                                                    ///if (mSource == MyCmd.SOURCE_DVD) {
                                                     // if
                                                     // (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)
                                                     // ){
@@ -1244,6 +1242,13 @@ public class RadioMusicWidgetView {
                                 case MyCmd.Cmd.LAUNCHER_SHOW_ALL_APP:
                                     //mContext.onClickAllAppsButton(null);
                                     break;
+                                case MyCmd.Cmd.REVERSE_STATUS:
+                                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PAUSE);
+                                    if (mSource != MyCmd.SOURCE_RADIO) {
+                                        BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
+                                    }
+                                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.RADIO_POWER);
+                                    break;
                             }
 
                             break;
@@ -1261,7 +1266,6 @@ public class RadioMusicWidgetView {
             intentFilter.addAction(MyCmd.BROADCAST_CMD_FROM_BT);
             mContext.registerReceiver(mBroadcastReceiver, intentFilter);
         }
-
     }
 
     private int mMusicPlaying = 0;
@@ -1280,17 +1284,14 @@ public class RadioMusicWidgetView {
             localCanvas.drawBitmap(paramBitmap, 0.0F, 0.0F, localPaint1);
             localCanvas.drawBitmap(localBitmap1, 0.0F, j, localPaint1);
             Paint localPaint2 = new Paint();
-            localPaint2.setShader(new LinearGradient(0.0F, paramBitmap
-                    .getHeight(), 0.0F, localBitmap2.getHeight(), 1895825407,
+            localPaint2.setShader(new LinearGradient(0.0F, paramBitmap.getHeight(), 0.0F, localBitmap2.getHeight(), 1895825407,
                     16777215, Shader.TileMode.MIRROR));
-            localPaint2.setXfermode(new PorterDuffXfermode(
-                    PorterDuff.Mode.DST_IN));
-            localCanvas.drawRect(0.0F, j, i, localBitmap2.getHeight(),
-                    localPaint2);
+            localPaint2.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            localCanvas.drawRect(0.0F, j, i, localBitmap2.getHeight(), localPaint2);
             localBitmap1.recycle();
-        } catch (Exception e) {
-
+        } catch (Exception ignored) {
         }
+
         if (localBitmap2 == null) {
             return paramBitmap;
         }
