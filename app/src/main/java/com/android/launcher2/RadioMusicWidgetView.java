@@ -271,9 +271,7 @@ public class RadioMusicWidgetView {
         updateTime();
         updateRadio();
         BroadcastUtil.sendToCarService(mContext, MyCmd.Cmd.QUERY_CURRENT_SOURCE, 0);
-
-        BroadcastUtil.sendToCarServiceMcuRadio(mContext,
-                ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
+        BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
     }
 
     private MyScrollView mMyScrollView;
@@ -1243,11 +1241,13 @@ public class RadioMusicWidgetView {
                                     //mContext.onClickAllAppsButton(null);
                                     break;
                                 case MyCmd.Cmd.REVERSE_STATUS:
-                                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PAUSE);
+                                    if (mSource != MyCmd.SOURCE_MUSIC)
+                                        BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PAUSE);
+
                                     if (mSource != MyCmd.SOURCE_RADIO) {
                                         BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
+                                        BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.RADIO_POWER);
                                     }
-                                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.RADIO_POWER);
                                     break;
                             }
 
