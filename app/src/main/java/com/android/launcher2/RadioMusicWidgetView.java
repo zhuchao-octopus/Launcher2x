@@ -381,21 +381,21 @@ public class RadioMusicWidgetView {
 
             // BroadcastUtil.sendToCarServiceMcuRadio(mContext,
             // ProtocolAk47.SEND_RADIO_SUB_RADIO_OPERATION, 1, 4);
-        } else if (id == R.id.music_button_prev || id == R.id.bt_button_prev) {// setSource(MyCmd.SOURCE_MUSIC);
-
-            if (mSource == MyCmd.SOURCE_MUSIC
-                    || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                        MyCmd.Keycode.PREVIOUS);
-            } else if (mSource == MyCmd.SOURCE_DVD) {
-
-                if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                        .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                            MyCmd.Keycode.PREVIOUS);
+        }
+        else if (id == R.id.music_button_prev || id == R.id.bt_button_prev)
+        {// setSource(MyCmd.SOURCE_MUSIC);
+            if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
+                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PREVIOUS);
+            }
+            else if (mSource == MyCmd.SOURCE_DVD)
+            {
+                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PREVIOUS);
                 }
             }
-        } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
+        }
+        else if (id == R.id.music_button_play || id == R.id.bt_button_pp)
+        {
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
                 BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PLAY_PAUSE);
             } else if (mSource == MyCmd.SOURCE_DVD) {
@@ -403,35 +403,40 @@ public class RadioMusicWidgetView {
                     BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
-        } else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
-            if (mSource == MyCmd.SOURCE_MUSIC
-                    || mSource == MyCmd.SOURCE_BT_MUSIC) {
-
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                        MyCmd.Keycode.NEXT);
-            } else if (mSource == MyCmd.SOURCE_DVD) {
-
-                if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                        .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
-                            MyCmd.Keycode.NEXT);
+        }
+        else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
+            if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
+                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.NEXT);
+            }
+            else if (mSource == MyCmd.SOURCE_DVD)
+            {
+                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.NEXT);
                 }
             }
-        } else if (id == R.id.entry_bt_music) {
+        }
+        else if (id == R.id.entry_bt_music) {
             UtilCarKey.doKeyBTMusic(mContext);
-        } else if (id == R.id.entry_music || id == R.id.entry_music2) {
+        }
+        else if (id == R.id.entry_music || id == R.id.entry_music2)
+        {
             if (mSource == MyCmd.SOURCE_BT_MUSIC /*&& (mPlayStatus >= 3)*/) {
                 UtilCarKey.doKeyBTMusic(mContext);
-            } else {
-                if (MachineConfig.VALUE_SYSTEM_UI21_RM12
-                        .equals(Utilities.mSystemUI)) {
-                    if (mSource == MyCmd.SOURCE_DVD) {
+            }
+            else
+            {
+                if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+                    if (mSource == MyCmd.SOURCE_DVD)
+                    {
                         UtilCarKey.doKeyDVD(mContext);
-
-                    } else {
+                    }
+                    else
+                    {
                         UtilCarKey.doKeyAudio(mContext);
                     }
-                } else {
+                }
+                else
+                {
                     UtilCarKey.doKeyAudio(mContext);
                 }
             }
@@ -1241,13 +1246,12 @@ public class RadioMusicWidgetView {
                                     //mContext.onClickAllAppsButton(null);
                                     break;
                                 case MyCmd.Cmd.REVERSE_STATUS:
-                                    if (mSource != MyCmd.SOURCE_MUSIC)
+                                    if (mSource == MyCmd.SOURCE_MUSIC)
                                         BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PAUSE);
 
-                                    if (mSource != MyCmd.SOURCE_RADIO) {
-                                        BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
-                                        BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,MyCmd.Keycode.RADIO_POWER);
-                                    }
+                                    if (mSource == MyCmd.SOURCE_RADIO)
+                                        BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.RADIO_POWER);
+
                                     break;
                             }
 
