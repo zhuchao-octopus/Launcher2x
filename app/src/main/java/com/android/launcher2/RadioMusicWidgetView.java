@@ -1245,6 +1245,7 @@ public class RadioMusicWidgetView {
                                 case MyCmd.Cmd.LAUNCHER_SHOW_ALL_APP:
                                     //mContext.onClickAllAppsButton(null);
                                     break;
+                                /*
                                 case MyCmd.Cmd.REVERSE_STATUS:
                                     if (mSource == MyCmd.SOURCE_MUSIC)
                                         BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.PAUSE);
@@ -1253,6 +1254,7 @@ public class RadioMusicWidgetView {
                                         BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI, MyCmd.Keycode.RADIO_POWER);
 
                                     break;
+                               */
                             }
 
                             break;
