@@ -648,7 +648,7 @@ public class RadioMusicWidgetView {
                 s = "MM/dd/yyyy";
             } else {
                 //s = "yyyy/MM/dd";
-                s = "dd/MM//yyyy";
+                s = "dd/MM/yyyy";
             }
 
         }
