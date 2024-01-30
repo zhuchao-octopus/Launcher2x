@@ -896,10 +896,10 @@ public class LauncherProvider extends ContentProvider {
                     // If we are adding to the hotseat, the screen is used as the position in the
                     // hotseat. This screen can't be at position 0 because AllApps is in the
                     // zeroth position.
-                    if (container == LauncherSettings.Favorites.CONTAINER_HOTSEAT  && Integer.parseInt(screen) == allAppsButtonRank)
-                    {
-                        throw new RuntimeException("Invalid screen position for hotseat item");
-                    }
+                    ///if (container == LauncherSettings.Favorites.CONTAINER_HOTSEAT  && Integer.parseInt(screen) == allAppsButtonRank)
+                    ///{
+                    ///    //throw new RuntimeException("Invalid screen position for hotseat item");
+                    ///}
 
                     values.clear();
                     values.put(LauncherSettings.Favorites.CONTAINER, container);
@@ -934,8 +934,8 @@ public class LauncherProvider extends ContentProvider {
                         ArrayList<Long> folderItems = new ArrayList<Long>();
 
                         int folderDepth = parser.getDepth();
-                        while ((type = parser.next()) != XmlPullParser.END_TAG ||
-                                parser.getDepth() > folderDepth) {
+                        while ((type = parser.next()) != XmlPullParser.END_TAG || parser.getDepth() > folderDepth)
+                        {
                             if (type != XmlPullParser.START_TAG) {
                                 continue;
                             }
