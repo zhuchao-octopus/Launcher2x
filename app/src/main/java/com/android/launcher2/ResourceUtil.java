@@ -113,8 +113,8 @@ public class ResourceUtil {
 
 
 		//int sw = 0;
-        int w = 0;
-        int h = 0;
+        ///int w = 0;
+        ///int h = 0;
         int type = 0; // deault 800X480
 
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
@@ -314,15 +314,16 @@ public class ResourceUtil {
         if (sw != 0) {
             c.smallestScreenWidthDp = sw;
         }
-        if (w != 0) {
-            c.screenWidthDp = w;
-        }
-        if (h != 0) {
-            c.screenHeightDp = h;
-        }
+
+        ///if (w != 0) {
+        ///    c.screenWidthDp = w;
+        ///}
+        ///if (h != 0) {
+        ///    c.screenHeightDp = h;
+        ///}
+
+        ///MMLog.d(TAG, "w=" + w + ",h=" + h);
         context.getResources().updateConfiguration(c, null);
-
-
         MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
         return value;
     }
