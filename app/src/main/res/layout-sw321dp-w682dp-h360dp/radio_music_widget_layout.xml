@@ -29,7 +29,7 @@
                 android:background="@drawable/music_tab"
                 android:onClick="onLauncherButtonClick"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/album_art"
@@ -155,7 +155,7 @@
                 android:background="@drawable/radio_tab"
                 android:onClick="onLauncherButtonClick"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/radio_title"

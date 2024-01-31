@@ -16,9 +16,7 @@
 
 <resources>
     
-    
 
-    
     <dimen name="app_icon_size">73dp</dimen>
     <dimen name="app_wrap_icon_size">53dp</dimen>
     

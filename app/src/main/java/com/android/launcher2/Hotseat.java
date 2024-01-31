@@ -101,7 +101,7 @@ public class Hotseat extends FrameLayout {
         mContent = (CellLayout) findViewById(R.id.layout);
         mContent.setGridSize(mCellCountX, mCellCountY);
         mContent.setIsHotseat(true);
-
+        MMLog.log(TAG,"Hotseat TAG="+findViewById(R.id.hotseat).getTag());
         resetLayout();
     }
 
