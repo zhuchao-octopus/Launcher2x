@@ -81,9 +81,8 @@ public class ResourceUtil {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         }
 
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
-
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value))
+        {
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -91,13 +90,11 @@ public class ResourceUtil {
                 } else { //0
                     value = MachineConfig.VALUE_SYSTEM_UI20_RM10_1;
                 }
-
             }
+        }
 
-        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-
-            String s = SystemConfig.getProperty(context,
-                    SystemConfig.KEY_LAUNCHER_UI_RM10);
+        else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
+            String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     value = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -119,22 +116,26 @@ public class ResourceUtil {
 
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         Display[] display = displayManager.getDisplays();
-        Log.d(TAG, "Display[]=" + Arrays.toString(display));
+        Configuration configuration = context.getResources().getConfiguration();
+        MMLog.d(TAG, "Display[]=" + Arrays.toString(display));
 		//Rect outRect = new Rect();
 		//display[0].getOverscanInsets(outRect);
 
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
-        MMLog.d(TAG, "DisplayMetrics=" + dm.toString());
 
-        if (dm.widthPixels == 1024 && dm.heightPixels == 600) {
+        MMLog.d(TAG,"DisplayMetrics=" + dm.toString());
+        MMLog.d(TAG,"configuration:"+configuration.toString());
+
+
+        if (dm.widthPixels == 1024 && dm.heightPixels == 600) {//667
             type = 1;
             sw = 321;
         } else if (dm.widthPixels == 1280 && dm.heightPixels == 480) {
             type = 2;
             sw = 320;
-        } else if (dm.widthPixels == 1280 && dm.heightPixels == 720) {
+        } else if (dm.widthPixels == 1280 && dm.heightPixels == 720) {//667
             type = 3;
             sw = 321;
         } else if (dm.widthPixels == 1280 && dm.heightPixels == 800) {
@@ -310,9 +311,9 @@ public class ResourceUtil {
             }
         }
 
-        Configuration c = context.getResources().getConfiguration();
+
         if (sw != 0) {
-            c.smallestScreenWidthDp = sw;
+            configuration.smallestScreenWidthDp = sw;
         }
 
         ///if (w != 0) {
@@ -323,8 +324,8 @@ public class ResourceUtil {
         ///}
 
         ///MMLog.d(TAG, "w=" + w + ",h=" + h);
-        context.getResources().updateConfiguration(c, null);
-        MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
+        context.getResources().updateConfiguration(configuration, null);
+        MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + configuration.toString());
         return value;
     }
 

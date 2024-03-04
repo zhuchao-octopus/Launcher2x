@@ -24,10 +24,10 @@
     <!-- Folder max bounds and max number of items.
          Note: folder_max_count_x * folder_max_count_y >= folder_max_num_items. -->
     <integer name="folder_max_count_x">5</integer>
-    <integer name="cell_count_x">5</integer>
+    <integer name="cell_count_x">7</integer>
     <integer name="folder_max_count_y">3</integer>
     
     
-    <integer name="hotseat_cell_count">5</integer>
-    <integer name="hotseat_all_apps_index">2</integer>
+    <integer name="hotseat_cell_count">7</integer>
+    <integer name="hotseat_all_apps_index">0</integer>
 </resources>
