@@ -467,7 +467,7 @@ public class LauncherModel extends BroadcastReceiver {
      */
     static void moveItemInDatabase(Context context, final ItemInfo item, final long container,
                                    final int screen, final int cellX, final int cellY) {
-        String transaction = "DbDebug    Modify item (" + item.title + ") in db, id: " + item.id +
+        String transaction = "DbDebug    moveItemInDatabase (" + item.title + ") in db, id: " + item.id +
                 " (" + item.container + ", " + item.screen + ", " + item.cellX + ", " + item.cellY +
                 ") --> " + "(" + container + ", " + screen + ", " + cellX + ", " + cellY + ")";
         Launcher.sDumpLogs.add(transaction);
@@ -499,9 +499,10 @@ public class LauncherModel extends BroadcastReceiver {
      */
     static void modifyItemInDatabase(Context context, final ItemInfo item, final long container,
                                      final int screen, final int cellX, final int cellY, final int spanX, final int spanY) {
-        String transaction = "DbDebug    Modify item (" + item.title + ") in db, id: " + item.id +
-                " (" + item.container + ", " + item.screen + ", " + item.cellX + ", " + item.cellY +
-                ") --> " + "(" + container + ", " + screen + ", " + cellX + ", " + cellY + ")";
+        String transaction = "DbDebug    modifyItemInDatabase (" + item.title + ") in db, id: " + item.id
+                + " (" + item.container + ", " + item.screen + ", " + item.cellX + ", " + item.cellY + ") -->"
+                + " (" + container + ", " + screen + ", " + cellX + ", " + cellY + ")";
+
         Launcher.sDumpLogs.add(transaction);
         Log.d(TAG, transaction);
         item.cellX = cellX;
@@ -678,9 +679,8 @@ public class LauncherModel extends BroadcastReceiver {
         final StackTraceElement[] stackTrace = new Throwable().getStackTrace();
         Runnable r = new Runnable() {
             public void run() {
-                String transaction = "DbDebug    Add item (" + item.title + ") to db, id: "
-                        + item.id + " (" + container + ", " + screen + ", " + cellX + ", "
-                        + cellY + ")";
+                String transaction = "DbDebug    addItemToDatabase (" + item.title + ") to db, id: " + item.id + " (" + container + ", " + screen + ", " + cellX + ", " + cellY + ")";
+
                 Launcher.sDumpLogs.add(transaction);
                 Log.d(TAG, transaction);
 
@@ -900,15 +900,24 @@ public class LauncherModel extends BroadcastReceiver {
         Utilities.mSystemUI = ResourceUtil.updateUi(context);
         Utilities.initStatics(context);
     }
-
+    private  boolean overridePrevious = false;
     public void reloadWorkspace(Context context, final String name) {
         final LauncherApplication app = (LauncherApplication) context.getApplicationContext();
         final LauncherProvider provider = app.getLauncherProvider();
         if (provider != null) {
             @SuppressLint("DiscouragedApi")
             final int workspaceResId = !TextUtils.isEmpty(name) ? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
-            final boolean overridePrevious = true;
-            MMLog.d(TAG, "reloadWorkspace call loadDefaultFavoritesIfNecessary name: " + name + " id: " + workspaceResId);
+
+            final ContentResolver contentResolver = context.getContentResolver();
+            final Cursor c = contentResolver.query(LauncherSettings.Favorites.CONTENT_URI, null, null, null, null);
+            int dbCount = 0;
+            if(c != null)
+               dbCount = c.getCount();
+
+            if(dbCount <= 0)
+                overridePrevious = true;
+
+            MMLog.d(TAG, "reloadWorkspace call loadDefaultFavoritesIfNecessary name: " + name + " id: " + workspaceResId + " overridePrevious："+overridePrevious + " dbCount："+dbCount);
             new Thread(new Runnable() {
                 @Override
                 public void run() {

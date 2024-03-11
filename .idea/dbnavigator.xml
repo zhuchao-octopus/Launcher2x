@@ -13,7 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="64e8b0c2-a5dc-43a5-89ac-b6b28fe431c9">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+      <console name="Connection" type="STANDARD" schema="launcher" session="Main"><![CDATA[select * from favorites]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -58,7 +58,7 @@
           <tns-folder value="" />
           <tns-profile value="" />
           <files>
-            <file path="E:\launcher.db" schema="launcher" />
+            <file path="D:\launcher.db" schema="launcher" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -535,5 +535,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>

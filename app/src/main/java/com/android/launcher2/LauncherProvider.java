@@ -148,8 +148,8 @@ public class LauncherProvider extends ContentProvider {
 
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         final long rowId = dbInsertAndCheck(mOpenHelper, db, args.table, null, initialValues);
-        if (rowId <= 0) return null;
 
+        if (rowId <= 0) return null;
         uri = ContentUris.withAppendedId(uri, rowId);
         sendNotify(uri);
 
@@ -223,19 +223,19 @@ public class LauncherProvider extends ContentProvider {
             int workspaceResId = origWorkspaceResId;
             // Use default workspace resource if none provided
             if (workspaceResId == 0) {
-            	try {
-            		if (ResourceUtil.ifLoadDvdHideWorkspace()) {
-	            		workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace_dvdhide);
-	            	} else {
-	            		if (Launcher.ICON_TYPE_DEFAULT_WORKSPACE1 == Launcher.mIconType){
-	            			workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
-	            		} else {
-	            			workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
-	            		}
-	            	
-	            	}
-				} catch (Exception ignored) {
-				}
+                try {
+                    if (ResourceUtil.ifLoadDvdHideWorkspace()) {
+                        workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace_dvdhide);
+                    } else {
+                        if (Launcher.ICON_TYPE_DEFAULT_WORKSPACE1 == Launcher.mIconType) {
+                            workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
+                        } else {
+                            workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
+                        }
+
+                    }
+                } catch (Exception ignored) {
+                }
             }
 
             // Populate favorites table with initial favorites
@@ -245,13 +245,15 @@ public class LauncherProvider extends ContentProvider {
                 editor.putInt(DEFAULT_WORKSPACE_RESOURCE_ID, origWorkspaceResId);
             }
             if (!dbCreatedNoWorkspace && overridePrevious) {
-              Log.d(TAG, "Clearing old launcher database");
+                Log.d(TAG, "Clearing old launcher database");
                 // Workspace has already been loaded, clear the database.
                 deleteDatabase();
             }
-            //MMLog.d(TAG, "loadDefaultFavoritesIfNecessary()");
+            if(overridePrevious)
+            {
             mOpenHelper.loadFavorites(mOpenHelper.getWritableDatabase(), workspaceResId);
             editor.commit();
+            }
         }
     }
 
@@ -767,9 +769,9 @@ public class LauncherProvider extends ContentProvider {
             db.beginTransaction();
             try {
                 // Select and iterate through each matching widget
-                c = db.query(TABLE_FAVORITES, new String[] { Favorites._ID, Favorites.ITEM_TYPE },
-                        selectWhere, null, null, null, null);
-                 Log.d(TAG, "found upgrade cursor count=" + c.getCount());
+
+                c = db.query(TABLE_FAVORITES, new String[] { Favorites._ID, Favorites.ITEM_TYPE }, selectWhere, null, null, null, null);
+                Log.d(TAG, "found upgrade cursor count=" + c.getCount());
 
                 final ContentValues values = new ContentValues();
                 while (c != null && c.moveToNext()) {
@@ -779,11 +781,11 @@ public class LauncherProvider extends ContentProvider {
                     // Allocate and update database with new appWidgetId
                     try {
                         int appWidgetId = mAppWidgetHost.allocateAppWidgetId();
-
                         {
                             Log.d(TAG, "allocated appWidgetId=" + appWidgetId
                                     + " for favoriteId=" + favoriteId);
                         }
+
                         values.clear();
                         values.put(Favorites.ITEM_TYPE, Favorites.ITEM_TYPE_APPWIDGET);
                         values.put(Favorites.APPWIDGET_ID, appWidgetId);

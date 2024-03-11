@@ -41,7 +41,7 @@ public class PreloadReceiver extends BroadcastReceiver {
 
             final boolean overridePrevious = intent.getBooleanExtra(EXTRA_OVERRIDE_PREVIOUS, false);
             if (LOGD) {
-                Log.d(TAG, "workspace name: " + name + " id: " + workspaceResId);
+                Log.d(TAG, "onReceive loadDefaultFavoritesIfNecessary workspace name: " + name + " id: " + workspaceResId +" overridePrevious:"+overridePrevious);
             }
             new Thread(new Runnable() {
                 @Override
