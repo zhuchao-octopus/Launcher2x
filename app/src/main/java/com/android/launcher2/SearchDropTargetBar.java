@@ -19,6 +19,7 @@ package com.android.launcher2;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -206,6 +207,7 @@ public class SearchDropTargetBar extends FrameLayout implements DragController.D
     /*
      * DragController.DragListener implementation
      */
+    @SuppressLint("SuspiciousIndentation")
     @Override
     public void onDragStart(DragSource source, Object info, int dragAction) {
     	{	//ww+, if system app don't show DeleteDragBar

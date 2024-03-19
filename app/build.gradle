@@ -30,5 +30,7 @@ dependencies {
     implementation files('libs/android-common.jar')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')
+    implementation('com.zhuchao.android:libJOSUtils:1.4:@aar')
 }
 
