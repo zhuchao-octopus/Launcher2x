@@ -384,8 +384,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
                     android:src="@drawable/transverse_line" />
 
                 <ImageButton
@@ -394,8 +393,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/setting_icon" />
 
@@ -403,8 +402,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:src="@drawable/transverse_line" />
             </LinearLayout>
         </AbsoluteLayout>
