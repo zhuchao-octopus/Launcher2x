@@ -77,6 +77,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import com.ce.view.WinceCEStyleApp;
@@ -86,6 +87,7 @@ import com.common.util.MyCmd;
 import com.common.util.ProtocolAk47;
 import com.common.util.SystemConfig;
 import com.common.util.Util;
+import com.zhuchao.android.fbase.MMLog;
 
 /**
  * Maintains in-memory state of the Launcher. It is expected that there should be only one
@@ -924,10 +926,10 @@ public class LauncherModel extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "onReceive intent=" + intent);
+        MMLog.d(TAG, "onReceive intent=" + intent);
 
         final String action = intent.getAction();
-        switch (action) {
+        switch (Objects.requireNonNull(action)) {
             case Intent.ACTION_LOCALE_CHANGED:
                 // If we have changed locale we need to clear out the labels in all apps/workspace.
                 foreUpdateConfig(context);

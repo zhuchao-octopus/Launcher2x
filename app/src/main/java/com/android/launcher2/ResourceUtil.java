@@ -32,16 +32,17 @@ import java.util.Arrays;
 
 public class ResourceUtil {
     private static final String TAG = "ResourceUtil";
+
     public static int getLayoutId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "layout",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "layout", paramContext.getPackageName());
     }
 
     public static int getStringId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "string",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "string", paramContext.getPackageName());
     }
 
     public static int getDrawableId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString,"drawable", paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "drawable", paramContext.getPackageName());
     }
 
     public static int getStyleId(Context paramContext, String paramString) {
@@ -53,13 +54,13 @@ public class ResourceUtil {
     }
 
     public static int getColorId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "color",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "color", paramContext.getPackageName());
     }
 
     public static void setActivityAnim(Activity c, int anim) {
         View v = ((ViewGroup) c.findViewById(android.R.id.content)).getChildAt(0);// getWindow().getDecorView();
 
-        Animation animation = (AnimationSet) AnimationUtils.loadAnimation(c,anim);
+        Animation animation = (AnimationSet) AnimationUtils.loadAnimation(c, anim);
 
         v.clearAnimation();
         v.setAnimation(animation);
@@ -80,8 +81,7 @@ public class ResourceUtil {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         }
 
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
 
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
@@ -95,8 +95,7 @@ public class ResourceUtil {
 
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
 
-            String s = SystemConfig.getProperty(context,
-                    SystemConfig.KEY_LAUNCHER_UI_RM10);
+            String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     value = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -111,16 +110,19 @@ public class ResourceUtil {
         Log.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
 
 
-		//int sw = 0;
+        //int sw = 0;
         int w = 0;
         int h = 0;
         int type = 0; // deault 800X480
 
         DisplayManager displayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
-        Display[] display = displayManager.getDisplays();
-        Log.d(TAG, "Display[]=" + Arrays.toString(display));
-		//Rect outRect = new Rect();
-		//display[0].getOverscanInsets(outRect);
+        Display[] displays = displayManager.getDisplays();
+
+        for (int i = 0; i < displays.length; i++)
+            Log.d(TAG, "Display[" + i + "/"+displays.length+ "]=" + displays[i].toString());
+
+        //Rect outRect = new Rect();
+        //display[0].getOverscanInsets(outRect);
 
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
@@ -154,9 +156,7 @@ public class ResourceUtil {
                 // w = 1025;
                 // h = 601;
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD2.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI24_616.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD2.equals(value) || MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) || MachineConfig.VALUE_SYSTEM_UI24_616.equals(value)) {
             if (type == 0) {
                 sw = 324;
             } else if (type == 2) {
@@ -182,17 +182,16 @@ public class ResourceUtil {
             } else {
                 sw = 331;
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value) || MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
             if (type == 0) {
                 sw = 332;
             } else {
                 sw = 333;
             }
 
-			///if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
-			///	h = 441;
-			///}
+            ///if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
+            ///	h = 441;
+            ///}
         } else if (MachineConfig.VALUE_SYSTEM_UI_KLD10_887.equals(value)) {
             if (type == 0) {
                 sw = 334;
@@ -247,8 +246,7 @@ public class ResourceUtil {
             } else {
                 sw = 363;    //1024x600
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(value) ||
-                MachineConfig.VALUE_SYSTEM_UI_9813.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(value) || MachineConfig.VALUE_SYSTEM_UI_9813.equals(value)) {
             if (type == 0) {
                 sw = 364; // 800x480
             } else if (type == 2) {
@@ -264,8 +262,7 @@ public class ResourceUtil {
             } else {
                 sw = 373;    //1024x600
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI42_913.equals(value)
-                || MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI42_913.equals(value) || MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
 
             if (type == 0 || type == 2) {
                 sw = 368;    //800x480
@@ -322,7 +319,7 @@ public class ResourceUtil {
         context.getResources().updateConfiguration(c, null);
 
 
-        Log.d(TAG, value+",sw:" + sw + ",configuration:" + c.toString());
+        Log.d(TAG, value + ",sw:" + sw + ",configuration:" + c.toString());
         return value;
     }
 
@@ -359,10 +356,8 @@ public class ResourceUtil {
         Canvas canvas = new Canvas(output);
         final int color = 0xff424242;
         final Paint paint = new Paint();
-        final Rect src = new Rect((int) left, (int) top, (int) right,
-                (int) bottom);
-        final Rect dst = new Rect((int) dst_left, (int) dst_top,
-                (int) dst_right, (int) dst_bottom);
+        final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+        final Rect dst = new Rect((int) dst_left, (int) dst_top, (int) dst_right, (int) dst_bottom);
         final RectF rectF = new RectF(dst);
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
@@ -374,26 +369,12 @@ public class ResourceUtil {
     }
 
     public static boolean ifLoadDvdHideWorkspace() {
-        if (Utilities.mSystemUI != null
-                && (Utilities.mSystemUI
-                .equals(MachineConfig.VALUE_SYSTEM_UI21_RM10_2)
-                || Utilities.mSystemUI
-                .equals(MachineConfig.VALUE_SYSTEM_UI22_1050)
-                || Utilities.mSystemUI
-                .equals(MachineConfig.VALUE_SYSTEM_UI45_8702_2)
-                || Utilities.mSystemUI
-                .equals(MachineConfig.VALUE_SYSTEM_UI35_KLD813_2)))
-        {
-            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd())
-            {
+        if (Utilities.mSystemUI != null && (Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI21_RM10_2) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI22_1050) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI45_8702_2) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI35_KLD813_2))) {
+            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd()) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else
-            return false;
+        } else return false;
     }
 }

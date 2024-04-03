@@ -203,11 +203,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     /**
      * The different states that Launcher can be in.
      */
-    private enum State {
-        NONE, WORKSPACE, APPS_CUSTOMIZE, APPS_CUSTOMIZE_SPRING_LOADED
-    }
-
-    ;
+    private enum State {NONE, WORKSPACE, APPS_CUSTOMIZE, APPS_CUSTOMIZE_SPRING_LOADED};
 
     private State mState = State.WORKSPACE;
     private AnimatorSet mStateAnimation;
@@ -364,7 +360,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     public static final int ICON_TYPE_PARAMTER_ICON = 11;
 
 
-
     private void startCarService() {
         Intent it = new Intent(Intent.ACTION_RUN);
         try {
@@ -409,6 +404,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 
         }
     }
+
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -492,8 +488,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE, data);
             }
 
-            if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType)
-            {
+            if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType) {
                 if (ResourceUtil.ifLoadDvdHideWorkspace()) {
                     mModel.reloadWorkspace(this, "default_workspace_dvdhide");
                 } else {
@@ -1160,7 +1155,10 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         return !inputManager.isFullscreenMode();
     }
 
-    private final static int[] CLEAR_FOCUS = {R.id.music_button_prev, R.id.music_button_play, R.id.music_button_next, R.id.entry_music, R.id.radio_button_prev, R.id.radio_button_play, R.id.radio_button_next, R.id.entry_radio, R.id.entry_radio2, R.id.entry_music2,};
+    private final static int[] CLEAR_FOCUS = {
+            R.id.music_button_prev, R.id.music_button_play, R.id.music_button_next, R.id.entry_music, R.id.radio_button_prev, R.id.radio_button_play, R.id.radio_button_next, R.id.entry_radio,
+            R.id.entry_radio2, R.id.entry_music2,
+    };
 
     private void initFocus() {
         for (int i : CLEAR_FOCUS) {
@@ -2148,7 +2146,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             }
 
 
-            String s = MachineConfig.getPropertyOnce(MachineConfig.KEY_SAVE_DRIVER);
+            String s = MachineConfig.getPropertyForce(MachineConfig.KEY_SAVE_DRIVER);
             if ("1".equals(s)) {
                 MenuItem it = mMenu.findItem(MENU_SAVE_DRIVE);
 
@@ -2158,7 +2156,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 }
             }
         } //else {
-          //mMenu.removeItem(MENU_SAVE_DRIVE);
+        //mMenu.removeItem(MENU_SAVE_DRIVE);
         //}
 
     }
@@ -2688,7 +2686,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         } else if (id == R.id.button_bluetooth) {
             doRunActivity("com.my.bt", "com.my.bt.ATBluetoothActivity");
 
-        //case R.id.entry_music:
+            //case R.id.entry_music:
         } else if (id == R.id.button_music) {
             UtilCarKey.doKeyAudio(this);
             // doRunActivity("com.my.audio", "com.my.audio.MusicActivity");
@@ -4552,7 +4550,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 break;
         }
 
-        int[] oriMap = {ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE, ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE};
+        int[] oriMap = {
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE, ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+        };
         // Since the map starts at portrait, we need to offset if this device's
         // natural orientation
         // is landscape.
@@ -4594,27 +4594,27 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     /* Cling related */
     //private boolean isClingsEnabled() {
     //    return false;
-        /*
-         * // disable clings when running in a test harness
-         * if(ActivityManager.isRunningInTestHarness()) return false;
-         *
-         * // Restricted secondary users (child mode) will potentially have very
-         * few apps // seeded when they start up for the first time. Clings
-         * won't work well with that boolean supportsLimitedUsers =
-         * android.os.Build.VERSION.SDK_INT >=
-         * android.os.Build.VERSION_CODES.JELLY_BEAN_MR2; Account[] accounts =
-         * AccountManager.get(this).getAccounts(); if (supportsLimitedUsers &&
-         * accounts.length == 0) { UserManager um = (UserManager)
-         * getSystemService(Context.USER_SERVICE); Bundle restrictions =
-         * um.getUserRestrictions(); if
-         * (restrictions.getBoolean(UserManager.DISALLOW_MODIFY_ACCOUNTS,
-         * false)) { return false; } } // Check if the system has requested
-         * skipping of first-use hints. if
-         * (Settings.Secure.getInt(getContentResolver(),
-         * Settings.Secure.SKIP_FIRST_USE_HINTS, 0) == 1) { return false; }
-         *
-         * return true;
-         */
+    /*
+     * // disable clings when running in a test harness
+     * if(ActivityManager.isRunningInTestHarness()) return false;
+     *
+     * // Restricted secondary users (child mode) will potentially have very
+     * few apps // seeded when they start up for the first time. Clings
+     * won't work well with that boolean supportsLimitedUsers =
+     * android.os.Build.VERSION.SDK_INT >=
+     * android.os.Build.VERSION_CODES.JELLY_BEAN_MR2; Account[] accounts =
+     * AccountManager.get(this).getAccounts(); if (supportsLimitedUsers &&
+     * accounts.length == 0) { UserManager um = (UserManager)
+     * getSystemService(Context.USER_SERVICE); Bundle restrictions =
+     * um.getUserRestrictions(); if
+     * (restrictions.getBoolean(UserManager.DISALLOW_MODIFY_ACCOUNTS,
+     * false)) { return false; } } // Check if the system has requested
+     * skipping of first-use hints. if
+     * (Settings.Secure.getInt(getContentResolver(),
+     * Settings.Secure.SKIP_FIRST_USE_HINTS, 0) == 1) { return false; }
+     *
+     * return true;
+     */
     //}
 
     // private Cling initCling(int clingId, int[] positionData, boolean animate,
@@ -4678,70 +4678,70 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     // }
 
     //private void removeCling(int id) {
-        // final View cling = findViewById(id);
-        // if (cling != null) {
-        // final ViewGroup parent = (ViewGroup) cling.getParent();
-        // parent.post(new Runnable() {
-        // @Override
-        // public void run() {
-        // parent.removeView(cling);
-        // }
-        // });
-        // mHideFromAccessibilityHelper
-        // .restoreImportantForAccessibility(mDragLayer);
-        // }
+    // final View cling = findViewById(id);
+    // if (cling != null) {
+    // final ViewGroup parent = (ViewGroup) cling.getParent();
+    // parent.post(new Runnable() {
+    // @Override
+    // public void run() {
+    // parent.removeView(cling);
+    // }
+    // });
+    // mHideFromAccessibilityHelper
+    // .restoreImportantForAccessibility(mDragLayer);
+    // }
     //}
 
     //private boolean skipCustomClingIfNoAccounts() {
-        // Cling cling = (Cling) findViewById(R.id.workspace_cling);
-        // boolean customCling = cling.getDrawIdentifier().equals(
-        // "workspace_custom");
-        // if (customCling) {
-        // AccountManager am = AccountManager.get(this);
-        // Account[] accounts = am.getAccountsByType("com.google");
-        // return accounts.length == 0;
-        // }
-        //return false;
+    // Cling cling = (Cling) findViewById(R.id.workspace_cling);
+    // boolean customCling = cling.getDrawIdentifier().equals(
+    // "workspace_custom");
+    // if (customCling) {
+    // AccountManager am = AccountManager.get(this);
+    // Account[] accounts = am.getAccountsByType("com.google");
+    // return accounts.length == 0;
+    // }
+    //return false;
     //}
 
     //public void showFirstRunWorkspaceCling() {
-        // Enable the clings only if they have not been dismissed before
-        // if (isClingsEnabled()
-        // && !mSharedPrefs.getBoolean(
-        // Cling.WORKSPACE_CLING_DISMISSED_KEY, false)
-        // && !skipCustomClingIfNoAccounts()) {
-        // // If we're not using the default workspace layout, replace
-        // // workspace cling
-        // // with a custom workspace cling (usually specified in an overlay)
-        // // For now, only do this on tablets
-        // if (mSharedPrefs.getInt(
-        // LauncherProvider.DEFAULT_WORKSPACE_RESOURCE_ID, 0) != 0
-        // && getResources().getBoolean(R.bool.config_useCustomClings)) {
-        // // Use a custom cling
-        // View cling = findViewById(R.id.workspace_cling);
-        // ViewGroup clingParent = (ViewGroup) cling.getParent();
-        // int clingIndex = clingParent.indexOfChild(cling);
-        // clingParent.removeViewAt(clingIndex);
-        // View customCling = mInflater.inflate(
-        // R.layout.custom_workspace_cling, clingParent, false);
-        // clingParent.addView(customCling, clingIndex);
-        // customCling.setId(R.id.workspace_cling);
-        // }
-        // initCling(R.id.workspace_cling, null, false, 0);
-        // } else {
-        // removeCling(R.id.workspace_cling);
-        // }
+    // Enable the clings only if they have not been dismissed before
+    // if (isClingsEnabled()
+    // && !mSharedPrefs.getBoolean(
+    // Cling.WORKSPACE_CLING_DISMISSED_KEY, false)
+    // && !skipCustomClingIfNoAccounts()) {
+    // // If we're not using the default workspace layout, replace
+    // // workspace cling
+    // // with a custom workspace cling (usually specified in an overlay)
+    // // For now, only do this on tablets
+    // if (mSharedPrefs.getInt(
+    // LauncherProvider.DEFAULT_WORKSPACE_RESOURCE_ID, 0) != 0
+    // && getResources().getBoolean(R.bool.config_useCustomClings)) {
+    // // Use a custom cling
+    // View cling = findViewById(R.id.workspace_cling);
+    // ViewGroup clingParent = (ViewGroup) cling.getParent();
+    // int clingIndex = clingParent.indexOfChild(cling);
+    // clingParent.removeViewAt(clingIndex);
+    // View customCling = mInflater.inflate(
+    // R.layout.custom_workspace_cling, clingParent, false);
+    // clingParent.addView(customCling, clingIndex);
+    // customCling.setId(R.id.workspace_cling);
+    // }
+    // initCling(R.id.workspace_cling, null, false, 0);
+    // } else {
+    // removeCling(R.id.workspace_cling);
+    // }
     //}
 
     //public void showFirstRunAllAppsCling(int[] position) {
-        // Enable the clings only if they have not been dismissed before
-        // if (isClingsEnabled()
-        // && !mSharedPrefs.getBoolean(Cling.ALLAPPS_CLING_DISMISSED_KEY,
-        // false)) {
-        // initCling(R.id.all_apps_cling, position, true, 0);
-        // } else {
-        // removeCling(R.id.all_apps_cling);
-        // }
+    // Enable the clings only if they have not been dismissed before
+    // if (isClingsEnabled()
+    // && !mSharedPrefs.getBoolean(Cling.ALLAPPS_CLING_DISMISSED_KEY,
+    // false)) {
+    // initCling(R.id.all_apps_cling, position, true, 0);
+    // } else {
+    // removeCling(R.id.all_apps_cling);
+    // }
     //}
 
     // public Cling showFirstRunFoldersCling() {
@@ -4843,7 +4843,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private static final String KEY_SWITCH = "switch";
 
     public static void getTouch3ConfigValue() {
-        String value = MachineConfig.getPropertyOnce(MachineConfig.KEY_TOUCH3_IDENTIFY);
+        String value = MachineConfig.getPropertyForce(MachineConfig.KEY_TOUCH3_IDENTIFY);
         if (value != null && !value.isEmpty()) {
             JSONObject jsonObject;
             try {
