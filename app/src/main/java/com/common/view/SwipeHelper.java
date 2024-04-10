@@ -31,7 +31,7 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.LinearInterpolator;
 
-public class SwipeHelper  {
+public class SwipeHelper {
     static final String TAG = "com.android.systemui.SwipeHelper";
     private static final boolean DEBUG = false;
     private static final boolean DEBUG_INVALIDATE = false;
@@ -52,9 +52,9 @@ public class SwipeHelper  {
     private static final int SNAP_ANIM_LEN = SLOW_ANIMATIONS ? 1000 : 150; // ms
 
     public static float ALPHA_FADE_START = 0f; // fraction of thumbnail width
-                                                 // where fade starts
+    // where fade starts
     static final float ALPHA_FADE_END = 0.5f; // fraction of thumbnail width
-                                              // beyond which alpha->0
+    // beyond which alpha->0
     private float mMinAlpha = 0f;
 
     private float mPagingTouchSlop;
@@ -75,8 +75,7 @@ public class SwipeHelper  {
     private Runnable mWatchLongPress;
     private long mLongPressTimeout;
 
-    public SwipeHelper(int swipeDirection, Callback callback, float densityScale,
-            float pagingTouchSlop) {
+    public SwipeHelper(int swipeDirection, Callback callback, float densityScale, float pagingTouchSlop) {
         mCallback = callback;
         mHandler = new Handler();
         mSwipeDirection = swipeDirection;
@@ -108,19 +107,16 @@ public class SwipeHelper  {
     }
 
     private float getVelocity(VelocityTracker vt) {
-        return mSwipeDirection == X ? vt.getXVelocity() :
-                vt.getYVelocity();
+        return mSwipeDirection == X ? vt.getXVelocity() : vt.getYVelocity();
     }
 
     private ObjectAnimator createTranslationAnimation(View v, float newPos) {
-        ObjectAnimator anim = ObjectAnimator.ofFloat(v,
-                mSwipeDirection == X ? "translationX" : "translationY", newPos);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(v, mSwipeDirection == X ? "translationX" : "translationY", newPos);
         return anim;
     }
 
     private float getPerpendicularVelocity(VelocityTracker vt) {
-        return mSwipeDirection == X ? vt.getYVelocity() :
-                vt.getXVelocity();
+        return mSwipeDirection == X ? vt.getYVelocity() : vt.getXVelocity();
     }
 
     private void setTranslation(View v, float translate) {
@@ -132,8 +128,7 @@ public class SwipeHelper  {
     }
 
     private float getSize(View v) {
-        return mSwipeDirection == X ? v.getMeasuredWidth() :
-                v.getMeasuredHeight();
+        return mSwipeDirection == X ? v.getMeasuredWidth() : v.getMeasuredHeight();
     }
 
     public void setMinAlpha(float minAlpha) {
@@ -168,29 +163,20 @@ public class SwipeHelper  {
 
     // invalidate the view's own bounds all the way up the view hierarchy
     public static void invalidateGlobalRegion(View view) {
-        invalidateGlobalRegion(
-            view,
-            new RectF(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
+        invalidateGlobalRegion(view, new RectF(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
     }
 
     // invalidate a rectangle relative to the view's coordinate system all the way up the view
     // hierarchy
     public static void invalidateGlobalRegion(View view, RectF childBounds) {
         //childBounds.offset(view.getTranslationX(), view.getTranslationY());
-        if (DEBUG_INVALIDATE)
-            Log.v(TAG, "-------------");
+        if (DEBUG_INVALIDATE) Log.v(TAG, "-------------");
         while (view.getParent() != null && view.getParent() instanceof View) {
             view = (View) view.getParent();
             view.getMatrix().mapRect(childBounds);
-            view.invalidate((int) Math.floor(childBounds.left),
-                            (int) Math.floor(childBounds.top),
-                            (int) Math.ceil(childBounds.right),
-                            (int) Math.ceil(childBounds.bottom));
+            view.invalidate((int) Math.floor(childBounds.left), (int) Math.floor(childBounds.top), (int) Math.ceil(childBounds.right), (int) Math.ceil(childBounds.bottom));
             if (DEBUG_INVALIDATE) {
-                Log.v(TAG, "INVALIDATE(" + (int) Math.floor(childBounds.left)
-                        + "," + (int) Math.floor(childBounds.top)
-                        + "," + (int) Math.ceil(childBounds.right)
-                        + "," + (int) Math.ceil(childBounds.bottom));
+                Log.v(TAG, "INVALIDATE(" + (int) Math.floor(childBounds.left) + "," + (int) Math.floor(childBounds.top) + "," + (int) Math.ceil(childBounds.right) + "," + (int) Math.ceil(childBounds.bottom));
             }
         }
     }
@@ -265,7 +251,7 @@ public class SwipeHelper  {
     }
 
     /**
-     * @param view The view to be dismissed
+     * @param view     The view to be dismissed
      * @param velocity The desired pixels/second speed at which the view should move
      */
     public void dismissChild(final View view, float velocity) {
@@ -273,8 +259,7 @@ public class SwipeHelper  {
         final boolean canAnimViewBeDismissed = mCallback.canChildBeDismissed(view);
         float newPos;
 
-        if (velocity < 0
-                || (velocity == 0 && getTranslation(animView) < 0)
+        if (velocity < 0 || (velocity == 0 && getTranslation(animView) < 0)
                 // if we use the Menu to dismiss an item in landscape, animate up
                 || (velocity == 0 && getTranslation(animView) == 0 && mSwipeDirection == Y)) {
             newPos = -getSize(animView);
@@ -283,9 +268,7 @@ public class SwipeHelper  {
         }
         int duration = MAX_ESCAPE_ANIMATION_DURATION;
         if (velocity != 0) {
-            duration = Math.min(duration,
-                                (int) (Math.abs(newPos - getTranslation(animView)) * 1000f / Math
-                                        .abs(velocity)));
+            duration = Math.min(duration, (int) (Math.abs(newPos - getTranslation(animView)) * 1000f / Math.abs(velocity)));
         } else {
             duration = DEFAULT_ESCAPE_ANIMATION_DURATION;
         }
@@ -354,7 +337,7 @@ public class SwipeHelper  {
                         if (Math.abs(delta) >= size) {
                             delta = delta > 0 ? maxScrollDistance : -maxScrollDistance;
                         } else {
-                            delta = maxScrollDistance * (float) Math.sin((delta/size)*(Math.PI/2));
+                            delta = maxScrollDistance * (float) Math.sin((delta / size) * (Math.PI / 2));
                         }
                     }
                     setTranslation(mCurrAnimView, delta);
@@ -372,14 +355,10 @@ public class SwipeHelper  {
                     float perpendicularVelocity = getPerpendicularVelocity(mVelocityTracker);
 
                     // Decide whether to dismiss the current view
-                    boolean childSwipedFarEnough = DISMISS_IF_SWIPED_FAR_ENOUGH &&
-                            Math.abs(getTranslation(mCurrAnimView)) > 0.4 * getSize(mCurrAnimView);
-                    boolean childSwipedFastEnough = (Math.abs(velocity) > escapeVelocity) &&
-                            (Math.abs(velocity) > Math.abs(perpendicularVelocity)) &&
-                            (velocity > 0) == (getTranslation(mCurrAnimView) > 0);
+                    boolean childSwipedFarEnough = DISMISS_IF_SWIPED_FAR_ENOUGH && Math.abs(getTranslation(mCurrAnimView)) > 0.4 * getSize(mCurrAnimView);
+                    boolean childSwipedFastEnough = (Math.abs(velocity) > escapeVelocity) && (Math.abs(velocity) > Math.abs(perpendicularVelocity)) && (velocity > 0) == (getTranslation(mCurrAnimView) > 0);
 
-                    boolean dismissChild = mCallback.canChildBeDismissed(mCurrView) &&
-                            (childSwipedFastEnough || childSwipedFarEnough);
+                    boolean dismissChild = mCallback.canChildBeDismissed(mCurrView) && (childSwipedFastEnough || childSwipedFarEnough);
 
                     if (dismissChild) {
                         // flingadingy

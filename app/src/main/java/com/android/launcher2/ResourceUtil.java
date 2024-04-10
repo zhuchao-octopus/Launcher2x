@@ -77,8 +77,10 @@ public class ResourceUtil {
     public static String updateUi(Context context) { // only launcher use now
 
         String value = MachineConfig.getPropertyReadOnly(LAUNCHER_UI);
+        MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(LAUNCHER_UI)=" +value);
         if (value == null) {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
+            MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI)=" +value);
         }
 
         if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value))
@@ -293,14 +295,6 @@ public class ResourceUtil {
             } else {
                 sw = 388;
             }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_887_90.equals(value)) {
-            if (type == 0) {
-                sw = 390;
-            } else if (type == 2) {
-                sw = 392;
-            } else {
-                sw = 391;
-            }
         } else if (MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
             if (type == 0) {
                 sw = 400;
@@ -312,10 +306,7 @@ public class ResourceUtil {
         }
 
 
-        if (sw != 0) {
-            configuration.smallestScreenWidthDp = sw;
-        }
-
+        configuration.smallestScreenWidthDp = sw;
         ///if (w != 0) {
         ///    c.screenWidthDp = w;
         ///}
@@ -325,7 +316,7 @@ public class ResourceUtil {
 
         ///MMLog.d(TAG, "w=" + w + ",h=" + h);
         context.getResources().updateConfiguration(configuration, null);
-        MMLog.d(TAG, value+",sw:" + sw + ",configuration:" + configuration.toString());
+        MMLog.d(TAG, "sw:" + sw + ",configuration:" + configuration.toString());
         return value;
     }
 

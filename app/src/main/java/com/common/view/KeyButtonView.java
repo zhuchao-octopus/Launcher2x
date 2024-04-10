@@ -16,42 +16,42 @@
 
 package com.common.view;
 
-import com.common.util.ResourceUtil;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.android.launcher2.ResourceUtil;
+
 public class KeyButtonView extends ImageView {
 
-	// TODO: Get rid of this
+    // TODO: Get rid of this
 
-	public KeyButtonView(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+    public KeyButtonView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
-	public KeyButtonView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs);
-		int id = ResourceUtil.getDrawableId(context, "button_common_keyview");
-		Drawable d = null;
-		if (id != 0) {
-			d = context.getDrawable(id);
-		}
-		if (d != null) {
-			setBackground(d);
-		} else {
-			setBackground(new KeyButtonRipple(context, this));
-		}
-	}
+    public KeyButtonView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs);
+        int id = ResourceUtil.getDrawableId(context, "button_common_keyview");
+        Drawable d = null;
+        if (id != 0) {
+            d = context.getDrawable(id);
+        }
+        if (d != null) {
+            setBackground(d);
+        } else {
+            setBackground(new KeyButtonRipple(context, this));
+        }
+    }
 
-	// @Override
-	// protected void onWindowVisibilityChanged(int visibility) {
-	// super.onWindowVisibilityChanged(visibility);
-	// if (visibility != View.VISIBLE) {
-	// jumpDrawablesToCurrentState();
-	// }
-	// }
+    // @Override
+    // protected void onWindowVisibilityChanged(int visibility) {
+    // super.onWindowVisibilityChanged(visibility);
+    // if (visibility != View.VISIBLE) {
+    // jumpDrawablesToCurrentState();
+    // }
+    // }
 
 }

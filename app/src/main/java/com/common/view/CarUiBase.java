@@ -12,30 +12,30 @@ import android.widget.ViewFlipper;
 
 public abstract class CarUiBase {
 
-	protected Context mContext;
+    protected Context mContext;
 
-	public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
-	}
+    }
 
-	protected void onResume() {
+    protected void onResume() {
 
-	}
+    }
 
-	protected void onPause() {
+    protected void onPause() {
 
-	}
+    }
 
-	protected void onDestroy() {
+    protected void onDestroy() {
 
-	}
+    }
 
-	protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent) {
 
-	}
+    }
 
-	public void onClick(View v) {
+    public void onClick(View v) {
 
-	}
+    }
 
 }
