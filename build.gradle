@@ -15,6 +15,7 @@ allprojects {
         mavenCentral()
         google()
         maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
+        //maven { url 'https://raw.githubusercontent.com/zhuchao-octopus/OctopusFrameworkLibs/master' }
     }
 
 }
