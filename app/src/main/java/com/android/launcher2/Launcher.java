@@ -73,7 +73,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.os.SystemClock;
-import android.os.SystemProperties;
+
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -108,8 +108,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
 
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
@@ -1177,7 +1175,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             Log.d(TAG, "Time spent in onResume: " + (System.currentTimeMillis() - startTime));
         }
 
-        SystemProperties.set("service.bootanim.exit", "1");
+        //SystemProperties.set("service.bootanim.exit", "1");
 
         View v = getCurrentFocus();
         if (v != null) {
