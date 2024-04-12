@@ -18,7 +18,7 @@ package com.android.launcher2;
 
 import android.annotation.SuppressLint;
 
-import com.android.common.Search;
+
 import com.ce.view.WinceCEStyleApp;
 import com.common.util.BroadcastUtil;
 import com.common.util.MachineConfig;
@@ -600,6 +600,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
         }*/
     }//onCreate(Bundle savedInstanceState)
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static final String SAVE_DATA = "LauncherMain";
     private static String SAVE_FIRST_BOOT = "first_boot";
@@ -2234,18 +2235,15 @@ public final class Launcher extends Activity implements View.OnClickListener,
      * globalSearch argument for {@link #startSearch} to true.
      */
     @Override
-    public void startSearch(String initialQuery, boolean selectInitialQuery,
-                            Bundle appSearchData, boolean globalSearch) {
-
+    public void startSearch(String initialQuery, boolean selectInitialQuery, Bundle appSearchData, boolean globalSearch) {
         showWorkspace(true);
-
         if (initialQuery == null) {
             // Use any text typed in the launcher as the initial query
             initialQuery = getTypedText();
         }
         if (appSearchData == null) {
             appSearchData = new Bundle();
-            appSearchData.putString(Search.SOURCE, "launcher-search");
+            appSearchData.putString("source", "launcher-search");
         }
         Rect sourceBounds = new Rect();
         if (mSearchDropTargetBar != null) {
@@ -2262,8 +2260,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
      */
     public void startGlobalSearch(String initialQuery, boolean selectInitialQuery, Bundle appSearchData, Rect sourceBounds) {
         final SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        ComponentName globalSearchActivity = searchManager
-                .getGlobalSearchActivity();
+        ComponentName globalSearchActivity = searchManager.getGlobalSearchActivity();
         if (globalSearchActivity == null) {
             Log.w(TAG, "No global search activity found.");
             return;
@@ -2287,8 +2284,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             intent.putExtra(SearchManager.QUERY, initialQuery);
         }
         if (selectInitialQuery) {
-            intent.putExtra(SearchManager.EXTRA_SELECT_QUERY,
-                    selectInitialQuery);
+            intent.putExtra(SearchManager.EXTRA_SELECT_QUERY,selectInitialQuery);
         }
         intent.setSourceBounds(sourceBounds);
         try {
@@ -2966,61 +2962,43 @@ public final class Launcher extends Activity implements View.OnClickListener,
         } else if (id == R.id.button_video) {
             UtilCarKey.doKeyVideo(this);
             // doRunActivity("com.my.dvdplayer", "com.my.dvdplayer.DVDPlayer");
-        }
-
-        else if (id == R.id.button_settings || id == R.id.img_btn_setting || id == R.id.ll_btn_setting)
-        {
+        } else if (id == R.id.button_settings || id == R.id.img_btn_setting || id == R.id.ll_btn_setting) {
             doRunActivity("com.android.settings", "com.android.settings.Settings");
-        }
-        else if (id == R.id.all_apps_button || id == R.id.img_btn_allapps)
-        {
+        } else if (id == R.id.all_apps_button || id == R.id.img_btn_allapps) {
             if (isAllAppsVisible()) {
                 showWorkspace(true);
             } else {
                 showAllApps(true);
             }
-        }
-        else if (id == R.id.entry_time || id == R.id.entry_time1 || id == R.id.layout_left_time)
-        {
+        } else if (id == R.id.entry_time || id == R.id.entry_time1 || id == R.id.layout_left_time) {
             if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(Utilities.mSystemUI) ||
                     MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
                 doRunActivity("com.android.deskclock", "com.android.deskclock.DeskClock");
             } else {
                 startActivity(new Intent(Settings.ACTION_DATE_SETTINGS));
             }
-        }
-        else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
+        } else if (id == R.id.all_apps_button1 || id == R.id.all_apps_button12 || id == R.id.all_apps_button2 || id == R.id.all_apps_button3) {
             toggleAllApp();
-        }
-        else if (id == R.id.button_dvr)
-        {
+        } else if (id == R.id.button_dvr) {
             if (dvrHide && MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
                 UtilCarKey.doKeyAuxIn(this);
             } else {
                 doRunActivity("com.my.dvr", "com.my.dvr.MainActivity");
             }
-        }
-        else if (id == R.id.button_dvd)
-        {
-            if (dvdHide)
-            {
+        } else if (id == R.id.button_dvd) {
+            if (dvdHide) {
                 if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI))
                     doRunActivity("net.easyconn", "net.easyconn.ui.Sv05MainActivity");
                 else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))
                     UtilCarKey.doKeyAudio(this);
-            }
-            else {
+            } else {
                 //doRunActivity("com.car.ui", "com.my.dvd.DVDPlayer");
                 UtilCarKey.doKeyDVD(this);
             }
-        }
-        else if (id == R.id.img_btn_eq)
-        {
+        } else if (id == R.id.img_btn_eq) {
             //TAppUtils.startApp(this,"com.eqset");
             UtilCarKey.doKeyEQ2(this, 0);
-        }
-        else if (id == R.id.img_btn_sound)
-        {
+        } else if (id == R.id.img_btn_sound) {
             ///Intent intent = new Intent("android.media.action.VOLUME_CHANGED_ACTION");
             ///sendBroadcast(intent);
             ///TPlatform.sendKeyCode(KeyEvent.KEYCODE_VOLUME_DOWN);
@@ -3029,9 +3007,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             ///sendBroadcast(it);
             //BroadcastUtil.sendToCarService(this, MyCmd.Cmd.FRAMEWORK_AUDIO_CONTROL, 0);
             UtilCarKey.doKeyEQ2(this, 1);
-        }
-        else
-        {
+        } else {
             if (mWinceCEStyleApp != null) {
                 mWinceCEStyleApp.openApp(v.getId());
             }
@@ -3052,9 +3028,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
                 if (v != null) {
                     v.setBackground(getDrawable(R.drawable.end_menu_app));
                 }
-            }
-            else
-            {
+            } else {
                 v = findViewById(R.id.all_apps_button1);
                 if (v != null) {
                     v.setBackground(getDrawable(R.drawable.end_menu_car2));
@@ -4224,13 +4198,13 @@ public final class Launcher extends Activity implements View.OnClickListener,
             }
         } catch (NameNotFoundException e) {
             // This can happen if the activity defines an invalid drawable
-            Log.w(TAG,"Failed to load toolbar icon; "
-                            + activityName.flattenToShortString()
-                            + " not found", e);
+            Log.w(TAG, "Failed to load toolbar icon; "
+                    + activityName.flattenToShortString()
+                    + " not found", e);
         } catch (Resources.NotFoundException nfe) {
             // This can happen if the activity defines an invalid drawable
-            Log.w(TAG,"Failed to load toolbar icon from "
-                            + activityName.flattenToShortString(), nfe);
+            Log.w(TAG, "Failed to load toolbar icon from "
+                    + activityName.flattenToShortString(), nfe);
         }
         return null;
     }
