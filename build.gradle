@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
         google()
         maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
-        //maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
+        maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.1'
@@ -16,6 +16,6 @@ allprojects {
         mavenCentral()
         google()
         maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
-        //maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
+        maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
     }
 }
