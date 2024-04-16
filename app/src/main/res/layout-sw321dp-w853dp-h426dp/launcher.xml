@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,15 +19,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:id="@+id/launcher"
-    android:tag="4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true"
+    android:tag="4">
 
     <com.android.launcher2.DragLayer
         android:id="@+id/drag_layer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <!-- The workspace contains 5 screens of cells -->
 
@@ -37,16 +36,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="0dp"
-            android:paddingRight="0dp"
             android:paddingTop="0dp"
+            android:paddingRight="0dp"
             launcher:cellCountX="@integer/cell_count_x"
             launcher:cellCountY="@integer/cell_count_y"
             launcher:defaultScreen="0"
             launcher:pageSpacing="0dp"
             launcher:scrollIndicatorPaddingLeft="0dp"
-            launcher:scrollIndicatorPaddingRight="0dp" >
+            launcher:scrollIndicatorPaddingRight="0dp">
 
-            
+
             <include
                 android:id="@+id/cell1"
                 layout="@layout/workspace_screen_ex" />
@@ -70,45 +69,42 @@
 
         <include
             android:id="@+id/qsb_divider"
+            layout="@layout/workspace_divider"
             android:layout_width="0px"
             android:layout_height="0px"
             android:layout_gravity="start"
-            android:layout_marginStart="@dimen/qsb_bar_height"
-            layout="@layout/workspace_divider" />
+            android:layout_marginStart="@dimen/qsb_bar_height" />
 
         <include
             android:id="@+id/dock_divider"
+            layout="@layout/workspace_divider"
             android:layout_width="0px"
             android:layout_height="0px"
             android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/button_bar_height"
-            layout="@layout/workspace_divider" />
+            android:layout_marginEnd="@dimen/button_bar_height" />
 
-<!--        <include
+        <!--<include
             android:id="@+id/paged_view_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             layout="@layout/scroll_indicator" />-->
-        
-        
-
-        
-                <!--<include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="136dp"
-                android:layout_gravity="bottom"
-                layout="@layout/page_index" />-->
 
 
-            <include
-                android:id="@+id/hotseat"
-                android:layout_width="match_parent"
-                android:layout_height="144dp"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="120dp"
-                layout="@layout/hotseat" />
+        <!--<include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="136dp"
+            android:layout_gravity="bottom"
+            layout="@layout/page_index" />-->
+
+        <include
+            android:id="@+id/hotseat"
+            layout="@layout/hotseat"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="120dp" />
 
 
         <include
@@ -121,19 +117,19 @@
              top of that view.
         -->
 
-<!--         <include -->
-<!--             android:id="@+id/workspace_cling" -->
-<!--             android:layout_width="match_parent" -->
-<!--             android:layout_height="match_parent" -->
-<!--             layout="@layout/workspace_cling" -->
-<!--             android:visibility="gone" /> -->
+        <!--<include -->
+        <!--android:id="@+id/workspace_cling" -->
+        <!--android:layout_width="match_parent" -->
+        <!--android:layout_height="match_parent" -->
+        <!--layout="@layout/workspace_cling" -->
+        <!--android:visibility="gone" /> -->
 
-<!--         <include -->
-<!--             android:id="@+id/folder_cling" -->
-<!--             android:layout_width="match_parent" -->
-<!--             android:layout_height="match_parent" -->
-<!--             layout="@layout/folder_cling" -->
-<!--             android:visibility="gone" /> -->
+        <!--<include -->
+        <!--android:id="@+id/folder_cling" -->
+        <!--android:layout_width="match_parent" -->
+        <!--android:layout_height="match_parent" -->
+        <!--layout="@layout/folder_cling" -->
+        <!--android:visibility="gone" /> -->
 
         <com.android.launcher2.DrawableStateProxyView
             android:id="@+id/voice_button_proxy"
@@ -142,19 +138,19 @@
             android:layout_gravity="top|start"
             android:layout_marginTop="64dp"
             android:clickable="true"
+            android:focusable="true"
             android:importantForAccessibility="no"
             android:onClick="onClickVoiceButton"
-            launcher:sourceViewId="@+id/voice_button"
-            android:focusable="true" />
+            launcher:sourceViewId="@+id/voice_button" />
 
         <include
             android:id="@+id/apps_customize_pane"
+            layout="@layout/apps_customize_pane"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            layout="@layout/apps_customize_pane"
             android:visibility="invisible" />
 
-           <!-- <include layout="@layout/bottom_toolbar" /> -->
+        <!-- <include layout="@layout/bottom_toolbar" /> -->
     </com.android.launcher2.DragLayer>
 
 </FrameLayout>
