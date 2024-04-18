@@ -118,10 +118,13 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -144,7 +147,7 @@ import com.zhuchao.android.fbase.TAppUtils;
  * Default launcher application.
  */
 public final class Launcher extends Activity implements View.OnClickListener,
-        OnLongClickListener, LauncherModel.Callbacks, View.OnTouchListener {
+        OnLongClickListener, LauncherModel.Callbacks, View.OnTouchListener, OnPageChangedListener {
     static final String TAG = "Launcher";
     ///static final boolean LOGD = false;
 
@@ -211,6 +214,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private static final String TOOLBAR_ICON_METADATA_NAME = "com.android.launcher.toolbar_icon";
     private static final String TOOLBAR_SEARCH_ICON_METADATA_NAME = "com.android.launcher.toolbar_search_icon";
     private static final String TOOLBAR_VOICE_SEARCH_ICON_METADATA_NAME = "com.android.launcher.toolbar_voice_search_icon";
+
 
     /**
      * The different states that Launcher can be in.
@@ -392,11 +396,22 @@ public final class Launcher extends Activity implements View.OnClickListener,
         Log.d(TAG, "startCarService");
     }
 
-    public static boolean mHideWidgetPage = false;
+    public static boolean mHideWidgetPage = true;
     public static boolean mShowHotseatAllApp = false;
     public static boolean mAllAppLayout = false;
     public static boolean mHideAllAppCEIcon = false;
     public static int mIconType = 0;
+
+    View mTopView; //顶部时间view
+    View mBottomView; //底部菜单栏与指示器
+
+    View mIndicatorView1; //指示器1
+
+    View mIndicatorView2;   //指示器2
+
+    TextView mTvDate;   //日期
+
+    TextView mTvWeek;   //星期
 
     private void initParamterConfig() {
         String s = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_LAUNCHER_CONFIG);
@@ -578,6 +593,24 @@ public final class Launcher extends Activity implements View.OnClickListener,
         initCEView(ui);
         updateAllAppButton();
         mThis = this; //ww+
+
+
+        //modify by zrh
+        mTopView = findViewById(R.id.top);
+        mBottomView = findViewById(R.id.bottom);
+        mIndicatorView1 = findViewById(R.id.indicator1);
+        mIndicatorView2 = findViewById(R.id.indicator2);
+        mTvDate = findViewById(R.id.tv_date);
+        mTvWeek = findViewById(R.id.tv_week);
+
+        if (mWorkspace != null) {
+            mWorkspace.setOnPageChangeListener(this);
+        }
+        refreshIndicator(mWorkspace.mCurrentPage);
+        refreshDate();
+
+        IntentFilter timeTickFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
+        registerReceiver(mTimeTickReceiver, timeTickFilter);
 
 
         // 判断位置服务是否已经开启
@@ -2217,6 +2250,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
         if (mThis == this) {
             mThis = null;
         }
+
+        unregisterReceiver(mTimeTickReceiver);
     }
 
     public DragController getDragController() {
@@ -2284,7 +2319,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
             intent.putExtra(SearchManager.QUERY, initialQuery);
         }
         if (selectInitialQuery) {
-            intent.putExtra(SearchManager.EXTRA_SELECT_QUERY,selectInitialQuery);
+            intent.putExtra(SearchManager.EXTRA_SELECT_QUERY, selectInitialQuery);
         }
         intent.setSourceBounds(sourceBounds);
         try {
@@ -3876,7 +3911,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
         setPivotsForZoom(fromView, scaleFactor);
         updateWallpaperVisibility(true);
-        showHotseat(animated);
+        //showHotseat(animated);
         if (animated) {
             final LauncherViewPropertyAnimator scaleAnim = new LauncherViewPropertyAnimator(
                     fromView);
@@ -3938,6 +3973,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
             dispatchOnLauncherTransitionEnd(toView, animated, true);
             mWorkspace.hideScrollingIndicator(false);
         }
+
+        mHotseat.setVisibility(View.GONE);
     }
 
     @Override
@@ -3970,6 +4007,12 @@ public final class Launcher extends Activity implements View.OnClickListener,
 
     void showWorkspace(boolean animated) {
         showWorkspace(animated, null);
+        if (mTopView != null) {
+            mTopView.setVisibility(View.VISIBLE);
+        }
+        if (mBottomView != null) {
+            mBottomView.setVisibility(View.VISIBLE);
+        }
     }
 
     void showWorkspace(boolean animated, Runnable onCompleteRunnable) {
@@ -4017,7 +4060,17 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public void showAllApps(boolean animated) {
         if (mState != State.WORKSPACE || !allAppIsReady)
             return;
+
         MMLog.d(TAG, "showAllApps()");
+
+        if (mTopView != null) {
+            mTopView.setVisibility(View.GONE);
+        }
+        if (mBottomView != null) {
+            mBottomView.setVisibility(View.GONE);
+        }
+
+
         animated = false;
         showAppsCustomizeHelper(animated, false);
         mAppsCustomizeTabHost.requestFocus();
@@ -5356,6 +5409,70 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
         return super.dispatchTouchEvent(ev);
     }
+
+    @Override
+    public void onPageChanged(int page) {
+        //更新指示器
+        MMLog.d("onPageChanged", String.valueOf(page));
+        refreshIndicator(page);
+    }
+
+    /**
+     * 刷新指示器
+     */
+    void refreshIndicator(int page) {
+        if (page == 0) {
+            if (mIndicatorView1 != null) {
+                mIndicatorView1.setAlpha(1);
+            }
+            if (mIndicatorView2 != null) {
+                mIndicatorView2.setAlpha(0.4f);
+            }
+        } else {
+            if (mIndicatorView1 != null) {
+                mIndicatorView1.setAlpha(0.4f);
+            }
+            if (mIndicatorView2 != null) {
+                mIndicatorView2.setAlpha(1);
+            }
+        }
+    }
+
+
+    SimpleDateFormat mDateSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    /**
+     * 刷新日期
+     */
+    void refreshDate() {
+        if (mTvDate != null) {
+            mTvDate.setText(mDateSimpleDateFormat.format(new Date()));
+        }
+        if (mTvWeek != null) {
+            mTvWeek.setText(getDayOfWeekName());
+        }
+    }
+
+    /**
+     * 星期字符串
+     */
+    String[] mDayOfWeekNames = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+
+    String getDayOfWeekName() {
+        int index = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        if (index < mDayOfWeekNames.length)
+            return mDayOfWeekNames[index];
+        return "";
+    }
+
+
+    BroadcastReceiver mTimeTickReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            refreshDate();
+        }
+    };
 }
 
 interface LauncherTransitionable {

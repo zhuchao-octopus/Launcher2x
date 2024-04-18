@@ -21,12 +21,12 @@
     <style name="Theme.WallpaperPicker" parent="@android:style/Theme.Holo.NoActionBar"></style>
 
     <style name="Theme" parent="@android:style/Theme.Holo.Wallpaper.NoTitleBar">
-        <!-- API 19 theme customizations can go here. -->
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="ClingButton">
@@ -250,5 +250,12 @@
         <!--    <item name="android:textStyle">bold</item> -->
 
     </style>
+
+    <style name="AppTheme.NoTitle_FullScreen" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+    </style>
+
 
 </resources>
