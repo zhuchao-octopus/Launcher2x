@@ -4075,7 +4075,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         // Find the app market activity by resolving an intent.
         // (If multiple app markets are installed, it will return the
         // ResolverActivity.)
-        ComponentName activityName = intent.resolveActivity(getPackageManager());
+        ComponentName activityName = null;//intent.resolveActivity(getPackageManager());
         if (activityName != null) {
             int coi = getCurrentOrientationIndexForGlobalIcons();
             mAppMarketIntent = intent;
