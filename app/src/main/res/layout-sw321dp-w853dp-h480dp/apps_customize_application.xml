@@ -21,7 +21,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/focusable_view_bg"
-    android:drawablePadding="15px"
+    android:drawablePadding="10dp"
     android:focusable="true"
     android:gravity="center_horizontal"
     android:singleLine="true"
