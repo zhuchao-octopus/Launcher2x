@@ -268,10 +268,10 @@
                 android:layout_height="98dp"
                 android:layout_marginBottom="7dp"
                 android:layout_x="0dp"
-                android:layout_y="320dp"
+                android:layout_y="330dp"
                 android:background="@drawable/time_tab"
-                android:gravity="bottom|left"
                 android:focusable="false"
+                android:gravity="bottom|left"
                 android:onClick="onLauncherButtonClick"
                 android:orientation="vertical">
 
@@ -324,8 +324,8 @@
             <LinearLayout
                 android:layout_width="145dp"
                 android:layout_height="40dp"
-                android:layout_x="300dp"
-                android:layout_y="360dp"
+                android:layout_x="310dp"
+                android:layout_y="370dp"
                 android:background="@drawable/tab"
                 android:orientation="horizontal">
 
@@ -366,8 +366,8 @@
                 android:layout_height="72dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_x="490dp"
-                android:layout_y="340dp"
+                android:layout_x="500dp"
+                android:layout_y="350dp"
                 android:src="@drawable/menu_icon" />
 
 
@@ -377,7 +377,7 @@
                 android:layout_width="145dp"
                 android:layout_height="40dp"
                 android:layout_x="610dp"
-                android:layout_y="360dp"
+                android:layout_y="370dp"
                 android:background="@drawable/tab"
                 android:orientation="horizontal">
 
