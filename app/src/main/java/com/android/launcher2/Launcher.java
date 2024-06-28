@@ -17,7 +17,6 @@
 package com.android.launcher2;
 
 import android.annotation.SuppressLint;
-import android.os.SystemProperties;
 
 import com.ce.view.WinceCEStyleApp;
 import com.common.util.MachineConfig;
@@ -124,6 +123,7 @@ import org.json.JSONObject;
 
 import com.common.util.Kernel;
 import com.common.util.MyCmd;
+import com.common.util.SystemProperties;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
 import com.common.util.AppConfig;

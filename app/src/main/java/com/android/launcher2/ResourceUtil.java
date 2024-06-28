@@ -20,7 +20,7 @@ import android.hardware.display.DisplayManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.DisplayInfo;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
