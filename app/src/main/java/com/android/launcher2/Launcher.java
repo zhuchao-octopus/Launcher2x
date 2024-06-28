@@ -100,9 +100,10 @@ import com.common.util.Kernel;
 import com.common.util.MachineConfig;
 import com.common.util.MyCmd;
 import com.common.util.SystemConfig;
+import com.common.util.SystemProperties;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
-import com.rockchip.car.recorder.utils.SystemProperties;
+
 import com.zhuchao.android.fbase.MMLog;
 
 import org.json.JSONException;
@@ -575,6 +576,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 }
             }
         }*/
+        ///AppConfig.printAppConfigInformation();
     }//onCreate(Bundle savedInstanceState)
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -641,6 +643,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void checkForLocaleChange() {
         if (sLocaleConfiguration == null) {
             new AsyncTask<Void, Void, LocaleConfiguration>() {

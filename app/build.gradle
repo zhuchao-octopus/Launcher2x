@@ -42,7 +42,8 @@ dependencies {
     //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')
-    implementation('com.zhuchao.android:libJOSUtils:1.4:@aar')
+    ///implementation('com.zhuchao.android:libJOSUtils:1.4:@aar')
+    implementation('com.zhuchao.android:libFOSUtils:1.4:@aar')
     implementation 'androidx.core:core:1.12.0'
 }
 

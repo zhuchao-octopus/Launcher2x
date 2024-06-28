@@ -33,16 +33,17 @@ import java.util.Arrays;
 
 public class ResourceUtil {
     private static final String TAG = "ResourceUtil";
+
     public static int getLayoutId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "layout",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "layout", paramContext.getPackageName());
     }
 
     public static int getStringId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "string",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "string", paramContext.getPackageName());
     }
 
     public static int getDrawableId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString,"drawable", paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "drawable", paramContext.getPackageName());
     }
 
     public static int getStyleId(Context paramContext, String paramString) {
@@ -54,13 +55,13 @@ public class ResourceUtil {
     }
 
     public static int getColorId(Context paramContext, String paramString) {
-        return paramContext.getResources().getIdentifier(paramString, "color",paramContext.getPackageName());
+        return paramContext.getResources().getIdentifier(paramString, "color", paramContext.getPackageName());
     }
 
     public static void setActivityAnim(Activity c, int anim) {
         View v = ((ViewGroup) c.findViewById(android.R.id.content)).getChildAt(0);// getWindow().getDecorView();
 
-        Animation animation = (AnimationSet) AnimationUtils.loadAnimation(c,anim);
+        Animation animation = (AnimationSet) AnimationUtils.loadAnimation(c, anim);
 
         v.clearAnimation();
         v.setAnimation(animation);
@@ -77,14 +78,13 @@ public class ResourceUtil {
     public static String updateUi(Context context) { // only launcher use now
 
         String value = MachineConfig.getPropertyReadOnly(LAUNCHER_UI);
-        MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(LAUNCHER_UI)=" +value);
+        MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(LAUNCHER_UI)=" + value);
         if (value == null) {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
-            MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI)=" +value);
+            MMLog.d(TAG, "MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI)=" + value);
         }
 
-        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value))
-        {
+        if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -93,9 +93,7 @@ public class ResourceUtil {
                     value = MachineConfig.VALUE_SYSTEM_UI20_RM10_1;
                 }
             }
-        }
-
-        else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
+        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -110,7 +108,7 @@ public class ResourceUtil {
         Utilities.mSystemUI = value;
         MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
 
-		//int sw = 0;
+        //int sw = 0;
         ///int w = 0;
         ///int h = 0;
         ///int type = 0; // deault 800X480
@@ -122,9 +120,9 @@ public class ResourceUtil {
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
 
-        MMLog.d(TAG,"Display[]=" + Arrays.toString(display));
-        MMLog.d(TAG,"DisplayMetrics=" + dm.toString());
-        MMLog.d(TAG,"Configuration1:"+configuration.toString());
+        MMLog.d(TAG, "Display[]=" + Arrays.toString(display));
+        MMLog.d(TAG, "DisplayMetrics=" + dm.toString());
+        MMLog.d(TAG, "Configuration1:" + configuration.toString());
 
         if (dm.widthPixels == 1024 && dm.heightPixels == 600) {//667
             sw = 321;
@@ -140,7 +138,7 @@ public class ResourceUtil {
 
         configuration.smallestScreenWidthDp = sw;
         context.getResources().updateConfiguration(configuration, null);
-        MMLog.d(TAG,"Configuration2:" + configuration.toString());
+        MMLog.d(TAG, "Configuration2:" + configuration.toString());
         return value;
     }
 
@@ -150,7 +148,7 @@ public class ResourceUtil {
         float roundPx;
         float left, top, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
         if (width <= height) {
-            roundPx = width / 2;
+            roundPx = (float) width / 2;
             top = 0;
             bottom = width;
             left = 0;
@@ -200,18 +198,13 @@ public class ResourceUtil {
                 || Utilities.mSystemUI
                 .equals(MachineConfig.VALUE_SYSTEM_UI45_8702_2)
                 || Utilities.mSystemUI
-                .equals(MachineConfig.VALUE_SYSTEM_UI35_KLD813_2)))
-        {
-            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd())
-            {
+                .equals(MachineConfig.VALUE_SYSTEM_UI35_KLD813_2))) {
+            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd()) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else
+        } else
             return false;
     }
 }

@@ -131,6 +131,10 @@ public final class LauncherIconTheme {
             return R.drawable.car_4;
         }
 
+        if(packageName.equals("com.google.android.youtube"))
+        {
+            return R.drawable.youtube;
+        }
         return -1;
     }
 

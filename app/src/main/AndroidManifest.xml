@@ -18,7 +18,10 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:sharedUserId="android.uid.system"
+    android:sharedUserMaxSdkVersion="32"
+    tools:targetApi="tiramisu">
 
     <!--android:sharedUserId="android.uid.system"
     android:sharedUserMaxSdkVersion="32"
