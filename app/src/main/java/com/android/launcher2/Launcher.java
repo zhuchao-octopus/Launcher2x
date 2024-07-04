@@ -26,6 +26,8 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetHostView;
 import android.appwidget.AppWidgetManager;
@@ -51,6 +53,9 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -576,9 +581,27 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 }
             }
         }*/
-        ///AppConfig.printAppConfigInformation();
     }//onCreate(Bundle savedInstanceState)
-
+    private void test()
+    {
+        ///AppConfig.printAppConfigInformation();
+        // 初始化TextView，用于显示指南针数据
+        // 获取传感器管理器实例
+        SensorManager sensorManager;  // 传感器管理器
+        Sensor accelerometer;         // 加速度传感器
+        Sensor magnetometer;          // 磁力计传感器
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        // 获取加速度传感器实例
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        // 获取磁力计传感器实例
+        magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        // 检查设备是否配备磁力计传感器
+        if (magnetometer == null) {
+            //compassTextView.setText("此设备没有磁传感器");
+            MMLog.d(TAG,"此设备没有磁传感器");
+        }
+        else MMLog.d(TAG,"此设备有磁传感器:"+magnetometer.getName());
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private static final String SAVE_DATA = "LauncherMain";
     private static String SAVE_FIRST_BOOT = "first_boot";
@@ -4300,7 +4323,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     break;
             }
         }
-
         workspace.requestLayout();
     }
 
