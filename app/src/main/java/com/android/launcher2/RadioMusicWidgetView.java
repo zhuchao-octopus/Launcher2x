@@ -16,6 +16,7 @@ import com.common.util.SystemConfig;
 import com.my.radio.MarkFaceView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -44,6 +45,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.StatFs;
 import android.provider.Settings;
@@ -373,11 +375,11 @@ public class RadioMusicWidgetView {
                 BroadcastUtil.sendToCarServiceMcuRadio(mContext,
                         ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
             }
-            BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+            BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                     MyCmd.Keycode.RADIO_POWER);
         } else if (id == R.id.radio_button_prev) {
             if (mSource == MyCmd.SOURCE_RADIO) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                         MyCmd.Keycode.PREVIOUS);
             }
 
@@ -386,7 +388,7 @@ public class RadioMusicWidgetView {
         } else if (id == R.id.radio_button_next) {
             if (mSource == MyCmd.SOURCE_RADIO) {
 
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                         MyCmd.Keycode.NEXT);
             }
 
@@ -396,26 +398,26 @@ public class RadioMusicWidgetView {
 
             if (mSource == MyCmd.SOURCE_MUSIC
                     || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                         MyCmd.Keycode.PREVIOUS);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12
                         .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                             MyCmd.Keycode.PREVIOUS);
                 }
             }
         } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
             if (mSource == MyCmd.SOURCE_MUSIC
                     || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                         MyCmd.Keycode.PLAY_PAUSE);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12
                         .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                             MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
@@ -423,13 +425,13 @@ public class RadioMusicWidgetView {
             if (mSource == MyCmd.SOURCE_MUSIC
                     || mSource == MyCmd.SOURCE_BT_MUSIC) {
 
-                BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                         MyCmd.Keycode.NEXT);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12
                         .equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.PACKAGE_CAR_UI,
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext),
                             MyCmd.Keycode.NEXT);
                 }
             }
@@ -477,7 +479,7 @@ public class RadioMusicWidgetView {
 
     private final static int MSG_UPDATE_TIMECLOCK = 4;
     private final static int MSG_UPDATE_TIMEFLASH = 5;
-    Handler mHandler = new Handler() {
+    Handler mHandler = new Handler(Looper.myLooper()) {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 0:
@@ -631,6 +633,7 @@ public class RadioMusicWidgetView {
      * mClock.setText(String.format("%02d:%02d", h, curDate.getMinutes())); }
      */
 
+    @SuppressLint("SimpleDateFormat")
     private void setTime() { // 24
 
         // Calendar c = Calendar.getInstance();
@@ -663,8 +666,8 @@ public class RadioMusicWidgetView {
             } else {
                 s = "yyyy/MM/dd";
             }
-
         }
+
         long time = System.currentTimeMillis();
         Date d1 = new Date(time);
         SimpleDateFormat format = new SimpleDateFormat(s);
@@ -829,7 +832,7 @@ public class RadioMusicWidgetView {
                         public boolean onLongClick(View arg0) {
                             // TODO Auto-generated method stub
                             BroadcastUtil.sendKey(mContext,
-                                    AppConfig.PACKAGE_CAR_UI,
+                                    AppConfig.getCarAPPPackage(mContext),
                                     MyCmd.Keycode.KEY_SEEK_PREV);
                             return true;
                         }
@@ -841,7 +844,7 @@ public class RadioMusicWidgetView {
                         public boolean onLongClick(View arg0) {
                             // TODO Auto-generated method stub
                             BroadcastUtil.sendKey(mContext,
-                                    AppConfig.PACKAGE_CAR_UI,
+                                    AppConfig.getCarAPPPackage(mContext),
                                     MyCmd.Keycode.KEY_SEEK_NEXT);
                             return true;
                         }
@@ -1009,6 +1012,7 @@ public class RadioMusicWidgetView {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     private String stringForTime(int timeMs) {
         int totalSeconds = timeMs / 1000;
 
@@ -1017,10 +1021,9 @@ public class RadioMusicWidgetView {
         int hours = totalSeconds / 3600;
 
         if (hours > 0) {
-            return String.format("%d:%02d:%02d", hours, minutes, seconds)
-                    .toString();
+            return String.format("%d:%02d:%02d", hours, minutes, seconds);
         } else {
-            return String.format("%02d:%02d", minutes, seconds).toString();
+            return String.format("%02d:%02d", minutes, seconds);
         }
         // return str;
     }
@@ -1542,8 +1545,7 @@ public class RadioMusicWidgetView {
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
             Log.d(TAG, "init gps:" + mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER));
-            if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-            {
+            if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 if (mLocationListener != null) {
                     mLocationManager.removeUpdates((LocationListener) mLocationListener);
                 }
