@@ -9,12 +9,27 @@ android {
         targetSdk 34
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            keyAlias 'rkpx5'
+            keyPassword 'android'
+            storeFile file('rkpx5.jks')
+            storePassword 'android'
         }
     }
+
+    buildTypes {
+        debug {
+            //在debug模式下引用该签名文件
+            signingConfig signingConfigs.release
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+
     sourceSets {
         main {
             //jni.srcDirs = []
