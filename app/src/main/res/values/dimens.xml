@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
 -->
 
 <resources>
-<!-- Cling -->
+    <!-- Cling -->
     <dimen name="clingPunchThroughGraphicCenterRadius">94px</dimen>
     <dimen name="folderClingMarginTop">20px</dimen>
     <!-- The offset for the text in the cling -->
@@ -57,14 +56,14 @@
     <dimen name="app_icon_drawable_padding_land">2px</dimen>
     <dimen name="app_icon_padding_top">8px</dimen>
 
-<!-- QSB -->
+    <!-- QSB -->
     <dimen name="toolbar_button_vertical_padding">0dip</dimen>
     <dimen name="toolbar_button_horizontal_padding">12dip</dimen>
     <!-- External toolbar icon size (for bounds) -->
     <dimen name="toolbar_external_icon_width">36px</dimen>
     <dimen name="toolbar_external_icon_height">36px</dimen>
 
-<!-- AllApps/Customize/AppsCustomize -->
+    <!-- AllApps/Customize/AppsCustomize -->
     <integer name="apps_customize_maxCellCountX">-1</integer>
     <integer name="apps_customize_maxCellCountY">-1</integer>
     <!-- The height of the tab bar - if this changes, we should update the
@@ -72,7 +71,7 @@
     <dimen name="apps_customize_tab_bar_height">52px</dimen>
     <dimen name="apps_customize_tab_bar_margin_top">0px</dimen>
     <dimen name="app_icon_size">80px</dimen>
-    
+
     <dimen name="app_wrap_icon_size">80px</dimen>
     <!-- The width can be 72px because we don't have L/R padding -->
     <dimen name="apps_customize_cell_width">144px</dimen>
@@ -98,7 +97,7 @@
     <!-- Drag padding to add to the bottom of drop targets -->
     <dimen name="drop_target_drag_padding">14px</dimen>
 
-<!-- Dragging -->
+    <!-- Dragging -->
     <!-- the area at the edge of the screen that makes the workspace go left
          or right while you're dragging. -->
     <dimen name="scroll_zone">100px</dimen>
@@ -124,7 +123,7 @@
     <dimen name="shortcut_preview_padding_right">0px</dimen>
     <dimen name="shortcut_preview_padding_top">0px</dimen>
 
-<!-- Folders -->
+    <!-- Folders -->
     <!-- The size of the image which sits behind the preview of the folder contents -->
     <dimen name="folder_preview_size">102px</dimen>
     <!-- The amount that the preview contents are inset from the preview background -->
@@ -134,7 +133,7 @@
     <dimen name="folder_height_gap">0px</dimen>
     <dimen name="folder_padding">0px</dimen>
 
-<!-- CellLayout padding -->
+    <!-- CellLayout padding -->
     <dimen name="cell_layout_left_padding_port">0px</dimen>
     <dimen name="cell_layout_left_padding_land">0px</dimen>
     <dimen name="cell_layout_right_padding_port">0px</dimen>
@@ -144,7 +143,7 @@
     <dimen name="cell_layout_bottom_padding_port">0px</dimen>
     <dimen name="cell_layout_bottom_padding_land">0px</dimen>
 
-<!-- Workspace padding -->
+    <!-- Workspace padding -->
     <dimen name="workspace_left_padding_port">0px</dimen>
     <dimen name="workspace_left_padding_land">@dimen/qsb_bar_height</dimen>
     <dimen name="workspace_right_padding_port">0px</dimen>
@@ -154,7 +153,7 @@
     <dimen name="workspace_bottom_padding_port">@dimen/button_bar_height</dimen>
     <dimen name="workspace_bottom_padding_land">0px</dimen>
 
-<!-- Workspace cell size -->
+    <!-- Workspace cell size -->
     <dimen name="workspace_cell_width_land">160px</dimen>
     <dimen name="workspace_cell_width_port">120px</dimen>
     <dimen name="workspace_cell_height_land">180px</dimen>
@@ -163,7 +162,10 @@
     <dimen name="workspace_width_gap_port">0px</dimen>
     <dimen name="workspace_height_gap_land">0px</dimen>
     <dimen name="workspace_height_gap_port">0px</dimen>
-    
-    
+
+
     <dimen name="ce_application_icon_width">204px</dimen>
+
+    <dimen name="app_icon_size_w">136px</dimen>
+    <dimen name="app_icon_size_h">173px</dimen>
 </resources>

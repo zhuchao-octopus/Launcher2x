@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 
-<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher" >
+<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto" >
 
     <!-- Far-left screen [0] -->
 
@@ -47,7 +47,7 @@
 launcher:className="com.my.dvr.MainActivity"
         launcher:packageName="com.my.dvr"
         launcher:screen="1"
-        launcher:x="4"
+        launcher:x="2"
         launcher:y="0" />
 <!--     <favorite -->
 <!--         launcher:className="com.SwcApplication.SwcActivity" -->
@@ -60,7 +60,7 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:className="com.android.settings.Settings"
         launcher:packageName="com.android.settings"
         launcher:screen="1"
-        launcher:x="2"
+        launcher:x="3"
         launcher:y="0" />
 
 
@@ -68,7 +68,7 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:className="com.android.gallery3d.app.GalleryActivity"
         launcher:packageName="com.android.gallery3d"
         launcher:screen="1"
-        launcher:x="3"
+        launcher:x="4"
         launcher:y="0" />
     
     
@@ -110,9 +110,9 @@ launcher:className="com.my.dvr.MainActivity"
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
 
     <favorite
-        launcher:className="com.zoulou.dab.activity.MainActivity"
+        launcher:className="com.my.navi.NaviEmptyActivity"
         launcher:container="-101"
-        launcher:packageName="com.zoulou.dab"
+        launcher:packageName="com.car.ui"
         launcher:screen="0"
         launcher:x="3"
         launcher:y="0" />
@@ -124,32 +124,32 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:x="3"
         launcher:y="0" />
     <favorite
-        launcher:className="com.my.bt.ATBluetoothActivity"
         launcher:container="-101"
-        launcher:packageName="com.my.bt"
-        launcher:screen="3"
+        launcher:className="com.my.btmusic.BTMusicActivity"
+        launcher:packageName="com.car.ui"
+        launcher:screen="2"
         launcher:x="3"
         launcher:y="0" />
-<!--     <favorite -->
-<!--         launcher:className="com.my.video.VideoActivity" -->
-<!--         launcher:container="-101" -->
-<!--         launcher:packageName="com.car.ui" -->
-<!--         launcher:screen="4" -->
-<!--         launcher:x="1" -->
-<!--         launcher:y="0" /> -->
+    <favorite
+        launcher:className="com.spotify.music.MainActivity"
+        launcher:container="-101"
+        launcher:packageName="com.spotify.music"
+        launcher:screen="4"
+        launcher:x="1"
+        launcher:y="0" />
     <favorite
         launcher:className="com.my.audio.MusicActivity"
         launcher:container="-101"
         launcher:packageName="com.car.ui"
-        launcher:screen="4"
+        launcher:screen="5"
         launcher:x="0"
         launcher:y="0" />
-<!--     <favorite -->
-<!--         launcher:className="com.android.settings.Settings" -->
-<!--         launcher:container="-101" -->
-<!--         launcher:packageName="com.android.settings" -->
-<!--         launcher:screen="4" -->
-<!--         launcher:x="0" -->
-<!--         launcher:y="0" /> -->
+    <favorite
+        launcher:className="com.android.settings.Settings"
+        launcher:container="-101"
+        launcher:packageName="com.android.settings"
+        launcher:screen="6"
+        launcher:x="0"
+        launcher:y="0" />
 
 </favorites>

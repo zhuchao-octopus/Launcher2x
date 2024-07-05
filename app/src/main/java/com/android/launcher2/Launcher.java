@@ -918,8 +918,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     button = (Button) findViewById(R.id.button_dvr);
                     if (dvrHide) {
                         if (button != null) {
-                            button.setText(getResources().getString(R.string.screen0_aux));
-                            drawable = getResources().getDrawable(R.drawable.icon_aux);
+                            ///button.setText(getResources().getString(R.string.screen0_aux));
+                            ///drawable = getResources().getDrawable(R.drawable.icon_aux);
                         }
                     } else {
                         if (button != null) {

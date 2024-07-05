@@ -15,7 +15,7 @@
 -->
 <com.android.launcher2.AppsCustomizeTabHost
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:background="#00000000">
     <LinearLayout
         android:id="@+id/apps_customize_content"
@@ -28,9 +28,10 @@
         <FrameLayout
             android:id="@+id/tabs_container"
             android:layout_width="wrap_content"
-            android:layout_height="48px"
+            android:layout_height="@dimen/apps_customize_tab_bar_height"
             android:layout_marginTop="@dimen/apps_customize_tab_bar_margin_top"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone">
             <com.android.launcher2.FocusOnlyTabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
@@ -55,7 +56,7 @@
                 android:id="@+id/apps_customize_pane_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="40.0px"
+                android:layout_marginTop="80px"
                 launcher:maxAppCellCountX="@integer/apps_customize_maxCellCountX"
                 launcher:maxAppCellCountY="@integer/apps_customize_maxCellCountY"
                 launcher:pageLayoutWidthGap="@dimen/apps_customize_pageLayoutWidthGap"
@@ -82,7 +83,7 @@
                 android:id="@+id/paged_view_indicator"
                 layout="@layout/scroll_indicator"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="bottom" />
         </FrameLayout>
     </LinearLayout>

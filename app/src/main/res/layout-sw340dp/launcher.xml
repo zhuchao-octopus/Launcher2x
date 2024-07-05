@@ -18,9 +18,8 @@
 
 <!-- Full screen view projects under the status bar and contains the background -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:id="@+id/launcher"
-    android:tag="28"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true" >
@@ -35,21 +34,20 @@
         <com.android.launcher2.Workspace
             android:id="@+id/workspace"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0px"
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingTop="0dp"
             launcher:cellCountX="@integer/cell_count_x"
             launcher:cellCountY="@integer/cell_count_y"
             launcher:defaultScreen="0"
-            android:focusable="false"
             launcher:pageSpacing="0px"
             launcher:scrollIndicatorPaddingLeft="0px"
             launcher:scrollIndicatorPaddingRight="0px" >
 
             <include
                 android:id="@+id/cell1"
-                layout="@layout/workspace_screen_ex" />
+                layout="@layout/workspace_screen" />
 
             <include
                 android:id="@+id/cell2"
@@ -68,6 +66,8 @@
                 layout="@layout/workspace_screen" />
         </com.android.launcher2.Workspace>
 
+        <include layout="@layout/radio_music_widget_layout" />
+
         <include
             android:id="@+id/qsb_divider"
             android:layout_width="0px"
@@ -84,72 +84,46 @@
             android:layout_marginEnd="@dimen/button_bar_height"
             layout="@layout/workspace_divider" />
 
-        <!-- <include
+        <include
             android:id="@+id/paged_view_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0px"
+            android:layout_height="0.0px"
             android:layout_gravity="bottom"
-            layout="@layout/scroll_indicator"/> -->
-        
+            layout="@layout/scroll_indicator" />
+
+        <!-- <include -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginBottom="124px" -->
+        <!-- android:layout_gravity="bottom" -->
+        <!-- layout="@layout/page_index" /> -->
+
+
+        <!-- <LinearLayout -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="0px" -->
+        <!-- android:layout_gravity="bottom|center_horizontal" -->
+        <!-- android:background="@drawable/radio_bottom_bg" -->
+        <!-- android:gravity="bottom" -->
+        <!-- android:orientation="vertical" > -->
+        <!-- <View -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="90px" -->
+        <!-- android:layout_gravity="bottom|center_horizontal" -->
+        <!-- android:background="@drawable/radio_bottom_bg"/> -->
+        <!-- </LinearLayout> -->
+
         <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="-5px"
-            layout="@layout/page_index" />
-
-        <RelativeLayout
-            android:id="@+id/bottom_buttom_with_hotseat"
-            android:layout_width="match_parent"
-            android:gravity="bottom"
-            android:layout_height="0dp" >
-
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="154.0px"
-                android:layout_gravity="bottom"
-                android:background="@drawable/end_menu_bg"
-                android:scaleType="centerInside" />
-
-            <!-- <Button
-                android:id="@+id/all_apps_button1"
-                android:layout_width="132.0px"
-                android:layout_height="132.0px"
-                android:layout_gravity="bottom|center|left"
-                android:layout_marginBottom="4.0px"
-                android:layout_marginStart="15.0px"
-                android:background="@drawable/end_menu_car2"
-                android:onClick="onLauncherButtonClick" /> -->
-
-            <Button
-                android:id="@+id/all_apps_button2"
-                android:layout_width="132.0px"
-                android:layout_height="132.0px"
-                android:layout_gravity="bottom|center|right"
-                android:layout_marginBottom="4.0px"
-                android:layout_marginEnd="15.0px"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/end_menu_app"
-                android:onClick="onLauncherButtonClick" />
-        </RelativeLayout>
-
-        
-                <include
             android:id="@+id/hotseat"
-            android:layout_width="694.0px"
-            android:layout_height="0dp"
-            android:layout_gravity="bottom|center"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0px"
             layout="@layout/hotseat" />
-                
-<!--         <include -->
-<!--             android:id="@+id/hotseat" -->
-<!--             android:layout_width="694.0px" -->
-<!--             android:layout_height="168.0px" -->
-<!--             android:layout_gravity="bottom|center" -->
-<!--             android:layout_marginBottom="8.0px" -->
-<!--             layout="@layout/hotseat" /> -->
 
         <include
+            android:layout_width="0px"
+            android:layout_height="0.0px"
             android:id="@+id/qsb_bar"
             layout="@layout/qsb_bar" />
 
@@ -177,10 +151,10 @@
 
         <com.android.launcher2.DrawableStateProxyView
             android:id="@+id/voice_button_proxy"
-            android:layout_width="@dimen/qsb_bar_height"
-            android:layout_height="@dimen/app_icon_size"
+            android:layout_width="0px"
+            android:layout_height="0.0px"
             android:layout_gravity="top|start"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="50.0dp"
             android:clickable="true"
             android:importantForAccessibility="no"
             android:onClick="onClickVoiceButton"
@@ -192,8 +166,6 @@
             android:layout_height="match_parent"
             layout="@layout/apps_customize_pane"
             android:visibility="invisible" />
-
-        <!-- <include layout="@layout/bottom_toolbar" /> -->
     </com.android.launcher2.DragLayer>
 
 </FrameLayout>
