@@ -888,12 +888,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private void dvdHideToShowVideo() {
         dvdHide = false;
         dvrHide = false;
-        if (Utilities.mSystemUI != null && (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))) {
-            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd()) dvdHide = true;
-            else dvdHide = false;
-
-            if (AppConfig.isHidePackage("com.my.dvr.MainActivity")) dvrHide = true;
-            else dvrHide = false;
+        if ((MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))) {
+            dvdHide = AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd();
+            dvrHide = AppConfig.isHidePackage("com.my.dvr.MainActivity");
 
             Drawable drawable = null;
             try {
