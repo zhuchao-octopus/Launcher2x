@@ -51,7 +51,7 @@ class AllAppsList {
      */
     public ArrayList<ApplicationInfo> modified = new ArrayList<ApplicationInfo>();
 
-    private IconCache mIconCache;
+    private final IconCache mIconCache;
 
     /**
      * Boring constructor.
@@ -104,7 +104,6 @@ class AllAppsList {
                 add(new ApplicationInfo(info, user, mIconCache, null));
             } else {
                 //        		 Log.d("allen", info.getComponentName().getClassName()+"!!!!!!!!:::");
-
             }
         }
     }
@@ -132,7 +131,7 @@ class AllAppsList {
     public void updatePackage(Context context, String packageName, UserHandle user) {
         LauncherApps launcherApps = (LauncherApps) context.getSystemService(Context.LAUNCHER_APPS_SERVICE);
         final List<LauncherActivityInfo> matches = launcherApps.getActivityList(packageName, user);
-        if (matches.size() > 0) {
+        if (!matches.isEmpty()) {
             // Find disabled/removed activities and remove them from data and add them
             // to the removed list.
             for (int i = data.size() - 1; i >= 0; i--) {

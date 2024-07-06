@@ -528,7 +528,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         // current orientation
         unlockScreenOrientation(true);
 
-        mRadioMusicWidgetView = RadioMusicWidgetView.getInstance(this);
+        //mRadioMusicWidgetView = RadioMusicWidgetView.getInstance(this);
 
         View v = findViewById(R.id.page1);
         if (v != null) {
@@ -1013,11 +1013,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             mWinceCEStyleApp.recover();
         }*/
         // Restore the previous launcher state
-        if (mOnResumeState == State.WORKSPACE) {
-            showWorkspace(false);
-        } else if (mOnResumeState == State.APPS_CUSTOMIZE) {
+        ///if (mOnResumeState == State.WORKSPACE) {
+        ///    showWorkspace(false);
+        ///} else if (mOnResumeState == State.APPS_CUSTOMIZE) {
             showAllApps(false);
-        }
+        ///}
 
         mOnResumeState = State.NONE;
         // Background was set to gradient in onPause(), restore to black if in
@@ -2393,9 +2393,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 
     @Override
     public void onBackPressed() {
-        if (isAllAppsVisible()) {
+        /*if (isAllAppsVisible())
+        {
             showWorkspace(true);
-        } else if (mWorkspace.getOpenFolder() != null) {
+        }
+        else if (mWorkspace.getOpenFolder() != null) {
             Folder openFolder = mWorkspace.getOpenFolder();
             if (openFolder.isEditingName()) {
                 openFolder.dismissEditingName();
@@ -2408,7 +2410,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             // Back button is a no-op here, but give at least some feedback for
             // the button press
             mWorkspace.showOutlinesTemporarily();
-        }
+        }*/
     }
 
     /**
@@ -2563,7 +2565,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 ImageView mIVNavi = (ImageView) v.findViewById(R.id.button_gps_toolbar);
                 ImageView mIVApps3 = (ImageView) v.findViewById(R.id.all_apps_button3);
                 ImageView mIVRadio = (ImageView) v.findViewById(R.id.button_radio_toolbar);
-                try {
+                /*try {
                     int[] mInitHue = {-1, 0}; // [0] progress, [1]color
                     if (ActivityHueSettings.getSystemHue(this, mInitHue) && mInitHue[0] != -1 && mInitHue[1] != 0) {
                         if (mIVLeftBG != null) {
@@ -2585,7 +2587,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 if (mIVApps3 != null) {
                     mIVApps3.setOnLongClickListener(new OnLongClickListener() {
@@ -2622,10 +2624,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     mIVApps1.setOnLongClickListener(new OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
-                            if (mIVScreen3BG != null) {
-                                if (mIVScreen3BG.getVisibility() == View.VISIBLE) mIVScreen3BG.setVisibility(View.GONE);
-                                else mIVScreen3BG.setVisibility(View.VISIBLE);
-                            }
+                            if (mIVScreen3BG.getVisibility() == View.VISIBLE) mIVScreen3BG.setVisibility(View.GONE);
+                            else mIVScreen3BG.setVisibility(View.VISIBLE);
                             return true;
                         }
                     });
