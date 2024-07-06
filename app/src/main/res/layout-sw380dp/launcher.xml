@@ -67,7 +67,7 @@
                 layout="@layout/workspace_screen" />
         </com.android.launcher2.Workspace>
 
-        <include layout="@layout/radio_music_widget_layout" />
+       <!-- <include layout="@layout/radio_music_widget_layout" />-->
 
         <include
             android:id="@+id/qsb_divider"

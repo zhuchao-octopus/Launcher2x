@@ -257,9 +257,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     // Instead, just save the state that we need to restore Launcher to, and
     // commit it in onResume.
     private State mOnResumeState = State.NONE;
-
     private SpannableStringBuilder mDefaultKeySsb = null;
-
     private boolean mWorkspaceLoading = true;
 
     public boolean mPaused = true;
@@ -330,7 +328,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     };
 
     private static final ArrayList<PendingAddArguments> sPendingAddList = new ArrayList<PendingAddArguments>();
-
     private static final boolean sForceEnableRotation = isPropertyEnabled(FORCE_ENABLE_ROTATION_PROPERTY);
 
     private static class PendingAddArguments {
@@ -353,7 +350,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     public static boolean mAllAppLayout = false;
     public static boolean mHideAllAppCEIcon = false;
     public static int mIconType = 0;
-
 
     public static final int ICON_TYPE_ALL_NEED_BG = 1;
     public static final int ICON_TYPE_DEFAULT_WORKSPACE1 = 10;
@@ -480,7 +476,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
 
         if (getData(SAVE_FIRST_BOOT) != 1) {
-
 
             int data;
             data = MachineConfig.getPropertyIntReadOnly(SystemConfig.KEY_CE_STYLE);
@@ -896,6 +891,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             try {
                 if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
                     Button button = (Button) findViewById(R.id.button_dvd);
+
                     if (dvdHide) {
                         if (button != null) {
                             button.setText(getResources().getString(R.string.easyconnection_lable));
@@ -907,6 +903,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                             drawable = getResources().getDrawable(R.drawable.screen0_disc);
                         }
                     }
+
                     if (drawable != null) {
                         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight()); //must
                         button.setCompoundDrawables(null, drawable, null, null);
@@ -996,7 +993,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     @Override
     protected void onResume() {
         Configuration c = getResources().getConfiguration();
-        Log.d(TAG, "onResume:" + c + ":" + mNeedUpdateUI);
+        MMLog.d(TAG, "onResume:" + c + ":" + mNeedUpdateUI);
         if (mNeedUpdateUI) {
             ResourceUtil.updateUi(this);
             mNeedUpdateUI = false;
@@ -1007,22 +1004,22 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
         super.onResume();
         dvdHideToShowVideo();
-        Log.d(TAG, RadioMusicWidgetView.mContext + ":onResume:" + this);
-        if (mRadioMusicWidgetView != null && RadioMusicWidgetView.mContext != this) {
+        MMLog.d(TAG, "onResume:" + this+" :"+RadioMusicWidgetView.mContext);
+        /*if (mRadioMusicWidgetView != null && RadioMusicWidgetView.mContext != this) {
             mRadioMusicWidgetView.init(this);
         }
         RadioMusicWidgetView.onResume();
         if (mWinceCEStyleApp != null) {
             mWinceCEStyleApp.recover();
-        }
+        }*/
         // Restore the previous launcher state
         if (mOnResumeState == State.WORKSPACE) {
             showWorkspace(false);
         } else if (mOnResumeState == State.APPS_CUSTOMIZE) {
             showAllApps(false);
         }
-        mOnResumeState = State.NONE;
 
+        mOnResumeState = State.NONE;
         // Background was set to gradient in onPause(), restore to black if in
         // all apps.
         setWorkspaceBackground(mState == State.WORKSPACE);
@@ -1038,7 +1035,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             mRestoring = false;
             mOnResumeNeedsLoad = false;
         }
-        if (mOnResumeCallbacks.size() > 0) {
+        if (!mOnResumeCallbacks.isEmpty()) {
             // We might have postponed some bind calls until onResume (see
             // waitUntilResume) --
             // execute them here
@@ -1101,7 +1098,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             v.requestFocus();
             //	v.requestFocusFromTouch();
         }
-
         startMS9120();
     }
 
@@ -1152,10 +1148,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         return !inputManager.isFullscreenMode();
     }
 
-    private final static int[] CLEAR_FOCUS = {
-            R.id.music_button_prev, R.id.music_button_play, R.id.music_button_next, R.id.entry_music, R.id.radio_button_prev, R.id.radio_button_play, R.id.radio_button_next, R.id.entry_radio,
-            R.id.entry_radio2, R.id.entry_music2,
-    };
+    private final static int[] CLEAR_FOCUS = {R.id.music_button_prev, R.id.music_button_play, R.id.music_button_next, R.id.entry_music, R.id.radio_button_prev, R.id.radio_button_play, R.id.radio_button_next, R.id.entry_radio, R.id.entry_radio2, R.id.entry_music2,};
 
     private void initFocus() {
         for (int i : CLEAR_FOCUS) {
@@ -4430,6 +4423,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             setAllAppsRunnable.run();
         }
         allAppIsReady = true;
+        showAllApps(true);
     }
 
     /**
@@ -4547,9 +4541,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 break;
         }
 
-        int[] oriMap = {
-                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE, ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-        };
+        int[] oriMap = {ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE, ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT, ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE};
         // Since the map starts at portrait, we need to offset if this device's
         // natural orientation
         // is landscape.

@@ -16,6 +16,7 @@ import com.common.util.ProtocolAk47;
 import com.common.util.SystemConfig;
 import com.my.radio.MarkFaceView;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -61,9 +62,12 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+
 import com.common.util.UtilCarKey;
 import com.common.view.MyScrollView;
 import com.common.view.MyScrollView.ICallBack;
+import com.zhuchao.android.fbase.MMLog;
 
 public class RadioMusicWidgetView {
     public static Launcher mContext;
@@ -1531,11 +1535,21 @@ public class RadioMusicWidgetView {
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
 
-            Log.d(TAG, "init gps:" + mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER));
+            MMLog.d(TAG, "init gps:" + mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER));
             if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 
                 if (mLocationListener != null) {
                     mLocationManager.removeUpdates((LocationListener) mLocationListener);
+                }
+                if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
                 }
                 mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mLocationListener);
             }

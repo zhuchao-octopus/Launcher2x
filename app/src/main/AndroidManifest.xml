@@ -17,7 +17,6 @@
 */
 -->
 <manifest
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -44,7 +43,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
-
 
     <permission
         android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
@@ -80,7 +78,6 @@
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
 
-
     <application
         android:name="com.android.launcher2.LauncherApplication"
         android:hardwareAccelerated="true"
@@ -97,11 +94,11 @@
             android:screenOrientation="nosensor"
             android:stateNotNeeded="true"
             android:theme="@style/Theme"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.HOME" />
+               <!-- <category android:name="android.intent.category.HOME" />-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.MONKEY" />
             </intent-filter>
