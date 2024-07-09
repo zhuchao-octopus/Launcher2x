@@ -36,14 +36,16 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
-    implementation files('libs/android-common.jar')
+    //implementation files('libs/android-common.jar')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')
+    implementation('com.zhuchao.android:libBaseUtils:2.2@aar')
     implementation('com.zhuchao.android:libFOSUtils:1.4:@aar')
 }
 

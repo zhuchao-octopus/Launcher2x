@@ -99,7 +99,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.android.common.Search;
+///import com.android.common.Search;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
 
@@ -123,10 +123,12 @@ import org.json.JSONObject;
 
 import com.common.util.Kernel;
 import com.common.util.MyCmd;
+///import com.common.util.SystemProperties;
 import com.common.util.SystemProperties;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
 import com.common.util.AppConfig;
+///import com.rockchip.car.recorder.utils.SystemProperties;
 import com.zhuchao.android.fbase.MMLog;
 
 /**
@@ -2035,7 +2037,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
         if (appSearchData == null) {
             appSearchData = new Bundle();
-            appSearchData.putString(Search.SOURCE, "launcher-search");
+            appSearchData.putString("Source", "launcher-search");///Search.SOURCE
         }
         Rect sourceBounds = new Rect();
         if (mSearchDropTargetBar != null) {
