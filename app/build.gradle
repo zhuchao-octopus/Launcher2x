@@ -39,6 +39,16 @@ android {
     lint {
         baseline = file("lint-baseline.xml")
     }
+
+    android.applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            def date = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08"))
+            if (variant.buildType.name == 'release') {
+                outputFileName = "Launcher2X.apk"
+            }
+        }
+    }
+
 }
 
 dependencies {
