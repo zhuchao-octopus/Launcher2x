@@ -360,10 +360,10 @@ public class RadioMusicWidgetView {
             if (mSource != MyCmd.SOURCE_RADIO) {
                 BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
             }
-            BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.RADIO_POWER);
+            BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.RADIO_POWER);
         } else if (id == R.id.radio_button_prev) {
             if (mSource == MyCmd.SOURCE_RADIO) {
-                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.PREVIOUS);
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
             }
 
             // BroadcastUtil.sendToCarServiceMcuRadio(mContext,
@@ -371,7 +371,7 @@ public class RadioMusicWidgetView {
         } else if (id == R.id.radio_button_next) {
             if (mSource == MyCmd.SOURCE_RADIO) {
 
-                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.NEXT);
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
             }
 
             // BroadcastUtil.sendToCarServiceMcuRadio(mContext,
@@ -379,30 +379,30 @@ public class RadioMusicWidgetView {
         } else if (id == R.id.music_button_prev || id == R.id.bt_button_prev) {// setSource(MyCmd.SOURCE_MUSIC);
 
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.PREVIOUS);
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.PREVIOUS);
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
                 }
             }
         } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
-                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.PLAY_PAUSE);
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PLAY_PAUSE);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.PLAY_PAUSE);
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
         } else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
 
-                BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.NEXT);
+                BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
             } else if (mSource == MyCmd.SOURCE_DVD) {
 
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.NEXT);
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
                 }
             }
         } else if (id == R.id.entry_bt_music) {
@@ -812,7 +812,7 @@ public class RadioMusicWidgetView {
                 @Override
                 public boolean onLongClick(View arg0) {
                     // TODO Auto-generated method stub
-                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.KEY_SEEK_PREV);
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.KEY_SEEK_PREV);
                     return true;
                 }
             });
@@ -821,7 +821,7 @@ public class RadioMusicWidgetView {
                 @Override
                 public boolean onLongClick(View arg0) {
                     // TODO Auto-generated method stub
-                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAPPPackage(mContext), MyCmd.Keycode.KEY_SEEK_NEXT);
+                    BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.KEY_SEEK_NEXT);
                     return true;
                 }
             });
