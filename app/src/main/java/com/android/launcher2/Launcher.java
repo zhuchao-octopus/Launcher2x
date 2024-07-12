@@ -456,8 +456,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         checkForLocaleChange();
         setContentView(R.layout.launcher);
         setupViews();
-        MMLog.d(TAG, "launcher layout tag=" + findViewById(R.id.launcher).getTag());
 
+        MMLog.d(TAG, "Launcher layout tag=" + findViewById(R.id.launcher).getTag());
         //showFirstRunWorkspaceCling();
         registerContentObservers();
 
@@ -481,9 +481,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             Log.d(TAG, "reload default workspace oncreate");
         }
 
-        if (getData(SAVE_FIRST_BOOT) != 1) {
-
-
+        if (getData(SAVE_FIRST_BOOT) != 1)
+        {
             int data;
             data = MachineConfig.getPropertyIntReadOnly(SystemConfig.KEY_CE_STYLE);
             if (data != 0) {
@@ -499,7 +498,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             }
             saveData(SAVE_FIRST_BOOT, 1);
         }
-
 
         if (!mRestoring) {
             if (sPausedFromUserAction) {

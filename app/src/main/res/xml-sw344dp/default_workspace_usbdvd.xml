@@ -15,7 +15,9 @@
      limitations under the License.
 -->
 
-<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher" >
+<favorites xmlns:tools="http://schemas.android.com/tools"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
 
     <favorite
         launcher:className="com.my.radio.RadioActivity"

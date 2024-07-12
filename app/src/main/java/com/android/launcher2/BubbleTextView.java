@@ -30,6 +30,7 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.Region.Op;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -233,17 +234,22 @@ public class BubbleTextView extends TextView {
         getDrawingRect(clipRect);
 
         // adjust the clip rect so that we don't include the text label
-        clipRect.bottom =
-            getExtendedPaddingTop() - (int) BubbleTextView.PADDING_V + getLayout().getLineTop(0);
+        clipRect.bottom = getExtendedPaddingTop() - (int) BubbleTextView.PADDING_V + getLayout().getLineTop(0);
 
         // Draw the View into the bitmap.
         // The translate of scrollX and scrollY is necessary when drawing TextViews, because
         // they set scrollX and scrollY to large values to achieve centered text
         destCanvas.save();
-        destCanvas.scale(getScaleX(), getScaleY(),
-                (getWidth() + padding) / 2, (getHeight() + padding) / 2);
-        destCanvas.translate(-getScrollX() + padding / 2, -getScrollY() + padding / 2);
-        destCanvas.clipRect(clipRect, Op.REPLACE);
+        destCanvas.scale(getScaleX(), getScaleY(), (float) (getWidth() + padding) / 2, (float) (getHeight() + padding) / 2);
+        destCanvas.translate(-getScrollX() + (float) padding / 2, -getScrollY() + (float) padding / 2);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            destCanvas.clipRect(clipRect);
+        } else {
+            destCanvas.clipRect(clipRect, Region.Op.XOR);// REPLACE、UNION 等
+        }
+        ///destCanvas.clipRect(clipRect, Op.REPLACE);
+
         draw(destCanvas);
         destCanvas.restore();
     }

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,7 @@
      limitations under the License.
 -->
 
-<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher" >
+<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto">
 
     <!-- Far-left screen [0] -->
 
@@ -24,7 +23,7 @@
 
     <favorite
         launcher:className="com.my.auxplayer.AUXPlayer"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="1"
         launcher:x="0"
         launcher:y="0" />
@@ -41,19 +40,19 @@
     <!-- launcher:screen="1" -->
     <!-- launcher:x="1" -->
     <!-- launcher:y="0" /> -->
-<!--     <favorite -->
-<!--         launcher:className="com.eqset.EQActivity" -->
-<!--         launcher:packageName="com.eqset" -->
-<!--         launcher:screen="1" -->
-<!--         launcher:x="1" -->
-<!--         launcher:y="0" /> -->
-        <favorite
+    <!--     <favorite -->
+    <!--         launcher:className="com.eqset.EQActivity" -->
+    <!--         launcher:packageName="com.eqset" -->
+    <!--         launcher:screen="1" -->
+    <!--         launcher:x="1" -->
+    <!--         launcher:y="0" /> -->
+    <favorite
         launcher:className="com.my.dvr.MainActivity"
         launcher:packageName="com.my.dvr"
         launcher:screen="1"
         launcher:x="1"
         launcher:y="0" />
-        
+
     <!-- <favorite -->
     <!-- launcher:className="com.SwcApplication.SwcActivity" -->
     <!-- launcher:packageName="com.SwcApplication" -->
@@ -99,19 +98,13 @@
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
 
     <favorite
-        launcher:className="com.my.navi.NaviEmptyActivity"
+        launcher:className="com.octopus.android.carapps.navi.NaviEmptyActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="0"
         launcher:x="3"
         launcher:y="0" />
-    <favorite
-        launcher:className="com.my.radio.RadioActivity"
-        launcher:container="-101"
-        launcher:packageName="com.car.ui"
-        launcher:screen="4"
-        launcher:x="3"
-        launcher:y="0" />
+
     <favorite
         launcher:className="com.my.bt.ATBluetoothActivity"
         launcher:container="-101"
@@ -119,24 +112,25 @@
         launcher:screen="1"
         launcher:x="5"
         launcher:y="0" />
-    <!-- <favorite -->
-    <!-- launcher:className="com.my.video.VideoActivity" -->
-    <!-- launcher:container="-101" -->
-    <!-- launcher:packageName="com.car.ui" -->
-    <!-- launcher:screen="4" -->
-    <!-- launcher:x="1" -->
-    <!-- launcher:y="0" /> -->
+
     <favorite
-        launcher:className="com.my.audio.MusicActivity"
+        launcher:className="com.octopus.android.carapps.radio.RadioActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="2"
+        launcher:x="3"
+        launcher:y="0" />
+    <favorite
+        launcher:className="com.octopus.android.carapps.audio.MusicActivity"
+        launcher:container="-101"
+        launcher:packageName="com.octopus.android.carapps"
+        launcher:screen="4"
         launcher:x="0"
         launcher:y="0" />
     <favorite
-        launcher:className="com.my.video.VideoActivity"
+        launcher:className="com.octopus.android.carapps.video.VideoActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="5"
         launcher:x="0"
         launcher:y="0" />

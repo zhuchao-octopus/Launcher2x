@@ -4,6 +4,7 @@ import com.common.util.MachineConfig;
 import com.common.util.SystemConfig;
 import com.common.util.AppConfig;
 import com.android.launcher.R;
+import com.zhuchao.android.fbase.MMLog;
 
 import android.app.Activity;
 import android.content.Context;
@@ -75,14 +76,14 @@ public class ResourceUtil {
     public static int mScreenHeight;
 
     public static String updateUi(Context context) { // only launcher use now
-
+        Configuration configuration = context.getResources().getConfiguration();
         String value = MachineConfig.getPropertyReadOnly(LAUNCHER_UI);
         if (value == null) {
             value = MachineConfig.getPropertyReadOnly(MachineConfig.KEY_SYSTEM_UI);
         }
+        MMLog.d(TAG, "LAUNCHER_UI=" + value);
 
         if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
-
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -90,11 +91,8 @@ public class ResourceUtil {
                 } else { //0
                     value = MachineConfig.VALUE_SYSTEM_UI20_RM10_1;
                 }
-
             }
-
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-
             String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
@@ -107,10 +105,10 @@ public class ResourceUtil {
         int dsp = SystemConfig.getIntProperty(context, SystemConfig.KEY_DSP);
         Utilities.mIsDSP = (dsp == 1);
         Utilities.mSystemUI = value;
-        Log.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
 
-
-        //int sw = 0;
+        MMLog.d(TAG, "LAUNCHER_UI=" + value);
+        MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);
+        MMLog.d(TAG, "Configuration:"+value + "," + sw + "," + configuration.toString());
         int w = 0;
         int h = 0;
         int type = 0; // deault 800X480
@@ -119,15 +117,12 @@ public class ResourceUtil {
         Display[] displays = displayManager.getDisplays();
 
         for (int i = 0; i < displays.length; i++)
-            Log.d(TAG, "Display[" + i + "/"+displays.length+ "]=" + displays[i].toString());
-
-        //Rect outRect = new Rect();
-        //display[0].getOverscanInsets(outRect);
+            MMLog.d(TAG, "Display[" + i + "/" + displays.length + "]=" + displays[i].toString());
 
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScreenWidth = dm.widthPixels;
         mScreenHeight = dm.heightPixels;
-        Log.d(TAG, "DisplayMetrics=" + dm.toString());
+        MMLog.d(TAG, "DisplayMetrics=" + dm.toString());
 
         if (dm.widthPixels == 1024 && dm.heightPixels == 600) {
             type = 1;
@@ -146,180 +141,193 @@ public class ResourceUtil {
             sw = 320;
         }
 
-        if (MachineConfig.VALUE_SYSTEM_UI_KLD1.equals(value)) {
-            if (type == 0) {
-                sw = 322;
-                // w = 801;
-                // h = 479;
-            } else {
-                sw = 323;
-                // w = 1025;
-                // h = 601;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD2.equals(value) || MachineConfig.VALUE_SYSTEM_UI_KLD15_6413.equals(value) || MachineConfig.VALUE_SYSTEM_UI24_616.equals(value)) {
-            if (type == 0) {
-                sw = 324;
-            } else if (type == 2) {
-                sw = 324;
-            } else {
-                sw = 325;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3.equals(value)) {
-            if (type == 0) {
-                sw = 326;
-            } else {
-                sw = 327;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(value)) {
-            if (type == 0) {
-                sw = 328;
-            } else {
-                sw = 329;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD7_1992.equals(value)) {
-            if (type == 0) {
-                sw = 330;
-            } else {
-                sw = 331;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(value) || MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
-            if (type == 0) {
-                sw = 332;
-            } else {
-                sw = 333;
-            }
+        switch (value) {
+            case MachineConfig.VALUE_SYSTEM_UI_KLD1:
+                if (type == 0) {
+                    sw = 322;
+                    // w = 801;
+                    // h = 479;
+                } else {
+                    sw = 323;
+                    // w = 1025;
+                    // h = 601;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD2:
+            case MachineConfig.VALUE_SYSTEM_UI_KLD15_6413:
+            case MachineConfig.VALUE_SYSTEM_UI24_616:
+                if (type == 0) {
+                    sw = 324;
+                } else if (type == 2) {
+                    sw = 324;
+                } else {
+                    sw = 325;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD3:
+                if (type == 0) {
+                    sw = 326;
+                } else {
+                    sw = 327;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD5:
+                if (type == 0) {
+                    sw = 328;
+                } else {
+                    sw = 329;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD7_1992:
+                if (type == 0) {
+                    sw = 330;
+                } else {
+                    sw = 331;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD3_8702:
+            case MachineConfig.VALUE_SYSTEM_UI45_8702_2:
+                if (type == 0) {
+                    sw = 332;
+                } else {
+                    sw = 333;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_KLD10_887:
+                if (type == 0) {
+                    sw = 334;
+                } else if (type == 2) {
+                    sw = 335;
+                } else {
+                    sw = 336;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI20_RM10_1:
+                if (type == 0) {
+                    sw = 338;
+                } else if (type == 2) {
+                    sw = 340;
+                } else {
+                    sw = 339;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI21_RM10_2:
+                if (type == 0) {
+                    sw = 344;
+                } else if (type == 2) {
+                    sw = 346;
+                } else {
+                    sw = 345;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI16_7099:
+                if (type == 0) {
+                    sw = 348;
+                } else {
+                    sw = 349;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI22_1050:
+                if (type == 0) {
+                    sw = 352;
+                } else {
+                    sw = 353;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI31_KLD7:
+                if (type == 0) {
+                    sw = 356;
+                } else {
+                    sw = 357;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI35_KLD813_2:
+                if (type == 0) {
+                    sw = 360;    //800x480
+                } else {
+                    sw = 361;    //1024x600
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI21_RM12:
+                if (type == 0) {
+                    sw = 362;    //800x480
+                } else {
+                    sw = 363;    //1024x600
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI40_KLD90:
+            case MachineConfig.VALUE_SYSTEM_UI_9813:
+                if (type == 0) {
+                    sw = 364; // 800x480
+                } else if (type == 2) {
+                    sw = 366; // 1280x480
+                } else if (type == 3) {
+                    sw = 367; // 1280x720
+                } else {
+                    sw = 365; // 1024x600
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI41_2007:
+                if (type == 0) {
+                    sw = 372;    //800x480
+                } else {
+                    sw = 373;    //1024x600
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI42_913:
+            case MachineConfig.VALUE_SYSTEM_UI42_13:
 
-            ///if (MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(value)) {
-            ///	h = 441;
-            ///}
-        } else if (MachineConfig.VALUE_SYSTEM_UI_KLD10_887.equals(value)) {
-            if (type == 0) {
-                sw = 334;
-            } else if (type == 2) {
-                sw = 335;
-            } else {
-                sw = 336;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value)) {
-            if (type == 0) {
-                sw = 338;
-            } else if (type == 2) {
-                sw = 340;
-            } else {
-                sw = 339;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value)) {
-            if (type == 0) {
-                sw = 344;
-            } else if (type == 2) {
-                sw = 346;
-            } else {
-                sw = 345;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(value)) {
-            if (type == 0) {
-                sw = 348;
-            } else {
-                sw = 349;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI22_1050.equals(value)) {
-            if (type == 0) {
-                sw = 352;
-            } else {
-                sw = 353;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(value)) {
-            if (type == 0) {
-                sw = 356;
-            } else {
-                sw = 357;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI35_KLD813_2.equals(value)) {
-            if (type == 0) {
-                sw = 360;    //800x480
-            } else {
-                sw = 361;    //1024x600
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-            if (type == 0) {
-                sw = 362;    //800x480
-            } else {
-                sw = 363;    //1024x600
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(value) || MachineConfig.VALUE_SYSTEM_UI_9813.equals(value)) {
-            if (type == 0) {
-                sw = 364; // 800x480
-            } else if (type == 2) {
-                sw = 366; // 1280x480
-            } else if (type == 3) {
-                sw = 367; // 1280x720
-            } else {
-                sw = 365; // 1024x600
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI41_2007.equals(value)) {
-            if (type == 0) {
-                sw = 372;    //800x480
-            } else {
-                sw = 373;    //1024x600
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI42_913.equals(value) || MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
+                if (type == 0 || type == 2) {
+                    sw = 368;    //800x480
+                } else {
+                    sw = 369;    //1024x600
+                }
 
-            if (type == 0 || type == 2) {
-                sw = 368;    //800x480
-            } else {
-                sw = 369;    //1024x600
-            }
+                ///if (MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
+                ///   h = 450;
+                ///}
 
-            ///if (MachineConfig.VALUE_SYSTEM_UI42_13.equals(value)) {
-            ///   h = 450;
-            ///}
-
-        } else if (MachineConfig.VALUE_SYSTEM_UI44_KLD007.equals(value)) {
-            if (type == 0) {
-                sw = 380;    //800x480
-            } else {
-                sw = 381;    //1024x600
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_887_90.equals(value)) {
-            if (type == 0) {
-                sw = 386;
-            } else if (type == 2) {
-                sw = 387;
-            } else {
-                sw = 388;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_887_90.equals(value)) {
-            if (type == 0) {
-                sw = 390;
-            } else if (type == 2) {
-                sw = 392;
-            } else {
-                sw = 391;
-            }
-        } else if (MachineConfig.VALUE_SYSTEM_UI_PX30_1.equals(value)) {
-            if (type == 0) {
-                sw = 400;
-            } else if (type == 2) {
-                sw = 401;
-            } else {
-                sw = 402;
-            }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI44_KLD007:
+                if (type == 0) {
+                    sw = 380;    //800x480
+                } else {
+                    sw = 381;    //1024x600
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_887_90:
+                if (type == 0) {
+                    sw = 386;
+                } else if (type == 2) {
+                    sw = 387;
+                } else {
+                    sw = 388;
+                }
+                break;
+            case MachineConfig.VALUE_SYSTEM_UI_PX30_1:
+                if (type == 0) {
+                    sw = 400;
+                } else if (type == 2) {
+                    sw = 401;
+                } else {
+                    sw = 402;
+                }
+                break;
         }
 
-        Configuration c = context.getResources().getConfiguration();
+
         if (sw != 0) {
-            c.smallestScreenWidthDp = sw;
+            configuration.smallestScreenWidthDp = sw;
         }
         if (w != 0) {
-            c.screenWidthDp = w;
+            configuration.screenWidthDp = w;
         }
         if (h != 0) {
-            c.screenHeightDp = h;
+            configuration.screenHeightDp = h;
         }
-        context.getResources().updateConfiguration(c, null);
 
-
-        Log.d(TAG, value + ",sw:" + sw + ",configuration:" + c.toString());
+        context.getResources().updateConfiguration(configuration, null);
+        MMLog.d(TAG, "Configuration:"+value + "," + sw + "," + configuration.toString());
         return value;
     }
 
@@ -329,7 +337,7 @@ public class ResourceUtil {
         float roundPx;
         float left, top, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
         if (width <= height) {
-            roundPx = width / 2;
+            roundPx = (float) width / 2;
             top = 0;
             bottom = width;
             left = 0;
@@ -370,11 +378,7 @@ public class ResourceUtil {
 
     public static boolean ifLoadDvdHideWorkspace() {
         if (Utilities.mSystemUI != null && (Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI21_RM10_2) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI22_1050) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI45_8702_2) || Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI35_KLD813_2))) {
-            if (AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd()) {
-                return true;
-            } else {
-                return false;
-            }
+            return AppConfig.isHidePackage("com.my.dvd.DVDPlayer") && !AppConfig.isUSBDvd();
         } else return false;
     }
 }
