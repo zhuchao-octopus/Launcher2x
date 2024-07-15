@@ -198,7 +198,7 @@
 
                     <TextView
                         android:id="@+id/radio_music_baud"
-                        android:layout_width="40dp"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
@@ -209,7 +209,7 @@
 
                     <TextView
                         android:id="@+id/radio_music_freq"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:gravity="center|center_vertical"
                         android:textAppearance="@style/WorkspaceButton"

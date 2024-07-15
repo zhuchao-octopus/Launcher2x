@@ -36,6 +36,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     lint {
         baseline = file("lint-baseline.xml")
     }
@@ -44,7 +45,8 @@ android {
         variant.outputs.configureEach {
             def date = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08"))
             if (variant.buildType.name == 'release') {
-                outputFileName = "Launcher2_${date}.apk"
+                outputFileName = "Launcher2x.apk"
+                //outputFileName = "Launcher2_${date}.apk"
             }
         }
     }
@@ -69,6 +71,5 @@ dependencies {
     ///implementation('com.zhuchao.android:libOpenDetection:1.0@aar')//人脸检测识别
     ///implementation('com.zhuchao.android:libOpenLargeModelDeepLearning:1.0@aar')//大模型与深度学习
     ///implementation('com.zhuchao.android:libSessionUtils:2.9@aar')//会话管理、杂项
-
 }
 
