@@ -99,7 +99,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.android.common.Search;
+///import com.android.common.Search;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
 
@@ -2025,7 +2025,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
         if (appSearchData == null) {
             appSearchData = new Bundle();
-            appSearchData.putString(Search.SOURCE, "launcher-search");
+            appSearchData.putString("Source", "launcher-search");///Search.SOURCE
         }
         Rect sourceBounds = new Rect();
         if (mSearchDropTargetBar != null) {
