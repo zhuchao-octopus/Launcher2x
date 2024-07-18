@@ -3,7 +3,8 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
+        maven { url '\\\\192.168.10.93\\smb\\OctopusFrameworkLibs'}
+        ///maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
         ///maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
     }
     dependencies {
@@ -15,7 +16,8 @@ allprojects {
     repositories {
         mavenCentral()
         google()
-        maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
+        maven { url '\\\\192.168.10.93\\smb\\OctopusFrameworkLibs'}
+        ///maven { url 'https://gitee.com/zhuchao-octopus/OctopusFrameworkLibs/raw/master' }
         ///maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
     }
 

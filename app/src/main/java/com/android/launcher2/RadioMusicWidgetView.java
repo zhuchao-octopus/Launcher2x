@@ -1,10 +1,8 @@
 package com.android.launcher2;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 import com.android.launcher.R;
@@ -18,7 +16,6 @@ import com.my.radio.MarkFaceView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -35,27 +32,19 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.os.StatFs;
 import android.provider.Settings;
 
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnLongClickListener;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -261,7 +250,6 @@ public class RadioMusicWidgetView {
     private ICallBack mICallBack = new ICallBack() {
         public void callback(int cmd, int param) {
 
-
             if (cmd == MyScrollView.CMD_PAGE_END) {
                 Log.d("abcd", "dd:" + param);
                 View v;
@@ -275,10 +263,8 @@ public class RadioMusicWidgetView {
                     v = mContext.findViewById(getMidPageId(param));
                     v.getBackground().setLevel(1);
 
-                } catch (Exception e) {
-
+                } catch (Exception ignored) {
                 }
-
             }
         }
     };
@@ -299,9 +285,8 @@ public class RadioMusicWidgetView {
         return id;
     }
 
-    private ICallBack mICallBack2 = new ICallBack() {
+    private final ICallBack mICallBack2 = new ICallBack() {
         public void callback(int cmd, int param) {
-
 
             if (cmd == MyScrollView.CMD_PAGE_END) {
                 Log.d("abcd", "callback:" + param);
@@ -323,11 +308,8 @@ public class RadioMusicWidgetView {
                             v.getBackground().setLevel(1);
                         }
                     }
-
-                } catch (Exception e) {
-
+                } catch (Exception ignored) {
                 }
-
             }
         }
     };
@@ -351,26 +333,31 @@ public class RadioMusicWidgetView {
     public void onClick(View v) {
         Intent it;
         int id = v.getId();
+
         if (id == R.id.radio_button_play) {
             if (mSource != MyCmd.SOURCE_RADIO) {
                 BroadcastUtil.sendToCarServiceMcuRadio(mContext, ProtocolAk47.SEND_RADIO_SUB_QUERY_RADIO_INFO, 0);
             }
             BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.RADIO_POWER);
         }
+
         else if (id == R.id.radio_button_prev) {
             if (mSource == MyCmd.SOURCE_RADIO) {
                 BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
             }
             /// BroadcastUtil.sendToCarServiceMcuRadio(mContext,
             /// ProtocolAk47.SEND_RADIO_SUB_RADIO_OPERATION, 1, 3);
-        } else if (id == R.id.radio_button_next) {
+        }
+
+        else if (id == R.id.radio_button_next) {
             if (mSource == MyCmd.SOURCE_RADIO) {
                 BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
             }
             /// BroadcastUtil.sendToCarServiceMcuRadio(mContext,
             /// ProtocolAk47.SEND_RADIO_SUB_RADIO_OPERATION, 1, 4);
-        } else if (id == R.id.music_button_prev || id == R.id.bt_button_prev) {// setSource(MyCmd.SOURCE_MUSIC);
+        }
 
+        else if (id == R.id.music_button_prev || id == R.id.bt_button_prev) {// setSource(MyCmd.SOURCE_MUSIC);
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
                 BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
             } else if (mSource == MyCmd.SOURCE_DVD) {
@@ -379,7 +366,8 @@ public class RadioMusicWidgetView {
                     BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PREVIOUS);
                 }
             }
-        } else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
+        }
+        else if (id == R.id.music_button_play || id == R.id.bt_button_pp) {
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
                 BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PLAY_PAUSE);
             } else if (mSource == MyCmd.SOURCE_DVD) {
@@ -388,7 +376,8 @@ public class RadioMusicWidgetView {
                     BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.PLAY_PAUSE);
                 }
             }
-        } else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
+        }
+        else if (id == R.id.music_button_next || id == R.id.bt_button_next) {
             if (mSource == MyCmd.SOURCE_MUSIC || mSource == MyCmd.SOURCE_BT_MUSIC) {
 
                 BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
@@ -398,16 +387,17 @@ public class RadioMusicWidgetView {
                     BroadcastUtil.sendKey(mContext, AppConfig.getCarAppPackageName(mContext), MyCmd.Keycode.NEXT);
                 }
             }
-        } else if (id == R.id.entry_bt_music) {
+        }
+        else if (id == R.id.entry_bt_music) {
             UtilCarKey.doKeyBTMusic(mContext);
-        } else if (id == R.id.entry_music || id == R.id.entry_music2) {
+        }
+        else if (id == R.id.entry_music || id == R.id.entry_music2) {
             if (mSource == MyCmd.SOURCE_BT_MUSIC /*&& (mPlayStatus >= 3)*/) {
                 UtilCarKey.doKeyBTMusic(mContext);
             } else {
                 if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
                     if (mSource == MyCmd.SOURCE_DVD) {
                         UtilCarKey.doKeyDVD(mContext);
-
                     } else {
                         UtilCarKey.doKeyAudio(mContext);
                     }
@@ -415,7 +405,9 @@ public class RadioMusicWidgetView {
                     UtilCarKey.doKeyAudio(mContext);
                 }
             }
-        } else if (id == R.id.img_btn_light) {
+        }
+
+        else if (id == R.id.img_btn_light) {
             it = new Intent(MyCmd.BROADCAST_START_BACKLIGHTSETTINGS_COMMON);
             it.setPackage("com.my.out");
             mContext.sendBroadcast(it);
@@ -440,6 +432,7 @@ public class RadioMusicWidgetView {
 
     private final static int MSG_UPDATE_TIMECLOCK = 4;
     private final static int MSG_UPDATE_TIMEFLASH = 5;
+
     Handler mHandler = new Handler(Objects.requireNonNull(Looper.myLooper())) {
         public void handleMessage(Message msg) {
             switch (msg.what) {
