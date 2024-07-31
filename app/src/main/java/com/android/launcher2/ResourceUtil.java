@@ -159,8 +159,8 @@ public class ResourceUtil {
             dst_right = width;
             dst_bottom = width;
         } else {
-            roundPx = height / 2;
-            float clip = (width - height) / 2;
+            roundPx = (float) height / 2;
+            float clip = (float) (width - height) / 2;
             left = clip;
             right = width - clip;
             top = 0;

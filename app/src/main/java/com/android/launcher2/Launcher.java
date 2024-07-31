@@ -309,9 +309,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private final int mRestoreScreenOrientationDelay = 500;
 
     // External icons saved in case of resource changes, orientation, etc.
-    private static Drawable.ConstantState[] sGlobalSearchIcon = new Drawable.ConstantState[2];
-    private static Drawable.ConstantState[] sVoiceSearchIcon = new Drawable.ConstantState[2];
-    private static Drawable.ConstantState[] sAppMarketIcon = new Drawable.ConstantState[2];
+    private static final Drawable.ConstantState[] sGlobalSearchIcon = new Drawable.ConstantState[2];
+    private static final Drawable.ConstantState[] sVoiceSearchIcon = new Drawable.ConstantState[2];
+    private static final Drawable.ConstantState[] sAppMarketIcon = new Drawable.ConstantState[2];
 
     private Drawable mWorkspaceBackgroundDrawable;
 
