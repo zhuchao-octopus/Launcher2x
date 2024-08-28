@@ -29,16 +29,17 @@ android {
         variant.outputs.configureEach {
             def date = new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08"))
             if (variant.buildType.name == 'release') {
-                outputFileName = "Launcher2_${date}.apk"
+                //outputFileName = "Launcher2_${date}.apk"
+                outputFileName = "Launcher2X.apk"
             }
         }
     }
 }
 
 dependencies {
-    implementation files('libs/classes.jar')
+    //implementation files('libs/classes.jar')
     //implementation files('libs/commonlib.jar')
-    implementation files('libs/android-common.jar')
+    //implementation files('libs/android-common.jar')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')

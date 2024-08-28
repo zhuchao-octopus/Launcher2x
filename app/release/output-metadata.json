@@ -13,8 +13,9 @@
       "attributes": [],
       "versionCode": 0,
       "versionName": "",
-      "outputFile": "Launcher2_202403111414.apk"
+      "outputFile": "Launcher2X.apk"
     }
   ],
-  "elementType": "File"
+  "elementType": "File",
+  "minSdkVersionForDexing": 24
 }

@@ -18,7 +18,7 @@ package com.android.launcher2;
 
 import android.annotation.SuppressLint;
 
-import com.android.common.Search;
+///import com.android.common.Search;
 import com.ce.view.WinceCEStyleApp;
 import com.common.util.BroadcastUtil;
 import com.common.util.MachineConfig;
@@ -73,7 +73,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.os.SystemClock;
-import android.os.SystemProperties;
+///import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -138,6 +138,7 @@ import com.common.util.MyCmd;
 import com.common.util.Util;
 import com.common.util.UtilCarKey;
 import com.common.util.AppConfig;
+import com.rockchip.car.recorder.utils.SystemProperties;
 import com.zhuchao.android.TPlatform;
 import com.zhuchao.android.fbase.MMLog;
 import com.zhuchao.android.fbase.TAppUtils;
@@ -279,9 +280,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
     // Instead, just save the state that we need to restore Launcher to, and
     // commit it in onResume.
     private State mOnResumeState = State.NONE;
-
     private SpannableStringBuilder mDefaultKeySsb = null;
-
     private boolean mWorkspaceLoading = true;
 
     public boolean mPaused = true;
@@ -290,20 +289,18 @@ public final class Launcher extends Activity implements View.OnClickListener,
     private boolean mOnResumeNeedsLoad;
 
     private final ArrayList<Runnable> mOnResumeCallbacks = new ArrayList<Runnable>();
-
     // Keep track of whether the user has left launcher
     private static boolean sPausedFromUserAction = false;
 
     private Bundle mSavedInstanceState;
-
     private LauncherModel mModel;
     private IconCache mIconCache;
+
     private boolean mUserPresent = true;
     private boolean mVisible = false;
     private boolean mAttached = false;
 
     private static LocaleConfiguration sLocaleConfiguration = null;
-
     private static final HashMap<Long, FolderInfo> sFolders = new HashMap<Long, FolderInfo>();
 
     private Intent mAppMarketIntent = null;
@@ -2206,7 +2203,7 @@ public final class Launcher extends Activity implements View.OnClickListener,
         }
         if (appSearchData == null) {
             appSearchData = new Bundle();
-            appSearchData.putString(Search.SOURCE, "launcher-search");
+            appSearchData.putString("Source", "launcher-search");
         }
         Rect sourceBounds = new Rect();
         if (mSearchDropTargetBar != null) {
