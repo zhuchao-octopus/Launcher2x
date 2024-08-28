@@ -63,8 +63,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
+import com.common.utils.AppConfig;
+import com.common.utils.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 public class LauncherProvider extends ContentProvider {

@@ -1,8 +1,8 @@
 package com.android.launcher2;
 
-import com.common.util.MachineConfig;
-import com.common.util.SystemConfig;
-import com.common.util.AppConfig;
+import com.common.utils.MachineConfig;
+import com.common.utils.SettingProperties;
+import com.common.utils.AppConfig;
 import com.android.launcher.R;
 import com.zhuchao.android.fbase.MMLog;
 
@@ -85,7 +85,7 @@ public class ResourceUtil {
 
         if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(value) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(value))
         {
-            String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
+            String s = SettingProperties.getProperty(context, SettingProperties.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     value = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -96,7 +96,7 @@ public class ResourceUtil {
         }
 
         else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(value)) {
-            String s = SystemConfig.getProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10);
+            String s = SettingProperties.getProperty(context, SettingProperties.KEY_LAUNCHER_UI_RM10);
             if (s != null) {
                 if ("1".equals(s)) {
                     value = MachineConfig.VALUE_SYSTEM_UI21_RM10_2;
@@ -105,7 +105,7 @@ public class ResourceUtil {
             }
         }
 
-        int dsp = SystemConfig.getIntProperty(context, SystemConfig.KEY_DSP);
+        int dsp = SettingProperties.getIntProperty(context, SettingProperties.KEY_DSP);
         Utilities.mIsDSP = (dsp == 1);
         Utilities.mSystemUI = value;
         MMLog.d(TAG, "Utilities.mIsDSP=" + Utilities.mIsDSP);

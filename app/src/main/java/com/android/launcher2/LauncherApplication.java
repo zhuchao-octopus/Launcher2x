@@ -32,7 +32,7 @@ import com.android.launcher.R;
 
 import java.lang.ref.WeakReference;
 
-import com.common.util.MyCmd;
+import com.common.utils.MyCmd;
 public class LauncherApplication extends Application {
     static final String TAG = "LauncherApplication";
     private LauncherModel mModel;

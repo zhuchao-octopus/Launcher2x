@@ -18,7 +18,7 @@ package com.android.launcher2;
 
 import java.util.Random;
 
-import com.common.util.MachineConfig;
+import com.common.utils.MachineConfig;
 
 import android.content.Context;
 import android.content.Intent;
@@ -49,7 +49,7 @@ import com.android.launcher.R;
 
 import android.view.View;
 
-import com.common.util.SystemConfig;
+import com.common.utils.SettingProperties;
 import com.zhuchao.android.fbase.MMLog;
 
 /**
@@ -658,7 +658,7 @@ final public class Utilities {
         final DisplayMetrics metrics = resources.getDisplayMetrics();
         final float density = metrics.density;
 
-        mDarkSwitch = SystemConfig.getIntProperty(context, SystemConfig.KEY_DARK_MODE_SWITCH);
+        mDarkSwitch = SettingProperties.getIntProperty(context, SettingProperties.KEY_DARK_MODE_SWITCH);
 
         if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
             sIconWidth = (int) resources

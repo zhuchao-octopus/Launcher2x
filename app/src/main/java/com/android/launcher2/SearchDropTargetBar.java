@@ -176,10 +176,10 @@ public class SearchDropTargetBar extends FrameLayout implements DragController.D
 
     private boolean ifFullscreenOnDropTargetBar() {		//ww+
     	if (Utilities.mSystemUI != null &&
-    		(Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI22_1050) ||
-    		Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI31_KLD7) ||
-    		Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI20_RM10_1) ||
-    		Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI21_RM10_2)) &&
+    		(Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI22_1050) ||
+    		Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI31_KLD7) ||
+    		Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI20_RM10_1) ||
+    		Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI21_RM10_2)) &&
     		Launcher.mThis != null)
     		return true;
     	else

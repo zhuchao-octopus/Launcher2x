@@ -37,8 +37,8 @@ import android.os.UserHandle;
 import android.util.Log;
 
 import com.ce.view.WinceCEStyleApp;
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
+import com.common.utils.AppConfig;
+import com.common.utils.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 import java.util.HashMap;

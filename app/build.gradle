@@ -40,9 +40,8 @@ dependencies {
     //implementation files('libs/commonlib.jar')
     //implementation files('libs/android-common.jar')
     //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    implementation('com.zhuchao.android:libFBaseUtils:2.1@aar')
-    implementation('com.zhuchao.android:libJOSUtils:1.4:@aar')
-    implementation 'androidx.core:core:1.12.0'
+    implementation('androidx.core:core:1.12.0')
+    implementation('com.zhuchao.android:libBaseUtils:2.2.1@aar')//框架基础类
+    implementation('com.zhuchao.android:libFOSUtils:1.4.2@aar')//平台接口
 }
 
