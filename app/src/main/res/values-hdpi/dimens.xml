@@ -81,4 +81,6 @@
     <dimen name="workspace_cell_height">@dimen/workspace_cell_height_land</dimen>
     <dimen name="workspace_width_gap">@dimen/workspace_width_gap_land</dimen>
     <dimen name="workspace_height_gap">@dimen/workspace_height_gap_land</dimen>
+
+    <dimen name="AppsCustomizePagedView_maxAppCellCountX">5</dimen>
 </resources>
