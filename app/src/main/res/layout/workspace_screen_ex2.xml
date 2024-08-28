@@ -21,7 +21,7 @@
     android:focusable="false">
 
 
-    <include layout="@layout/layout_launcher_pager1" />
+    <include layout="@layout/layout_launcher_pager2" />
 
 
 </com.android.launcher2.CellLayout>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,142 +18,237 @@
 <!-- Full screen view projects under the status bar and contains the background -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/launcher"
-    android:tag="4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true" >
+    android:background="@drawable/bg_g"
+    android:tag="4">
 
-    <com.android.launcher2.DragLayer
-        android:id="@+id/drag_layer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <!-- The workspace contains 5 screens of cells -->
-
-        <com.android.launcher2.Workspace
-            android:id="@+id/workspace"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:paddingTop="0dp"
-            launcher:cellCountX="@integer/cell_count_x"
-            launcher:cellCountY="@integer/cell_count_y"
-            launcher:defaultScreen="0"
-            launcher:pageSpacing="0dp"
-            launcher:scrollIndicatorPaddingLeft="0dp"
-            launcher:scrollIndicatorPaddingRight="0dp" >
-
-            
-            <include
-                android:id="@+id/cell1"
-                layout="@layout/workspace_screen_ex" />
-
-            <!--<include
-                android:id="@+id/cell2"
-                layout="@layout/workspace_screen" />
-
-            <include
-                android:id="@+id/cell3"
-                layout="@layout/workspace_screen" />
-
-            <include
-                android:id="@+id/cell4"
-                layout="@layout/workspace_screen" />
-
-            <include
-                android:id="@+id/cell5"
-                layout="@layout/workspace_screen" />-->
-        </com.android.launcher2.Workspace>
-
-        <include
-            android:id="@+id/qsb_divider"
-            android:layout_width="0px"
-            android:layout_height="0px"
-            android:layout_gravity="start"
-            android:layout_marginStart="@dimen/qsb_bar_height"
-            layout="@layout/workspace_divider" />
-
-        <include
-            android:id="@+id/dock_divider"
-            android:layout_width="0px"
-            android:layout_height="0px"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/button_bar_height"
-            layout="@layout/workspace_divider" />
-
-<!--        <include
-            android:id="@+id/paged_view_indicator"
+        <!--上面显示时间-->
+        <LinearLayout
+            android:id="@+id/top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            layout="@layout/scroll_indicator" />-->
-        
-        
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        
-                <!--<include
+            <TextView
+                android:id="@+id/tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="136dp"
-                android:layout_gravity="bottom"
-                layout="@layout/page_index" />-->
+                android:gravity="center"
+                android:text="2022-06-05"
+
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/time_bg" />
+
+            <TextView
+
+                android:id="@+id/tv_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:gravity="center"
+                android:text="Monday"
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <!--中间功能入口列表-->
+        <com.android.launcher2.DragLayer
+            android:id="@+id/drag_layer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1">
+
+            <!-- The workspace contains 5 screens of cells -->
+
+            <com.android.launcher2.Workspace
+                android:id="@+id/workspace"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:paddingRight="0dp"
+
+                launcher:cellCountX="@integer/cell_count_x"
+                launcher:cellCountY="@integer/cell_count_y"
+                launcher:defaultScreen="0"
+                launcher:pageSpacing="0dp"
+                launcher:scrollIndicatorPaddingLeft="0dp"
+                launcher:scrollIndicatorPaddingRight="0dp">
+
+
+                <include
+                    android:id="@+id/cell1"
+                    layout="@layout/workspace_screen_ex" />
+
+                <include
+                    android:id="@+id/cell2"
+                    layout="@layout/workspace_screen_ex2" />
+
+                <!-- <include
+                    android:id="@+id/cell3"
+                    layout="@layout/workspace_screen" />
+
+                <include
+                    android:id="@+id/cell4"
+                    layout="@layout/workspace_screen" />
+
+                <include
+                    android:id="@+id/cell5"
+                    layout="@layout/workspace_screen" />-->
+            </com.android.launcher2.Workspace>
+
+            <include
+                android:id="@+id/qsb_divider"
+                layout="@layout/workspace_divider"
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/qsb_bar_height" />
+
+            <include
+                android:id="@+id/dock_divider"
+                layout="@layout/workspace_divider"
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/button_bar_height" />
+
+            <!--        <include
+                        android:id="@+id/paged_view_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        layout="@layout/scroll_indicator" />-->
+
+
+            <!--<include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="136dp"
+            android:layout_gravity="bottom"
+            layout="@layout/page_index" />-->
 
 
             <include
                 android:id="@+id/hotseat"
+                layout="@layout/hotseat"
                 android:layout_width="match_parent"
                 android:layout_height="144dp"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="120dp"
-                layout="@layout/hotseat" />
+                android:visibility="invisible" />
 
 
-        <include
-            android:id="@+id/qsb_bar"
-            layout="@layout/qsb_bar" />
+            <include
+                android:id="@+id/qsb_bar"
+                layout="@layout/qsb_bar" />
 
-        <!--
-             The Workspace cling must appear under the AppsCustomizePagedView below to ensure
-             that it is still visible during the transition to AllApps and doesn't overlay on
-             top of that view.
-        -->
+            <!--
+                 The Workspace cling must appear under the AppsCustomizePagedView below to ensure
+                 that it is still visible during the transition to AllApps and doesn't overlay on
+                 top of that view.
+            -->
 
-<!--         <include -->
-<!--             android:id="@+id/workspace_cling" -->
-<!--             android:layout_width="match_parent" -->
-<!--             android:layout_height="match_parent" -->
-<!--             layout="@layout/workspace_cling" -->
-<!--             android:visibility="gone" /> -->
+            <!--         <include -->
+            <!--             android:id="@+id/workspace_cling" -->
+            <!--             android:layout_width="match_parent" -->
+            <!--             android:layout_height="match_parent" -->
+            <!--             layout="@layout/workspace_cling" -->
+            <!--             android:visibility="gone" /> -->
 
-<!--         <include -->
-<!--             android:id="@+id/folder_cling" -->
-<!--             android:layout_width="match_parent" -->
-<!--             android:layout_height="match_parent" -->
-<!--             layout="@layout/folder_cling" -->
-<!--             android:visibility="gone" /> -->
+            <!--         <include -->
+            <!--             android:id="@+id/folder_cling" -->
+            <!--             android:layout_width="match_parent" -->
+            <!--             android:layout_height="match_parent" -->
+            <!--             layout="@layout/folder_cling" -->
+            <!--             android:visibility="gone" /> -->
 
-        <com.android.launcher2.DrawableStateProxyView
-            android:id="@+id/voice_button_proxy"
-            android:layout_width="@dimen/qsb_bar_height"
-            android:layout_height="@dimen/app_icon_size"
-            android:layout_gravity="top|start"
-            android:layout_marginTop="64dp"
-            android:clickable="true"
-            android:importantForAccessibility="no"
-            android:onClick="onClickVoiceButton"
-            launcher:sourceViewId="@+id/voice_button"
-            android:focusable="true" />
+            <com.android.launcher2.DrawableStateProxyView
+                android:id="@+id/voice_button_proxy"
+                android:layout_width="@dimen/qsb_bar_height"
+                android:layout_height="@dimen/app_icon_size"
+                android:layout_gravity="top|start"
+                android:layout_marginTop="64dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:importantForAccessibility="no"
+                android:onClick="onClickVoiceButton"
+                launcher:sourceViewId="@+id/voice_button" />
 
-        <include
-            android:id="@+id/apps_customize_pane"
+            <include
+                android:id="@+id/apps_customize_pane"
+                layout="@layout/apps_customize_pane"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" />
+
+            <!-- <include layout="@layout/bottom_toolbar" /> -->
+        </com.android.launcher2.DragLayer>
+
+        <!--底部按钮和指示器-->
+        <LinearLayout
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/apps_customize_pane"
-            android:visibility="invisible" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-           <!-- <include layout="@layout/bottom_toolbar" /> -->
-    </com.android.launcher2.DragLayer>
+            <View
+                android:onClick="onLauncherButtonClick"
+                android:id="@+id/all_apps_button"
+                android:clickable="true"
+                android:layout_width="266px"
+                android:layout_height="71px"
+                android:background="@drawable/selector_apps" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/indicator1"
+                    android:layout_width="40dp"
+                    android:layout_height="3dp"
+                    android:background="#ffffff" />
+
+                <View
+                    android:id="@+id/indicator2"
+                    android:layout_width="40dp"
+                    android:layout_height="3dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="#ffffff" />
+            </LinearLayout>
+
+            <View
+                android:clickable="true"
+                android:layout_width="266px"
+                android:layout_height="71px"
+                android:background="@drawable/selector_brightness" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

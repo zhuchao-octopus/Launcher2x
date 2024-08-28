@@ -91,4 +91,7 @@
     <dimen name="workspace_height_gap">@dimen/workspace_height_gap_land</dimen>
     
     <dimen name="workspace_icon_text_size">28px</dimen>
+
+    <dimen name="AppsCustomizePagedView_maxAppCellCountX">5</dimen>
+
 </resources>
