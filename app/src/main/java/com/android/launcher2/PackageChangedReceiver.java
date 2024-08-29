@@ -14,7 +14,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 
 import com.android.launcher2.FixScreenShortcut.FixScreenShortcutData;
-import com.common.util.MachineConfig;
+import com.common.utils.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 public class PackageChangedReceiver extends BroadcastReceiver {

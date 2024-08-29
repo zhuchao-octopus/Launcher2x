@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
 
-import com.common.util.MachineConfig;
+import com.common.utils.MachineConfig;
 /**
  * An icon on a PagedView, specifically for items in the launcher's paged view
  * (with compound drawables on the top).

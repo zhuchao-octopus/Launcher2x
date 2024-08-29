@@ -81,12 +81,12 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.ce.view.WinceCEStyleApp;
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
-import com.common.util.MyCmd;
-import com.common.util.ProtocolAk47;
-import com.common.util.SystemConfig;
-import com.common.util.Util;
+import com.common.utils.AppConfig;
+import com.common.utils.MachineConfig;
+import com.common.utils.MyCmd;
+import com.common.utils.ProtocolAk47;
+import com.common.utils.SettingProperties;
+import com.common.utils.Util;
 import com.zhuchao.android.fbase.MMLog;
 
 /**
@@ -900,7 +900,7 @@ public class LauncherModel extends BroadcastReceiver {
 
                 if (MachineConfig.KEY_APP_HIDE.equals(s) || MachineConfig.KEY_CAN_BOX.equals(s)) {
 
-                    int dsp = SystemConfig.getIntProperty(context, SystemConfig.KEY_DSP);
+                    int dsp = SettingProperties.getIntProperty(context, SettingProperties.KEY_DSP);
                     Utilities.mIsDSP = (dsp == 1);
                     Log.d("allen", "ResourceUtil Utilities.mIsDSP=" + Utilities.mIsDSP);
 
@@ -929,7 +929,7 @@ public class LauncherModel extends BroadcastReceiver {
                 } else if (MachineConfig.KEY_SAVE_DRIVER.equals(s)) {
 
                     Launcher.updateSaveDriveMenuPublic();
-                } else if (SystemConfig.KEY_LAUNCHER_UI_RM10.equals(s)) {
+                } else if (SettingProperties.KEY_LAUNCHER_UI_RM10.equals(s)) {
                     foreUpdateConfig(context);
                     //forceReload();
                     if (ResourceUtil.ifLoadDvdHideWorkspace()) reloadWorkspace(context, "default_workspace_dvdhide");
@@ -941,10 +941,10 @@ public class LauncherModel extends BroadcastReceiver {
                         }
                         // reloadWorkspace(context, "default_workspace");
                     }
-                    SystemConfig.setIntProperty(context, SystemConfig.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD, 0);
+                    SettingProperties.setIntProperty(context, SettingProperties.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD, 0);
                     Log.d(TAG, "reload default workspace on machine config update");
-                } else if (SystemConfig.KEY_DARK_MODE_SWITCH.equals(s)) {
-                    Utilities.mDarkSwitch = SystemConfig.getIntProperty(context, SystemConfig.KEY_DARK_MODE_SWITCH);
+                } else if (SettingProperties.KEY_DARK_MODE_SWITCH.equals(s)) {
+                    Utilities.mDarkSwitch = SettingProperties.getIntProperty(context, SettingProperties.KEY_DARK_MODE_SWITCH);
                     if (Utilities.mDarkSwitch == 1) {
                         if (Utilities.mDark) {
                             mDark = true;
@@ -1092,11 +1092,11 @@ public class LauncherModel extends BroadcastReceiver {
         try {
             //Log.d("ff", "4 set:"+mDark);
             if (!mDark) {
-                path = SystemConfig.PATH_CE_WALLPAPER + SystemConfig.PATH_DARK_MODE_WALLPAPER;
+                path = SettingProperties.PATH_CE_WALLPAPER + SettingProperties.PATH_DARK_MODE_WALLPAPER;
 
                 File f = new File(path);
                 if (!f.exists()) {
-                    path = SystemConfig.PATH_WALLPAPER + SystemConfig.PATH_DEFAULT_WALLPAPER0;
+                    path = SettingProperties.PATH_WALLPAPER + SettingProperties.PATH_DEFAULT_WALLPAPER0;
                 }
                 bmp = BitmapFactory.decodeFile(path);
 
@@ -1178,7 +1178,7 @@ public class LauncherModel extends BroadcastReceiver {
         String path;
 
 
-        path = SystemConfig.PATH_CE_WALLPAPER + SystemConfig.PATH_DARK_MODE_WALLPAPER;
+        path = SettingProperties.PATH_CE_WALLPAPER + SettingProperties.PATH_DARK_MODE_WALLPAPER;
 
         File f = new File(path);
         if (f.exists()) {
@@ -1197,7 +1197,7 @@ public class LauncherModel extends BroadcastReceiver {
 
     private void checkDir() {
         try {
-            File f = (new File(SystemConfig.PATH_CE_WALLPAPER));
+            File f = (new File(SettingProperties.PATH_CE_WALLPAPER));
             if (!f.exists()) {
                 f.mkdirs();
             }

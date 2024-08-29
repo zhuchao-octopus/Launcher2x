@@ -19,8 +19,8 @@ package com.android.launcher2;
 import android.annotation.SuppressLint;
 
 import com.ce.view.WinceCEStyleApp;
-import com.common.util.MachineConfig;
-import com.common.util.SystemConfig;
+import com.common.utils.MachineConfig;
+import com.common.utils.SettingProperties;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -121,13 +121,13 @@ import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.common.util.Kernel;
-import com.common.util.MyCmd;
-///import com.common.util.SystemProperties;
-import com.common.util.SystemProperties;
-import com.common.util.Util;
-import com.common.util.UtilCarKey;
-import com.common.util.AppConfig;
+import com.common.utils.Kernel;
+import com.common.utils.MyCmd;
+///import com.common.utils.SystemProperties;
+import com.common.utils.SystemProperties;
+import com.common.utils.Util;
+import com.common.utils.UtilCarKey;
+import com.common.utils.AppConfig;
 ///import com.rockchip.car.recorder.utils.SystemProperties;
 import com.zhuchao.android.fbase.MMLog;
 
@@ -474,19 +474,19 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             android.os.Debug.stopMethodTracing();
         }
 
-        if ((MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) && SystemConfig.getIntProperty(this, SystemConfig.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD) == 1) {
+        if ((MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) && SettingProperties.getIntProperty(this, SettingProperties.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD) == 1) {
             if (ResourceUtil.ifLoadDvdHideWorkspace()) mModel.reloadWorkspace(this, "default_workspace_dvdhide");
             else mModel.reloadWorkspace(this, "default_workspace");
-            SystemConfig.setIntProperty(this, SystemConfig.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD, 0);
+            SettingProperties.setIntProperty(this, SettingProperties.KEY_LAUNCHER_UI_RM10_WORKSPACE_RELOAD, 0);
             Log.d(TAG, "reload default workspace oncreate");
         }
 
         if (getData(SAVE_FIRST_BOOT) != 1)
         {
             int data;
-            data = MachineConfig.getPropertyIntReadOnly(SystemConfig.KEY_CE_STYLE);
+            data = MachineConfig.getPropertyIntReadOnly(SettingProperties.KEY_CE_STYLE);
             if (data != 0) {
-                SystemConfig.setIntProperty(this, SystemConfig.KEY_CE_STYLE, data);
+                SettingProperties.setIntProperty(this, SettingProperties.KEY_CE_STYLE, data);
             }
 
             if (ICON_TYPE_DEFAULT_WORKSPACE1 == mIconType) {
@@ -2651,7 +2651,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 mWinceCEStyleApp.setFixWallPaper(true);
             }
 
-            mWinceCEStyleApp.mCEStyle = SystemConfig.getIntProperty(this, SystemConfig.KEY_CE_STYLE);
+            mWinceCEStyleApp.mCEStyle = SettingProperties.getIntProperty(this, SettingProperties.KEY_CE_STYLE);
 
             //Log.d(TAG, "KEY_CE_STYLE:"+ce);
             if (mWinceCEStyleApp.mCEStyle != 0) {

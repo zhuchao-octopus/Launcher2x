@@ -38,7 +38,7 @@ import com.android.launcher.R;
 
 import java.util.ArrayList;
 
-import com.common.util.MachineConfig;
+import com.common.utils.MachineConfig;
 
 public class AppsCustomizeTabHost extends TabHost implements LauncherTransitionable,
         TabHost.OnTabChangeListener  {

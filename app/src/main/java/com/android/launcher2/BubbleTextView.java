@@ -38,7 +38,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.common.util.MachineConfig;
+import com.common.utils.MachineConfig;
 
 /**
  * TextView that draws a bubble behind the text. We cannot use a LineBackgroundSpan

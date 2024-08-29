@@ -26,7 +26,7 @@ import android.content.pm.LauncherApps;
 import android.os.UserHandle;
 import android.util.Log;
 
-import com.common.util.AppConfig;
+import com.common.utils.AppConfig;
 /**
  * Stores the list of all applications for the all apps view.
  */
