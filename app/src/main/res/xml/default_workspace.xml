@@ -96,9 +96,9 @@
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
 
     <favorite
-        launcher:className="com.my.radio.RadioActivity"
+        launcher:className="com.octopus.android.carapps.radio.RadioActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="0"
         launcher:x="0"
         launcher:y="0" />
@@ -112,17 +112,17 @@
         launcher:y="1" />
 
     <favorite
-        launcher:className="com.my.navi.NaviEmptyActivity"
+        launcher:className="com.octopus.android.carapps.navi.NaviEmptyActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="2"
         launcher:x="2"
         launcher:y="0" />
 
     <favorite
-        launcher:className="com.my.audio.MusicActivity"
+        launcher:className="com.octopus.android.carapps.audio.MusicActivity"
         launcher:container="-101"
-        launcher:packageName="com.car.ui"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="3"
         launcher:x="3"
         launcher:y="0" />
@@ -136,7 +136,7 @@
         launcher:y="0" />
 
     <favorite
-        launcher:className="com.my.bt.ATBluetoothActivity"
+        launcher:className="com.octopus.android.carapps.bt.ATBluetoothActivity"
         launcher:container="-101"
         launcher:packageName="com.my.bt"
         launcher:screen="5"
