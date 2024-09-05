@@ -31,7 +31,7 @@
     <color name="workspace_all_apps_and_delete_zone_text_shadow_color">#A0000000</color>
     <color name="workspace_icon_text_color">#FFF</color>
     
-        <color name="def_wheel_color">#7b8186</color>
-    <color name="def_reached_color">#0c8afa</color>
-    <color name="def_pointer_color">#FFFFFF</color>
+    <color name="def_reached_color">#ee9f14</color>
+    <color name="def_wheel_color">#1b1d1e</color>
+ <color name="def_pointer_color">#FFFFFF</color> 
 </resources>

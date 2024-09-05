@@ -915,22 +915,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                         button.setCompoundDrawables(null, drawable, null, null);
                     }
 
-                    button = (Button) findViewById(R.id.button_dvr);
-                    if (dvrHide) {
-                        if (button != null) {
-                            button.setText(getResources().getString(R.string.screen0_aux));
-                            drawable = getResources().getDrawable(R.drawable.icon_aux);
-                        }
-                    } else {
-                        if (button != null) {
-                            button.setText(getResources().getString(R.string.screen0_DVR));
-                            drawable = getResources().getDrawable(R.drawable.screen0_dvr);
-                        }
-                    }
-                    if (drawable != null) {
-                        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight()); //must
-                        button.setCompoundDrawables(null, drawable, null, null);
-                    }
+                   
                 } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
                     ImageButton button = (ImageButton) findViewById(R.id.button_dvd);
                     if (dvdHide) {
@@ -1099,11 +1084,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         if (v != null) {
             v.clearFocus();
         }
-        v = findViewById(R.id.focus_empty);
-        if (v != null) {
-            v.requestFocus();
+       /// v = findViewById(R.id.focus_empty);
+       /// if (v != null) {
+       ////     v.requestFocus();
             //	v.requestFocusFromTouch();
-        }
+       /// }
 
         startMS9120();
     }
@@ -2573,7 +2558,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                 ImageView mIVNavi = (ImageView) v.findViewById(R.id.button_gps_toolbar);
                 ImageView mIVApps3 = (ImageView) v.findViewById(R.id.all_apps_button3);
                 ImageView mIVRadio = (ImageView) v.findViewById(R.id.button_radio_toolbar);
-                try {
+                /*try {
                     int[] mInitHue = {-1, 0}; // [0] progress, [1]color
                     if (ActivityHueSettings.getSystemHue(this, mInitHue) && mInitHue[0] != -1 && mInitHue[1] != 0) {
                         if (mIVLeftBG != null) {
@@ -2595,7 +2580,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 if (mIVApps3 != null) {
                     mIVApps3.setOnLongClickListener(new OnLongClickListener() {

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,28 +14,34 @@
      limitations under the License.
 -->
 
-<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto" >
+<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto">
 
     <!-- Far-left screen [0] -->
 
 
     <!-- Left screen [1] -->
 
+    <favorite
+        launcher:className="com.android.settings.Settings"
+        launcher:container="-101"
+        launcher:packageName="com.android.settings"
+        launcher:screen="0"
+        launcher:x="0"
+        launcher:y="0" />
 
-
-                <favorite
+    <favorite
         launcher:className="com.my.auxplayer.AUXPlayer"
         launcher:packageName="com.car.ui"
         launcher:screen="1"
         launcher:x="0"
         launcher:y="0" />
-    
-<!--     <favorite -->
-<!--         launcher:className="com.my.audio.MusicActivity" -->
-<!--         launcher:packageName="com.car.ui" -->
-<!--         launcher:screen="1" -->
-<!--         launcher:x="0" -->
-<!--         launcher:y="0" /> -->
+
+    <!--     <favorite -->
+    <!--         launcher:className="com.my.audio.MusicActivity" -->
+    <!--         launcher:packageName="com.car.ui" -->
+    <!--         launcher:screen="1" -->
+    <!--         launcher:x="0" -->
+    <!--         launcher:y="0" /> -->
     <favorite
         launcher:className="com.my.video.VideoActivity"
         launcher:packageName="com.car.ui"
@@ -44,17 +49,17 @@
         launcher:x="1"
         launcher:y="0" />
     <favorite
-launcher:className="com.my.dvr.MainActivity"
+        launcher:className="com.my.dvr.MainActivity"
         launcher:packageName="com.my.dvr"
         launcher:screen="1"
         launcher:x="2"
         launcher:y="0" />
-<!--     <favorite -->
-<!--         launcher:className="com.SwcApplication.SwcActivity" -->
-<!--         launcher:packageName="com.SwcApplication" -->
-<!--         launcher:screen="1" -->
-<!--         launcher:x="3" -->
-<!--         launcher:y="0" /> -->
+    <!--     <favorite -->
+    <!--         launcher:className="com.SwcApplication.SwcActivity" -->
+    <!--         launcher:packageName="com.SwcApplication" -->
+    <!--         launcher:screen="1" -->
+    <!--         launcher:x="3" -->
+    <!--         launcher:y="0" /> -->
 
     <favorite
         launcher:className="com.android.settings.Settings"
@@ -70,33 +75,29 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:screen="1"
         launcher:x="4"
         launcher:y="0" />
-    
-    
-    
 
-    
-    
-        <favorite
+
+    <favorite
         launcher:className="com.my.btmusic.BTMusicActivity"
         launcher:packageName="com.car.ui"
         launcher:screen="1"
         launcher:x="3"
         launcher:y="0" />
-        
-<!--             <favorite -->
-<!--         launcher:className="com.android.settings.Settings" -->
-<!--         launcher:packageName="com.android.settings" -->
-<!--         launcher:screen="1" -->
-<!--         launcher:x="0" -->
-<!--         launcher:y="1" /> -->
-            
-             <favorite
+
+    <!--             <favorite -->
+    <!--         launcher:className="com.android.settings.Settings" -->
+    <!--         launcher:packageName="com.android.settings" -->
+    <!--         launcher:screen="1" -->
+    <!--         launcher:x="0" -->
+    <!--         launcher:y="1" /> -->
+
+    <favorite
         launcher:className="com.android.browser.BrowserActivity"
         launcher:packageName="com.android.browser"
         launcher:screen="1"
         launcher:x="1"
         launcher:y="1" />
-              <favorite
+    <favorite
         launcher:className="com.android.calculator2.Calculator"
         launcher:packageName="com.android.calculator2"
         launcher:screen="1"
@@ -104,7 +105,6 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:y="0" />
 
     <!-- Middle screen [2] -->
-
 
 
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
@@ -144,12 +144,6 @@ launcher:className="com.my.dvr.MainActivity"
         launcher:screen="5"
         launcher:x="0"
         launcher:y="0" />
-    <favorite
-        launcher:className="com.android.settings.Settings"
-        launcher:container="-101"
-        launcher:packageName="com.android.settings"
-        launcher:screen="6"
-        launcher:x="0"
-        launcher:y="0" />
+
 
 </favorites>

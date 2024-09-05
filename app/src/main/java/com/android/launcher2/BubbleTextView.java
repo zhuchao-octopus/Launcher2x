@@ -16,28 +16,21 @@
 
 package com.android.launcher2;
 
-import static com.android.launcher2.RadioMusicWidgetView.mContext;
-
-import com.android.launcher.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.Rect;
 import android.graphics.Region;
-import android.graphics.Region.Op;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.TextView;
 
+import com.android.launcher.R;
 import com.common.utils.MachineConfig;
 
 /**
@@ -93,67 +86,62 @@ public class BubbleTextView extends TextView {
         mBackground = getBackground();
 
         final Resources res = getContext().getResources();
-        mFocusedOutlineColor = mFocusedGlowColor = mPressedOutlineColor = mPressedGlowColor =
-            res.getColor(android.R.color.white);
-    //    setTextAppearance(context, R.style.CellTextStyle);
-        
+        mFocusedOutlineColor = mFocusedGlowColor = mPressedOutlineColor = mPressedGlowColor = res.getColor(android.R.color.white);
+        //    setTextAppearance(context, R.style.CellTextStyle);
+
 
         setShadowLayer(SHADOW_LARGE_RADIUS, 0.0f, SHADOW_Y_OFFSET, SHADOW_LARGE_COLOUR);
     }
-    
+
     public void applyFromShortcutInfo(ShortcutInfo info, IconCache iconCache) {
         Bitmap b = info.getIcon(iconCache);
-       
+
         if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(Utilities.mSystemUI)) {
-			setCompoundDrawablesWithIntrinsicBounds(new FastBitmapDrawable(b),
-					null, null, null);
-			int color = Utilities.getmagicBackgroundId(b);
-//			setBackground(getContext().getResources().getDrawable(id));
-//			setBackground(null);
-			setBackgroundColor(color);
-			setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-			setPadding(0, 0, 0, 10);
+            setCompoundDrawablesWithIntrinsicBounds(new FastBitmapDrawable(b), null, null, null);
+            int color = Utilities.getmagicBackgroundId(b);
+            //			setBackground(getContext().getResources().getDrawable(id));
+            //			setBackground(null);
+            setBackgroundColor(color);
+            setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+            setPadding(0, 0, 0, 10);
         } else if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)) {
-        	setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-        	setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
-        	int smallestScreenWidthDp = 339;
-        	try {
-        		smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
-        	}catch(Exception e){}
-       		setPadding(0, (smallestScreenWidthDp == 339) ? 50 : 40, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds(null, new FastBitmapDrawable(b), null, null);
+            setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
+            int smallestScreenWidthDp = 339;
+            try {
+                smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
+            } catch (Exception e) {
+            }
+            setPadding(0, (smallestScreenWidthDp == 339) ? 50 : 40, 0, 0);
         } else if (MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
-        	int smallestScreenWidthDp = 345;
-        	try {
-            	setCompoundDrawablesWithIntrinsicBounds(null,
-    					new FastBitmapDrawable(b), null, null);
-            	int[] mInitHue = {-1, 0};	//[0] progress, [1]color
-				if (ActivityHueSettings.getSystemHue(mContext, mInitHue) && 
-					mInitHue[0] != -1 && mInitHue[1] != 0) {
-					Drawable drawable = ActivityHueSettings.tintDrawable(
-							getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg),
-							mInitHue[1]);
-            		setBackground(drawable);
-            	} else {
-            		setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
-            	}
-        		smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
-        	}catch(Exception e){}
-			if (smallestScreenWidthDp == 346) {
-				setPadding(0, 40, 0, 0);
-			} else {
-				setPadding(0, (smallestScreenWidthDp == 345) ? 30 : 24, 0, 0);
-			}
-			
-		} else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-			setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-       		setPadding(0, 0, 0, 0);
+            int smallestScreenWidthDp = 345;
+            try {
+                setCompoundDrawablesWithIntrinsicBounds(null, new FastBitmapDrawable(b), null, null);
+                int[] mInitHue = {-1, 0};    //[0] progress, [1]color
+                /*if (ActivityHueSettings.getSystemHue(mContext, mInitHue) && mInitHue[0] != -1 && mInitHue[1] != 0) {
+                    Drawable drawable = ActivityHueSettings.tintDrawable(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg), mInitHue[1]);
+                    setBackground(drawable);
+                }
+                else*/
+                {
+                    setBackground(getResources().getDrawable(R.drawable.screen_workspace_cell_grid_bg));
+                }
+                smallestScreenWidthDp = getContext().getResources().getConfiguration().smallestScreenWidthDp;
+            } catch (Exception ignored) {
+            }
+            if (smallestScreenWidthDp == 346) {
+                setPadding(0, 40, 0, 0);
+            } else {
+                setPadding(0, (smallestScreenWidthDp == 345) ? 30 : 24, 0, 0);
+            }
+
+        } else if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
+            setCompoundDrawablesWithIntrinsicBounds(null, new FastBitmapDrawable(b), null, null);
+            setPadding(0, 0, 0, 0);
         } else {
-			setCompoundDrawablesWithIntrinsicBounds(null,
-					new FastBitmapDrawable(b), null, null);
-		}
-		
+            setCompoundDrawablesWithIntrinsicBounds(null, new FastBitmapDrawable(b), null, null);
+        }
+
 
         setText(info.title);
         if (info.contentDescription != null) {
@@ -204,8 +192,7 @@ public class BubbleTextView extends TextView {
                     // background to null so that it will get created when the view is drawn.
                     mPressedOrFocusedBackground = null;
                 } else {
-                    mPressedOrFocusedBackground = createGlowingOutline(
-                            mTempCanvas, mFocusedGlowColor, mFocusedOutlineColor);
+                    mPressedOrFocusedBackground = createGlowingOutline(mTempCanvas, mFocusedGlowColor, mFocusedOutlineColor);
                 }
                 mStayPressed = false;
                 setCellLayoutPressedOrFocusedIcon();
@@ -227,7 +214,7 @@ public class BubbleTextView extends TextView {
      * Draw this BubbleTextView into the given Canvas.
      *
      * @param destCanvas the canvas to draw on
-     * @param padding the horizontal and vertical padding to use when drawing
+     * @param padding    the horizontal and vertical padding to use when drawing
      */
     private void drawWithPadding(Canvas destCanvas, int padding) {
         final Rect clipRect = mTempRect;
@@ -260,8 +247,7 @@ public class BubbleTextView extends TextView {
      */
     private Bitmap createGlowingOutline(Canvas canvas, int outlineColor, int glowColor) {
         final int padding = HolographicOutlineHelper.MAX_OUTER_BLUR_RADIUS;
-        final Bitmap b = Bitmap.createBitmap(
-                getWidth() + padding, getHeight() + padding, Bitmap.Config.ARGB_8888);
+        final Bitmap b = Bitmap.createBitmap(getWidth() + padding, getHeight() + padding, Bitmap.Config.ARGB_8888);
 
         canvas.setBitmap(b);
         drawWithPadding(canvas, padding);
@@ -283,8 +269,7 @@ public class BubbleTextView extends TextView {
                 // we pre-create it on ACTION_DOWN (it takes a small but perceptible amount of time
                 // to create it)
                 if (mPressedOrFocusedBackground == null) {
-                    mPressedOrFocusedBackground = createGlowingOutline(
-                            mTempCanvas, mPressedGlowColor, mPressedOutlineColor);
+                    mPressedOrFocusedBackground = createGlowingOutline(mTempCanvas, mPressedGlowColor, mPressedOutlineColor);
                 }
                 // Invalidate so the pressed state is visible, or set a flag so we know that we
                 // have to call invalidate as soon as the state is "pressed"
@@ -296,7 +281,7 @@ public class BubbleTextView extends TextView {
                 }
                 Log.d("abc", "ACTION_DOWN");
 
-//                mLongPressHelper.postCheckForLongPress();
+                //                mLongPressHelper.postCheckForLongPress();
                 break;
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
@@ -351,7 +336,7 @@ public class BubbleTextView extends TextView {
             final int scrollY = getScrollY();
 
             if (mBackgroundSizeChanged) {
-                background.setBounds(0, 0,  getRight() - getLeft(), getBottom() - getTop());
+                background.setBounds(0, 0, getRight() - getLeft(), getBottom() - getTop());
                 mBackgroundSizeChanged = false;
             }
 
@@ -376,9 +361,7 @@ public class BubbleTextView extends TextView {
         super.draw(canvas);
         canvas.save();///mackylee
         ///canvas.save(Canvas.CLIP_SAVE_FLAG);
-        canvas.clipRect(getScrollX(), getScrollY() + getExtendedPaddingTop(),
-                getScrollX() + getWidth(),
-                getScrollY() + getHeight(), Region.Op.INTERSECT);
+        canvas.clipRect(getScrollX(), getScrollY() + getExtendedPaddingTop(), getScrollX() + getWidth(), getScrollY() + getHeight(), Region.Op.INTERSECT);
         getPaint().setShadowLayer(SHADOW_SMALL_RADIUS, 0.0f, 0.0f, SHADOW_SMALL_COLOUR);
         super.draw(canvas);
         canvas.restore();

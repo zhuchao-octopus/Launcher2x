@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,14 @@
      limitations under the License.
 -->
 
-<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto" >
+<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto">
+    <favorite
+        launcher:className="com.android.settings.Settings"
+        launcher:container="-101"
+        launcher:packageName="com.android.settings"
+        launcher:screen="0"
+        launcher:x="0"
+        launcher:y="0" />
 
     <favorite
         launcher:className="com.my.radio.RadioActivity"
@@ -41,11 +47,10 @@
         launcher:screen="3"
         launcher:x="3"
         launcher:y="0" />
-    
 
 
     <favorite
-         launcher:className="com.ak.qibla.MainActivity"
+        launcher:className="com.ak.qibla.MainActivity"
         launcher:packageName="com.ak.qibla"
         launcher:screen="3"
         launcher:x="0"
@@ -83,7 +88,6 @@
         launcher:x="3"
         launcher:y="1" />
 
-    
 
     <favorite
         launcher:className="org.chromium.chrome.browser.ChromeTabbedActivity"

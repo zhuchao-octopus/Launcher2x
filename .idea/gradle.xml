@@ -6,18 +6,6 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
-        <option name="resolveExternalAnnotations" value="false" />
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="IDE">
-            <builds>
-              <build path="$PROJECT_DIR$" name="Launcher2x" />
-            </builds>
-          </compositeBuild>
-        </compositeConfiguration>
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
