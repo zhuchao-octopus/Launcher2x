@@ -33,8 +33,8 @@ import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 
 import com.android.launcher.R;
-import com.common.utils.AppConfig;
-import com.common.utils.MachineConfig;
+import com.common.util.AppConfig;
+import com.common.util.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 import java.util.HashMap;
@@ -73,21 +73,18 @@ public class IconCache {
         @Override
         public boolean equals(Object o) {
             CacheKey other = (CacheKey) o;
-            return other.componentName.equals(componentName)
-                    && other.user.equals(user);
+            return other.componentName.equals(componentName) && other.user.equals(user);
         }
     }
 
     private final Bitmap mDefaultIcon;
     private final LauncherApplication mContext;
     private final PackageManager mPackageManager;
-    private final HashMap<CacheKey, CacheEntry> mCache = new HashMap<CacheKey, CacheEntry>(
-            INITIAL_ICON_CACHE_CAPACITY);
+    private final HashMap<CacheKey, CacheEntry> mCache = new HashMap<CacheKey, CacheEntry>(INITIAL_ICON_CACHE_CAPACITY);
     private final int mIconDpi;
 
     public IconCache(LauncherApplication context) {
-        ActivityManager activityManager = (ActivityManager) context
-                .getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
         mContext = context;
         mPackageManager = context.getPackageManager();
@@ -97,12 +94,10 @@ public class IconCache {
     }
 
     public Drawable getFullResDefaultActivityIcon() {
-        return getFullResIcon(Resources.getSystem(),
-                android.R.mipmap.sym_def_app_icon,
-                android.os.Process.myUserHandle());
+        return getFullResIcon(Resources.getSystem(), android.R.mipmap.sym_def_app_icon, android.os.Process.myUserHandle());
     }
 
-    public Drawable getFullResIcon(Resources resources, int iconId,UserHandle user) {
+    public Drawable getFullResIcon(Resources resources, int iconId, UserHandle user) {
         Drawable d;
         try {
             d = resources.getDrawableForDensity(iconId, mIconDpi);
@@ -116,8 +111,7 @@ public class IconCache {
         return mPackageManager.getUserBadgedIcon(d, user);
     }
 
-    public Drawable getFullResIcon(String packageName, int iconId,
-                                   UserHandle user) {
+    public Drawable getFullResIcon(String packageName, int iconId, UserHandle user) {
         Resources resources;
         try {
             // TODO: Check if this needs to use the user param if we support
@@ -147,8 +141,7 @@ public class IconCache {
             resources = null;
         }
 
-        if (resources != null)
-        {
+        if (resources != null) {
             int iconId = info.getIconResource();
             if (iconId != 0) {
                 return getFullResIcon(resources, iconId, user);
@@ -188,12 +181,10 @@ public class IconCache {
     /**
      * Fill in "application" with the icon and label for "info."
      */
-    public void getTitleAndIcon(ApplicationInfo application,LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache)
-    {
-        synchronized (mCache)
-        {
+    public void getTitleAndIcon(ApplicationInfo application, LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache) {
+        synchronized (mCache) {
             CacheEntry entry = cacheLocked2(application.componentName, info, labelCache, info.getUser());
-            MMLog.d(TAG,"getTitleAndIcon ComponentName="+application.componentName + ",entry.title=" + entry.title);
+            MMLog.d(TAG, "getTitleAndIcon ComponentName=" + application.componentName + ",entry.title=" + entry.title);
 
             //WinceCEStyleApp.updateLabel(application.componentName, entry.title);
             application.title = entry.title;
@@ -207,25 +198,24 @@ public class IconCache {
             LauncherApps launcherApps = (LauncherApps) mContext.getSystemService(Context.LAUNCHER_APPS_SERVICE);
             final LauncherActivityInfo launcherActInfo = launcherApps.resolveActivity(intent, user);
             ComponentName component = intent.getComponent();
-            MMLog.d(TAG,"getIcon intent="+ intent.toString());
+            MMLog.d(TAG, "getIcon intent=" + intent.toString());
 
             if (launcherActInfo == null || component == null) {
                 return mDefaultIcon;
             }
 
-            CacheEntry entry = cacheLocked(component, launcherActInfo, null,user);
+            CacheEntry entry = cacheLocked(component, launcherActInfo, null, user);
             return entry.icon;
         }
     }
 
-    public Bitmap getIcon(ComponentName component, LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache)
-    {
+    public Bitmap getIcon(ComponentName component, LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache) {
         synchronized (mCache) {
             if (info == null || component == null) {
                 return null;
             }
             ///MMLog.d(TAG,"getIcon component="+ component.toString());
-            CacheEntry entry = cacheLocked(component, info, labelCache,info.getUser());
+            CacheEntry entry = cacheLocked(component, info, labelCache, info.getUser());
             return entry.icon;
         }
     }
@@ -234,8 +224,7 @@ public class IconCache {
         return mDefaultIcon == icon;
     }
 
-    private final String[] needRoundPkgName = new String[]{
-            "com.google.android.gm",
+    private final String[] needRoundPkgName = new String[]{"com.google.android.gm",
             "com.android.chrome",
             "com.android.vending",
             "com.google.android.googlequicksearchbox",
@@ -247,30 +236,25 @@ public class IconCache {
     private boolean ifNeedToRound(String pkgName) {
         if (pkgName != null) {
             for (String s : needRoundPkgName) {
-                if (pkgName.equals(s))
-                    return true;
+                if (pkgName.equals(s)) return true;
             }
         }
         return false;
     }
 
-    private CacheEntry cacheLocked(ComponentName componentName,LauncherActivityInfo info,HashMap<Object, CharSequence> labelCache, UserHandle user)
-    {
+    private CacheEntry cacheLocked(ComponentName componentName, LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache, UserHandle user) {
         CacheKey cacheKey = new CacheKey(componentName, user);
         CacheEntry entry = mCache.get(cacheKey);
         //MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
 
-        if (entry == null)
-        {
+        if (entry == null) {
             entry = new CacheEntry();
             mCache.put(cacheKey, entry);
             ComponentName key = info.getComponentName();
 
             if (labelCache != null && labelCache.containsKey(key)) {
                 entry.title = Objects.requireNonNull(labelCache.get(key)).toString();
-            }
-            else
-            {
+            } else {
                 entry.title = info.getLabel().toString();
                 if (labelCache != null) {
                     labelCache.put(key, entry.title);
@@ -282,37 +266,28 @@ public class IconCache {
             ///}
 
             entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
-            Drawable d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
-            String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
-            if(title != null)
-                entry.title = title;
+            Drawable d = LauncherIconTheme.getIconDrawable(mContext, componentName.getPackageName(), componentName.getClassName());
+            String title = LauncherIconTheme.getTitle(mContext, componentName.getPackageName(), componentName.getClassName());
+            if (title != null) entry.title = title;
 
             if (MachineConfig.VALUE_SYSTEM_UI_KLD5.equals(Utilities.mSystemUI)) {
                 d = info.getBadgedIcon(mIconDpi);
                 entry.icon = Utilities.createIconBitmap(d, mContext, R.drawable.app_wrap);
-            }
-            else if (MachineConfig.VALUE_SYSTEM_UI_KLD11_200.equals(Utilities.mSystemUI) && d != null) {
+            } else if (MachineConfig.VALUE_SYSTEM_UI_KLD11_200.equals(Utilities.mSystemUI) && d != null) {
                 //d = LauncherIconTheme.getIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
                 entry.icon = Utilities.createIconBitmap(d, mContext);
-                if (labelCache != null)
-                   labelCache.put(key, entry.title);
-            }
-            else
-            {
+                if (labelCache != null) labelCache.put(key, entry.title);
+            } else {
                 boolean isNeedBg = false;
-                if (Utilities.mSystemUI != null && !Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI_KLD11_200))
-                {
-                    d = getIconBackground(key.getPackageName(),key.getClassName());
-                    if (d == null && !MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI)
-                            && !MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
+                if (Utilities.mSystemUI != null && !Utilities.mSystemUI.equals(MachineConfig.VALUE_SYSTEM_UI_KLD11_200)) {
+                    d = getIconBackground(key.getPackageName(), key.getClassName());
+                    if (d == null && !MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) && !MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
                         isNeedBg = true;
                     }
                     ///if("com.ak.servicepoint".equals(key.getPackageName())){
                     ///isNeedBg = false;
                     ///}
-                }
-                else
-                {
+                } else {
                     isNeedBg = !AppConfig.isNoNeedLauncherBackground(key.getPackageName(), key.getClassName());
                 }
 
@@ -322,15 +297,14 @@ public class IconCache {
 
                 if ("com.eqset".equals(key.getPackageName())) {
                     if (Utilities.mIsDSP) {
-                        d = getIconBackground(key.getPackageName(),key.getClassName());
+                        d = getIconBackground(key.getPackageName(), key.getClassName());
                         isNeedBg = true;
                     }
                 }
 
                 entry.icon = Utilities.createIconBitmap(d, mContext, isNeedBg);
 
-                if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI))
-                {
+                if (MachineConfig.VALUE_SYSTEM_UI20_RM10_1.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI21_RM10_2.equals(Utilities.mSystemUI)) {
                     String pkgName = key.getPackageName();
                     if (ifNeedToRound(pkgName)) {
                         entry.icon = ResourceUtil.toRoundBitmap(entry.icon);
@@ -341,23 +315,19 @@ public class IconCache {
         return entry;
     }
 
-    private CacheEntry cacheLocked2(ComponentName componentName,LauncherActivityInfo info,HashMap<Object, CharSequence> labelCache, UserHandle user)
-    {
+    private CacheEntry cacheLocked2(ComponentName componentName, LauncherActivityInfo info, HashMap<Object, CharSequence> labelCache, UserHandle user) {
         CacheKey cacheKey = new CacheKey(componentName, user);
         CacheEntry entry = mCache.get(cacheKey);
         //MMLog.d(TAG,"cacheLocked() componentName="+componentName.getPackageName() +","+ componentName.getClassName());
 
-        if (entry == null)
-        {
+        if (entry == null) {
             entry = new CacheEntry();
             mCache.put(cacheKey, entry);
             ComponentName key = info.getComponentName();
 
             if (labelCache != null && labelCache.containsKey(key)) {
                 entry.title = Objects.requireNonNull(labelCache.get(key)).toString();
-            }
-            else
-            {
+            } else {
                 entry.title = info.getLabel().toString();
                 if (labelCache != null) {
                     labelCache.put(key, entry.title);
@@ -365,28 +335,47 @@ public class IconCache {
             }
 
             entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
-            Drawable d = LauncherIconTheme.getAppIconDrawable(mContext,componentName.getPackageName(),componentName.getClassName());
+            Drawable d = LauncherIconTheme.getAppIconDrawable(mContext, componentName.getPackageName(), componentName.getClassName());
             //String title = LauncherIconTheme.getTitle(mContext,componentName.getPackageName(),componentName.getClassName());
             if (d != null) {
                 entry.icon = Utilities.createIconBitmap(d, mContext);
-                if (labelCache != null)
-                    labelCache.put(key, entry.title);
-            }
-            else
-            {
+                if (labelCache != null) labelCache.put(key, entry.title);
+            } else {
                 //MMLog.d(TAG,"NO CUSTOMIZE ICON!!!!!!!!"+componentName.getClassName());
-                boolean isNeedBg =  false;// !AppConfig.isNoNeedLauncherBackground(key.getPackageName(), key.getClassName());
+                boolean isNeedBg = false;// !AppConfig.isNoNeedLauncherBackground(key.getPackageName(), key.getClassName());
                 d = info.getBadgedIcon(mIconDpi);
                 entry.icon = Utilities.createIconBitmap(d, mContext, isNeedBg);
             }
         }
         return entry;
     }
+
     private Drawable getIconBackground(String packageName, String className) {
         String s = null;
         Drawable d = null;
-        MMLog.d(TAG,"getIconBackground()");
-        if ("com.car.ui".equals(packageName)) {
+        MMLog.d(TAG, "getIconBackground()");
+        if ("com.octopus.android.carapps".equals(packageName)) {
+            if ("com.octopus.android.carapps.navi.NaviEmptyActivity".equals(className)) {
+                s = "navi";
+            } else if ("com.octopus.android.carapps.audio.MusicActivity".equals(className)) {
+                s = "music";
+            } else if ("com.octopus.android.carapps.dvd.DVDPlayer".equals(className)) {
+                s = "dvd";
+            } else if ("com.octopus.android.carapps.radio.RadioActivity".equals(className)) {
+                s = "radio";
+            } else if ("com.octopus.android.carapps.video.VideoActivity".equals(className)) {
+                s = "video";
+            } else if ("com.octopus.android.carapps.auxplayer.AUXPlayer".equals(className)) {
+                s = "auxin";
+            } else if ("com.octopus.android.carapps.btmusic.BTMusicActivity".equals(className)) {
+                s = "bt_music";
+            } else if ("com.octopus.android.carapps.frontcamera.FrontCameraActivity".equals(className) || "com.octopus.android.carapps.frontcamera.FrontCameraActivity4".equals(className)) {
+                s = "f_camera";
+            } else if ("com.octopus.android.carapps.tv.TVActivity".equals(className)) {
+                s = "tv";
+            }
+
+        } else if ("com.car.ui".equals(packageName)) {
             if ("com.my.navi.NaviEmptyActivity".equals(className)) {
                 s = "navi";
             } else if ("com.my.audio.MusicActivity".equals(className)) {
@@ -401,8 +390,7 @@ public class IconCache {
                 s = "auxin";
             } else if ("com.my.btmusic.BTMusicActivity".equals(className)) {
                 s = "bt_music";
-            } else if ("com.my.frontcamera.FrontCameraActivity".equals(className)
-                    || "com.my.frontcamera.FrontCameraActivity4".equals(className)) {
+            } else if ("com.my.frontcamera.FrontCameraActivity".equals(className) || "com.my.frontcamera.FrontCameraActivity4".equals(className)) {
                 s = "f_camera";
             } else if ("com.my.tv.TVActivity".equals(className)) {
                 s = "tv";
@@ -424,8 +412,7 @@ public class IconCache {
             } else {
                 s = "eq";
             }
-        } else if ("com.android.browser".equals(packageName) ||
-                "com.android.chrome".equals(packageName)) {
+        } else if ("com.android.browser".equals(packageName) || "com.android.chrome".equals(packageName)) {
             s = "browse";
         } else if ("com.my.dvr".equals(packageName)) {
             if ("com.my.dvr.MainActivity".equals(className)) {
@@ -463,12 +450,10 @@ public class IconCache {
 
         if (s != null) {
             String paramter_s = Utilities.mIconPath + s + ".png";
-            MMLog.d(TAG,"GET Icon file:"+paramter_s);
+            MMLog.d(TAG, "GET Icon file:" + paramter_s);
 
             d = Drawable.createFromPath(paramter_s);
-            if ((MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(Utilities.mSystemUI) ||
-                    MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) &&
-                    (Launcher.ICON_TYPE_PARAMTER_ICON != Launcher.mIconType)) {
+            if ((MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(Utilities.mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) && (Launcher.ICON_TYPE_PARAMTER_ICON != Launcher.mIconType)) {
                 if (d == null) {
                     if (Utilities.mDark && Utilities.mDarkSwitch == 1) {
                         s += "_d";
