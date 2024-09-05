@@ -16,9 +16,6 @@
 
 package com.android.launcher2;
 
-import com.android.launcher.R;
-
-import android.adservices.measurement.MeasurementManager;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -34,11 +31,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
-import android.util.Log;
 
-import com.ce.view.WinceCEStyleApp;
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
+import com.android.launcher.R;
+import com.common.utils.AppConfig;
+import com.common.utils.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 import java.util.HashMap;
