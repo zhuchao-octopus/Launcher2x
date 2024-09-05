@@ -16,14 +16,14 @@
 
 <com.android.launcher2.PagedViewIcon
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
 
     android:id="@+id/application_icon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-
 android:textSize="@dimen/workspace_icon_text_size"
     android:focusable="true"
+   android:drawablePadding="13px"
     android:singleLine="true"
     android:background="@drawable/focusable_view_bg" />

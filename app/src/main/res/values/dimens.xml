@@ -166,4 +166,19 @@
     
     
     <dimen name="ce_application_icon_width">204px</dimen>
+
+    <dimen name="wince_page_x_pos1">-10.0px</dimen>
+    <dimen name="wince_page_y_pos1">74.0px</dimen>
+    <dimen name="wince_page_x_pos2">197.0px</dimen>
+    <dimen name="wince_page_y_pos2">30.0px</dimen>
+    <dimen name="wince_page_x_pos3">437.0px</dimen>
+    <dimen name="wince_page_y_pos3">30.0px</dimen>
+    <dimen name="wince_page_x_pos4">616.0px</dimen>
+    <dimen name="wince_page_y_pos4">74.0px</dimen>
+    <dimen name="wince_page_x_pos5">515.0px</dimen>
+    <dimen name="wince_page_y_pos5">169.0px</dimen>
+    <dimen name="wince_page_x_pos6">304.0px</dimen>
+    <dimen name="wince_page_y_pos6">179.0px</dimen>
+    <dimen name="wince_page_x_pos7">107.0px</dimen>
+    <dimen name="wince_page_y_pos7">169.0px</dimen>
 </resources>
