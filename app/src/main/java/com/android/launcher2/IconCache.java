@@ -338,25 +338,25 @@ public class IconCache {
 	private Drawable getIconBackground(String packageName, String className) {
 		String s = null;
 		Drawable d = null;
-		if ("com.car.ui".equals(packageName)) {
-			if ("com.my.navi.NaviEmptyActivity".equals(className)) {
+		if ("com.octopus.android.carapps".equals(packageName)) {
+			if ("com.octopus.android.carapps.navi.NaviEmptyActivity".equals(className)) {
 				s = "navi";
-			} else if ("com.my.audio.MusicActivity".equals(className)) {
+			} else if ("com.octopus.android.carapps.audio.MusicActivity".equals(className)) {
 				s = "music";
-			} else if ("com.my.dvd.DVDPlayer".equals(className)) {
+			} else if ("com.octopus.android.carapps.dvd.DVDPlayer".equals(className)) {
 				s = "dvd";
-			} else if ("com.my.radio.RadioActivity".equals(className)) {
+			} else if ("com.octopus.android.carapps.radio.RadioActivity".equals(className)) {
 				s = "radio";
-			} else if ("com.my.video.VideoActivity".equals(className)) {
+			} else if ("com.octopus.android.carapps.video.VideoActivity".equals(className)) {
 				s = "video";
-			} else if ("com.my.auxplayer.AUXPlayer".equals(className)) {
+			} else if ("com.octopus.android.carapps.auxplayer.AUXPlayer".equals(className)) {
 				s = "auxin";
-			} else if ("com.my.btmusic.BTMusicActivity".equals(className)) {
+			} else if ("com.octopus.android.carapps.btmusic.BTMusicActivity".equals(className)) {
 				s = "bt_music";
-			} else if ("com.my.frontcamera.FrontCameraActivity".equals(className)
-					|| "com.my.frontcamera.FrontCameraActivity4".equals(className)) {
+			} else if ("com.octopus.android.carapps.frontcamera.FrontCameraActivity".equals(className)
+					|| "com.octopus.android.carapps.frontcamera.FrontCameraActivity4".equals(className)) {
 				s = "f_camera";
-			}  else if ("com.my.tv.TVActivity"
+			}  else if ("com.octopus.android.carapps.tv.TVActivity"
 					.equals(className)) {
 				s = "tv";
 			}

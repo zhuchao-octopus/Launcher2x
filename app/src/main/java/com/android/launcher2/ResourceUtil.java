@@ -292,7 +292,7 @@ public class ResourceUtil {
                 if (type == 0) {
                     sw = 380;    //800x480
                 } else {
-                    sw = 381;    //1024x600
+                    sw = 480;    //1024x600
                 }
                 break;
             case MachineConfig.VALUE_SYSTEM_UI_887_90:

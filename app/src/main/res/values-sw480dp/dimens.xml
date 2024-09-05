@@ -25,8 +25,8 @@
     <dimen name="toolbar_button_horizontal_padding">0px</dimen>
 
     <!-- Workspace -->
-	    <dimen name="hotseat_cell_width">178px</dimen>
-    <dimen name="hotseat_cell_height">198px</dimen>
+	    <dimen name="hotseat_cell_width">118dp</dimen>
+    <dimen name="hotseat_cell_height">132dp</dimen>
     <!--
      We really want the page spacing to be the max of either the button bar
      height or the qsb bar height

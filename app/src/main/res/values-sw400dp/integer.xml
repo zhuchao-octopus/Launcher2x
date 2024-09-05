@@ -8,7 +8,7 @@
     <integer name="freq_x5">202</integer>
     <integer name="freq_x6">252</integer>
     
-    <integer name="start_freq_px">25</integer>
+    <integer name="start_freq_px">30</integer>
     <integer name="end_freq_px">275</integer>
 
     <integer name="point_y">0</integer>
