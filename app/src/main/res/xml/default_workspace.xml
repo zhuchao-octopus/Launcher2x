@@ -136,7 +136,7 @@
         launcher:y="0" />
 
     <favorite
-        launcher:className="com.my.bt.ATBluetoothActivity"
+        launcher:className="com.octopus.android.carapps.bt.ATBluetoothActivity"
         launcher:container="-101"
         launcher:packageName="com.my.bt"
         launcher:screen="5"
