@@ -243,31 +243,31 @@ public final class LauncherIconTheme {
             return R.drawable.app_carplay;
         }
 
-        if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.radio.RadioActivity"))
         {
             return R.drawable.app_radio;
         }
-        if(packageName.equals("com.car.ui") && className.equals("com.my.video.VideoActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.my.video.VideoActivity"))
         {
             return R.drawable.ic_video;
         }
 
-        if(packageName.equals("com.car.ui") && className.equals("com.my.audio.MusicActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.audio.MusicActivity"))
         {
             return R.drawable.app_music;
         }
 
-        if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.btmusic.BTMusicActivity"))
         {
            return R.drawable.app_blutooth_music;
         }
 
-        if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.auxplayer.AUXPlayer"))
         {
             return R.drawable.app_auxin;
         }
 
-        if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.frontcamera.FrontCameraActivity"))
         {
             return R.drawable.app_f_camara;
         }
@@ -396,7 +396,7 @@ public final class LauncherIconTheme {
         {
             return R.drawable.app_seach;
         }
-        if(packageName.equals("com.car.ui") && className.equals("com.my.navi.NaviEmptyActivity"))
+        if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.navi.NaviEmptyActivity"))
         {
             return R.drawable.app_navigate;
         }
@@ -421,28 +421,28 @@ public final class LauncherIconTheme {
             //return context.getString(R.string.car_play_connection);
         }
 
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.radio.RadioActivity"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.radio.RadioActivity"))
         {
             //return context.getString(R.string.radio);
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.video.VideoActivity"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.video.VideoActivity"))
         {
             return null;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.audio.MusicActivity"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.audio.MusicActivity"))
         {
             return null;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.btmusic.BTMusicActivity"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.btmusic.BTMusicActivity"))
         {
             return null;
         }
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.auxplayer.AUXPlayer"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.auxplayer.AUXPlayer"))
         {
             return null;
         }
 
-        else if(packageName.equals("com.car.ui") && className.equals("com.my.frontcamera.FrontCameraActivity"))
+        else if(packageName.equals("com.octopus.android.carapps") && className.equals("com.octopus.android.carapps.frontcamera.FrontCameraActivity"))
         {
             return null;
         }
