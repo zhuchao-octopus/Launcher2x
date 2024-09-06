@@ -23,21 +23,21 @@
 
 
     <favorite
-        launcher:className="com.my.auxplayer.AUXPlayer"
-        launcher:packageName="com.car.ui"
+        launcher:className="com.octopus.android.carapps.auxplayer.AUXPlayer"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="1"
         launcher:x="0"
         launcher:y="0" />
 
     <!--     <favorite -->
     <!--         launcher:className="com.my.audio.MusicActivity" -->
-    <!--         launcher:packageName="com.car.ui" -->
+    <!--         launcher:packageName="com.octopus.android.carapps" -->
     <!--         launcher:screen="1" -->
     <!--         launcher:x="0" -->
     <!--         launcher:y="0" /> -->
     <favorite
-        launcher:className="com.my.video.VideoActivity"
-        launcher:packageName="com.car.ui"
+        launcher:className="com.octopus.android.carapps.video.VideoActivity"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="1"
         launcher:x="1"
         launcher:y="0" />
@@ -71,8 +71,8 @@
 
 
     <favorite
-        launcher:className="com.my.btmusic.BTMusicActivity"
-        launcher:packageName="com.car.ui"
+        launcher:className="com.octopus.android.carapps.btmusic.BTMusicActivity"
+        launcher:packageName="com.octopus.android.carapps"
         launcher:screen="1"
         launcher:x="3"
         launcher:y="0" />
@@ -103,14 +103,14 @@
     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
 
     <favorite
-        launcher:className="com.my.navi.NaviEmptyActivity"
+        launcher:className="com.octopus.android.carapps.navi.NaviEmptyActivity"
         launcher:container="-101"
         launcher:packageName="com.octopus.android.carapps"
         launcher:screen="0"
         launcher:x="3"
         launcher:y="0" />
     <favorite
-        launcher:className="com.my.radio.RadioActivity"
+        launcher:className="com.octopus.android.carapps.radio.RadioActivity"
         launcher:container="-101"
         launcher:packageName="com.octopus.android.carapps"
         launcher:screen="1"
@@ -126,12 +126,12 @@
     <!--     <favorite -->
     <!--         launcher:className="com.my.video.VideoActivity" -->
     <!--         launcher:container="-101" -->
-    <!--         launcher:packageName="com.car.ui" -->
+    <!--         launcher:packageName="com.octopus.android.carapps" -->
     <!--         launcher:screen="4" -->
     <!--         launcher:x="1" -->
     <!--         launcher:y="0" /> -->
     <favorite
-        launcher:className="com.my.audio.MusicActivity"
+        launcher:className="com.octopus.android.carapps.audio.MusicActivity"
         launcher:container="-101"
         launcher:packageName="com.octopus.android.carapps"
         launcher:screen="4"
