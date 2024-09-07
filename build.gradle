@@ -3,7 +3,8 @@ buildscript {
     repositories {
         mavenCentral()
         google()
-        maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
+        maven { url '\\\\192.168.10.12\\smb\\OctopusFrameworkLibs'}
+//        maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.5.0'
@@ -14,7 +15,8 @@ allprojects {
     repositories {
         mavenCentral()
         google()
-        maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
+        maven { url '\\\\192.168.10.12\\smb\\OctopusFrameworkLibs'}
+//        maven { url '\\\\DESKTOP-7HI3PEQ\\OctopusFrameworkLibs'}
     }
 
 }
