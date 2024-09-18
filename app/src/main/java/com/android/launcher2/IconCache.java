@@ -33,8 +33,8 @@ import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 
 import com.android.launcher.R;
-import com.common.util.AppConfig;
-import com.common.util.MachineConfig;
+import com.common.utils.AppConfig;
+import com.common.utils.MachineConfig;
 import com.zhuchao.android.fbase.MMLog;
 
 import java.util.HashMap;

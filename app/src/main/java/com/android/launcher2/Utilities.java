@@ -16,17 +16,7 @@
 
 package com.android.launcher2;
 
-import java.util.Random;
-
-import com.common.util.MachineConfig;
-
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -43,14 +33,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import com.android.launcher.R;
+import com.common.utils.MachineConfig;
+import com.common.utils.SettingProperties;
 
-import android.view.View;
-
-import com.common.util.SystemConfig;
-import com.zhuchao.android.fbase.MMLog;
+import java.util.Random;
 
 /**
  * Various utilities shared amongst the Launcher's classes.
@@ -72,14 +60,12 @@ final public class Utilities {
     private static final Paint sDisabledPaint = new Paint();
     private static final Rect sOldBounds = new Rect();
     private static final Canvas sCanvas = new Canvas();
-    private static final int app_bgs[] = {R.drawable.app_bg_0,
-            R.drawable.app_bg_1, R.drawable.app_bg_2, R.drawable.app_bg_3};
+    private static final int app_bgs[] = {R.drawable.app_bg_0, R.drawable.app_bg_1, R.drawable.app_bg_2, R.drawable.app_bg_3};
 
     private static Drawable[] app_bg_drawable = null;
 
     static {
-        sCanvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.DITHER_FLAG,
-                Paint.FILTER_BITMAP_FLAG));
+        sCanvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.DITHER_FLAG, Paint.FILTER_BITMAP_FLAG));
     }
 
     static int sColors[] = {0xffff0000, 0xff00ff00, 0xff0000ff};
@@ -99,17 +85,14 @@ final public class Utilities {
         if (sourceWidth > textureWidth && sourceHeight > textureHeight) {
             // Icon is bigger than it should be; clip it (solves the GB->ICS
             // migration case)
-            return Bitmap.createBitmap(icon, (sourceWidth - textureWidth) / 2,
-                    (sourceHeight - textureHeight) / 2, textureWidth,
-                    textureHeight);
+            return Bitmap.createBitmap(icon, (sourceWidth - textureWidth) / 2, (sourceHeight - textureHeight) / 2, textureWidth, textureHeight);
         } else if (sourceWidth == textureWidth && sourceHeight == textureHeight) {
             // Icon is the right size, no need to change it
             return icon;
         } else {
             // Icon is too small, render to a larger bitmap
             final Resources resources = context.getResources();
-            return createIconBitmap(new BitmapDrawable(resources, icon),
-                    context);
+            return createIconBitmap(new BitmapDrawable(resources, icon), context);
         }
     }
 
@@ -136,8 +119,8 @@ final public class Utilities {
                     grey = (int) (red * 0.3 + green * 0.59 + blue * 0.11);
                     grey = alpha | (grey << 16) | (grey << 8) | grey;
 
-//					 Log.d("aa", i + "???:" + j + ":" + String.format("0x%08x", pixels[width * i + j])
-//					 + ":" + String.format("0x%08x", grey));
+                    //					 Log.d("aa", i + "???:" + j + ":" + String.format("0x%08x", pixels[width * i + j])
+                    //					 + ":" + String.format("0x%08x", grey));
 
                     pixels[width * i + j] = grey;
 
@@ -145,8 +128,7 @@ final public class Utilities {
             }
         }
 
-        Bitmap newBmp = Bitmap.createBitmap(pixels, width, height,
-                Config.ARGB_8888);
+        Bitmap newBmp = Bitmap.createBitmap(pixels, width, height, Config.ARGB_8888);
         return newBmp;
     }
 
@@ -171,13 +153,13 @@ final public class Utilities {
 
                     if (grey >= 0x999999) {
                         grey = alpha | 0xffffff;
-//						alpha = 0xff;
+                        //						alpha = 0xff;
                     } else {
                         grey = alpha | grey;
                     }
 
-//					 Log.d("aa", i + "???:" + j + ":" + String.format("0x%08x", pixels[width * i + j])
-//					 + ":" + String.format("0x%08x", grey));
+                    //					 Log.d("aa", i + "???:" + j + ":" + String.format("0x%08x", pixels[width * i + j])
+                    //					 + ":" + String.format("0x%08x", grey));
 
                     pixels[width * i + j] = grey;
 
@@ -185,8 +167,7 @@ final public class Utilities {
             }
         }
 
-        Bitmap newBmp = Bitmap.createBitmap(pixels, width, height,
-                Config.ARGB_8888);
+        Bitmap newBmp = Bitmap.createBitmap(pixels, width, height, Config.ARGB_8888);
         return newBmp;
     }
 
@@ -219,8 +200,7 @@ final public class Utilities {
                     icon = new BitmapDrawable(bitmap);
                 }
                 if (bitmap.getDensity() == Bitmap.DENSITY_NONE) {
-                    bitmapDrawable.setTargetDensity(context.getResources()
-                            .getDisplayMetrics());
+                    bitmapDrawable.setTargetDensity(context.getResources().getDisplayMetrics());
                 }
             }
             int sourceWidth = icon.getIntrinsicWidth();
@@ -252,24 +232,7 @@ final public class Utilities {
                         }
                     } else if (sourceWidth < width && sourceHeight < height) {
                         // Don't scale up the icon
-                        if ((ResourceUtil.mScreenWidth == 1280 && (MachineConfig.VALUE_SYSTEM_UI16_7099
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI42_913
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_KLD3_8702
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI45_8702_2
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_887_90
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI40_KLD90
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_KLD2
-                                .equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_9813
-                                .equals(mSystemUI)))
-                                || ((ResourceUtil.mScreenWidth == 1024 || ResourceUtil.mScreenWidth == 800)
-                                && MachineConfig.VALUE_SYSTEM_UI_887_90.equals(mSystemUI))
-                                || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720)
-                                && MachineConfig.VALUE_SYSTEM_UI_KLD7_1992.equals(mSystemUI))
-                                || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720)
-                                && MachineConfig.VALUE_SYSTEM_UI22_1050.equals(mSystemUI))
-                                || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720)
-                                && MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(mSystemUI))
-                                || (ResourceUtil.mScreenWidth >= 1280)) {
+                        if ((ResourceUtil.mScreenWidth == 1280 && (MachineConfig.VALUE_SYSTEM_UI16_7099.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI42_913.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_KLD3_8702.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI45_8702_2.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_887_90.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI40_KLD90.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_KLD2.equals(mSystemUI) || MachineConfig.VALUE_SYSTEM_UI_9813.equals(mSystemUI))) || ((ResourceUtil.mScreenWidth == 1024 || ResourceUtil.mScreenWidth == 800) && MachineConfig.VALUE_SYSTEM_UI_887_90.equals(mSystemUI)) || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720) && MachineConfig.VALUE_SYSTEM_UI_KLD7_1992.equals(mSystemUI)) || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720) && MachineConfig.VALUE_SYSTEM_UI22_1050.equals(mSystemUI)) || ((ResourceUtil.mScreenWidth == 1280 || ResourceUtil.mScreenHeight == 720) && MachineConfig.VALUE_SYSTEM_UI31_KLD7.equals(mSystemUI)) || (ResourceUtil.mScreenWidth >= 1280)) {
 
                         } else {
                             width = sourceWidth;
@@ -283,8 +246,7 @@ final public class Utilities {
             int textureWidth = sIconTextureWidth;
             int textureHeight = sIconTextureHeight;
 
-            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight,
-                    Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight, Bitmap.Config.ARGB_8888);
             final Canvas canvas = sCanvas;
             canvas.setBitmap(bitmap);
             if (needBg) {
@@ -313,8 +275,7 @@ final public class Utilities {
             if (debug) {
                 // draw a big box for the icon for debugging
                 canvas.drawColor(sColors[sColorIndex]);
-                if (++sColorIndex >= sColors.length)
-                    sColorIndex = 0;
+                if (++sColorIndex >= sColors.length) sColorIndex = 0;
                 Paint debugPaint = new Paint();
                 debugPaint.setColor(0xffcccc00);
                 canvas.drawRect(left, top, left + width, top + height, debugPaint);
@@ -378,8 +339,7 @@ final public class Utilities {
             int textureWidth = sIconTextureWidth;
             int textureHeight = sIconTextureHeight;
 
-            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight,
-                    Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight, Bitmap.Config.ARGB_8888);
             final Canvas canvas = sCanvas;
             canvas.setBitmap(bitmap);
             if (bg_id != 0) {
@@ -401,12 +361,10 @@ final public class Utilities {
             if (debug) {
                 // draw a big box for the icon for debugging
                 canvas.drawColor(sColors[sColorIndex]);
-                if (++sColorIndex >= sColors.length)
-                    sColorIndex = 0;
+                if (++sColorIndex >= sColors.length) sColorIndex = 0;
                 Paint debugPaint = new Paint();
                 debugPaint.setColor(0xffcccc00);
-                canvas.drawRect(left, top, left + width, top + height,
-                        debugPaint);
+                canvas.drawRect(left, top, left + width, top + height, debugPaint);
             }
 
             sOldBounds.set(icon.getBounds());
@@ -458,8 +416,7 @@ final public class Utilities {
         return app_bgs[mFakeBackgroundIndex];
     }
 
-    private static final int app_bgs_color[] = {0x5b36b7, 0x00c654, 0x178fff,
-            0xff017e, 0xff8a00, 0x00aba2, 0x45c95b, 0x900c0c
+    private static final int app_bgs_color[] = {0x5b36b7, 0x00c654, 0x178fff, 0xff017e, 0xff8a00, 0x00aba2, 0x45c95b, 0x900c0c
 
     };
 
@@ -470,13 +427,13 @@ final public class Utilities {
 
     public static int getmagicBackgroundId(Bitmap icon) {
         int i = doGetMagicNumber(icon) % app_bgs_color.length;
-//		Log.d("ab", "getmagicBackgroundId:" + i);
+        //		Log.d("ab", "getmagicBackgroundId:" + i);
         return app_bgs_color[i] | 0xee000000;
     }
 
     public static int getmagicBackgroundId(Drawable icon) {
         int i = doGetMagicNumber(icon) % app_bgs.length;
-//		Log.d("ab ", "::" + i);
+        //		Log.d("ab ", "::" + i);
         return app_bgs[i];
     }
 
@@ -486,19 +443,16 @@ final public class Utilities {
 
         int color1 = bm.getPixel(x, y);
         int color2 = bm.getPixel(x, y - (sWrappedIconWidth / 4));
-        int color3 = bm.getPixel(x + (sWrappedIconWidth / 4), y
-                + (sWrappedIconWidth / 4));
-        int color4 = bm.getPixel(x - (sWrappedIconWidth / 4), y
-                + (sWrappedIconWidth / 4));
+        int color3 = bm.getPixel(x + (sWrappedIconWidth / 4), y + (sWrappedIconWidth / 4));
+        int color4 = bm.getPixel(x - (sWrappedIconWidth / 4), y + (sWrappedIconWidth / 4));
 
-//		String ss = String.format("0x%x,0x%x,0x%x,0x%x,", color1, color2,
-//				color3, color4);
+        //		String ss = String.format("0x%x,0x%x,0x%x,0x%x,", color1, color2,
+        //				color3, color4);
         // Log.d("ab", "doGetMagicNumber:"+ ss);
 
-        int index = getColorIndex(color1) | getColorIndex(color4)
-                | getColorIndex(color2) | getColorIndex(color3);
+        int index = getColorIndex(color1) | getColorIndex(color4) | getColorIndex(color2) | getColorIndex(color3);
 
-//		Log.d("allen", "1:" + index);
+        //		Log.d("allen", "1:" + index);
 
         // if (index == 3) {
         // index = 0;
@@ -531,8 +485,7 @@ final public class Utilities {
         int color3 = bm.getPixel(x, y * 3);
         int color4 = bm.getPixel(x * 3, y * 3);
 
-        int index = getColorIndex(color1) | getColorIndex(color4)
-                | getColorIndex(color2) | getColorIndex(color3);
+        int index = getColorIndex(color1) | getColorIndex(color4) | getColorIndex(color2) | getColorIndex(color3);
 
         // Log.d("allen", "1:" + index);
 
@@ -568,8 +521,7 @@ final public class Utilities {
 
         try {
 
-            Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                    : Bitmap.Config.RGB_565;
+            Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
             Bitmap bitmap = Bitmap.createBitmap(w, h, config);
             Canvas canvas = new Canvas(bitmap);
             drawable.setBounds(0, 0, w, h);
@@ -582,16 +534,14 @@ final public class Utilities {
         return null;
     }
 
-    static void drawSelectedAllAppsBitmap(Canvas dest, int destWidth,
-                                          int destHeight, boolean pressed, Bitmap src) {
+    static void drawSelectedAllAppsBitmap(Canvas dest, int destWidth, int destHeight, boolean pressed, Bitmap src) {
         synchronized (sCanvas) { // we share the statics :-(
             if (sIconWidth == -1) {
                 // We can't have gotten to here without src being initialized,
                 // which
                 // comes from this file already. So just assert.
                 // initStatics(context);
-                throw new RuntimeException(
-                        "Assertion failed: Utilities not initialized");
+                throw new RuntimeException("Assertion failed: Utilities not initialized");
             }
 
             dest.drawColor(0, PorterDuff.Mode.CLEAR);
@@ -601,8 +551,7 @@ final public class Utilities {
 
             float px = (destWidth - src.getWidth()) / 2;
             float py = (destHeight - src.getHeight()) / 2;
-            dest.drawBitmap(mask, px + xy[0], py + xy[1],
-                    pressed ? sGlowColorPressedPaint : sGlowColorFocusedPaint);
+            dest.drawBitmap(mask, px + xy[0], py + xy[1], pressed ? sGlowColorPressedPaint : sGlowColorFocusedPaint);
 
             mask.recycle();
         }
@@ -624,13 +573,11 @@ final public class Utilities {
                 initStatics(context);
             }
 
-            if (bitmap.getWidth() == sIconWidth
-                    && bitmap.getHeight() == sIconHeight) {
+            if (bitmap.getWidth() == sIconWidth && bitmap.getHeight() == sIconHeight) {
                 return bitmap;
             } else {
                 final Resources resources = context.getResources();
-                return createIconBitmap(new BitmapDrawable(resources, bitmap),
-                        context);
+                return createIconBitmap(new BitmapDrawable(resources, bitmap), context);
             }
         }
     }
@@ -640,8 +587,7 @@ final public class Utilities {
             if (sIconWidth == -1) {
                 initStatics(context);
             }
-            final Bitmap disabled = Bitmap.createBitmap(bitmap.getWidth(),
-                    bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            final Bitmap disabled = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
             final Canvas canvas = sCanvas;
             canvas.setBitmap(disabled);
 
@@ -658,29 +604,23 @@ final public class Utilities {
         final DisplayMetrics metrics = resources.getDisplayMetrics();
         final float density = metrics.density;
 
-        mDarkSwitch = SystemConfig.getIntProperty(context, SystemConfig.KEY_DARK_MODE_SWITCH);
+        mDarkSwitch = SettingProperties.getIntProperty(context, SettingProperties.KEY_DARK_MODE_SWITCH);
 
         if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-            sIconWidth = (int) resources
-                    .getDimension(R.dimen.app_icon_size_w);
-            sIconHeight = (int) resources
-                    .getDimension(R.dimen.app_icon_size_h);
+            sIconWidth = (int) resources.getDimension(R.dimen.app_icon_size_w);
+            sIconHeight = (int) resources.getDimension(R.dimen.app_icon_size_h);
 
             sIconTextureWidth = sIconWidth;
             sIconTextureHeight = sIconHeight;
         } else {
-            sIconWidth = sIconHeight = (int) resources
-                    .getDimension(R.dimen.app_icon_size);
+            sIconWidth = sIconHeight = (int) resources.getDimension(R.dimen.app_icon_size);
 
             sIconTextureWidth = sIconTextureHeight = sIconWidth;
         }
 
-        sWrappedIconWidth = sWrappedIconHeight = (int) resources
-                .getDimension(R.dimen.app_wrap_icon_size);
+        sWrappedIconWidth = sWrappedIconHeight = (int) resources.getDimension(R.dimen.app_wrap_icon_size);
 
-
-        sBlurPaint.setMaskFilter(new BlurMaskFilter(5 * density,
-                BlurMaskFilter.Blur.NORMAL));
+        sBlurPaint.setMaskFilter(new BlurMaskFilter(5 * density, BlurMaskFilter.Blur.NORMAL));
         sGlowColorPressedPaint.setColor(0xffffc300);
         sGlowColorFocusedPaint.setColor(0xffff8e00);
 
@@ -744,26 +684,21 @@ final public class Utilities {
         final float density = metrics.density;
 
         if (MachineConfig.VALUE_SYSTEM_UI21_RM12.equals(Utilities.mSystemUI)) {
-            sIconWidth = (int) resources
-                    .getDimension(R.dimen.app_icon_size_w);
-            sIconHeight = (int) resources
-                    .getDimension(R.dimen.app_icon_size_h);
+            sIconWidth = (int) resources.getDimension(R.dimen.app_icon_size_w);
+            sIconHeight = (int) resources.getDimension(R.dimen.app_icon_size_h);
 
             sIconTextureWidth = sIconWidth;
             sIconTextureHeight = sIconHeight;
         } else {
-            sIconWidth = sIconHeight = (int) resources
-                    .getDimension(R.dimen.app_icon_size);
+            sIconWidth = sIconHeight = (int) resources.getDimension(R.dimen.app_icon_size);
 
             sIconTextureWidth = sIconTextureHeight = sIconWidth;
         }
 
-        sWrappedIconWidth = sWrappedIconHeight = (int) resources
-                .getDimension(R.dimen.app_wrap_icon_size);
+        sWrappedIconWidth = sWrappedIconHeight = (int) resources.getDimension(R.dimen.app_wrap_icon_size);
 
 
-        sBlurPaint.setMaskFilter(new BlurMaskFilter(5 * density,
-                BlurMaskFilter.Blur.NORMAL));
+        sBlurPaint.setMaskFilter(new BlurMaskFilter(5 * density, BlurMaskFilter.Blur.NORMAL));
         sGlowColorPressedPaint.setColor(0xffffc300);
         sGlowColorFocusedPaint.setColor(0xffff8e00);
 
@@ -774,8 +709,7 @@ final public class Utilities {
 
     }
 
-    public static Bitmap createIconBitmapWinCEUI(Drawable icon,
-                                                 Context context, int bg_id) {
+    public static Bitmap createIconBitmapWinCEUI(Drawable icon, Context context, int bg_id) {
         // needBg = false;
         synchronized (sCanvas) { // we share the statics :-(
             if (sIconWidth == -1) {
@@ -834,8 +768,7 @@ final public class Utilities {
             int textureWidth = sIconTextureWidth;
             int textureHeight = sIconTextureHeight;
 
-            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight,
-                    Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = Bitmap.createBitmap(textureWidth, textureHeight, Bitmap.Config.ARGB_8888);
             final Canvas canvas = sCanvas;
             canvas.setBitmap(bitmap);
             if (bg_id != 0) {
@@ -859,12 +792,10 @@ final public class Utilities {
             if (debug) {
                 // draw a big box for the icon for debugging
                 canvas.drawColor(sColors[sColorIndex]);
-                if (++sColorIndex >= sColors.length)
-                    sColorIndex = 0;
+                if (++sColorIndex >= sColors.length) sColorIndex = 0;
                 Paint debugPaint = new Paint();
                 debugPaint.setColor(0xffcccc00);
-                canvas.drawRect(left, top, left + width, top + height,
-                        debugPaint);
+                canvas.drawRect(left, top, left + width, top + height, debugPaint);
             }
 
             sOldBounds.set(icon.getBounds());

@@ -19,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-import com.common.util.SystemConfig;
+import com.common.utils.MachineConfig;
+import com.common.utils.SettingProperties;
+import com.common.utils.SystemProperties;
 
 public class ActivityHueSettings extends Activity {
 	private final static String TAG = "HueSettings";
@@ -48,7 +50,7 @@ public class ActivityHueSettings extends Activity {
 		if (hue == null || hue.length != 2)
 			return false;
 		try {
-			String str = SystemConfig.getProperty(c, KEY_HUE);
+			String str = SettingProperties.getProperty(c, KEY_HUE);
 			if (str != null && !str.isEmpty()) {
 				String[] orgHue = str.split(",");
 				if (orgHue != null && orgHue.length == 2) {
@@ -96,7 +98,7 @@ public class ActivityHueSettings extends Activity {
 				try {
 					int progerss = mSeekBar.getProgress();
 					if (mColor != -1 && mColor != mInitHue[1] && progerss != mInitHue[0]) {
-						SystemConfig.setProperty(ActivityHueSettings.this, KEY_HUE, "" + progerss + "," + mColor);
+						SettingProperties.setProperty(ActivityHueSettings.this, KEY_HUE, "" + progerss + "," + mColor);
 						finish();
 						finishLauncher();
 					}
@@ -110,7 +112,7 @@ public class ActivityHueSettings extends Activity {
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
-				SystemConfig.setProperty(ActivityHueSettings.this, KEY_HUE, "");
+				SettingProperties.setProperty(ActivityHueSettings.this, KEY_HUE, "");
 				finish();
 				finishLauncher();
 				return true;

@@ -204,9 +204,9 @@ public class FixScreenShortcut{
 		if (pkgName != null && className != null &&
 			pkgName.equals("com.car.ui") &&
 			className.endsWith(".FrontCameraActivity")) {
-			if (Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI28_7451))
+			if (Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI28_7451))
 				return context.getResources().getString(R.string.f_camera_alternative_7451);
-			else if (Utilities.mSystemUI.equals(com.common.util.MachineConfig.VALUE_SYSTEM_UI22_1050))
+			else if (Utilities.mSystemUI.equals(com.common.utils.MachineConfig.VALUE_SYSTEM_UI22_1050))
 				return context.getResources().getString(R.string.f_camera_alternative_1050);
 		} else if ("com.eqset".equals(pkgName)) {
 			if (Utilities.mIsDSP) {
@@ -249,7 +249,7 @@ public class FixScreenShortcut{
 			
 		} else if ("com.my.btmusic.BTMusicActivity".equals(className)) {
 
-			if (com.common.util.MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) {
+			if (com.common.utils.MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) {
 				String locale = Locale.getDefault().getLanguage();
 				if (locale != null) {
 					if (locale.equals("en")) {
@@ -263,7 +263,7 @@ public class FixScreenShortcut{
 
 		} else if ("com.my.bt.ATBluetoothActivity".equals(className)) {
 
-			if (com.common.util.MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) {
+			if (com.common.utils.MachineConfig.VALUE_SYSTEM_UI_9813.equals(Utilities.mSystemUI)) {
 				String locale = Locale.getDefault().getLanguage();
 				if (locale != null) {
 					if (locale.equals("en")) {

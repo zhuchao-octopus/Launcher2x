@@ -18,18 +18,12 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PaintFlagsDrawFilter;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.PaintDrawable;
 import android.os.AsyncTask;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -52,14 +46,10 @@ import com.android.launcher2.FixScreenShortcut;
 import com.android.launcher2.Utilities;
 import com.android.launcher2.Launcher;
 
-import android.util.Log;
-
-import com.common.util.AppConfig;
-import com.common.util.SystemConfig;
-import com.common.util.UtilCarKey;
-import com.common.util.SystemConfig;
-import com.common.util.Util;
-import com.zhuchao.android.fbase.MMLog;
+import com.common.utils.AppConfig;
+import com.common.utils.SettingProperties;
+import com.common.utils.UtilCarKey;
+import com.common.utils.Util;
 
 public class WinceCEStyleApp {
 
@@ -649,11 +639,11 @@ public class WinceCEStyleApp {
         String path;
 
         if (ceUI) {
-            path = SystemConfig.PATH_CE_WALLPAPER
-                    + SystemConfig.PATH_DEFAULT_CE_WALLPAPER;
+            path = SettingProperties.PATH_CE_WALLPAPER
+                    + SettingProperties.PATH_DEFAULT_CE_WALLPAPER;
         } else {
-            path = SystemConfig.PATH_CE_WALLPAPER
-                    + SystemConfig.PATH_DEFAULT_WALLPAPER0;
+            path = SettingProperties.PATH_CE_WALLPAPER
+                    + SettingProperties.PATH_DEFAULT_WALLPAPER0;
         }
         File f = new File(path);
         if (f.exists()) {
@@ -683,7 +673,7 @@ public class WinceCEStyleApp {
 
     private void checkDir() {
         try {
-            File f = (new File(SystemConfig.PATH_CE_WALLPAPER));
+            File f = (new File(SettingProperties.PATH_CE_WALLPAPER));
             if (!f.exists()) {
                 f.mkdirs();
             }
@@ -704,8 +694,8 @@ public class WinceCEStyleApp {
         // Log.d("ff", "updateWallpaper1:");
         mCEUI = ceUI;
         if (mFixWallpaper) {
-            String path = SystemConfig.PATH_WALLPAPER
-                    + SystemConfig.PATH_DEFAULT_CE_WALLPAPER;
+            String path = SettingProperties.PATH_WALLPAPER
+                    + SettingProperties.PATH_DEFAULT_CE_WALLPAPER;
 
             Drawable d = Drawable.createFromPath(path);
 
@@ -738,19 +728,19 @@ public class WinceCEStyleApp {
         try {
             if (ceUI) {
                 if (mCEStyle != 2) {
-                    SystemConfig.setIntProperty(context,
-                            SystemConfig.KEY_CE_STYLE, 1);
+                    SettingProperties.setIntProperty(context,
+                            SettingProperties.KEY_CE_STYLE, 1);
                 }
 
                 // path = SystemConfig.getProperty(context,
                 // SystemConfig.KEY_CE_STYLE_WALLPAPER_NAME);
-                path = SystemConfig.PATH_CE_WALLPAPER
-                        + SystemConfig.PATH_DEFAULT_CE_WALLPAPER;
+                path = SettingProperties.PATH_CE_WALLPAPER
+                        + SettingProperties.PATH_DEFAULT_CE_WALLPAPER;
 
                 File f = new File(path);
                 if (!f.exists()) {
-                    path = SystemConfig.PATH_WALLPAPER
-                            + SystemConfig.PATH_DEFAULT_CE_WALLPAPER;
+                    path = SettingProperties.PATH_WALLPAPER
+                            + SettingProperties.PATH_DEFAULT_CE_WALLPAPER;
                 } else {
                     // path = SystemConfig.PATH_WALLPAPER
                     // + path;
@@ -770,15 +760,15 @@ public class WinceCEStyleApp {
 
             } else {
                 if (mCEStyle != 2) {
-                    SystemConfig.setIntProperty(context, SystemConfig.KEY_CE_STYLE, 0);
+                    SettingProperties.setIntProperty(context, SettingProperties.KEY_CE_STYLE, 0);
                 }
                 /// path = SystemConfig.getProperty(context,
                 /// SystemConfig.KEY_SCREEN0_WALLPAPER_NAME);
-                path = SystemConfig.PATH_CE_WALLPAPER + SystemConfig.PATH_DEFAULT_WALLPAPER0;
+                path = SettingProperties.PATH_CE_WALLPAPER + SettingProperties.PATH_DEFAULT_WALLPAPER0;
 
                 File f = new File(path);
                 if (!f.exists()) {
-                    path = SystemConfig.PATH_WALLPAPER + SystemConfig.PATH_DEFAULT_WALLPAPER0;
+                    path = SettingProperties.PATH_WALLPAPER + SettingProperties.PATH_DEFAULT_WALLPAPER0;
                 } else {
                     /// path = SystemConfig.PATH_WALLPAPER
                     /// + path;
@@ -918,8 +908,7 @@ public class WinceCEStyleApp {
                     it.setComponent(c.mComponentName);
                     mContext.startActivity(it);
                     return true;
-                } catch (Exception e) {
-
+                } catch (Exception ignored) {
                 }
             }
         }
