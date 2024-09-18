@@ -8,8 +8,19 @@ android {
         minSdkVersion 24
         targetSdk 34
     }
-
+    signingConfigs {
+        release {
+            keyAlias 'rkpx6'
+            keyPassword 'android'
+            storeFile file('rkpx6.jks')
+            storePassword 'android'
+        }
+    }
     buildTypes {
+        debug {
+            //在debug模式下引用该签名文件
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'

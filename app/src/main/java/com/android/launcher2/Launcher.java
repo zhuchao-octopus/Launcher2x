@@ -3108,9 +3108,8 @@ public final class Launcher extends Activity implements View.OnClickListener,
     public static boolean isNaviFakeApp(Intent intent) {
         try {
 
-            if (intent.getComponent().getPackageName().equals("com.car.ui")
-                    && intent.getComponent().getClassName()
-                    .equals("com.my.navi.NaviEmptyActivity")) {
+            if (intent.getComponent().getPackageName().equals("com.car.ui") && intent.getComponent().getClassName().equals("com.my.navi.NaviEmptyActivity") ||
+                    intent.getComponent().getPackageName().equals("com.octopus.android.carapps") && intent.getComponent().getClassName().equals("com.octopus.android.carapps.navi.NaviEmptyActivity")) {
                 return true;
             }
         } catch (Exception e) {
